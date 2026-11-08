@@ -1,0 +1,1016 @@
+<!doctype html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Linja-autoliikenne Antti Lauhamo Oy – konseptidemo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="kuvat/some04-1920.jpg" imagesrcset="kuvat/some04-640.jpg 640w, kuvat/some04-960.jpg 960w, kuvat/some04-1280.jpg 1280w, kuvat/some04-1920.jpg 1920w" imagesizes="100vw" fetchpriority="high">
+<script>document.documentElement.className = 'js';</script>
+<style>
+/* ---------- Perusta ---------- */
+:root{
+  --paa:#be1e2d;                                   /* yrityksen pääväri */
+  --paa-tumma:color-mix(in srgb,#be1e2d 84%,#000);
+  --kor:#f1d600;                              /* korostusväri: toimintoväri lomakkeessa */
+  --kor-teksti:#1c1917;
+  --kor-vaalea:color-mix(in srgb,#f1d600 88%,#fff);
+  --muste:#14100f;
+  --muste-2:#4a3f3c;
+  --harmaa:#6b5f5a;
+  --paperi:#f3ece4;
+  --viiva:#e3d9ce;
+  --yo:10,8,8;                                               /* tumma liuku kuvan päälle */
+  --f:'Inter Tight',system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;
+  --reuna:clamp(18px,4vw,56px);
+  --leveys:1240px;
+  --palkki:34px;
+  --ylitys:0px;                                              /* kuinka paljon tarjouspyyntö nousee kuvan päälle */
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;font-family:var(--f);font-size:17px;line-height:1.5;font-weight:500;color:var(--muste);background:var(--paperi);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img{display:block;max-width:100%}
+a{color:inherit}
+button,input,select{font:inherit;color:inherit}
+[hidden]{display:none!important}
+.sr{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;padding:0}
+.wrap{width:min(100% - 2*var(--reuna),var(--leveys));margin-inline:auto}
+:focus-visible{outline:3px solid var(--kor);outline-offset:2px;box-shadow:0 0 0 6px var(--muste)}
+.ohita{position:absolute;left:12px;top:-80px;z-index:100;background:var(--kor);color:var(--kor-teksti);font-weight:700;padding:12px 16px;border-radius:10px}
+.ohita:focus{top:8px}
+
+/* ---------- Demopalkki ---------- */
+.demopalkki{margin:0;min-height:var(--palkki);display:flex;align-items:center;justify-content:center;padding:6px var(--reuna);background:#fff;color:var(--muste-2);font-size:12px;line-height:1.25;font-weight:600;letter-spacing:.01em;text-align:center}
+
+/* ---------- Ylätunniste kuvan päällä (K7: logo + enintään kuusi linkkiä) ---------- */
+.kansi{position:relative}
+.top{position:absolute;inset:0 0 auto 0;z-index:20;color:#fff;padding-top:12px}
+.top .wrap{display:flex;align-items:center;gap:14px;position:relative}
+.merkki{display:inline-flex;align-items:center;min-height:48px;text-decoration:none;line-height:1;border-radius:8px}
+.merkki-nimi{font:800 22px/1 var(--f);letter-spacing:-.03em;white-space:nowrap;text-shadow:0 1px 12px rgba(var(--yo),.45)}
+.merkki-nimi::after{content:".";color:var(--paa)}
+.top nav{display:none}
+.puh{display:none;align-items:center;gap:9px;min-height:44px;padding:0 16px 0 14px;border-radius:999px;border:1px solid rgba(255,255,255,.5);background:rgba(var(--yo),.35);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);text-decoration:none;font-weight:700;font-size:15px;white-space:nowrap;transition:background .2s}
+.puh:hover{background:rgba(var(--yo),.65)}
+.puh svg{width:16px;height:16px;flex:none}
+.puh small{font-weight:500;font-size:13px;padding-left:10px;border-left:1px solid rgba(255,255,255,.4)}
+.valikko-nappi{margin-left:auto;display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.5);background:rgba(var(--yo),.35);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);color:#fff;cursor:pointer;padding:0}
+.valikko-nappi svg{width:20px;height:20px}
+@media (max-width:1023px){
+  .top nav.auki{display:flex;flex-direction:column;position:absolute;top:calc(100% + 8px);left:0;right:0;background:#fff;color:var(--muste);border-radius:16px;padding:8px;box-shadow:0 24px 50px -16px rgba(var(--yo),.6)}
+  .top nav a{display:flex;align-items:center;min-height:48px;padding:0 14px;border-radius:10px;font-weight:600;font-size:17px;text-decoration:none}
+  .top nav a:hover{background:var(--paperi)}
+}
+@media (min-width:600px){
+  .puh{display:inline-flex;margin-left:auto}
+  .valikko-nappi{margin-left:0}
+}
+@media (min-width:1024px){
+  .top{padding-top:18px}
+  .top .wrap{gap:22px}
+  .top nav{display:flex;gap:2px;margin-left:auto}
+  .top nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 13px;border-radius:999px;font-weight:600;font-size:14.5px;white-space:nowrap;text-decoration:none;opacity:.88;transition:background .2s,opacity .2s}
+  .top nav{min-width:0;overflow:hidden}
+  .top nav a:hover{opacity:1;background:rgba(255,255,255,.14)}
+  .puh{margin-left:4px}
+  .valikko-nappi{display:none}
+  .merkki-nimi{font-size:24px}
+}
+
+/* ---------- Ensinäkymä: koko kuva (K1: kuva täyttää ikkunan, otsikko ja päätoiminto kuvan päällä) ---------- */
+.hero{position:relative;height:min(calc(100svh - var(--palkki)),720px);min-height:540px;overflow:hidden;isolation:isolate;color:#fff;background:var(--muste)}
+.hero--nauha{height:clamp(400px,44vw,560px);min-height:400px}           /* leveä matala kuva: ei suurenneta yli 1,15× */
+.hero--kuvakevyt{height:min(calc(100svh - var(--palkki)),640px)}
+.hero-kuva{position:absolute;inset:0;z-index:-2;overflow:hidden}
+.hero-kuva--vari{background:radial-gradient(80% 70% at 100% 0%,color-mix(in srgb,var(--paa) 70%,#fff) 0%,transparent 60%),linear-gradient(160deg,var(--paa) 15%,var(--paa-tumma) 70%,var(--muste))}
+.hero-kuva img,.hero-kuva video{position:absolute;top:0;left:0;width:calc(100% + 90px);max-width:none;height:100%;object-fit:cover;object-position:var(--kohdistus,50% 55%);transform:translateX(0);animation:ajo 22s ease-in-out infinite alternate}
+/* Kuvasarja ja video (K4, kierros 3): kuvat vaihtuvat hitaalla häivytyksellä, video peittää kuvan kun se on valmis; reduced motion jättää ensimmäisen kuvan */
+.hero-kuva .sarja{opacity:0;transition:opacity 1.8s ease}
+.hero-kuva .sarja.on{opacity:1}
+.hero-kuva video{z-index:1;opacity:0;transition:opacity 1.4s ease}
+.hero-kuva video.on{opacity:1}
+.hero-pisteet{position:absolute;right:var(--reuna);bottom:calc(var(--ylitys) + 14px);z-index:3;display:none;gap:2px}
+.hero-pisteet button{position:relative;width:44px;height:44px;border:0;background:transparent;padding:0;cursor:pointer;min-width:0}
+.hero-pisteet button::before{content:'';position:absolute;left:8px;right:8px;top:20px;height:3px;border-radius:2px;background:rgba(255,255,255,.38);transition:background .3s}
+.hero-pisteet button.on::before{background:#fff}
+.hero-pisteet button:focus-visible{outline:2px solid #fff;outline-offset:-6px;border-radius:8px}
+/* Yhtenäinen sävytys: omat ja kuvapankkikuvat samaan sarjaan (kierros 3, keino 3) */
+.hero-kuva img,.hero-kuva video,.osio-kuva img,.kuvanauha img,.matkat-kuva img{filter:saturate(.9) contrast(1.04)}
+.osio-kuva::after,.kuvanauha figure::after{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(var(--yo),0) 55%,rgba(var(--yo),.3));pointer-events:none}
+@keyframes ajo{from{transform:translateX(0)}to{transform:translateX(-90px)}}
+.hero-liuku{position:absolute;inset:0;z-index:-1;background:
+  linear-gradient(180deg,rgba(var(--yo),.58) 0,rgba(var(--yo),0) 24%),
+  linear-gradient(0deg,rgba(var(--yo),.84) 0,rgba(var(--yo),.46) 40%,rgba(var(--yo),0) 70%)}
+.hero-sisalto{position:absolute;left:0;right:0;bottom:0;padding-bottom:calc(30px + var(--ylitys))}
+/* Kuvapankkikuvan merkintä (PD-030): näkyy kuvan kulmassa, ei peitä otsikkoa tai nappeja */
+figure{position:relative}
+.kuva-merkki{position:absolute;right:10px;bottom:10px;z-index:2;display:inline-block;max-width:calc(100% - 20px);padding:5px 10px;border-radius:999px;background:rgba(var(--yo),.62);color:#fff;font-size:11.5px;font-weight:600;letter-spacing:.02em;line-height:1.3;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);pointer-events:none}
+.hero .kuva-merkki{right:auto;left:var(--reuna);bottom:auto;top:calc(var(--palkki) + 56px)}
+@media (min-width:1024px){ .hero .kuva-merkki{top:calc(var(--palkki) + 66px)} }
+.hero-teksti{max-width:860px}
+.rivi{margin:0 0 12px;font-size:13px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;opacity:.92;animation:nousu .7s .15s cubic-bezier(.2,.7,.2,1) both}
+.rivi::before{content:"";display:inline-block;width:26px;height:3px;background:var(--paa);margin:0 11px 4px 0;vertical-align:middle}
+h1{margin:0;font-size:clamp(36px,4.6vw,58px);font-weight:800;line-height:1.02;letter-spacing:-.028em;text-wrap:balance;text-shadow:0 2px 24px rgba(var(--yo),.4);animation:nousu .8s .25s cubic-bezier(.2,.7,.2,1) both}
+.lead{margin:16px 0 0;font-size:clamp(17px,1.5vw,20px);line-height:1.4;font-weight:500;max-width:34em;opacity:.94;text-shadow:0 1px 12px rgba(var(--yo),.6);animation:nousu .8s .4s cubic-bezier(.2,.7,.2,1) both}
+.napit{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px;animation:nousu .8s .5s cubic-bezier(.2,.7,.2,1) both}
+.nappi{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 24px;border-radius:999px;font-weight:700;font-size:17px;text-decoration:none;transition:transform .15s,background .15s}
+.nappi:hover{transform:translateY(-1px)}
+.nappi svg{width:18px;height:18px;flex:none}
+.nappi--p{background:#fff;color:var(--muste)}
+.nappi--p:hover{background:var(--paperi)}
+.nappi--t{border:1.5px solid rgba(255,255,255,.7);color:#fff}
+.nappi--t:hover{background:rgba(255,255,255,.12)}
+@media (max-width:599px){
+  .hero-kuva img,.hero-kuva video{object-position:var(--kohdistus-p,var(--kohdistus,50% 55%))}   /* kohdistus erikseen puhelimelle (keino 6) */
+  .rivi{font-size:12px}
+  .napit .nappi{flex:1 1 100%}
+  .hero--nauha .lead{display:none}
+}
+@media (max-height:640px){ .lead{display:none} }
+@media (max-width:767px){ .nappi--t{display:none} .hero-sisalto{padding-bottom:92px} }   /* puhelimessa Soita on kiinteässä palkissa, joka peittää kuvan alareunan */
+@media (min-width:768px){ .hero-pisteet{display:flex} }
+@media (min-width:1024px){
+  :root{--ylitys:44px}
+  .hero-kuva img,.hero-kuva video{width:calc(100% + 140px)}
+  @keyframes ajo{from{transform:translateX(0)}to{transform:translateX(-140px)}}
+  .hero-sisalto{padding-bottom:calc(52px + var(--ylitys))}
+  .hero--nauha .hero-sisalto{padding-bottom:calc(36px + var(--ylitys))}
+  .hero--nauha h1{font-size:clamp(36px,3.8vw,50px)}
+}
+
+/* ---------- Telakka: tarjouspyyntö heti kuvan alla ---------- */
+.telakka{position:relative;z-index:5;display:flow-root;background:var(--paperi);padding:18px 0 22px}
+.dock{position:relative;margin-top:calc(-1*var(--ylitys));background:#fff;border-radius:18px;box-shadow:0 1px 0 rgba(var(--yo),.06),0 22px 44px -14px rgba(var(--yo),.45),0 4px 12px rgba(var(--yo),.1);scroll-margin-top:14px;animation:telakoituu .8s .5s cubic-bezier(.2,.8,.2,1) both}
+.dock-nimi{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 14px;background:var(--muste);color:#fff;border-radius:18px 18px 0 0}
+.dock-nimi h2{margin:0;font:700 16px/1.15 var(--f);letter-spacing:-.01em}
+.vaiheet{list-style:none;margin:0;padding:0;display:flex;gap:12px;font:600 12px/1 var(--f);letter-spacing:.04em}
+.vaiheet li{display:flex;align-items:center;gap:6px;white-space:nowrap}
+.vaiheet .nro{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;border:1.5px solid #fff;font-size:11.5px;font-weight:700}
+.vaiheet [aria-current] .nro,.vaiheet .tehty .nro{background:var(--kor);border-color:var(--kor);color:var(--kor-teksti)}
+.dock-runko{min-width:0}
+@media (max-width:359px){ .vaiheet li:not([aria-current]) .vn{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap} .vaiheet{gap:8px} }
+
+/* vaihe 1: neljä kenttää rivissä */
+.vaihe{border:0;margin:0;padding:0;min-width:0}
+.vaihe-1{display:grid;grid-template-columns:1fr 1fr}
+.kentta{position:relative;min-width:0}
+.kentta label{display:block;font:700 11px/1 var(--f);letter-spacing:.14em;text-transform:uppercase;color:var(--harmaa)}
+.vaihe-1 .kentta{min-height:62px;border-top:1px solid var(--viiva)}
+.vaihe-1 .kentta:nth-child(odd){border-right:1px solid var(--viiva)}
+.vaihe-1 .kentta:nth-child(-n+3){border-top:0}
+.vaihe-1 .kentta label{position:absolute;left:14px;top:11px;z-index:2;pointer-events:none}
+.vaihe-1 .kentta input{position:relative;z-index:1;display:block;width:100%;min-height:62px;margin:0;padding:25px 14px 8px;border:0;border-radius:0;background:transparent;font:600 18px/1.2 var(--f);color:var(--muste);-webkit-appearance:none;appearance:none}
+.vaihe-1 .kentta input::placeholder{color:#8a8085;font-weight:500;opacity:1}
+.vaihe-1 .kentta input:focus{outline:0;box-shadow:inset 0 0 0 2.5px var(--muste);background:#fffbe0}
+.kentta.on-virhe input,.kentta.on-virhe select{box-shadow:inset 0 -3px 0 var(--paa)}
+.vaihe-1 .kentta.on-virhe input{padding-bottom:26px;min-height:80px}
+.virhe{margin:0;font:600 12.5px/1.2 var(--f);color:var(--paa-tumma)}
+.vaihe-1 .virhe{position:absolute;left:14px;right:8px;bottom:8px;z-index:2;pointer-events:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nuoli{display:none}
+.yksikko{position:absolute;left:calc(14px + var(--merkkeja,2)*10.6px + 7px);top:25px;bottom:8px;z-index:2;display:flex;align-items:center;padding-top:2px;font:500 15px/1 var(--f);color:var(--harmaa);pointer-events:none}
+.koko.tyhja .yksikko{display:none}
+.koko input{font-variant-numeric:tabular-nums}
+.pvm-naytto{position:absolute;left:14px;right:8px;top:25px;bottom:8px;z-index:0;align-items:center;font:600 18px/1.2 var(--f);color:var(--muste);white-space:nowrap;overflow:hidden;pointer-events:none;display:none}
+.pvm-naytto.tyhja{color:#8a8085;font-weight:500}
+.js .pvm-naytto{display:flex}
+.js .pvm input{opacity:0}
+.js .pvm input:focus{opacity:1}
+.js .pvm:focus-within .pvm-naytto{visibility:hidden}
+.js .pvm.on-virhe .pvm-naytto{bottom:26px}
+.dock-cta{grid-column:1/-1;padding:12px;border-top:1px solid var(--viiva)}
+.vaihe-1 .esim-huom{grid-column:1/-1}
+.cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:54px;padding:0 22px;border:0;border-radius:12px;background:var(--paa);color:#fff;font:700 18px/1 var(--f);letter-spacing:.005em;text-decoration:none;cursor:pointer;transition:transform .15s,background .15s}
+.cta svg{width:20px;height:20px;flex:none;transition:transform .2s}
+.cta:hover{background:var(--paa-tumma);transform:translateY(-1px)}
+.cta:hover svg{transform:translateX(3px)}
+.cta:active{transform:translateY(1px)}
+.esim-huom{margin:0;padding:0 14px 12px;font-size:13px;line-height:1.3;color:var(--harmaa);text-align:center}
+.linkkinappi{position:relative;border:0;background:none;padding:0;font-weight:700;text-decoration:underline;text-underline-offset:3px;color:var(--muste);cursor:pointer}
+.linkkinappi::after{content:"";position:absolute;inset:-14px -8px}
+
+/* vaihe 2: tarkennukset ja yhteystiedot */
+.kooste{display:flex;flex-wrap:wrap;align-items:center;gap:4px 14px;padding:12px 14px;background:var(--paperi);border-bottom:1px solid var(--viiva)}
+.kooste-reitti{display:flex;align-items:center;gap:8px;font:700 20px/1.15 var(--f);letter-spacing:-.02em;flex-wrap:wrap}
+.kooste-reitti svg{width:18px;height:18px;flex:none;color:var(--paa)}
+.kooste-muu{font-weight:600;font-size:15.5px;color:var(--muste-2)}
+.kooste-muu b{font-weight:600}
+.kooste .muokkaa{margin-left:auto;min-height:44px;padding:0 16px;border-radius:999px;border:1.5px solid var(--muste);background:#fff;font-weight:700;font-size:15px;cursor:pointer;transition:background .15s,color .15s}
+.kooste .muokkaa:hover{background:var(--muste);color:#fff}
+.lomake2{display:grid;grid-template-columns:1fr 1fr;gap:14px 12px;padding:16px 14px 4px}
+.lomake2 .kentta label{margin-bottom:7px}
+.lomake2 input,.lomake2 select{display:block;width:100%;min-height:52px;margin:0;padding:0 13px;border:1.5px solid #cbc1b5;border-radius:12px;background:#fff;font:600 17px/1.2 var(--f);color:var(--muste);-webkit-appearance:none;appearance:none}
+.lomake2 select{padding-right:38px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%2314100f' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5 8 5 5 5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;background-size:18px}
+.lomake2 input::placeholder{color:#8a8085;font-weight:500;opacity:1}
+.lomake2 input:focus,.lomake2 select:focus{outline:0;border-color:var(--muste);box-shadow:0 0 0 3px var(--kor)}
+.lomake2 .virhe{margin-top:6px}
+.lomake2 .leve{grid-column:1/-1}
+.lahetys{display:flex;flex-direction:column;gap:10px;padding:14px}
+.lahetys p{margin:0;font-size:14px;line-height:1.35;color:var(--muste-2);text-align:center}
+.lahetys p strong{color:var(--muste)}
+
+/* valmis: esimerkki toimistolle saapuvasta pyynnöstä */
+.valmis{padding:18px 14px 16px;display:grid;gap:18px}
+.valmis-teksti h3{margin:10px 0 8px;font:800 26px/1.08 var(--f);letter-spacing:-.025em}
+.valmis-teksti p{margin:0 0 12px;color:var(--muste-2);font-size:16px;line-height:1.45}
+.merkki-ok{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:var(--kor);color:var(--kor-teksti)}
+.merkki-ok svg{width:22px;height:22px}
+.eilahetetty{display:inline-block;margin:0 0 14px!important;padding:8px 12px;border-radius:10px;background:var(--muste);color:#fff!important;font-weight:700;font-size:15px!important}
+.toinen{min-height:46px;padding:0 18px;border-radius:999px;border:1.5px solid var(--muste);background:#fff;font-weight:700;font-size:15.5px;cursor:pointer;transition:background .15s,color .15s}
+.toinen:hover{background:var(--muste);color:#fff}
+.posti{border-radius:14px;border:1px solid var(--viiva);background:#fff;box-shadow:0 18px 36px -20px rgba(var(--yo),.45);overflow:hidden;min-width:0}
+.posti-palkki{display:flex;align-items:center;gap:10px;padding:9px 12px;background:#efe9df;border-bottom:1px solid var(--viiva);font-weight:600;font-size:13.5px;color:var(--muste-2)}
+.pallot{display:inline-flex;gap:5px}
+.pallot i{width:9px;height:9px;border-radius:50%;background:#cfc6ba}
+.tagi{margin-left:auto;padding:4px 9px;border-radius:999px;background:var(--muste);color:#fff;font:700 10.5px/1 var(--f);letter-spacing:.14em;text-transform:uppercase}
+.posti-viesti{padding:14px}
+.posti-paa{display:flex;gap:11px;align-items:flex-start}
+.avatar{flex:none;display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:var(--paa);color:#fff;font-weight:700;font-size:15px;letter-spacing:.02em}
+.posti-paa div{min-width:0;flex:1}
+.posti-lahettaja{display:flex;justify-content:space-between;gap:10px;font-size:15px}
+.posti-lahettaja strong{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.posti-lahettaja span{flex:none;color:var(--harmaa);font-size:13px}
+.posti-aihe{margin:1px 0 0;font-weight:600;font-size:14.5px;line-height:1.3;color:var(--muste-2);overflow-wrap:anywhere}
+.posti-reitti{display:flex;align-items:center;flex-wrap:wrap;gap:6px 10px;margin:14px 0 2px;font:800 24px/1.1 var(--f);letter-spacing:-.025em;overflow-wrap:anywhere}
+.posti-reitti svg{width:20px;height:20px;flex:none;color:var(--paa)}
+.posti-tiedot{display:grid;grid-template-columns:1fr 1fr;gap:12px 14px;margin:12px 0 0;padding:12px 0 0;border-top:1px dashed #cbc1b5}
+.posti-tiedot div{min-width:0}
+.posti-tiedot dt{font:700 10.5px/1 var(--f);letter-spacing:.14em;text-transform:uppercase;color:var(--harmaa);margin-bottom:5px}
+.posti-tiedot dd{margin:0;font-weight:600;font-size:16px;line-height:1.25;overflow-wrap:anywhere}
+.posti-toimet{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.posti-toimet span{display:inline-flex;align-items:center;min-height:36px;padding:0 13px;border-radius:9px;font-weight:700;font-size:14px;background:#efe9df;color:var(--muste)}
+.posti-toimet span:first-child{background:var(--muste);color:#fff}
+.vaihe-2,.valmis{animation:vaihto .45s cubic-bezier(.2,.7,.2,1) both}
+
+/* faktarivi telakan alla */
+.faktat{list-style:none;margin:16px 0 0;padding:0 2px;display:flex;flex-wrap:wrap;gap:7px 18px;color:var(--muste-2);font:600 12.5px/1.25 var(--f);letter-spacing:.07em;text-transform:uppercase}
+.faktat li{display:flex;align-items:center;gap:8px}
+.faktat li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--paa);flex:none}
+
+@media (min-width:600px){
+  .dock-nimi{padding:10px 18px}
+  .dock-nimi h2{font-size:18px}
+  .vaihe-1{grid-template-columns:1.1fr 1.1fr 1fr .8fr}
+  .vaihe-1 .kentta{border-top:0;border-right:1px solid var(--viiva);min-height:74px}
+  .vaihe-1 .kentta:nth-child(5){border-right:0}
+  .vaihe-1 .kentta label{left:18px;top:15px}
+  .vaihe-1 .kentta input{min-height:74px;padding:31px 18px 12px}
+  .vaihe-1 .kentta.on-virhe input{min-height:88px;padding-bottom:28px}
+  .vaihe-1 .virhe{left:18px}
+  .pvm-naytto{left:18px;top:31px;bottom:12px}
+  .js .pvm.on-virhe .pvm-naytto{bottom:28px}
+  .yksikko{left:calc(18px + var(--merkkeja,2)*10.6px + 7px);top:31px;bottom:12px}
+  .vaihe-1 .kentta{border-bottom:1px solid var(--viiva)}
+  .dock-cta{grid-column:3/-1;grid-row:2;border-top:0;padding:12px 18px 14px;display:flex;justify-content:flex-end}
+  .dock-cta .cta{width:auto;min-width:220px}
+  .vaihe-1 .esim-huom{grid-column:1/3;grid-row:2;align-self:center;padding:0 18px;text-align:left}
+  .kooste{padding:14px 18px}
+  .lomake2{grid-template-columns:repeat(4,1fr);padding:18px 18px 4px;gap:14px}
+  .lomake2 .leve{grid-column:span 2}
+  .lahetys{flex-direction:row-reverse;align-items:center;justify-content:space-between;padding:16px 18px 18px}
+  .lahetys .cta{width:auto}
+  .lahetys p{text-align:left}
+  .valmis{padding:22px 18px 20px}
+  .posti-tiedot{grid-template-columns:repeat(4,auto);justify-content:space-between}
+  .faktat{font-size:13px;gap:8px 22px}
+}
+@media (min-width:1024px){
+  .telakka{padding:0 0 26px}
+  .dock{display:flex;align-items:stretch}
+  .dock-nimi{flex:none;width:196px;flex-direction:column;align-items:flex-start;justify-content:center;gap:9px;padding:12px 16px 12px 20px;border-radius:18px 0 0 18px}
+  .dock-nimi h2{font-size:19px;line-height:1.1}
+  .vaiheet{gap:10px;font-size:11.5px}
+  .vaiheet .nro{width:18px;height:18px;font-size:11px}
+  .dock[data-vaihe="2"] .dock-nimi,.dock[data-vaihe="3"] .dock-nimi{justify-content:flex-start;padding-top:22px}
+  .dock[data-vaihe="2"] .vaiheet,.dock[data-vaihe="3"] .vaiheet{flex-direction:column;gap:9px;margin-top:4px}
+  .dock-runko{flex:1}
+  .vaihe-1{grid-template-columns:1.12fr 1.12fr 1fr .86fr auto;height:100%}
+  .vaihe-1 .kentta{min-height:88px}
+  .vaihe-1 .kentta:nth-child(4){border-right:0}
+  .vaihe-1 .kentta label{top:19px;left:20px}
+  .vaihe-1 .kentta input{height:100%;min-height:88px;padding:36px 20px 20px;font-size:20px}
+  .vaihe-1 .kentta.on-virhe input{min-height:88px;padding:28px 20px 30px}
+  .vaihe-1 .kentta.on-virhe label{top:12px}
+  .vaihe-1 .virhe{left:20px;bottom:10px}
+  .vaihe-1 .kentta{border-bottom:0}
+  .pvm-naytto{left:20px;top:36px;bottom:20px;font-size:20px}
+  .js .pvm.on-virhe .pvm-naytto{top:28px;bottom:30px}
+  .yksikko{left:calc(20px + var(--merkkeja,2)*11.8px + 8px);top:36px;bottom:20px;font-size:16px}
+  .koko.on-virhe .yksikko{top:28px;bottom:30px}
+  .nuoli{display:flex;align-items:center;justify-content:center;position:absolute;left:-14px;top:50%;z-index:3;width:28px;height:28px;margin-top:-14px;border-radius:50%;background:#fff;border:1px solid var(--viiva);color:var(--paa);pointer-events:none}
+  .nuoli svg{width:14px;height:14px}
+  .dock-cta{grid-column:auto;grid-row:auto;border-top:0;padding:14px 14px 14px 6px;display:flex;align-items:stretch}
+  .dock-cta .cta{min-height:60px;height:100%;min-width:206px;margin:0;font-size:19px}
+  .vaihe-1 .esim-huom{position:absolute;right:0;top:calc(100% + 9px);grid-column:auto;grid-row:auto;margin:0;padding:7px 14px;border-radius:999px;background:var(--muste);color:#fff;font-size:13px;font-weight:500;white-space:nowrap}
+  .vaihe-1 .esim-huom .linkkinappi{color:#fff}
+  .kooste{padding:16px 22px;gap:6px 22px;border-radius:0 18px 0 0}
+  .kooste-reitti{font-size:24px}
+  .lomake2{grid-template-columns:.7fr 1fr 1.25fr 1.25fr;padding:20px 22px 4px;gap:16px}
+  .lomake2 .leve{grid-column:auto}
+  .lomake2.on-paluupv{grid-template-columns:.7fr 1fr 1fr 1.2fr 1.2fr}
+  .lahetys{padding:18px 22px 22px}
+  .lahetys .cta{min-height:58px;min-width:250px}
+  .valmis{grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:34px;padding:26px 24px 26px 26px;align-items:center}
+  .valmis-teksti h3{font-size:30px}
+  .posti-viesti{padding:16px 18px 18px}
+  .faktat{margin:0;padding:18px 290px 0 4px;min-height:44px;align-items:center}
+}
+
+/* ---------- Osiot (K6: kuva joka osiossa, ei kahta tekstiosiota peräkkäin) ---------- */
+.osio{padding:clamp(56px,8vw,104px) 0;overflow-x:clip}
+.osio--vaalea{background:#fff}
+.osio--tumma{background:var(--muste);color:#fff}
+.osio-grid{display:grid;gap:30px;align-items:center}
+.osio-grid>*{min-width:0}
+.silma{display:flex;align-items:center;gap:10px;margin:0 0 14px;font:700 12.5px/1 var(--f);letter-spacing:.18em;text-transform:uppercase;color:var(--paa)}
+.silma::before{content:"";width:30px;height:3px;background:var(--paa);flex:none}
+.osio--tumma .silma{color:#f3ece4}
+.osio--tumma .silma::before{background:var(--paa)}
+.osio h2{margin:0 0 14px;font:800 clamp(30px,3.8vw,48px)/1.04 var(--f);letter-spacing:-.03em;text-wrap:balance;max-width:20ch}
+.osio-lead{margin:0;max-width:33em;font-size:18px;line-height:1.5;color:var(--muste-2)}
+.osio--tumma .osio-lead{color:#d9d0c8}
+.osio-kuva{position:relative;margin:0;width:100%;border-radius:18px;overflow:hidden;background:#d9d2c6;box-shadow:0 26px 50px -28px rgba(var(--yo),.55)}
+.osio-kuva img{width:100%;height:100%;object-fit:cover}
+.palvelut{list-style:none;margin:28px 0 0;padding:0;border-top:2px solid currentColor}
+.palvelut li{display:grid;gap:4px 28px;padding:18px 0;border-bottom:1px solid var(--viiva)}
+.palvelut h3{margin:0;font:800 clamp(21px,2.4vw,27px)/1.15 var(--f);letter-spacing:-.02em}
+.palvelut p{margin:0;color:var(--muste-2)}
+.lista{list-style:none;margin:24px 0 0;padding:0;display:grid;gap:14px}
+.lista li{position:relative;padding-left:28px}
+.lista li::before{content:"";position:absolute;left:0;top:.5em;width:12px;height:12px;border-radius:50%;background:var(--paa)}
+.lista h3{margin:0;font:700 17px/1.35 var(--f)}
+.lista p{margin:0;color:var(--muste-2);font-size:15.5px}
+.osio--tumma .lista p{color:#d9d0c8}
+.tarina{margin:24px 0 0;display:grid;gap:16px;max-width:60ch}
+.tarina p{margin:0;color:#e8e1d9}
+.tarina p:first-child{font:600 clamp(19px,2vw,23px)/1.4 var(--f);letter-spacing:-.01em;color:#fff}
+.huom{margin:18px 0 0;font-size:15px;line-height:1.5;color:var(--muste-2);max-width:70ch}
+.osio--tumma .huom{color:#d9d0c8}
+.rivit{list-style:none;margin:30px 0 0;padding:0;display:grid;gap:12px}
+.hintarivi{display:grid;grid-template-columns:1fr auto;align-items:center;gap:6px 20px;padding:18px 22px;background:#fff;border-radius:16px;border-left:6px solid var(--paa);box-shadow:0 10px 26px -20px rgba(var(--yo),.35)}
+.hintarivi h3{margin:0;font:700 19px/1.2 var(--f)}
+.hintarivi p{margin:0;color:var(--muste-2);font-size:15px}
+.rivi-hinta{font:800 25px/1 var(--f);letter-spacing:-.02em;white-space:nowrap;text-align:right}
+.rivi-hinta small{display:block;font:700 11px/1.6 var(--f);letter-spacing:.14em;text-transform:uppercase;color:var(--harmaa)}
+/* kuvanauha: useita kuvia yhdessä osiossa */
+.kuvanauha{display:grid;grid-auto-flow:column;grid-auto-columns:78vw;gap:12px;margin:34px calc(-1*var(--reuna)) 0;padding:0 var(--reuna);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.kuvanauha::-webkit-scrollbar{display:none}
+.kuvanauha figure{margin:0;scroll-snap-align:start;border-radius:16px;overflow:hidden;aspect-ratio:4/5;background:#d9d2c6;box-shadow:0 20px 40px -24px rgba(var(--yo),.5)}
+.kuvanauha img{width:100%;height:100%;object-fit:cover}
+.js .ilmesty.nakyy{animation:nousu-vain .7s cubic-bezier(.2,.7,.2,1) both}
+@media (min-width:600px){
+  .kuvanauha{grid-auto-columns:minmax(0,1fr);grid-auto-flow:row;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:36px 0 0;padding:0;overflow:visible}
+}
+@media (min-width:760px){
+  .palvelut li{grid-template-columns:minmax(200px,34%) 1fr;align-items:baseline}
+}
+@media (min-width:1024px){
+  .osio-grid.on-kuva{grid-template-columns:minmax(0,6fr) minmax(0,6fr);gap:clamp(40px,5vw,80px)}
+  .osio--kaanna .osio-grid.on-kuva .osio-teksti{order:2}
+  .osio-grid.on-kuva .osio-kuva{max-height:640px}
+  .osio-grid.on-kuva .osio-kuva img{height:100%}
+}
+
+/* ---------- Tulevat matkat: liput ---------- */
+.matkat-grid{display:grid;gap:34px}
+.matkat-kuva{position:relative;margin:26px 0 0;border-radius:18px;overflow:hidden;aspect-ratio:16/10;background:#d9d2c6;box-shadow:0 26px 50px -28px rgba(var(--yo),.55)}
+.matkat-kuva img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.liput{display:grid;gap:14px;list-style:none;margin:0;padding:0}
+.lippu--ei-pv{grid-template-columns:minmax(0,1fr)!important}.lippu--ei-pv::before,.lippu--ei-pv::after{display:none}.lippu--ei-pv .lippu-tieto{border-left:0}
+.lippu{position:relative;display:grid;grid-template-columns:92px minmax(0,1fr);background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 1px 0 rgba(var(--yo),.05),0 18px 34px -22px rgba(var(--yo),.45);transition:box-shadow .3s,transform .3s}
+.lippu::before,.lippu::after{content:"";position:absolute;left:83px;z-index:2;width:18px;height:18px;border-radius:50%;background:var(--paperi)}
+.osio--vaalea .lippu::before,.osio--vaalea .lippu::after{background:#fff}
+.lippu::before{top:-10px}
+.lippu::after{bottom:-10px}
+.lippu-pv{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:16px 6px;background:var(--paa);color:#fff;text-align:center}
+.lippu-pv .pv{font:800 24px/1 var(--f);letter-spacing:-.03em;white-space:nowrap}
+.lippu-pv .pv.pitka{font-size:18px}
+.lippu-pv .v{font:600 12px/1 var(--f);letter-spacing:.18em}
+.lippu-tieto{padding:15px 16px 16px 18px;border-left:2px dashed var(--viiva);min-width:0}
+.lippu h3{margin:0 0 6px;font:800 20px/1.12 var(--f);letter-spacing:-.025em}
+.lippu .nousu{margin:3px 0 0;font-size:14.5px;line-height:1.35;color:var(--muste-2)}
+.lippu-hinta{grid-column:2;display:flex;align-items:baseline;gap:8px;padding:0 16px 15px 20px}
+.lippu-hinta span{font:700 11px/1 var(--f);letter-spacing:.16em;text-transform:uppercase;color:var(--harmaa)}
+.lippu-hinta strong{font:800 26px/1 var(--f);letter-spacing:-.03em;white-space:nowrap}
+.liput-huom{margin:20px 0 0;font-size:15px;line-height:1.5;color:var(--muste-2);max-width:40em}
+@media (min-width:600px){
+  .lippu{grid-template-columns:128px minmax(0,1fr) auto}
+  .lippu::before,.lippu::after{left:119px}
+  .lippu-pv .pv{font-size:30px}
+  .lippu-pv .pv.pitka{font-size:22px}
+  .lippu-tieto{padding:18px 20px 19px 24px}
+  .lippu h3{font-size:22px}
+  .lippu-hinta{grid-column:auto;flex-direction:column;align-items:flex-end;justify-content:center;gap:7px;padding:16px 24px 16px 20px;min-width:136px;border-left:2px dashed var(--viiva)}
+  .lippu-hinta strong{font-size:30px}
+}
+@media (min-width:1024px){
+  .matkat-grid{grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(40px,5vw,72px);align-items:start}
+  .liput{gap:16px}
+}
+@media (hover:hover){ .lippu:hover{transform:translateY(-2px);box-shadow:0 1px 0 rgba(var(--yo),.05),0 30px 46px -24px rgba(var(--yo),.55)} }
+
+/* ---------- Alatunniste ---------- */
+.ala{background:var(--muste);color:#efe8e0;border-top:5px solid var(--paa);padding:48px 0 110px;font-size:16px}
+.ala-ruudukko{display:grid;gap:32px}
+.ala .merkki{color:#fff;min-height:0}
+.ala .merkki-nimi{white-space:normal;text-shadow:none}
+.ala-esittely{margin:18px 0 0!important;max-width:24em;color:#d9d0c8}
+.ala h2{margin:0 0 12px;font:700 12px/1 var(--f);letter-spacing:.2em;text-transform:uppercase;color:#fff}
+.ala p{margin:0 0 8px;line-height:1.45}
+.ala ul{list-style:none;margin:0;padding:0}
+.ala li{padding:3px 0}
+.ala .iso-linkki{display:inline-flex;align-items:center;min-height:44px;font:800 24px/1 var(--f);letter-spacing:-.03em;text-decoration:none;color:#fff;border-bottom:2px solid var(--paa)}
+.ala .rivilinkki{display:inline-flex;align-items:center;min-height:44px;font-weight:600;color:#fff;text-underline-offset:4px}
+.ala .hiljaa{color:#c9bfb8;font-size:15px}
+.ala-loppu{margin-top:36px;padding-top:18px;border-top:1px solid #3a3234;color:#c9bfb8;font-size:14px}
+@media (min-width:800px){
+  .ala{padding:60px 0 44px}
+  .ala-ruudukko{grid-template-columns:1.05fr 1.1fr 1fr;gap:56px}
+}
+
+/* ---------- Puhelimen kiinteä toimintopalkki ---------- */
+.pikapalkki{position:fixed;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom,0px));z-index:60;display:none;grid-template-columns:1fr 1.5fr;gap:8px;padding:8px;border-radius:18px;background:#fff;box-shadow:0 0 0 1px rgba(var(--yo),.08),0 16px 34px -10px rgba(var(--yo),.5)}
+.pikapalkki a{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;border-radius:12px;font-weight:700;font-size:17px;text-decoration:none}
+.pikapalkki .soita{background:var(--muste);color:#fff}
+.pikapalkki .soita svg{width:17px;height:17px}
+.pikapalkki .cta{min-height:48px;font-size:17px}
+@media (max-width:767px){ .pikapalkki{display:grid} }
+
+/* ---------- Liike (K4: hidas liike kuvassa; reduced motion pysäyttää kaiken) ---------- */
+@keyframes nousu{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes nousu-vain{from{transform:translateY(24px)}to{transform:none}}
+@keyframes telakoituu{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes vaihto{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+<a class="ohita" href="#tarjous">Siirry tarjouspyyntöön</a>
+<p class="demopalkki" data-demopalkki>Epävirallinen konseptidemo – ei Linja-autoliikenne Antti Lauhamo Oy:n virallinen sivusto. Tiedot poimittu lauhamo.fi-sivuilta 6.11.2026.</p>
+
+<div class="kansi" id="alku">
+  <header class="top">
+    <div class="wrap">
+      <a class="merkki" href="#alku" data-lahde="yritysesittely-08" aria-label="Lauhamo, sivun alkuun">
+        <span class="merkki-nimi">Lauhamo</span>
+      </a>
+      <nav id="valikko" aria-label="Päävalikko">
+        <a href="#tarjous">Tarjouspyyntö</a>
+        <a href="#palvelut">Mitä Lauhamolta saa</a><a href="#matkat">Tulevia matkoja</a><a href="#kalusto">Kalusto</a><a href="#tarina" data-lahde="yritysesittely-02">Yritys</a>
+        <a href="#yhteys">Yhteystiedot</a>
+      </nav>
+      <a class="puh" href="tel:0500114505" data-lahde="ota-yhteyttae-02">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
+        <span>0500 114 505</span>
+        <small data-lahde="ota-yhteyttae-02">ma–pe 9–15</small>
+      </a>
+      <button class="valikko-nappi" type="button" aria-expanded="false" aria-controls="valikko" aria-label="Valikko">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero hero--kuvallinen" aria-labelledby="paaotsikko">
+      <div class="hero-kuva">
+        <img class="sarja on" src="kuvat/some04-1920.jpg" width="1920" height="1081" alt="Lauhamon bussi Norjan vuonon rannalla vuorten keskellä" fetchpriority="high" style="--kohdistus:42% 55%;">
+        
+      </div>
+      <div class="hero-liuku" aria-hidden="true"></div>
+      
+      
+      <div class="hero-sisalto">
+        <div class="wrap">
+          <div class="hero-teksti">
+            <p class="rivi" data-lahde="yritysesittely-02">Perheyritys Sastamalasta · yli 60 vuotta</p>
+            <h1 id="paaotsikko" data-lahde="yritysesittely-02 yritysesittely-03">Tilausajot ryhmille Sastamalasta</h1>
+            <p class="lead" data-lahde="yritysesittely-02 yritysesittely-03 yritysesittely-05 yritysesittely-08">Omat bussit 16–58 matkustajalle. Te keräätte ryhmän, me huolehdimme kaikesta muusta.</p>
+            <div class="napit">
+              <a class="nappi nappi--p" href="#tarjouspyynto" data-paatoiminto>Pyydä tarjous <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <a class="nappi nappi--t" href="tel:0500114505" data-lahde="ota-yhteyttae-02">Soita 0500 114 505</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="telakka" id="tarjouspyynto" aria-labelledby="tarjous-otsikko">
+      <div class="wrap">
+        <form class="dock" id="tarjous" novalidate data-vaihe="1">
+          <div class="dock-nimi">
+            <h2 id="tarjous-otsikko">Tarjouspyyntö yhdellä kertaa</h2>
+            <ol class="vaiheet" aria-label="Tarjouspyynnön vaiheet">
+              <li data-v="1" aria-current="step"><span class="nro">1</span> <span class="vn">Matka</span></li>
+              <li data-v="2"><span class="nro">2</span> <span class="vn">Yhteystiedot</span></li>
+            </ol>
+          </div>
+
+          <div class="dock-runko">
+            <fieldset class="vaihe vaihe-1">
+              <legend class="sr">Reitti, ajankohta ja ryhmän koko</legend>
+              <div class="kentta">
+                <label for="f-mista">Mistä</label>
+                <input id="f-mista" name="mista" type="text" autocomplete="off" required placeholder="Lähtöpaikka" value="Sastamala" aria-describedby="e-mista" data-esimerkki>
+                <p class="virhe" id="e-mista" hidden></p>
+              </div>
+              <div class="kentta">
+                <span class="nuoli" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+                <label for="f-minne">Minne</label>
+                <input id="f-minne" name="minne" type="text" autocomplete="off" required placeholder="Määränpää" value="Naantali" aria-describedby="e-minne" data-esimerkki>
+                <p class="virhe" id="e-minne" hidden></p>
+              </div>
+              <div class="kentta pvm">
+                <label for="f-pvm">Milloin</label>
+                <input id="f-pvm" name="pvm" type="date" required value="2027-05-07" aria-describedby="e-pvm" data-esimerkki>
+                <span class="pvm-naytto" aria-hidden="true" data-tyhja="Valitse päivä" data-esimerkki>pe 7.5.2027</span>
+                <p class="virhe" id="e-pvm" hidden></p>
+              </div>
+              <div class="kentta koko">
+                <label for="f-koko">Montako <span class="sr">henkilöä</span></label>
+                <input id="f-koko" name="koko" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="3" autocomplete="off" required placeholder="Määrä" value="34" aria-describedby="e-koko" data-esimerkki>
+                <span class="yksikko" aria-hidden="true">henkilöä</span>
+                <p class="virhe" id="e-koko" hidden></p>
+              </div>
+              <div class="dock-cta">
+                <button class="cta" type="submit">Pyydä tarjous <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+              </div>
+              <p class="esim-huom" data-esimerkki><span class="esim-teksti">Kentissä on esimerkkitiedot.</span> <button class="linkkinappi" type="button" id="tyhjenna" data-tyhjenna="Tyhjennä kentät" data-tayta="Täytä esimerkki">Tyhjennä kentät</button></p>
+            </fieldset>
+
+            <div class="vaihe vaihe-2" hidden>
+              <div class="kooste" data-esimerkki>
+                <p class="sr" id="kooste-otsikko">Matkan tiedot</p>
+                <span class="kooste-reitti"><span data-nayta="mista">Sastamala</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span class="sr">–</span> <span data-nayta="minne">Naantali</span></span>
+                <span class="kooste-muu" data-nayta="paiva">pe 7.5.2027</span>
+                <span class="kooste-muu"><b data-nayta="koko">34</b> henkilöä</span>
+                <button class="muokkaa" type="button" id="muokkaa">Muokkaa</button>
+              </div>
+              <fieldset class="vaihe lomake2">
+                <legend class="sr">Tarkennukset ja yhteystiedot</legend>
+                <div class="kentta">
+                  <label for="f-aika">Lähtöaika</label>
+                  <input id="f-aika" name="aika" type="time" step="300" value="08:30" data-esimerkki>
+                </div>
+                <div class="kentta">
+                  <label for="f-paluu">Paluu</label>
+                  <select id="f-paluu" name="paluu">
+                    <option value="sama" selected>Samana päivänä</option>
+                    <option value="eri">Eri päivänä</option>
+                    <option value="ei">Ei paluukyytiä</option>
+                  </select>
+                </div>
+                <div class="kentta leve" id="paluupv-kentta" hidden>
+                  <label for="f-paluupv">Paluupäivä</label>
+                  <input id="f-paluupv" name="paluupv" type="date" aria-describedby="e-paluupv">
+                  <p class="virhe" id="e-paluupv" hidden></p>
+                </div>
+                <div class="kentta leve">
+                  <label for="f-nimi">Nimi</label>
+                  <input id="f-nimi" name="nimi" type="text" autocomplete="name" required placeholder="Etunimi Sukunimi" value="Maija Meikäläinen" aria-describedby="e-nimi" data-esimerkki>
+                  <p class="virhe" id="e-nimi" hidden></p>
+                </div>
+                <div class="kentta leve">
+                  <label for="f-yhteys">Puhelin tai sähköposti</label>
+                  <input id="f-yhteys" name="yhteys" type="text" autocomplete="off" required placeholder="Numero tai osoite" value="040 123 4567" aria-describedby="e-yhteys" data-esimerkki>
+                  <p class="virhe" id="e-yhteys" hidden></p>
+                </div>
+              </fieldset>
+              <div class="lahetys">
+                <button class="cta" type="submit">Lähetä tarjouspyyntö <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+                <p><strong>Tämä on demo.</strong> Painike näyttää esimerkin, mitään ei lähetetä.</p>
+              </div>
+            </div>
+
+            <div class="vaihe valmis" id="valmis" hidden tabindex="-1" aria-labelledby="valmis-otsikko">
+              <div class="valmis-teksti">
+                <span class="merkki-ok" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>
+                <h3 id="valmis-otsikko">Tältä pyyntö näyttäisi toimistolla</h3>
+                <p>Reitti, ajankohta ja ryhmän koko tulevat samassa viestissä.</p>
+                <p class="eilahetetty">Demossa mitään ei lähetetty.</p>
+                <p><button class="toinen" type="button" id="alusta">Aloita alusta</button></p>
+              </div>
+              <div class="posti" data-esimerkki role="group" aria-label="Esimerkki toimistolle saapuvasta tarjouspyynnöstä">
+                <div class="posti-palkki"><span class="pallot" aria-hidden="true"><i></i><i></i><i></i></span><span>Saapuneet</span><span class="tagi">Esimerkki</span></div>
+                <div class="posti-viesti">
+                  <div class="posti-paa">
+                    <span class="avatar" aria-hidden="true" data-nayta="kirjaimet">MM</span>
+                    <div>
+                      <p class="posti-lahettaja" style="margin:0"><strong data-nayta="nimi">Maija Meikäläinen</strong><span>juuri nyt</span></p>
+                      <p class="posti-aihe">Tarjouspyyntö tilausajosta, <span data-nayta="paiva">pe 7.5.2027</span></p>
+                    </div>
+                  </div>
+                  <p class="posti-reitti"><span data-nayta="mista">Sastamala</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span class="sr">–</span> <span data-nayta="minne">Naantali</span></p>
+                  <dl class="posti-tiedot">
+                    <div><dt>Päivä</dt><dd data-nayta="paiva">pe 7.5.2027</dd></div>
+                    <div><dt>Lähtö</dt><dd data-nayta="aika">klo 8.30</dd></div>
+                    <div><dt>Paluu</dt><dd data-nayta="paluu">samana päivänä</dd></div>
+                    <div><dt>Ryhmä</dt><dd><span data-nayta="koko">34</span> henkilöä</dd></div>
+                  </dl>
+                  <dl class="posti-tiedot" style="grid-template-columns:1fr">
+                    <div><dt>Yhteys</dt><dd><span data-nayta="nimi">Maija Meikäläinen</span>, <span data-nayta="yhteys">040 123 4567</span></dd></div>
+                  </dl>
+                  <div class="posti-toimet" aria-hidden="true"><span>Vastaa tarjouksella</span><span>Soita asiakkaalle</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="sr" role="status" aria-live="polite" id="tila"></p>
+        </form>
+
+        <ul class="faktat">
+          <li data-lahde="etusivu-08">Tilausajot</li><li data-lahde="etusivu-07">Ryhmämatkat</li><li data-lahde="etusivu-05">Reissukalenteri</li>
+        </ul>
+      </div>
+    </section>
+
+
+    <section class="osio" id="palvelut" aria-labelledby="ots-1">
+      <div class="wrap osio-grid">
+        <div class="osio-teksti ilmesty">
+          <p class="silma">Palvelut</p>
+          <h2 id="ots-1">Mitä Lauhamolta saa</h2>
+          
+          
+          <ul class="palvelut"><li><h3 data-lahde="etusivu-08">Tilausajot</h3><p data-lahde="yritysesittely-03 yritysesittely-04">Bussi ja kuljettaja ryhmänne matkalle, lähelle tai kauemmas. Toimisto auttaa aikataulun, reitin ja kohteen valinnassa.</p></li><li><h3 data-lahde="etusivu-07">Ryhmämatkat</h3><p data-lahde="ryhmaematkat-02 ryhmaematkat-05 ryhmaematkat-17 yritysesittely-07">Valmiit päiväretket ryhmille, esimerkiksi Billnäs ja Fiskars, Louhisaari ja Kultaranta tai Sokkomatka. Jos sopivaa ei löydy, matka räätälöidään ryhmälle.</p></li><li><h3 data-lahde="etusivu-05">Reissukalenteri</h3><p data-lahde="yritysesittely-05 yritysesittely-06 etusivu-19 etusivu-24">Kotimaan valmismatkat, joille voi lähteä yksin tai kaksin: teatterimatkoja, ostosmatkoja ja retkiä.</p></li></ul>
+          
+          
+          
+          
+        </div>
+        
+      </div>
+      <div class="wrap"><div class="kuvanauha"><figure class="ilmesty"><img src="kuvat/some01-1280.jpg" srcset="kuvat/some01-640.jpg 640w, kuvat/some01-960.jpg 960w, kuvat/some01-1280.jpg 1280w" sizes="(min-width: 600px) 33vw, 78vw" width="1280" height="1711" alt="Ryhmä vaeltaa pitkospuilla ruskametsässä" loading="lazy"></figure><figure class="ilmesty"><img src="kuvat/some10-960.jpg" srcset="kuvat/some10-640.jpg 640w, kuvat/some10-960.jpg 960w" sizes="(min-width: 600px) 33vw, 78vw" width="960" height="1707" alt="Kaksi matkalaista nuotiopaikalla metsässä" loading="lazy"></figure><figure class="ilmesty"><img src="kuvat/some07-960.jpg" srcset="kuvat/some07-640.jpg 640w, kuvat/some07-960.jpg 960w" sizes="(min-width: 600px) 33vw, 78vw" width="960" height="1707" alt="Ryhmä pelastusliiveissä veneretkellä" loading="lazy"></figure></div></div>
+    </section>
+
+    <section class="osio osio--vaalea" id="matkat" aria-labelledby="ots-2">
+      <div class="wrap matkat-grid">
+        <div class="ilmesty">
+          <p class="silma">Hinnat</p>
+          <h2 id="ots-2">Tulevia matkoja</h2>
+          <p class="osio-lead" data-lahde="etusivu-15">Kaikki matkat löytyvät reissukalenterista.</p>
+          <figure class="matkat-kuva"><img src="kuvat/some09-1920.jpg" srcset="kuvat/some09-640.jpg 640w, kuvat/some09-960.jpg 960w, kuvat/some09-1280.jpg 1280w, kuvat/some09-1920.jpg 1920w" sizes="(min-width: 1024px) 42vw, 100vw" width="1920" height="1081" alt="Lofoottien kalastajakylä ja vuoret veden yli iltavalossa" loading="lazy"></figure>
+        </div>
+        <div>
+          <ul class="liput">
+            
+            <li class="lippu ilmesty" data-lahde="reissukalenteri-50 reissukalenteri-51 reissukalenteri-54">
+              <div class="lippu-pv"><span class="pv">21.11.</span><span class="v">2026</span></div>
+              <div class="lippu-tieto">
+                <h3>Jouluinen ostosmatka Tuuriin</h3>
+                <p class="nousu">Sastamala – Nokia – Tampere – Ylöjärvi</p>
+              </div>
+              <div class="lippu-hinta"><span>alk.</span> <strong>30 €</strong></div>
+            </li>
+            <li class="lippu ilmesty" data-lahde="reissukalenteri-143 reissukalenteri-144 reissukalenteri-147">
+              <div class="lippu-pv"><span class="pv">22.1.</span><span class="v">2027</span></div>
+              <div class="lippu-tieto">
+                <h3>Matka Matkamessuille</h3>
+                <p class="nousu">Helsinki · Sastamala – Nokia – Tampere</p>
+              </div>
+              <div class="lippu-hinta"><span>alk.</span> <strong>45 €</strong></div>
+            </li>
+            <li class="lippu ilmesty" data-lahde="reissukalenteri-193 reissukalenteri-194 reissukalenteri-197">
+              <div class="lippu-pv"><span class="pv">24.3.</span><span class="v">2027</span></div>
+              <div class="lippu-tieto">
+                <h3>Päivä Serlachiuksen maailmassa</h3>
+                <p class="nousu">Mänttä · Sastamala – Nokia – Tampere</p>
+              </div>
+              <div class="lippu-hinta"><span>alk.</span> <strong>89 €</strong></div>
+            </li>
+            <li class="lippu ilmesty" data-lahde="reissukalenteri-252 reissukalenteri-253 reissukalenteri-256">
+              <div class="lippu-pv"><span class="pv pitka">19.–23.7.</span><span class="v">2027</span></div>
+              <div class="lippu-tieto">
+                <h3>Koli</h3>
+                <p class="nousu">Pori – Sastamala – Nokia – Tampere</p>
+              </div>
+              <div class="lippu-hinta"><span>alk.</span> <strong>769 €</strong></div>
+            </li>
+          </ul>
+          <p class="liput-huom" data-lahde="reissukalenteri-matkojen-erityis-02">Matkan hinta sisältää ohjelmassa mainitut opastukset, ruokailut, kahvitukset, sisäänpääsymaksut, liput ja bussimatkat.</p>
+        </div>
+      </div>
+      
+    </section>
+
+    <section class="osio" id="kalusto" aria-labelledby="ots-3">
+      <div class="wrap osio-grid on-kuva">
+        <div class="osio-teksti ilmesty">
+          <p class="silma">Kalusto</p>
+          <h2 id="ots-3">Kalusto</h2>
+          <p class="osio-lead" data-lahde="historia-22 kalusto-02">9 bussia: 6 isoa ja 3 pientä. Pienin on 16-paikkainen minibussi, suurin 58-paikkainen.</p>
+          
+          <ul class="lista"><li><h3 data-lahde="ota-yhteyttae-05">Tallit Keskikatu 20, Sastamala</h3><p data-lahde="ota-yhteyttae-05">Ilmainen pysäköinti matkan ajaksi.</p></li></ul>
+          
+          
+          
+          
+        </div>
+        <figure class="osio-kuva ilmesty" style="aspect-ratio:4 / 5"><img src="kuvat/some02-599.jpg" srcset="kuvat/some02-599.jpg 599w" sizes="(min-width: 1024px) 50vw, 100vw" width="599" height="799" alt="Matkustajia Lauhamon bussin sisällä matkan aikana" loading="lazy" style="object-position:50% 40%"></figure>
+      </div>
+      
+    </section>
+
+    <section class="osio osio--tumma osio--kaanna" id="tarina" aria-labelledby="ots-4">
+      <div class="wrap osio-grid on-kuva">
+        <div class="osio-teksti ilmesty">
+          <p class="silma">Yritys</p>
+          <h2 id="ots-4" data-lahde="yritysesittely-02">Perheyritys jo yli 60 vuoden ajan</h2>
+          
+          
+          <div class="tarina"><p data-lahde="historia-02 historia-10">Antti Lauhamo aloitti linja-autoliikenteen 1960-luvun puolivälissä. Ensimmäiset tilausmatkat olivat urheiluseuroja, ja Antti ajoi ne itse.</p><p data-lahde="historia-17">Asiakaskunta muodostui pitkäaikaisista vakioasiakkaista Vammalan ja Pirkanmaan seudulta.</p><p data-lahde="historia-19">Yritys on edelleen perheen käsissä: vuonna 1992 osakkaiksi tuli kuusi Lauhamon perheen jäsentä.</p></div>
+          
+          
+          
+          
+          
+        </div>
+        <figure class="osio-kuva ilmesty" style="aspect-ratio:16 / 10"><img src="kuvat/some08-1920.jpg" srcset="kuvat/some08-640.jpg 640w, kuvat/some08-960.jpg 960w, kuvat/some08-1280.jpg 1280w, kuvat/some08-1920.jpg 1920w" sizes="(min-width: 1024px) 50vw, 100vw" width="1920" height="1333" alt="Mustavalkoinen kuva Lauhamon ensimmäisestä pikkubussista ja matkustajista männikön laidassa" loading="lazy" style="object-position:50% 50%"></figure>
+      </div>
+      
+    </section>
+
+  </main>
+</div>
+
+<footer class="ala" id="yhteys">
+  <div class="wrap">
+    <div class="ala-ruudukko">
+      <div>
+        <p class="merkki" data-lahde="yritysesittely-08" style="margin:0">
+          <span class="merkki-nimi">Lauhamo</span>
+        </p>
+        <p class="ala-esittely" data-lahde="yritysesittely-02">Perheyritys Sastamalasta · yli 60 vuotta</p>
+      </div>
+      <div>
+        <h2>Yhteystiedot</h2>
+        <p data-lahde="ota-yhteyttae-02"><a class="iso-linkki" href="tel:0500114505">0500 114 505</a></p>
+        <p class="hiljaa" data-lahde="ota-yhteyttae-02">ma–pe 9–15</p>
+        <p data-lahde="ota-yhteyttae-02"><a class="rivilinkki" href="mailto:toimisto@lauhamo.fi">toimisto@lauhamo.fi</a></p>
+        <p data-lahde="ota-yhteyttae-04">Penttilänkatu 1, 38250 Sastamala</p>
+      </div>
+      <div>
+        <h2>Lisätiedot</h2>
+        
+        <p data-lahde="ota-yhteyttae-05"><strong>Tallit: Keskikatu 20, 38250 Sastamala</strong><br><span class="hiljaa">Talleilla on ilmainen asiakaspaikoitus matkojen ajaksi.</span></p><p data-lahde="ota-yhteyttae-04"><strong>Toimisto palvelee pääosin ma–ke 9–14</strong><br><span class="hiljaa">Soittamalla voi tarkistaa, onko toimistolla joku paikalla.</span></p>
+        
+        
+      </div>
+    </div>
+    <p class="ala-loppu">Konseptidemo: Sinoetic. Kuvat ja tiedot ovat yrityksen omilta sivuilta ja some-tileiltä. Sivu ei ole yrityksen virallinen sivusto, eikä sen lomake lähetä mitään.</p>
+  </div>
+</footer>
+
+<div class="pikapalkki">
+  <a class="soita" href="tel:0500114505" data-lahde="ota-yhteyttae-02" aria-label="Soita numeroon 0500 114 505">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
+    Soita
+  </a>
+  <a class="cta" href="#tarjous" id="pika-tarjous">Pyydä tarjous</a>
+</div>
+
+<script>
+(function () {
+  'use strict';
+  var d = document;
+  var form = d.getElementById('tarjous');
+  var vahennetty = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function $(s, r) { return (r || d).querySelector(s); }
+  function $$(s, r) { return Array.prototype.slice.call((r || d).querySelectorAll(s)); }
+
+  /* Valikko (puhelin ja tabletti) */
+  var nappi = $('.valikko-nappi'), valikko = $('#valikko');
+  function suljeValikko() { valikko.classList.remove('auki'); nappi.setAttribute('aria-expanded', 'false'); }
+  nappi.addEventListener('click', function () {
+    var auki = valikko.classList.toggle('auki');
+    nappi.setAttribute('aria-expanded', auki ? 'true' : 'false');
+  });
+  valikko.addEventListener('click', function (e) { if (e.target.closest('a')) suljeValikko(); });
+  d.addEventListener('keydown', function (e) { if (e.key === 'Escape' && valikko.classList.contains('auki')) { suljeValikko(); nappi.focus(); } });
+
+  /* Ensinäkymän kuvasarja ja video (K4): liike ilman yrityksen omaa videota. Reduced motion jättää ensimmäisen kuvan paikalleen. */
+  var sarja = $$('.hero-kuva .sarja'), pisteet = $$('.hero-pisteet button'), hvideo = $('.hero-video');
+  var dia = 0, diaAjastin = null;
+  function naytaDia(n) {
+    dia = n;
+    sarja.forEach(function (k, j) { k.classList.toggle('on', j === n); });
+    pisteet.forEach(function (p, j) { p.classList.toggle('on', j === n); p.setAttribute('aria-selected', j === n ? 'true' : 'false'); });
+  }
+  function sarjaKayntiin() {
+    if (diaAjastin) window.clearInterval(diaAjastin);
+    if (!vahennetty && sarja.length > 1 && !hvideo) diaAjastin = window.setInterval(function () { naytaDia((dia + 1) % sarja.length); }, 7000);
+  }
+  pisteet.forEach(function (p) { p.addEventListener('click', function () { naytaDia(+p.getAttribute('data-i')); sarjaKayntiin(); }); });
+  sarjaKayntiin();
+  if (hvideo && !vahennetty && !(navigator.connection && navigator.connection.saveData)) {
+    hvideo.addEventListener('canplay', function () { hvideo.classList.add('on'); });
+    hvideo.src = hvideo.getAttribute('data-src');
+    var soitto = hvideo.play();
+    if (soitto && soitto.catch) soitto.catch(function () { hvideo.removeAttribute('src'); hvideo.load(); });
+  }
+
+  /* Päätoiminto kuvan päällä vie lomakkeeseen ja kohdistaa ensimmäiseen kenttään */
+  function lomakkeeseen(e) {
+    e.preventDefault();
+    form.scrollIntoView({ behavior: vahennetty ? 'auto' : 'smooth', block: 'start' });
+    var nyt = +form.getAttribute('data-vaihe');
+    var kohde = nyt === 1 ? K.mista : nyt === 2 ? K.nimi : $('#alusta');
+    window.setTimeout(function () { kohde.focus({ preventScroll: true }); }, vahennetty ? 0 : 450);
+  }
+
+  /* Päivämäärät */
+  var PAIVAT = ['su', 'ma', 'ti', 'ke', 'to', 'pe', 'la'];
+  function pvmOlio(arvo) {
+    var o = /^(\d{4})-(\d{2})-(\d{2})$/.exec(arvo || '');
+    if (!o) return null;
+    var p = new Date(+o[1], +o[2] - 1, +o[3]);
+    return isNaN(p.getTime()) ? null : p;
+  }
+  function pvmTeksti(arvo) {
+    var p = pvmOlio(arvo);
+    return p ? PAIVAT[p.getDay()] + ' ' + p.getDate() + '.' + (p.getMonth() + 1) + '.' + p.getFullYear() : '';
+  }
+  function tanaanIso() {
+    var n = new Date();
+    return n.getFullYear() + '-' + ('0' + (n.getMonth() + 1)).slice(-2) + '-' + ('0' + n.getDate()).slice(-2);
+  }
+  function aikaTeksti(arvo) {
+    var o = /^(\d{2}):(\d{2})/.exec(arvo || '');
+    return o ? 'klo ' + (+o[1]) + '.' + o[2] : 'ei ilmoitettu';
+  }
+
+  var K = {
+    mista: $('#f-mista'), minne: $('#f-minne'), pvm: $('#f-pvm'), koko: $('#f-koko'),
+    aika: $('#f-aika'), paluu: $('#f-paluu'), paluupv: $('#f-paluupv'), nimi: $('#f-nimi'), yhteys: $('#f-yhteys')
+  };
+  K.pvm.min = tanaanIso();
+  K.paluupv.min = tanaanIso();
+  $('[data-paatoiminto]').addEventListener('click', lomakkeeseen);
+  $('#pika-tarjous').addEventListener('click', lomakkeeseen);
+
+  function paivitaNaytot() {
+    $$('.pvm').forEach(function (k) {
+      var n = $('.pvm-naytto', k), t = pvmTeksti($('input', k).value);
+      n.textContent = t || n.getAttribute('data-tyhja');
+      n.classList.toggle('tyhja', !t);
+    });
+    var kk = K.koko.closest('.kentta');
+    kk.style.setProperty('--merkkeja', K.koko.value.length || 1);
+    kk.classList.toggle('tyhja', !K.koko.value);
+    var eri = K.paluu.value === 'eri';
+    $('#paluupv-kentta').hidden = !eri;
+    $('.lomake2').classList.toggle('on-paluupv', eri);
+  }
+  K.pvm.addEventListener('click', function () {
+    if (K.pvm.showPicker) { try { K.pvm.showPicker(); } catch (e) { /* selain ei salli: kenttä toimii silti */ } }
+  });
+
+  /* Tarkistukset */
+  function merkitse(kentta, viesti) {
+    var k = kentta.closest('.kentta'), p = $('.virhe', k);
+    k.classList.toggle('on-virhe', !!viesti);
+    if (viesti) kentta.setAttribute('aria-invalid', 'true'); else kentta.removeAttribute('aria-invalid');
+    if (p) { p.textContent = viesti || ''; p.hidden = !viesti; }
+    return !viesti;
+  }
+  var SAANNOT = {
+    mista: function (v) { return v.trim().length >= 2 ? '' : 'Kirjoita lähtöpaikka'; },
+    minne: function (v) { return v.trim().length >= 2 ? '' : 'Kirjoita määränpää'; },
+    pvm: function (v) {
+      if (!pvmOlio(v)) return 'Valitse päivä';
+      return v < tanaanIso() ? 'Päivä on jo mennyt' : '';
+    },
+    koko: function (v) { return /^[1-9]\d{0,2}$/.test(v.trim()) ? '' : 'Kerro ryhmän koko'; },
+    paluupv: function (v) {
+      if (K.paluu.value !== 'eri') return '';
+      if (!pvmOlio(v)) return 'Valitse paluupäivä';
+      return K.pvm.value && v < K.pvm.value ? 'Paluu on ennen lähtöä' : '';
+    },
+    nimi: function (v) { return v.trim().length >= 2 ? '' : 'Kirjoita nimi'; },
+    yhteys: function (v) {
+      v = v.trim();
+      var posti = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
+      var numeroita = v.replace(/\D/g, '').length;
+      var puhelin = /^[+()\d\s-]+$/.test(v) && numeroita >= 7 && numeroita <= 15;
+      return posti || puhelin ? '' : 'Anna puhelinnumero tai sähköpostiosoite';
+    }
+  };
+  function tarkista(nimet) {
+    var eka = null;
+    nimet.forEach(function (n) {
+      if (!merkitse(K[n], SAANNOT[n](K[n].value)) && !eka) eka = K[n];
+    });
+    return eka;
+  }
+  Object.keys(SAANNOT).forEach(function (n) {
+    var tapahtuma = function () {
+      if (K[n].closest('.kentta').classList.contains('on-virhe')) merkitse(K[n], SAANNOT[n](K[n].value));
+      paivitaNaytot();
+      naytaEsimerkkitila();
+    };
+    K[n].addEventListener('input', tapahtuma);
+    K[n].addEventListener('change', tapahtuma);
+  });
+  K.paluu.addEventListener('change', function () {
+    if (K.paluu.value === 'eri' && !K.paluupv.value) K.paluupv.value = K.pvm.value;
+    paivitaNaytot();
+  });
+  K.koko.addEventListener('input', function () { K.koko.value = K.koko.value.replace(/\D/g, ''); });
+
+  /* Koosteet: lomakkeen arvot näkyviin (teksti tulee käyttäjän kentistä) */
+  function kirjaimet(nimi) {
+    return nimi.trim().split(/\s+/).slice(0, 2).map(function (s) { return s.charAt(0).toUpperCase(); }).join('');
+  }
+  function paivitaKoosteet() {
+    var a = {
+      mista: K.mista.value.trim(), minne: K.minne.value.trim(), paiva: pvmTeksti(K.pvm.value), koko: K.koko.value.trim(),
+      aika: aikaTeksti(K.aika.value), nimi: K.nimi.value.trim(), yhteys: K.yhteys.value.trim(), kirjaimet: kirjaimet(K.nimi.value),
+      paluu: K.paluu.value === 'ei' ? 'ei paluukyytiä' : (K.paluu.value === 'eri' && K.paluupv.value !== K.pvm.value ? pvmTeksti(K.paluupv.value) : 'samana päivänä')
+    };
+    $$('[data-nayta]', form).forEach(function (el) { el.textContent = a[el.getAttribute('data-nayta')] || ''; });
+  }
+
+  /* Vaiheet */
+  var tila = $('#tila');
+  function vaihe(n, kohde) {
+    form.setAttribute('data-vaihe', n);
+    $('.vaihe-1', form).hidden = n !== 1;
+    $('.vaihe-2', form).hidden = n !== 2;
+    $('#valmis').hidden = n !== 3;
+    $$('.vaiheet li', form).forEach(function (li) {
+      var v = +li.getAttribute('data-v');
+      if (v === Math.min(n, 2) && n < 3) li.setAttribute('aria-current', 'step'); else li.removeAttribute('aria-current');
+      li.classList.toggle('tehty', v < n);
+    });
+    tila.textContent = n === 1 ? 'Vaihe yksi: matkan tiedot.' : n === 2 ? 'Vaihe kaksi: yhteystiedot.' : 'Esimerkki valmis. Demossa mitään ei lähetetty.';
+    if (kohde) {
+      kohde.focus({ preventScroll: true });
+      var r = form.getBoundingClientRect();
+      if (r.top < 8 || r.top > window.innerHeight * 0.4) form.scrollIntoView({ behavior: vahennetty ? 'auto' : 'smooth', block: 'start' });
+    }
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault(); /* demossa mitään ei lähetetä */
+    var nyt = +form.getAttribute('data-vaihe'), virhe;
+    if (nyt === 1) {
+      virhe = tarkista(['mista', 'minne', 'pvm', 'koko']);
+      if (virhe) { virhe.focus(); tila.textContent = 'Tarkista merkityt kentät.'; return; }
+      paivitaKoosteet();
+      vaihe(2, K.aika);
+    } else if (nyt === 2) {
+      virhe = tarkista(['paluupv', 'nimi', 'yhteys']);
+      if (virhe) { virhe.focus(); tila.textContent = 'Tarkista merkityt kentät.'; return; }
+      paivitaKoosteet();
+      vaihe(3, $('#valmis'));
+    }
+  });
+  $('#muokkaa').addEventListener('click', function () { vaihe(1, K.mista); });
+  $('#alusta').addEventListener('click', function () {
+    form.reset();
+    Object.keys(SAANNOT).forEach(function (n) { merkitse(K[n], ''); });
+    paivitaNaytot(); paivitaKoosteet(); naytaEsimerkkitila();
+    vaihe(1, K.mista);
+  });
+
+  /* Esimerkkitiedot: tyhjennys ja palautus */
+  var tyhjenna = $('#tyhjenna'), esimTeksti = $('.esim-teksti');
+  function onEsimerkki() {
+    return ['mista', 'minne', 'pvm', 'koko', 'nimi', 'yhteys'].every(function (n) { return K[n].value === K[n].defaultValue; });
+  }
+  function naytaEsimerkkitila() {
+    var on = onEsimerkki();
+    esimTeksti.textContent = on ? 'Kentissä on esimerkkitiedot.' : 'Haluatko kokeilla valmiilla tiedoilla?';
+    tyhjenna.textContent = tyhjenna.getAttribute(on ? 'data-tyhjenna' : 'data-tayta');
+  }
+  tyhjenna.addEventListener('click', function () {
+    if (onEsimerkki()) {
+      ['mista', 'minne', 'pvm', 'koko', 'aika', 'paluupv', 'nimi', 'yhteys'].forEach(function (n) { K[n].value = ''; });
+      K.paluu.value = 'sama';
+    } else {
+      form.reset();
+    }
+    Object.keys(SAANNOT).forEach(function (n) { merkitse(K[n], ''); });
+    paivitaNaytot(); paivitaKoosteet(); naytaEsimerkkitila();
+    K.mista.focus();
+  });
+
+  /* Osiot nousevat paikalleen, kun ne tulevat näkyviin (ei piilota sisältöä) */
+  if ('IntersectionObserver' in window && !vahennetty) {
+    var io = new IntersectionObserver(function (osumat) {
+      osumat.forEach(function (o) { if (o.isIntersecting) { o.target.classList.add('nakyy'); io.unobserve(o.target); } });
+    }, { threshold: 0.12 });
+    $$('.ilmesty').forEach(function (el) { if (el.getBoundingClientRect().top > window.innerHeight) io.observe(el); });
+  }
+
+  paivitaNaytot();
+  paivitaKoosteet();
+})();
+</script>
+</body>
+</html>
