@@ -824,6 +824,8 @@ input[type=range]{height:44px}
 .ka-teksti{display:flex;flex-direction:column;gap:1px;line-height:1.3;min-width:0}
 .ka-teksti small{color:var(--harmaa);font-size:12.5px;font-weight:600}
 .ka-teksti b{font-size:16px;color:var(--yo)}
+.ka-esteeton{padding:4px 0 4px 6px}
+.ka-esteeton>span{font-size:14.5px;font-weight:600;color:var(--yo);line-height:1.4}
 .ka-teksti button{align-self:flex-start;border:0;background:none;padding:0;margin-top:2px;font:700 13px var(--f);color:var(--sin);text-decoration:underline;cursor:pointer;min-height:28px}
 .kone-valmis .kuittaus--tarjous svg{background:#2f9e5b;stroke:#fff}
 
@@ -990,7 +992,7 @@ input[type=range]{height:44px}
     <div class="napit"><a class="nappi nappi--sin" href="tarjous.html" data-kone><span>Pyydä tarjous</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="nappi nappi--reuna" href="tel:+35898842589"><span>Soita <span class="nw">09-884 2589</span></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></a></div>
   </div>
 </section>
-<nav class="seuraava" aria-label="Seuraavaksi"><div class="wrap"><a class="seur-ensin" href="yritys.html"><span class="seur-silma">Seuraavaksi</span><span class="seur-nimi">Yritys<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span class="seur-kuvaus">Perheyhtiö, historia ja vastuullisuus</span></a><a class="seur-toinen" href="tarjous.html" data-kone><span class="seur-silma">Tai</span><span class="seur-nimi">Pyydä tarjous<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span class="seur-kuvaus">Kaksi lyhyttä vaihetta ja hinta-arvio heti</span></a></div></nav>
+<nav class="seuraava" aria-label="Seuraavaksi"><div class="wrap"><a class="seur-ensin" href="yritys.html"><span class="seur-silma">Seuraavaksi</span><span class="seur-nimi">Yritys<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span class="seur-kuvaus">Perheyhtiö, historia ja vastuullisuus</span></a><a class="seur-toinen" href="tarjous.html" data-kone><span class="seur-silma">Tai</span><span class="seur-nimi">Pyydä tarjous<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span class="seur-kuvaus">Hintataso valituille reiteille, hinta tarjouksessa</span></a></div></nav>
 </main>
 <footer class="ala">
   <div class="wrap">
@@ -1045,12 +1047,12 @@ input[type=range]{height:44px}
             <label class="kentta koko">Lähtöpaikka<input name="mista" list="ab-paikat" required autocomplete="off" placeholder="Esim. Espoon keskus"></label>
             <label class="kentta koko">Kohde<input name="minne" list="ab-paikat" required autocomplete="off" placeholder="Esim. Helsinki-Vantaan lentoasema"></label>
             <div class="pikat koko"><span>Pikavalinta lähtöpaikaksi:</span><button type="button" data-arvo="Helsinki-Vantaan lentoasema">Lentoasema</button><button type="button" data-arvo="Helsingin päärautatieasema">Rautatieasema</button><button type="button" data-arvo="Länsiterminaali T2, Helsinki">Länsiterminaali</button><button type="button" data-arvo="Messukeskus, Helsinki">Messukeskus</button><button type="button" data-arvo="Espoon keskus">Espoon keskus</button></div>
-            <div class="kentta koko ryhma"><span>Matkustajia</span><div class="ryhma-rivi"><div class="laskuri"><button type="button" data-askel="-1" aria-label="Matkustajia: yksi vähemmän">−</button><input name="montako" type="number" min="1" max="999" inputmode="numeric" required placeholder="hlö" aria-label="Matkustajia"><button type="button" data-askel="1" aria-label="Matkustajia: yksi enemmän">+</button></div><div class="kone-auto" id="kone-auto" aria-live="polite"></div></div></div>
-            <label class="kentta">Lähtöpäivä<input name="paiva" type="date" required></label>
-            <label class="kentta"><span>Lähtöaika <small>(vapaaehtoinen)</small></span><input name="aika" type="time"></label>
+            <div class="kentta koko ryhma"><span>Matkustajia</span><div class="ryhma-rivi"><div class="laskuri"><button type="button" data-askel="-1" aria-label="Matkustajia: yksi vähemmän">−</button><input name="montako" type="number" min="1" max="999" inputmode="numeric" required placeholder="hlö" aria-label="Matkustajia" aria-describedby="montako-virhe"><button type="button" data-askel="1" aria-label="Matkustajia: yksi enemmän">+</button></div><div class="kone-auto" id="kone-auto" aria-live="polite"></div></div><small class="kentta-virhe" id="montako-virhe" hidden></small></div>
+            <label class="kentta">Lähtöpäivä<input name="paiva" type="date" required aria-describedby="paiva-virhe"><small class="kentta-virhe" id="paiva-virhe" hidden></small></label>
+            <label class="kentta"><span>Lähtöaika <small>(vapaaehtoinen)</small></span><input name="aika" type="time" aria-describedby="aika-virhe"><small class="kentta-virhe" id="aika-virhe" hidden></small></label>
             <div class="kentta koko"><span id="k-muoto">Matka</span><div class="vaihto" role="radiogroup" aria-labelledby="k-muoto"><label><input type="radio" name="muoto" value="kuljetus" checked>Yksi suunta</label><label><input type="radio" name="muoto" value="menopaluu">Meno ja paluu</label><label><input type="radio" name="muoto" value="paiva">Päiväretki</label><label><input type="radio" name="muoto" value="monipaiva">Monta päivää</label></div></div>
-            <label class="kentta" data-nakyy="menopaluu monipaiva">Paluupäivä<input name="paluupaiva" type="date" aria-describedby="paluu-virhe"><small class="kentta-virhe" id="paluu-virhe" hidden>Paluu ei voi olla ennen lähtöpäivää.</small></label>
-            <label class="kentta" data-nakyy="menopaluu monipaiva"><span>Paluuaika <small>(jos tiedossa)</small></span><input name="paluuaika" type="time"></label>
+            <label class="kentta" data-nakyy="menopaluu monipaiva">Paluupäivä<input name="paluupaiva" type="date" aria-describedby="paluupaiva-virhe"><small class="kentta-virhe" id="paluupaiva-virhe" hidden></small></label>
+            <label class="kentta" data-nakyy="menopaluu monipaiva"><span>Paluuaika <small>(jos tiedossa)</small></span><input name="paluuaika" type="time" aria-describedby="paluuaika-virhe"><small class="kentta-virhe" id="paluuaika-virhe" hidden></small></label>
             <label class="kentta" data-nakyy="paiva">Kesto tunteina<input name="kesto" type="number" min="1" max="24" inputmode="numeric" required></label>
             <label class="kentta koko valinta-ruutu"><input type="checkbox" name="esteeton" value="1"><span>Ryhmässä on pyörätuolin käyttäjä tai muu esteettömyystarve</span></label>
           </div>
