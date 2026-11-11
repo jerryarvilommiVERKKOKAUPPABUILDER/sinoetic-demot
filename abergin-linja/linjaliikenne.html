@@ -225,7 +225,7 @@ input[type=range]{width:100%;margin:22px 0 8px;accent-color:var(--sin);height:28
 .merkit{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
 .merkit>span{font-size:13.5px;font-weight:700;padding:8px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.3)}
 /* vaiheet */
-.vaiheet{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;counter-reset:v}
+.vaiheet{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:v}
 .vaiheet li{counter-increment:v;padding:30px;border-radius:var(--sade);background:var(--pohja);position:relative}
 .vaiheet li::before{content:counter(v);display:flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:50%;background:var(--yo);color:var(--kelta);font-weight:800;font-size:19px;margin-bottom:22px}
 .vaiheet p{margin-top:10px;color:var(--harmaa);font-size:16px}
@@ -438,7 +438,7 @@ figcaption.kt span{opacity:.7;margin-left:6px}
 .koko-nappi--kaupunki{background:var(--pohja)}
 .koko-nappi--kaupunki strong{font-size:clamp(20px,1.8vw,24px);letter-spacing:-.02em}
 .koko-nappi--kaupunki>span{font-weight:600;color:var(--harmaa)}
-@media (max-width:1100px){.tarinat{grid-template-columns:1fr 1fr}.tarina{min-height:360px}}
+@media (max-width:1100px){.vaiheet{grid-template-columns:1fr 1fr}.tarinat{grid-template-columns:1fr 1fr}.tarina{min-height:360px}}
 @media (max-width:1000px){.em-tiivis,.koot{grid-template-columns:1fr}}
 @media (max-width:920px){
  .top.auki .pv{flex-direction:column}
@@ -454,7 +454,7 @@ figcaption.kt span{opacity:.7;margin-left:6px}
  .koko-napit{grid-template-columns:1fr 1fr}
  .koko-nappi{min-height:128px}
 }
-@media (max-width:600px){.tarinat{grid-template-columns:1fr}.tarina{min-height:0}}
+@media (max-width:600px){.vaiheet{grid-template-columns:1fr}.tarinat{grid-template-columns:1fr}.tarina{min-height:0}}
 /* tarjouslomake */
 .tarjous{display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(28px,4vw,56px);align-items:start}
 .lomake{background:#fff;border:1.5px solid var(--raja);border-radius:24px;padding:clamp(22px,3vw,40px);box-shadow:var(--var)}
@@ -502,7 +502,7 @@ figcaption.kt span{opacity:.7;margin-left:6px}
  .case,.valitsin,.kaksi,.hinnat,.ukk,.tarjous,.alahero .wrap{grid-template-columns:1fr}
  .kaksi--kaanna>:first-child{order:0}
  .case figure,.iso-kuva{aspect-ratio:16/11}
- .lainaukset,.vastuu,.vaiheet{grid-template-columns:1fr}
+ .lainaukset,.vastuu{grid-template-columns:1fr}
  .ala-ruudukko{grid-template-columns:1fr 1fr}
  .sivupalkki{position:static}
  .aikajana li{grid-template-columns:1fr;gap:6px}
@@ -543,8 +543,9 @@ figcaption.kt span{opacity:.7;margin-left:6px}
  .ala ul{gap:2px}
  .ala li a,.ala p a,.murut a,.ala-pohja a{display:inline-flex;align-items:center;min-height:44px}
  .linkki{min-height:44px}
+ .alahero{padding-top:76px}
  .alahero .wrap{min-height:0;padding-bottom:40px;padding-top:16px;gap:24px}
- .alahero figure{aspect-ratio:4/3;order:-1}
+ .alahero figure{aspect-ratio:3/2}
  .cta .napit .nappi{flex:1;justify-content:center}
  .alapalkki{display:grid;grid-template-columns:1fr 1.4fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:40;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 -1px 0 var(--raja);transform:translateY(110%);transition:transform .3s}
  .alapalkki.nakyy{transform:none}
@@ -599,6 +600,18 @@ figcaption.kt span{opacity:.7;margin-left:6px}
 .pikat>span{font-size:13px;font-weight:650;color:var(--harmaa);margin-right:2px}
 .pikat button{border:1px solid var(--raja);background:#fff;border-radius:999px;font:600 13px/1 var(--f);color:var(--harmaa);padding:8px 11px;cursor:pointer;min-height:34px}
 .pikat button:hover{border-color:var(--sin);color:var(--sin)}
+.valinta-ruutu{flex-direction:row!important;align-items:flex-start;gap:10px!important;font-weight:600!important;cursor:pointer}
+.valinta-ruutu input{accent-color:var(--sin);width:20px!important;height:20px;padding:0!important;margin-top:1px;flex:none}
+.kentta-virhe{color:#c0392b!important;font-weight:650!important}
+.kentta-virhe[hidden]{display:none}
+.kone-yhteenveto{background:var(--pohja);border-radius:14px;padding:14px 18px 16px;margin:-4px 0 20px;font-size:14.5px}
+.kone-yhteenveto:empty{display:none}
+.kone-yhteenveto .yv-paa{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:6px}
+.kone-yhteenveto .yv-paa b{font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--sin)}
+.kone-yhteenveto .yv-paa button{border:0;background:none;padding:0;font:700 14px var(--f);color:var(--sin);text-decoration:underline;text-underline-offset:3px;cursor:pointer;min-height:36px}
+.kone-yhteenveto dl{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;margin:0}
+.kone-yhteenveto dt{color:var(--harmaa);font-weight:600}
+.kone-yhteenveto dd{margin:0;font-weight:650;color:var(--muste);overflow-wrap:anywhere}
 .hinta-arvio{margin-top:22px;border-radius:16px;background:var(--yo);color:#fff;padding:20px 22px;display:grid;gap:10px}
 .hinta-arvio .ha-ots{font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--kelta)}
 .hinta-arvio .ha-rivi{display:flex;justify-content:space-between;align-items:baseline;gap:16px;font-size:15.5px;color:#dce4ee}
@@ -936,13 +949,13 @@ input[type=range]{height:44px}
       <p class="silma" data-lahteet="linjaliikenne-09">HSL-liikennettä vuodesta 1953</p>
       <h1 id="h1">Linjaliikenne</h1>
       <p class="ingressi" data-lahteet="linjaliikenne-09">Åbergin Linja on liikennöinyt pääkaupunkiseudun linjaliikenteessä vuodesta 1953 alkaen.</p>
-      <div class="napit"><a class="nappi nappi--kelta" href="tarjous.html" data-kone><span>Pyydä tarjous</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="nappi nappi--haamu" href="tel:+35898842589"><span>Soita <span class="nw">09-884 2589</span></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></a></div>
+      <div class="napit"><a class="nappi nappi--kelta" href="https://reittiopas.hsl.fi/"><span>Aikataulut ja reittiopas</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="nappi nappi--haamu" href="#loytotavarat"><span>Löytötavarat</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
     </div>
     <figure><img src="kuvat/ig10-1280.webp" srcset="kuvat/ig10-640.webp 640w, kuvat/ig10-1280.webp 1280w, kuvat/ig10-1399.webp 1399w" sizes="(min-width: 1000px) 50vw, 100vw" width="1280" height="873" alt="Sininen HSL-bussi radan vieressä sateisena päivänä" style="object-position:62% 50%" fetchpriority="high" decoding="async"></figure>
   </div>
-</section><section class="osio" aria-labelledby="mk-ots"><div class="wrap">
-  <div class="otsake"><div><p class="silma">Matkustajalle</p><h2 id="mk-ots">Aikataulut ja palaute</h2></div></div>
-  <ul class="lista2"><li class="ilm"><h3 data-lahteet="linjaliikenne-04 linjaliikenne-05"><a class="linkki" href="https://reittiopas.hsl.fi/" rel="noopener" target="_blank">Aikataulut ja reittiopas <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></h3><p>Linjat, aikataulut ja reitit HSL:n reittioppaassa.</p></li><li class="ilm"><h3 data-lahteet="linjaliikenne-08"><a class="linkki" href="yhteystiedot.html#palaute">Matkustajapalaute <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></h3><p>Palaute matkasta tai kuljettajasta palautelomakkeella.</p></li><li class="ilm"><h3><a class="linkki" href="yhteystiedot.html">Toimiston yhteystiedot <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></h3><p>Vaihde, päivystys ja palautelomake.</p></li></ul>
+</section><section class="osio" id="matkustajalle" aria-labelledby="mk-ots"><div class="wrap">
+  <div class="otsake"><div><p class="silma">Matkustajalle</p><h2 id="mk-ots">Aikataulut, löytötavarat ja palaute</h2></div></div>
+  <ul class="lista2"><li class="ilm"><h3 data-lahteet="linjaliikenne-04 linjaliikenne-05"><a class="linkki" href="https://reittiopas.hsl.fi/" rel="noopener" target="_blank">Aikataulut ja reittiopas <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></h3><p>Linjat, aikataulut ja reitit HSL:n reittioppaassa.</p></li><li class="ilm" id="loytotavarat"><h3 data-lahteet="linjaliikenne-07"><a class="linkki" href="http://www.htp-palvelut.com/loytotavarapiste" rel="noopener" target="_blank">Löytötavarat <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></h3><p data-lahteet="ulk-bt-linja-01 ulk-bt-linja-02 ulk-bt-linja-03">Busseihin jääneitä löytötavaroita voi tiedustella toimistolta arkipäivisin klo <span class="nw">10–15</span>. Löytötavarat toimitetaan säännöllisesti jatkosäilytykseen Löytötavarapisteeseen.</p></li><li class="ilm"><h3 data-lahteet="linjaliikenne-08"><a class="linkki" href="yhteystiedot.html#palaute">Matkustajapalaute <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></h3><p>Palaute matkasta tai kuljettajasta palautelomakkeella.</p></li><li class="ilm"><h3><a class="linkki" href="yhteystiedot.html">Toimiston yhteystiedot <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></h3><p>Vaihde, päivystys ja palautelomake.</p></li></ul>
 </div></section><section class="osio osio--pohja">
   <div class="wrap">
     <div class="lista2-kuva"><figure class="ilm"><img src="kuvat/ig05-1280.webp" srcset="kuvat/ig05-640.webp 640w, kuvat/ig05-1280.webp 1280w, kuvat/ig05-1920.webp 1920w, kuvat/ig05-1920.webp 1920w" sizes="(min-width: 1000px) 42vw, 100vw" width="1280" height="960" alt="Åbergin Linjan keltainen bussi rautatieaseman laiturin vieressä" style="object-position:35% 55%" loading="lazy" decoding="async"><figcaption class="kt" data-lahteet="ulk-instagram-06"><a href="https://www.instagram.com/p/Ddyu9H-K2OO/" rel="noopener" target="_blank">”Junia sekä metalli-, että kumipyörillä.” @aberginlinja</a></figcaption></figure><div>
@@ -953,10 +966,10 @@ input[type=range]{height:44px}
 </section><section class="osio" aria-labelledby="sahko-ots"><div class="wrap kaksi kaksi--kaanna">
   <figure class="iso-kuva ilm"><img src="kuvat/ig13-1024.webp" srcset="kuvat/ig13-640.webp 640w, kuvat/ig13-1024.webp 1024w" sizes="(min-width: 1000px) 50vw, 100vw" width="1024" height="682" alt="Valkoinen HSL-sähköbussi Åbergin Linjan varikon hallissa" style="object-position:50% 50%" loading="lazy" decoding="async"></figure>
   <div class="ilm"><p class="silma">Sähköbussit</p><h2 id="sahko-ots" data-lahteet="tyopaikka-06 linjaliikenne-15">Sähköbussit HSL‑liikenteessä</h2>
-    <p class="isoluku" data-lahteet="tyopaikka-06">yli 70 %</p><p data-lahteet="tyopaikka-06 historia-12">Åbergin Linjan HSL-linjaliikenteestä ajetaan sähköbusseilla</p><p class="johdanto" data-lahteet="historia-12">Ensimmäiset sähköbussit tulivat käyttöön 2020-luvun vaihteessa, ja nykyisin ne ovat tärkeässä osassa linjaliikennettä.</p></div>
+    <p class="isoluku" data-lahteet="laatu-ja-ymparisto-14">lähes 90 %</p><p data-lahteet="laatu-ja-ymparisto-12 laatu-ja-ymparisto-14">Åbergin Linjan linjaliikenteestä ajetaan sähköbusseilla (2026)</p><p class="johdanto" data-lahteet="historia-12">Ensimmäiset sähköbussit tulivat käyttöön 2020-luvun vaihteessa, ja nykyisin ne ovat tärkeässä osassa linjaliikennettä.</p></div>
 </div></section><section class="cta" aria-label="Tarjouspyyntö">
   <div class="wrap">
-    <div><h2>Tarvitsetteko oman bussin?</h2><p data-lahteet="etusivu-22">Lomake kysyy kaikki tarpeelliset tiedot, ja hintatiedon saa muutamassa tunnissa.</p></div>
+    <div><h2>Tarvitsetteko oman bussin?</h2><p data-lahteet="etusivu-22 yhteystiedot-13">Lomake kysyy kaikki tarpeelliset tiedot tarjouksen antamista varten. Toimisto palvelee arkisin <span class="nw">8–16</span> puhelimitse ja sähköpostitse.</p></div>
     <div class="napit"><a class="nappi nappi--sin" href="tarjous.html" data-kone><span>Pyydä tarjous</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="nappi nappi--reuna" href="tel:+35898842589"><span>Soita <span class="nw">09-884 2589</span></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></a></div>
   </div>
 </section>
@@ -1014,25 +1027,28 @@ input[type=range]{height:44px}
           <div class="kentat">
             <label class="kentta koko">Lähtöpaikka<input name="mista" list="ab-paikat" required autocomplete="off" placeholder="Esim. Espoon keskus"></label>
             <label class="kentta koko">Kohde<input name="minne" list="ab-paikat" required autocomplete="off" placeholder="Esim. Helsinki-Vantaan lentoasema"></label>
-            <div class="pikat koko"><span>Pikavalinnat:</span><button type="button" data-arvo="Helsinki-Vantaan lentoasema">Lentoasema</button><button type="button" data-arvo="Helsingin päärautatieasema">Rautatieasema</button><button type="button" data-arvo="Länsiterminaali T2, Helsinki">Länsiterminaali</button><button type="button" data-arvo="Messukeskus, Helsinki">Messukeskus</button><button type="button" data-arvo="Espoon keskus">Espoon keskus</button></div>
+            <div class="pikat koko"><span>Pikavalinta lähtöpaikaksi:</span><button type="button" data-arvo="Helsinki-Vantaan lentoasema">Lentoasema</button><button type="button" data-arvo="Helsingin päärautatieasema">Rautatieasema</button><button type="button" data-arvo="Länsiterminaali T2, Helsinki">Länsiterminaali</button><button type="button" data-arvo="Messukeskus, Helsinki">Messukeskus</button><button type="button" data-arvo="Espoon keskus">Espoon keskus</button></div>
             <div class="kentta koko ryhma"><span>Matkustajia</span><div class="ryhma-rivi"><div class="laskuri"><button type="button" data-askel="-1" aria-label="Matkustajia: yksi vähemmän">−</button><input name="montako" type="number" min="1" max="999" inputmode="numeric" required placeholder="hlö" aria-label="Matkustajia"><button type="button" data-askel="1" aria-label="Matkustajia: yksi enemmän">+</button></div><div class="kone-auto" id="kone-auto" aria-live="polite"></div></div></div>
             <label class="kentta">Lähtöpäivä<input name="paiva" type="date" required></label>
             <label class="kentta"><span>Lähtöaika <small>(vapaaehtoinen)</small></span><input name="aika" type="time"></label>
             <div class="kentta koko"><span id="k-muoto">Matka</span><div class="vaihto" role="radiogroup" aria-labelledby="k-muoto"><label><input type="radio" name="muoto" value="kuljetus" checked>Yksi suunta</label><label><input type="radio" name="muoto" value="menopaluu">Meno ja paluu</label><label><input type="radio" name="muoto" value="paiva">Päiväretki</label><label><input type="radio" name="muoto" value="monipaiva">Monta päivää</label></div></div>
-            <label class="kentta" data-nakyy="menopaluu monipaiva">Paluupäivä<input name="paluupaiva" type="date"></label>
+            <label class="kentta" data-nakyy="menopaluu monipaiva">Paluupäivä<input name="paluupaiva" type="date" aria-describedby="paluu-virhe"><small class="kentta-virhe" id="paluu-virhe" hidden>Paluu ei voi olla ennen lähtöpäivää.</small></label>
+            <label class="kentta" data-nakyy="menopaluu monipaiva"><span>Paluuaika <small>(jos tiedossa)</small></span><input name="paluuaika" type="time"></label>
             <label class="kentta" data-nakyy="paiva">Kesto tunteina<input name="kesto" type="number" min="1" max="24" inputmode="numeric" required></label>
+            <label class="kentta koko valinta-ruutu"><input type="checkbox" name="esteeton" value="1"><span>Ryhmässä on pyörätuolin käyttäjä tai muu esteettömyystarve</span></label>
           </div>
           <div class="hinta-arvio kesken" id="hinta-arvio" aria-live="polite"></div>
           <p class="kone-soitto">Mieluummin puhelimessa? <button type="button" data-soitto>Pyytäkää soittoa</button> tai soittakaa <a href="tel:+35898842589" data-lahteet="tarjouspyynto-05"><span class="nw">09-884 2589</span></a>.</p>
         </section>
         <section data-askel="2" hidden>
           <h2>Minne tarjous lähetetään?</h2>
+          <div class="kone-yhteenveto" id="kone-yhteenveto"></div>
           <div class="kentat">
             <label class="kentta koko">Nimi<input name="nimi" required autocomplete="name"></label>
             <label class="kentta">Sähköposti<input name="sposti" type="email" autocomplete="email"></label>
             <label class="kentta">Puhelin<input name="puhelin" type="tel" autocomplete="tel"></label>
             <small class="koko" id="yhteys-ohje" style="margin-top:-6px;color:var(--harmaa);font-size:13.5px">Sähköposti tai puhelin riittää.</small>
-            <label class="kentta koko"><span>Lisätiedot <small>(vapaaehtoinen)</small></span><textarea name="lisat" rows="3" placeholder="Esim. paluuaika, välipysähdykset, isot matkatavarat tai toiveet bussille"></textarea></label>
+            <label class="kentta koko"><span>Lisätiedot <small>(vapaaehtoinen)</small></span><textarea name="lisat" rows="3" placeholder="Esim. välipysähdykset, isot matkatavarat tai toiveet bussille"></textarea></label>
           </div>
           <p class="suostumus">Laskutustiedot kysytään vasta, kun hyväksytte tarjouksen.</p>
           <p class="suostumus">Käytämme tietoja vain tarjouksen tekemiseen ja matkan hoitamiseen. <a href="https://bustravel.fi/wp-content/uploads/2019/10/TietosuojarekisteriABERG.pdf" rel="noopener" target="_blank">Tietosuojaseloste</a></p>

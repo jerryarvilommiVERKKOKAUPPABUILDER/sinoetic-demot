@@ -224,7 +224,7 @@ input[type=range]{width:100%;margin:22px 0 8px;accent-color:var(--sin);height:28
 .merkit{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
 .merkit>span{font-size:13.5px;font-weight:700;padding:8px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.3)}
 /* vaiheet */
-.vaiheet{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;counter-reset:v}
+.vaiheet{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:v}
 .vaiheet li{counter-increment:v;padding:30px;border-radius:var(--sade);background:var(--pohja);position:relative}
 .vaiheet li::before{content:counter(v);display:flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:50%;background:var(--yo);color:var(--kelta);font-weight:800;font-size:19px;margin-bottom:22px}
 .vaiheet p{margin-top:10px;color:var(--harmaa);font-size:16px}
@@ -437,7 +437,7 @@ figcaption.kt span{opacity:.7;margin-left:6px}
 .koko-nappi--kaupunki{background:var(--pohja)}
 .koko-nappi--kaupunki strong{font-size:clamp(20px,1.8vw,24px);letter-spacing:-.02em}
 .koko-nappi--kaupunki>span{font-weight:600;color:var(--harmaa)}
-@media (max-width:1100px){.tarinat{grid-template-columns:1fr 1fr}.tarina{min-height:360px}}
+@media (max-width:1100px){.vaiheet{grid-template-columns:1fr 1fr}.tarinat{grid-template-columns:1fr 1fr}.tarina{min-height:360px}}
 @media (max-width:1000px){.em-tiivis,.koot{grid-template-columns:1fr}}
 @media (max-width:920px){
  .top.auki .pv{flex-direction:column}
@@ -453,7 +453,7 @@ figcaption.kt span{opacity:.7;margin-left:6px}
  .koko-napit{grid-template-columns:1fr 1fr}
  .koko-nappi{min-height:128px}
 }
-@media (max-width:600px){.tarinat{grid-template-columns:1fr}.tarina{min-height:0}}
+@media (max-width:600px){.vaiheet{grid-template-columns:1fr}.tarinat{grid-template-columns:1fr}.tarina{min-height:0}}
 /* tarjouslomake */
 .tarjous{display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(28px,4vw,56px);align-items:start}
 .lomake{background:#fff;border:1.5px solid var(--raja);border-radius:24px;padding:clamp(22px,3vw,40px);box-shadow:var(--var)}
@@ -501,7 +501,7 @@ figcaption.kt span{opacity:.7;margin-left:6px}
  .case,.valitsin,.kaksi,.hinnat,.ukk,.tarjous,.alahero .wrap{grid-template-columns:1fr}
  .kaksi--kaanna>:first-child{order:0}
  .case figure,.iso-kuva{aspect-ratio:16/11}
- .lainaukset,.vastuu,.vaiheet{grid-template-columns:1fr}
+ .lainaukset,.vastuu{grid-template-columns:1fr}
  .ala-ruudukko{grid-template-columns:1fr 1fr}
  .sivupalkki{position:static}
  .aikajana li{grid-template-columns:1fr;gap:6px}
@@ -542,8 +542,9 @@ figcaption.kt span{opacity:.7;margin-left:6px}
  .ala ul{gap:2px}
  .ala li a,.ala p a,.murut a,.ala-pohja a{display:inline-flex;align-items:center;min-height:44px}
  .linkki{min-height:44px}
+ .alahero{padding-top:76px}
  .alahero .wrap{min-height:0;padding-bottom:40px;padding-top:16px;gap:24px}
- .alahero figure{aspect-ratio:4/3;order:-1}
+ .alahero figure{aspect-ratio:3/2}
  .cta .napit .nappi{flex:1;justify-content:center}
  .alapalkki{display:grid;grid-template-columns:1fr 1.4fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:40;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 -1px 0 var(--raja);transform:translateY(110%);transition:transform .3s}
  .alapalkki.nakyy{transform:none}
@@ -598,6 +599,18 @@ figcaption.kt span{opacity:.7;margin-left:6px}
 .pikat>span{font-size:13px;font-weight:650;color:var(--harmaa);margin-right:2px}
 .pikat button{border:1px solid var(--raja);background:#fff;border-radius:999px;font:600 13px/1 var(--f);color:var(--harmaa);padding:8px 11px;cursor:pointer;min-height:34px}
 .pikat button:hover{border-color:var(--sin);color:var(--sin)}
+.valinta-ruutu{flex-direction:row!important;align-items:flex-start;gap:10px!important;font-weight:600!important;cursor:pointer}
+.valinta-ruutu input{accent-color:var(--sin);width:20px!important;height:20px;padding:0!important;margin-top:1px;flex:none}
+.kentta-virhe{color:#c0392b!important;font-weight:650!important}
+.kentta-virhe[hidden]{display:none}
+.kone-yhteenveto{background:var(--pohja);border-radius:14px;padding:14px 18px 16px;margin:-4px 0 20px;font-size:14.5px}
+.kone-yhteenveto:empty{display:none}
+.kone-yhteenveto .yv-paa{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:6px}
+.kone-yhteenveto .yv-paa b{font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--sin)}
+.kone-yhteenveto .yv-paa button{border:0;background:none;padding:0;font:700 14px var(--f);color:var(--sin);text-decoration:underline;text-underline-offset:3px;cursor:pointer;min-height:36px}
+.kone-yhteenveto dl{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;margin:0}
+.kone-yhteenveto dt{color:var(--harmaa);font-weight:600}
+.kone-yhteenveto dd{margin:0;font-weight:650;color:var(--muste);overflow-wrap:anywhere}
 .hinta-arvio{margin-top:22px;border-radius:16px;background:var(--yo);color:#fff;padding:20px 22px;display:grid;gap:10px}
 .hinta-arvio .ha-ots{font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--kelta)}
 .hinta-arvio .ha-rivi{display:flex;justify-content:space-between;align-items:baseline;gap:16px;font-size:15.5px;color:#dce4ee}
