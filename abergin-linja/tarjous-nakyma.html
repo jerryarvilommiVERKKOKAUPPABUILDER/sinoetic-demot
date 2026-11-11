@@ -928,6 +928,50 @@ input[type=range]{height:44px}
  .es-polku li{font-size:13px}
 }
 @media (prefers-reduced-motion:reduce){.pl-rivi.saapui{animation:none}}
+
+/* kierros 5: käyttötarkoitus, noutopaikat, aikataulu, toiveet ja matkan aikajana */
+.konteksti{border:1.5px solid #cfdcea;background:#f4f8fc;border-radius:14px;padding:6px 16px 16px;margin:0;display:block;min-width:0}
+.kontti-sisus{clear:both;display:grid;gap:12px;padding-top:6px}
+.konteksti[hidden],.kausi[hidden],.kontti-kentat[hidden],.noudot:empty{display:none}
+.konteksti legend{float:left;width:auto;padding:0;font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--sin);line-height:36px}
+.kontti-pois{float:right;border:0;background:none;padding:0;font:650 13.5px var(--f);color:var(--harmaa);text-decoration:underline;text-underline-offset:3px;cursor:pointer;min-height:36px}
+.kontti-pois:hover{color:var(--sin)}
+.konteksti .valinnat{gap:8px}
+.konteksti .valinnat label,.toiveet .valinnat label{padding:9px 14px;font-size:14.5px;background:#fff;min-height:42px}
+.kontti-kentat{display:grid;gap:12px}
+.kaksi-kenttaa{grid-template-columns:1fr 1fr}
+.pieni-ruutu{display:flex;font-size:14.5px!important}
+.toiveet{border:0;padding:0;margin:0;min-width:0;display:flex;flex-direction:column;gap:8px}
+.toiveet legend{padding:0;margin-bottom:8px;font-weight:650;font-size:15px}
+.toiveet .valinnat{gap:8px}
+.lisaa-nappi{justify-self:start;display:inline-flex;align-items:center;gap:6px;border:0;background:none;padding:0;font:700 14.5px var(--f);color:var(--sin);cursor:pointer;min-height:40px;margin-top:-6px}
+.lisaa-nappi svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round}
+.lisaa-nappi:hover span{text-decoration:underline;text-underline-offset:3px}
+.lisaa-nappi[hidden]{display:none}
+.noudot{display:grid;gap:10px;margin-top:-4px}
+.nouto,.kausi-rivi{display:grid;grid-template-columns:1fr 44px;gap:8px;align-items:end}
+.kausi-rivi{grid-template-columns:150px 1fr 44px}
+.poista-rivi{height:48px;border:1.5px solid var(--raja);border-radius:12px;background:#fff;color:var(--harmaa);cursor:pointer;display:grid;place-items:center}
+.poista-rivi svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round}
+.poista-rivi:hover{border-color:#c0392b;color:#c0392b}
+.kausi{border:1.5px solid var(--raja);border-radius:14px;padding:12px 16px 14px;margin:0;display:grid;gap:10px;min-width:0}
+.kausi legend{padding:0 4px;font-weight:650;font-size:15px}
+.kausi-ohje{font-size:13.5px;color:var(--harmaa);font-weight:500}
+.kausi-rivit{display:grid;gap:10px}
+.kausi-rivit:empty{display:none}
+.huomio-lisat{margin:12px 0;padding:12px 14px;border-radius:10px;background:#eef3f9;border-left:4px solid var(--sin);color:var(--yo);font-weight:650;font-size:14.5px;line-height:1.45}
+.matkajana{list-style:none;margin:4px 0 12px;padding:0;display:grid;gap:0}
+.matkajana li{position:relative;display:grid;grid-template-columns:auto 1fr;gap:2px 12px;padding:0 0 12px 22px;font-size:14.5px;line-height:1.35}
+.matkajana li::before{content:"";position:absolute;left:4px;top:5px;width:9px;height:9px;border-radius:50%;background:var(--sin)}
+.matkajana li::after{content:"";position:absolute;left:8px;top:16px;bottom:0;width:1.5px;background:#c9d6e4}
+.matkajana li:last-child{padding-bottom:4px}
+.matkajana li:last-child::after{display:none}
+.matkajana .mj-mita{font-weight:700;color:var(--muste)}
+.matkajana .mj-aika{color:var(--sin);font-weight:700;text-align:right;white-space:nowrap}
+.matkajana .mj-paikka{grid-column:1/-1;color:var(--harmaa);font-weight:550;overflow-wrap:anywhere}
+.matkajana-huom{font-size:13px;color:var(--harmaa);font-weight:550;margin:0 0 12px}
+.doc .matkajana{margin-bottom:16px}
+@media (max-width:760px){.kausi-rivi{grid-template-columns:1fr 44px}.kausi-rivi .kentta:first-child{grid-column:1/-1}.kaksi-kenttaa{grid-template-columns:1fr}}
 </style>
 </head>
 <body class="sovellus">

@@ -929,6 +929,50 @@ input[type=range]{height:44px}
  .es-polku li{font-size:13px}
 }
 @media (prefers-reduced-motion:reduce){.pl-rivi.saapui{animation:none}}
+
+/* kierros 5: käyttötarkoitus, noutopaikat, aikataulu, toiveet ja matkan aikajana */
+.konteksti{border:1.5px solid #cfdcea;background:#f4f8fc;border-radius:14px;padding:6px 16px 16px;margin:0;display:block;min-width:0}
+.kontti-sisus{clear:both;display:grid;gap:12px;padding-top:6px}
+.konteksti[hidden],.kausi[hidden],.kontti-kentat[hidden],.noudot:empty{display:none}
+.konteksti legend{float:left;width:auto;padding:0;font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--sin);line-height:36px}
+.kontti-pois{float:right;border:0;background:none;padding:0;font:650 13.5px var(--f);color:var(--harmaa);text-decoration:underline;text-underline-offset:3px;cursor:pointer;min-height:36px}
+.kontti-pois:hover{color:var(--sin)}
+.konteksti .valinnat{gap:8px}
+.konteksti .valinnat label,.toiveet .valinnat label{padding:9px 14px;font-size:14.5px;background:#fff;min-height:42px}
+.kontti-kentat{display:grid;gap:12px}
+.kaksi-kenttaa{grid-template-columns:1fr 1fr}
+.pieni-ruutu{display:flex;font-size:14.5px!important}
+.toiveet{border:0;padding:0;margin:0;min-width:0;display:flex;flex-direction:column;gap:8px}
+.toiveet legend{padding:0;margin-bottom:8px;font-weight:650;font-size:15px}
+.toiveet .valinnat{gap:8px}
+.lisaa-nappi{justify-self:start;display:inline-flex;align-items:center;gap:6px;border:0;background:none;padding:0;font:700 14.5px var(--f);color:var(--sin);cursor:pointer;min-height:40px;margin-top:-6px}
+.lisaa-nappi svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round}
+.lisaa-nappi:hover span{text-decoration:underline;text-underline-offset:3px}
+.lisaa-nappi[hidden]{display:none}
+.noudot{display:grid;gap:10px;margin-top:-4px}
+.nouto,.kausi-rivi{display:grid;grid-template-columns:1fr 44px;gap:8px;align-items:end}
+.kausi-rivi{grid-template-columns:150px 1fr 44px}
+.poista-rivi{height:48px;border:1.5px solid var(--raja);border-radius:12px;background:#fff;color:var(--harmaa);cursor:pointer;display:grid;place-items:center}
+.poista-rivi svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round}
+.poista-rivi:hover{border-color:#c0392b;color:#c0392b}
+.kausi{border:1.5px solid var(--raja);border-radius:14px;padding:12px 16px 14px;margin:0;display:grid;gap:10px;min-width:0}
+.kausi legend{padding:0 4px;font-weight:650;font-size:15px}
+.kausi-ohje{font-size:13.5px;color:var(--harmaa);font-weight:500}
+.kausi-rivit{display:grid;gap:10px}
+.kausi-rivit:empty{display:none}
+.huomio-lisat{margin:12px 0;padding:12px 14px;border-radius:10px;background:#eef3f9;border-left:4px solid var(--sin);color:var(--yo);font-weight:650;font-size:14.5px;line-height:1.45}
+.matkajana{list-style:none;margin:4px 0 12px;padding:0;display:grid;gap:0}
+.matkajana li{position:relative;display:grid;grid-template-columns:auto 1fr;gap:2px 12px;padding:0 0 12px 22px;font-size:14.5px;line-height:1.35}
+.matkajana li::before{content:"";position:absolute;left:4px;top:5px;width:9px;height:9px;border-radius:50%;background:var(--sin)}
+.matkajana li::after{content:"";position:absolute;left:8px;top:16px;bottom:0;width:1.5px;background:#c9d6e4}
+.matkajana li:last-child{padding-bottom:4px}
+.matkajana li:last-child::after{display:none}
+.matkajana .mj-mita{font-weight:700;color:var(--muste)}
+.matkajana .mj-aika{color:var(--sin);font-weight:700;text-align:right;white-space:nowrap}
+.matkajana .mj-paikka{grid-column:1/-1;color:var(--harmaa);font-weight:550;overflow-wrap:anywhere}
+.matkajana-huom{font-size:13px;color:var(--harmaa);font-weight:550;margin:0 0 12px}
+.doc .matkajana{margin-bottom:16px}
+@media (max-width:760px){.kausi-rivi{grid-template-columns:1fr 44px}.kausi-rivi .kentta:first-child{grid-column:1/-1}.kaksi-kenttaa{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -1041,16 +1085,23 @@ input[type=range]{height:44px}
         <section data-askel="1">
           <h2>Mistä minne ja milloin?</h2>
           <div class="kentat">
+            <fieldset class="konteksti koko" data-konteksti="urheilu" hidden><legend>Joukkueen matka</legend><button type="button" class="kontti-pois" data-pois-konteksti>Ei koske tätä pyyntöä</button><div class="kontti-sisus"><div class="valinnat"><label><input type="radio" name="u_laji" value="peli" checked>Yksi pelimatka</label><label><input type="radio" name="u_laji" value="kausi">Kauden kuljetukset</label></div></div></fieldset><fieldset class="konteksti koko" data-konteksti="tapahtuma" hidden><legend>Tapahtuma, yritys tai lentokenttä</legend><button type="button" class="kontti-pois" data-pois-konteksti>Ei koske tätä pyyntöä</button><div class="kontti-sisus"><div class="valinnat"><label><input type="radio" name="t_laji" value="kuljetus" checked>Kuljetus tapahtumaan</label><label><input type="radio" name="t_laji" value="shuttle">Shuttle-ajo</label><label><input type="radio" name="t_laji" value="lento">Lentokenttäkuljetus</label></div><div class="kontti-kentat" data-laji="shuttle" hidden><label class="kentta koko"><span>Ajoaika ja vuoroväli <small>(vapaaehtoinen)</small></span><input name="t_shuttle" autocomplete="off" placeholder="Esim. klo 9–17, vuoro puolen tunnin välein"></label></div><div class="kontti-kentat kaksi-kenttaa" data-laji="lento" hidden><label class="kentta"><span>Lennon numero <small>(vapaaehtoinen)</small></span><input name="t_lento" autocomplete="off" placeholder="Esim. AY1234"></label><label class="kentta"><span>Lento saapuu klo <small>(jos haette)</small></span><input name="t_saapuu" type="time"></label></div></div></fieldset><fieldset class="konteksti koko" data-konteksti="haat" hidden><legend>Hääkuljetus</legend><button type="button" class="kontti-pois" data-pois-konteksti>Ei koske tätä pyyntöä</button><div class="kontti-sisus"><label class="kentta koko valinta-ruutu pieni-ruutu"><input type="checkbox" name="h_useita" value="1"><span>Juhlien jälkeen useampi paluulähtö</span></label><div class="kontti-kentat" data-h-useita hidden><label class="kentta koko"><span>Paluulähtöjen ajat</span><input name="h_ajat" autocomplete="off" placeholder="Esim. klo 23 ja klo 1"></label></div></div></fieldset>
             <label class="kentta koko">Lähtöpaikka<input name="mista" list="ab-paikat" required autocomplete="off" placeholder="Esim. Espoon keskus"></label>
+            <div class="noudot koko" id="noudot"></div>
+            <button type="button" class="lisaa-nappi koko" data-lisaa-nouto><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><span>Lisää noutopaikka</span></button>
             <label class="kentta koko">Kohde<input name="minne" list="ab-paikat" required autocomplete="off" placeholder="Esim. Helsinki-Vantaan lentoasema"></label>
             <div class="pikat koko"><span>Pikavalinta lähtöpaikaksi:</span><button type="button" data-arvo="Helsinki-Vantaan lentoasema">Lentoasema</button><button type="button" data-arvo="Helsingin päärautatieasema">Rautatieasema</button><button type="button" data-arvo="Länsiterminaali T2, Helsinki">Länsiterminaali</button><button type="button" data-arvo="Messukeskus, Helsinki">Messukeskus</button><button type="button" data-arvo="Espoon keskus">Espoon keskus</button></div>
             <div class="kentta koko ryhma"><span>Matkustajia</span><div class="ryhma-rivi"><div class="laskuri"><button type="button" data-askel="-1" aria-label="Matkustajia: yksi vähemmän">−</button><input name="montako" type="number" min="1" max="999" inputmode="numeric" required placeholder="hlö" aria-label="Matkustajia" aria-describedby="montako-virhe"><button type="button" data-askel="1" aria-label="Matkustajia: yksi enemmän">+</button></div><div class="kone-auto" id="kone-auto" aria-live="polite"></div></div><small class="kentta-virhe" id="montako-virhe" hidden></small></div>
+            <div class="kentta koko"><span id="k-aikatapa">Aikataulu</span><div class="vaihto" role="radiogroup" aria-labelledby="k-aikatapa"><label><input type="radio" name="aikatapa" value="lahto" checked>Lähtöaika</label><label><input type="radio" name="aikatapa" value="perilla">Perillä viimeistään</label></div></div>
             <label class="kentta">Lähtöpäivä<input name="paiva" type="date" required aria-describedby="paiva-virhe"><small class="kentta-virhe" id="paiva-virhe" hidden></small></label>
-            <label class="kentta"><span>Lähtöaika <small>(vapaaehtoinen)</small></span><input name="aika" type="time" aria-describedby="aika-virhe"><small class="kentta-virhe" id="aika-virhe" hidden></small></label>
+            <label class="kentta"><span><span id="aika-ots">Lähtöaika</span> <small>(vapaaehtoinen)</small></span><input name="aika" type="time" aria-describedby="aika-virhe"><small class="kentta-virhe" id="aika-virhe" hidden></small></label>
             <div class="kentta koko"><span id="k-muoto">Matka</span><div class="vaihto" role="radiogroup" aria-labelledby="k-muoto"><label><input type="radio" name="muoto" value="kuljetus" checked>Yksi suunta</label><label><input type="radio" name="muoto" value="menopaluu">Meno ja paluu</label><label><input type="radio" name="muoto" value="paiva">Päiväretki</label><label><input type="radio" name="muoto" value="monipaiva">Monta päivää</label></div></div>
             <label class="kentta" data-nakyy="menopaluu monipaiva">Paluupäivä<input name="paluupaiva" type="date" aria-describedby="paluupaiva-virhe"><small class="kentta-virhe" id="paluupaiva-virhe" hidden></small></label>
-            <label class="kentta" data-nakyy="menopaluu monipaiva"><span>Paluuaika <small>(jos tiedossa)</small></span><input name="paluuaika" type="time" aria-describedby="paluuaika-virhe"><small class="kentta-virhe" id="paluuaika-virhe" hidden></small></label>
+            <label class="kentta" data-nakyy="menopaluu monipaiva"><span>Paluuaika <small>(vapaaehtoinen)</small></span><input name="paluuaika" type="time" aria-describedby="paluuaika-virhe"><small class="kentta-virhe" id="paluuaika-virhe" hidden></small></label>
+            <label class="kentta koko valinta-ruutu pieni-ruutu" data-nakyy="menopaluu monipaiva"><input type="checkbox" name="paluuAvoin" value="1"><span>Paluun aika ei ole vielä tiedossa</span></label>
             <label class="kentta" data-nakyy="paiva">Kesto tunteina<input name="kesto" type="number" min="1" max="24" inputmode="numeric" required></label>
+            <fieldset class="kentta koko kausi" data-kausi hidden><legend>Kauden muut matkat</legend><p class="kausi-ohje">Ensimmäinen matka on yllä. Lisätkää muut tiedossa olevat pelimatkat.</p><div class="kausi-rivit" id="kausi-rivit"></div><button type="button" class="lisaa-nappi" data-lisaa-matka><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><span>Lisää matka</span></button><label class="valinta-ruutu pieni-ruutu"><input type="checkbox" name="u_avoin" value="1"><span>Otteluohjelma tarkentuu myöhemmin</span></label></fieldset>
+            <fieldset class="kentta koko toiveet"><legend>Toiveet bussille <small>(vapaaehtoinen)</small></legend><div class="valinnat"><label><input type="checkbox" name="toive" value="Pöytäryhmä">Pöytäryhmä</label><label><input type="checkbox" name="toive" value="Paljon tavaratilaa">Paljon tavaratilaa</label><label><input type="checkbox" name="toive" value="WC">WC</label></div><small>Myynti varmistaa varusteet tarjoukseen.</small></fieldset>
             <label class="kentta koko valinta-ruutu"><input type="checkbox" name="esteeton" value="1"><span>Ryhmässä on pyörätuolin käyttäjä tai muu esteettömyystarve</span></label>
           </div>
           <div class="hinta-arvio kesken" id="hinta-arvio" aria-live="polite"></div>
