@@ -290,15 +290,15 @@ details p{padding:0 40px 24px 0;color:var(--harmaa);font-size:16.5px}
 .ala-pohja{margin-top:56px;padding-top:24px;border-top:1px solid rgba(255,255,255,.1);font-size:13px;color:#8796a8;display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
 /* alasivun ensinäkymä */
 .alahero{position:relative;background:var(--yo);color:#fff;overflow:hidden;text-align:center}
-.vc-ruutu{position:relative;min-height:520px;height:calc(100svh - var(--palkki));max-height:900px;display:flex;align-items:flex-end;overflow:hidden}
+.vc-ruutu{position:relative;min-height:clamp(420px,calc(66svh - var(--palkki)),600px);padding-top:calc(92px + var(--palkki));display:flex;align-items:flex-end;overflow:hidden}
 .alahero .vc-kuva,.vc-kuva img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;margin:0}
 .liike .vc-kuva img{transform:scale(calc(1.1 - var(--v,0) * .1));will-change:transform}
 .vc-ruutu::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(11,24,38,1) 0%,rgba(8,16,26,.82) 26%,rgba(8,16,26,.35) 44%,rgba(8,16,26,0) 60%),linear-gradient(to bottom,rgba(8,16,26,.75),rgba(8,16,26,0) 26%);pointer-events:none}
-.vc-ruutu .wrap{position:relative;z-index:2;width:100%;padding-bottom:clamp(40px,7vh,72px)}
+.vc-ruutu .wrap{position:relative;z-index:2;width:100%;padding-bottom:clamp(28px,5vh,52px)}
 .alahero .murut{display:none}
-.alahero h1{font-size:clamp(44px,6.2vw,84px);max-width:18ch;margin:0 auto;letter-spacing:-.045em;line-height:.98}
+.alahero h1{font-size:clamp(40px,5vw,68px);max-width:18ch;margin:0 auto;letter-spacing:-.045em;line-height:.98}
 .alahero .napit{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px;justify-content:center}
-.alahero .vc-ing{max-width:calc(780px + 2 * var(--reuna));text-align:left;padding-top:clamp(28px,5vh,48px);padding-bottom:clamp(48px,8vh,88px)}
+.alahero .vc-ing{max-width:calc(780px + 2 * var(--reuna));text-align:left;padding-top:clamp(20px,3vh,32px);padding-bottom:clamp(28px,4vh,48px)}
 .alahero .ingressi{margin:0;font-size:clamp(19px,1.8vw,23px);line-height:1.5;color:#e6ecf3}
 .vc-kuva figcaption.kt{z-index:3;left:auto;right:var(--reuna);bottom:auto;top:calc(76px + var(--palkki) + 12px);max-width:min(300px,calc(100% - 2 * var(--reuna)));text-align:left;font-size:11.5px;font-weight:500;padding:6px 10px;background:rgba(12,27,43,.55)}
 .murut{font-size:14px;color:#9fb0c3;margin-bottom:22px;font-weight:600}
@@ -607,7 +607,7 @@ figcaption.kt span{opacity:.7;margin-left:6px}
  .ala ul{gap:2px}
  .ala li a,.ala p a,.murut a,.ala-pohja a{display:inline-flex;align-items:center;min-height:44px}
  .linkki{min-height:44px}
- .vc-ruutu{height:auto;min-height:calc(86svh - var(--palkki));padding-top:calc(76px + var(--palkki))}
+ .vc-ruutu{height:auto;min-height:calc(58svh - var(--palkki));padding-top:calc(76px + var(--palkki))}
  .vc-ruutu .wrap{padding-bottom:28px}
  .alahero h1{font-size:clamp(38px,11vw,48px)}
  .alahero .napit .nappi{flex:1;justify-content:center;padding:0 16px}
@@ -1218,6 +1218,7 @@ html.kehyksessa .demopalkki{display:none}
 /* T-11: kohdistettu elementti ei jää kiinteän yläpalkin tai puhelimen alapalkin alle (otsikkoankkurien paikka ennallaan: 88 + 12 = 100 px) */
 html:has(.top){scroll-padding-top:88px}
 html:has(.top) h2[id],html:has(.top) h3[id]{scroll-margin-top:12px}
+html:has(.top) :is(article,li)[id]{scroll-margin-top:34px}
 @media (max-width:760px){html:has(.alapalkki){scroll-padding-bottom:calc(88px + env(safe-area-inset-bottom))}}
 /* T-14: Esc sulkee Palvelut-pudotuksen */
 @media (min-width:921px){.top nav .pv.suljettu .pv-lista{display:none}.top nav .pv.suljettu .alas{transform:none}}
@@ -1244,3 +1245,29 @@ figcaption.kt>a:only-child{display:flex;align-items:center;min-height:44px;margi
 .auto.pieni h3{color:var(--harmaa)}
 /* T-21: PAIKKAA-merkki ei leikkaudu kapeassa bussikuvassa */
 @media (max-width:760px){.auto .koko small{display:block;margin:1px 0 0;font-size:9.5px}}
+/* Mousen 9. arvio 12.11.2026 */
+/* 1: tarjouslomakkeen otsikko omaan tilaansa yläpalkin alle, hieman pienempänä */
+.alahero--lomake{padding-top:calc(76px + var(--palkki) + 28px)}
+.alahero--lomake .wrap{padding-top:0}
+.alahero--lomake h1{font-size:clamp(34px,4.2vw,54px);line-height:1.02}
+.alahero--lomake .ingressi{max-width:62ch;margin:14px auto 0;font-size:clamp(17px,1.5vw,20px)}
+@media (max-width:760px){.alahero--lomake{padding-top:calc(76px + var(--palkki) + 20px)}.alahero--lomake h1{font-size:clamp(30px,8.6vw,38px)}}
+/* 3: Siirry kohtaan -oikopolut ensinäkymän alla */
+.oikopolut{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 14px;margin-top:18px;font-size:15.5px}
+.oikopolut>span{color:#9fb0c3;font-weight:600;font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+.oikopolut ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;align-items:center}
+.oikopolut li{display:flex;align-items:center}
+.oikopolut li:not(:last-child)::after{content:"·";color:#7f91a6;padding:0 4px;font-weight:700}
+.oikopolut a{display:inline-flex;align-items:center;min-height:44px;padding:0 4px;color:#fff;font-weight:650;text-decoration:underline;text-decoration-color:rgba(237,209,0,.7);text-underline-offset:4px;text-decoration-thickness:1.5px}
+.oikopolut a:hover{color:var(--kelta-2)}
+.oikopolut a:focus-visible{outline:2px solid var(--kelta);outline-offset:2px;border-radius:4px}
+/* 2: urheiluseurojen kaksi valintaa heti alussa */
+.valinnat{padding-top:clamp(36px,5vw,64px);padding-bottom:clamp(28px,4vw,48px)}
+.valinta-kortit{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.valinta{display:flex;flex-direction:column;gap:10px;padding:26px 28px;border:1.5px solid var(--raja);border-radius:18px;background:#fff}
+.valinta h2{font-size:clamp(22px,2.2vw,28px);letter-spacing:-.02em}
+.valinta p{margin:0;color:var(--harmaa);font-size:16.5px;max-width:44ch}
+.valinta .napit{margin-top:auto;padding-top:8px}
+/* 4: yhteystietojen kolme nappia puhelimessa allekkain, ettei numero katkea neljälle riville */
+@media (max-width:760px){.alahero .napit:has(>.nappi:nth-child(3)) .nappi{flex:1 1 100%;white-space:nowrap}}
+@media (max-width:760px){.valinta-kortit{grid-template-columns:1fr}.valinta{padding:22px 20px}.valinta .nappi{width:100%;justify-content:center}}
