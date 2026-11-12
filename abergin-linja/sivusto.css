@@ -158,6 +158,7 @@ p{margin:0}
 .kortti .sis{display:flex;flex-direction:column;flex:1;padding:22px 24px 24px}
 .kortti h3{font-size:22px}
 .kortti p{margin-top:8px;font-size:15.5px;color:var(--harmaa);line-height:1.5}
+.kortti .k-lyhyt{display:none}
 .kortti .lisaa{display:inline-flex;align-items:center;gap:8px;margin-top:auto;padding-top:16px;font-weight:700;font-size:15px;color:var(--sin)}
 .kortti .lisaa svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
 /* referenssi */
@@ -591,7 +592,9 @@ figcaption.kt span{opacity:.7;margin-left:6px}
  .kortti-kuva{flex:0 0 112px;aspect-ratio:auto}
  .kortti .sis{padding:14px 16px;justify-content:center}
  .kortti h3{font-size:18px}
- .kortti p{font-size:14px;margin-top:4px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+ .kortti p{font-size:14px;margin-top:4px}
+ .kortti .k-pitka{display:none}
+ .kortti .k-lyhyt{display:block}
  .kortti .lisaa{display:none}
  .liike .kortit .ilm{opacity:1;transform:none}
  .tilastot{gap:22px}
@@ -1261,6 +1264,8 @@ figcaption.kt>a:only-child{display:flex;align-items:center;min-height:44px;margi
 .oikopolut a{display:inline-flex;align-items:center;min-height:44px;padding:0 4px;color:#fff;font-weight:650;text-decoration:underline;text-decoration-color:rgba(237,209,0,.7);text-underline-offset:4px;text-decoration-thickness:1.5px}
 .oikopolut a:hover{color:var(--kelta-2)}
 .oikopolut a:focus-visible{outline:2px solid var(--kelta);outline-offset:2px;border-radius:4px}
+/* 5: etusivun luvut palvelukorttien jälkeen: väli kortteihin tiiviimmäksi ja ilmaa seuraavaan osioon */
+#palvelut+.luvut{padding-top:8px;padding-bottom:clamp(24px,4vw,56px)}
 /* 2: urheiluseurojen kaksi valintaa heti alussa */
 .valinnat{padding-top:clamp(36px,5vw,64px);padding-bottom:clamp(28px,4vw,48px)}
 .valinta-kortit{display:grid;grid-template-columns:1fr 1fr;gap:16px}
