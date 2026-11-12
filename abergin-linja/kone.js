@@ -1,4 +1,4 @@
-window.KONE={"paikat": [{"id": "lentoasema", "nimi": "Helsinki-Vantaan lentoasema"}, {"id": "rautatieasema", "nimi": "Helsingin päärautatieasema"}, {"id": "lansiterminaali", "nimi": "Länsiterminaali T2, Helsinki"}, {"id": "katajanokka", "nimi": "Katajanokan terminaali, Helsinki"}, {"id": "messukeskus", "nimi": "Messukeskus, Helsinki"}, {"id": "olympiastadion", "nimi": "Olympiastadion, Helsinki"}, {"id": "kauppatori", "nimi": "Kauppatori, Helsinki"}, {"id": "linnanmaki", "nimi": "Linnanmäki, Helsinki"}, {"id": "espoonkeskus", "nimi": "Espoon keskus"}, {"id": "tapiola", "nimi": "Tapiola, Espoo"}, {"id": "leppavaara", "nimi": "Leppävaara, Espoo"}, {"id": "otaniemi", "nimi": "Otaniemi, Espoo"}, {"id": "tikkurila", "nimi": "Tikkurila, Vantaa"}], "km": [[0.0, 19.6, 21.4, 20.3, 15.2, 17.7, 20.2, 16.7, 26.9, 23.5, 18.5, 23.6, 9.2], [19.2, 0.0, 3.3, 3.0, 5.0, 2.4, 2.3, 4.0, 19.1, 9.8, 11.0, 9.4, 19.3], [21.8, 4.2, 0.0, 5.3, 7.7, 5.1, 4.2, 6.6, 22.5, 10.2, 14.9, 9.7, 22.0], [19.9, 2.7, 4.6, 0.0, 7.2, 4.3, 1.8, 4.7, 21.0, 11.4, 13.0, 10.9, 21.5], [15.2, 5.5, 7.3, 7.2, 0.0, 3.6, 5.8, 2.6, 18.5, 13.6, 10.4, 9.9, 15.3], [17.7, 2.5, 4.6, 4.5, 3.6, 0.0, 3.6, 2.5, 17.4, 11.0, 9.4, 7.5, 17.9], [19.4, 1.5, 3.4, 1.3, 6.7, 3.2, 0.0, 4.2, 19.9, 10.2, 11.8, 9.7, 21.0], [16.7, 3.9, 6.0, 4.6, 2.5, 2.5, 3.9, 0.0, 18.2, 12.4, 10.1, 8.3, 16.8], [25.1, 18.8, 21.1, 20.7, 17.6, 17.0, 19.8, 17.8, 0.0, 13.9, 11.8, 13.9, 28.4], [23.7, 10.1, 9.4, 11.6, 12.6, 11.0, 10.6, 12.8, 14.5, 0.0, 6.8, 3.2, 23.9], [19.1, 11.5, 14.0, 13.4, 10.3, 9.7, 12.5, 10.5, 11.5, 6.4, 0.0, 6.4, 19.2], [24.1, 10.0, 9.3, 11.5, 9.4, 7.4, 10.5, 8.2, 15.2, 3.2, 7.1, 0.0, 24.2], [8.5, 20.7, 22.0, 21.5, 15.7, 18.3, 20.6, 17.3, 29.9, 24.1, 19.1, 24.2, 0.0]], "min": [[0, 28, 32, 29, 19, 24, 29, 22, 26, 27, 21, 27, 12], [28, 0, 10, 8, 12, 6, 7, 10, 25, 15, 19, 15, 27], [34, 13, 0, 15, 19, 13, 12, 16, 28, 16, 21, 15, 34], [29, 8, 13, 0, 15, 11, 5, 12, 30, 18, 23, 18, 27], [19, 13, 17, 15, 0, 9, 14, 7, 22, 19, 16, 18, 19], [24, 7, 11, 11, 9, 0, 9, 6, 21, 17, 14, 14, 23], [27, 5, 10, 3, 14, 8, 0, 10, 27, 15, 20, 15, 26], [22, 10, 14, 11, 7, 6, 10, 0, 23, 20, 16, 15, 21], [29, 25, 25, 30, 21, 21, 27, 22, 0, 16, 14, 17, 30], [27, 16, 14, 19, 18, 17, 17, 20, 17, 0, 10, 8, 27], [22, 19, 19, 23, 15, 15, 21, 16, 13, 10, 0, 10, 21], [27, 16, 13, 19, 17, 14, 16, 15, 18, 7, 10, 0, 27], [12, 28, 32, 28, 19, 24, 28, 22, 29, 27, 21, 28, 0]], "luokat": [{"id": "pikku", "nimi": "Pikkubussi", "max": 16, "kuva": "pikku", "koko": "13–16"}, {"id": "midi", "nimi": "30–34-paikkainen", "max": 34, "kuva": "midi", "koko": "30–34"}, {"id": "b50", "nimi": "49–54-paikkainen", "max": 54, "kuva": "b50", "koko": "49–54"}, {"id": "iso", "nimi": "Iso bussi", "max": 60, "kuva": "iso", "koko": "57–60"}], "autot": {"Pikkubussi": {"kuva": "pikku", "koko": "13–16"}, "30–34-paikkainen": {"kuva": "midi", "koko": "30–34"}, "Honka-bussi": {"kuva": "honka", "koko": "49"}, "49–54-paikkainen": {"kuva": "b50", "koko": "49–54"}, "Iso bussi": {"kuva": "iso", "koko": "57–60"}}, "tasot": {"pikku": {"selite": "Lyhyt kuljetus pikkubussilla", "hinta": "alle 200 €"}, "iso": {"selite": "Lyhyt kuljetus isolla bussilla", "hinta": "200–300 € alkaen"}, "paiva": {"selite": "Muutaman tunnin päiväretki Helsingissä", "hinta": "noin 350–500 €"}}, "alv": 13.5, "t": {"kesken": "Kertokaa lähtöpaikka, kohde ja matkustajamäärä. Valituilla reiteillä hintataso näkyy heti, ja hinta tulee tarjouksessa.", "esteeton": "Myynti varmistaa ennen tarjousta sopivan auton, pyörätuolipaikat ja kyytiin nousun.", "ajatMyynti": "Myynti vahvistaa ajoajat tarjouksessa.", "ajatPerilla": "Myynti laskee lähtöajan ja vahvistaa ajoajat tarjouksessa.", "esteetonMyyja": "Ryhmässä on pyörätuolin käyttäjä tai muu esteettömyystarve. Varmistakaa esteetön kalusto ja hinnoittelu ennen tarjousta.", "taso": "Julkaistu hintataso, tarkka hinta tulee tarjouksessa. Hintaan vaikuttavat matkan pituus ja siihen käytetty aika, matkustajamäärä ja kuljetuksen ajankohta.", "tarkka": "Laskettu myynnin hinnoittelulla. Myynti vahvistaa vapaan kaluston.", "monipaiva": "Usean päivän matkan hinta lasketaan tarjoukseen.", "eiTasoa": "Hintataso näkyy, kun lähtö ja kohde löytyvät pikavalinnoista tai listasta. Muille reiteille hinta lasketaan tarjoukseen.", "valitsee": "Myynti valitsee ryhmällenne sopivan auton. Jos toivottu koko on varattu, tarjoamme vastaavan tai isomman.", "demoSposti": "Demo: viestiä ei lähetetty. Valmiissa sivustossa viesti lähtee asiakkaalle automaattisesti heti.", "demoTallennus": "Demo: tiedot tallentuvat vain tähän selaimeen, joten myyjän näkymä toimii samassa selaimessa ja samalla osoitteella.", "soitto": "Myynti soittaa teille takaisin. Toimisto avoinna arkisin 8–16.", "eiLoydy": "Tarjous näkyy siinä selaimessa, jossa pyyntö tehtiin.", "ehdot": "Myynti vahvistaa vapaan kaluston hyväksynnän jälkeen. Laskutustiedot kysytään vasta, kun tarjous hyväksytään.", "hyvaksytty": "Kiitos! Tilaus on vastaanotettu. Myynti vahvistaa varauksen sähköpostilla.", "vahvistettu": "Varaus on vahvistettu. Tervetuloa kyytiin!", "ytjHaku": "Nimi ja osoite haetaan Y-tunnuksella Patentti- ja rekisterihallituksen avoimesta datasta.", "ytjEi": "Yritystä ei löytynyt. Kirjoittakaa nimi ja osoite itse.", "odottaa": "Lähetämme tarjouksen sähköpostiinne, joten sivua ei tarvitse pitää auki. Jos sivu on auki, tarjous näkyy myös tässä.", "odottaaTekstari": "Lähetämme tarjouksen tekstiviestinä, joten sivua ei tarvitse pitää auki. Jos sivu on auki, tarjous näkyy myös tässä.", "postiTyhja": "Tehkää tarjouspyyntö puhelimessa vasemmalla. Viesti saapuu tähän heti.", "vahvistaOhje": "Tarkistakaa vapaa kalusto ja vahvistakaa varaus yhdellä napilla. Laskutustiedot voi kopioida suoraan laskutukseen.", "vahvistusLahti": "Asiakas sai vahvistuksen. Laskutustiedot ovat tässä viestissä valmiina.", "odottaaAsiakasta": "Odottaa asiakkaan hyväksyntää. Hyväksyntä ja laskutustiedot tulevat tähän postilaatikkoon omana viestinään.", "hyvaksyiJo": "Asiakas hyväksyi tarjouksen. Laskutustiedot tulivat omana viestinään.", "tyhja": "Tehkää tarjouspyyntö sivustolla toisessa ikkunassa, niin se ilmestyy tähän heti.", "eiHinnoittelua": "Hinnoittelua ei ole syötetty, joten asiakas näkee julkaistun hintatason ja myynti hinnoittelee käsin.", "nopea": "Tarjous jopa parissa toimistotunnissa. Toimisto avoinna arkisin 8–16", "toimisto": "Toimisto avoinna arkisin 8–16", "yli60": "Isommalle ryhmälle useampi bussi: omalla kalustolla kuljetetaan useamman sadan henkilön kuljetukset samaan aikaan.", "reittilahde": "Matka ja ajoaika: © OpenStreetMap-tekijät, OSRM."}, "yritys": {"nimi": "Bus Travel Åbergin Linja Oy", "osoite": "Finnoonkartanonkatu 19, 02270 Espoo", "ytunnus": "Y-tunnus 1098704-8", "toimisto": "Toimisto avoinna arkisin 8–16", "lahettaja": "Åbergin Linja, tilausajomyynti <myynti@aberginlinja.fi>", "allekirjoitus": "Åbergin Linja, tilausajomyynti", "slogan": "Hymyilevä Bussiyhtiö", "puh": "09-884 2589", "puhTel": "tel:+35898842589", "sposti": "myynti@aberginlinja.fi"}};
+window.KONE={"paikat": [{"id": "lentoasema", "nimi": "Helsinki-Vantaan lentoasema"}, {"id": "rautatieasema", "nimi": "Helsingin päärautatieasema"}, {"id": "lansiterminaali", "nimi": "Länsiterminaali T2, Helsinki"}, {"id": "katajanokka", "nimi": "Katajanokan terminaali, Helsinki"}, {"id": "messukeskus", "nimi": "Messukeskus, Helsinki"}, {"id": "olympiastadion", "nimi": "Olympiastadion, Helsinki"}, {"id": "kauppatori", "nimi": "Kauppatori, Helsinki"}, {"id": "linnanmaki", "nimi": "Linnanmäki, Helsinki"}, {"id": "espoonkeskus", "nimi": "Espoon keskus"}, {"id": "tapiola", "nimi": "Tapiola, Espoo"}, {"id": "leppavaara", "nimi": "Leppävaara, Espoo"}, {"id": "otaniemi", "nimi": "Otaniemi, Espoo"}, {"id": "tikkurila", "nimi": "Tikkurila, Vantaa"}], "km": [[0.0, 19.6, 21.4, 20.3, 15.2, 17.7, 20.2, 16.7, 26.9, 23.5, 18.5, 23.6, 9.2], [19.2, 0.0, 3.3, 3.0, 5.0, 2.4, 2.3, 4.0, 19.1, 9.8, 11.0, 9.4, 19.3], [21.8, 4.2, 0.0, 5.3, 7.7, 5.1, 4.2, 6.6, 22.5, 10.2, 14.9, 9.7, 22.0], [19.9, 2.7, 4.6, 0.0, 7.2, 4.3, 1.8, 4.7, 21.0, 11.4, 13.0, 10.9, 21.5], [15.2, 5.5, 7.3, 7.2, 0.0, 3.6, 5.8, 2.6, 18.5, 13.6, 10.4, 9.9, 15.3], [17.7, 2.5, 4.6, 4.5, 3.6, 0.0, 3.6, 2.5, 17.4, 11.0, 9.4, 7.5, 17.9], [19.4, 1.5, 3.4, 1.3, 6.7, 3.2, 0.0, 4.2, 19.9, 10.2, 11.8, 9.7, 21.0], [16.7, 3.9, 6.0, 4.6, 2.5, 2.5, 3.9, 0.0, 18.2, 12.4, 10.1, 8.3, 16.8], [25.1, 18.8, 21.1, 20.7, 17.6, 17.0, 19.8, 17.8, 0.0, 13.9, 11.8, 13.9, 28.4], [23.7, 10.1, 9.4, 11.6, 12.6, 11.0, 10.6, 12.8, 14.5, 0.0, 6.8, 3.2, 23.9], [19.1, 11.5, 14.0, 13.4, 10.3, 9.7, 12.5, 10.5, 11.5, 6.4, 0.0, 6.4, 19.2], [24.1, 10.0, 9.3, 11.5, 9.4, 7.4, 10.5, 8.2, 15.2, 3.2, 7.1, 0.0, 24.2], [8.5, 20.7, 22.0, 21.5, 15.7, 18.3, 20.6, 17.3, 29.9, 24.1, 19.1, 24.2, 0.0]], "min": [[0, 28, 32, 29, 19, 24, 29, 22, 26, 27, 21, 27, 12], [28, 0, 10, 8, 12, 6, 7, 10, 25, 15, 19, 15, 27], [34, 13, 0, 15, 19, 13, 12, 16, 28, 16, 21, 15, 34], [29, 8, 13, 0, 15, 11, 5, 12, 30, 18, 23, 18, 27], [19, 13, 17, 15, 0, 9, 14, 7, 22, 19, 16, 18, 19], [24, 7, 11, 11, 9, 0, 9, 6, 21, 17, 14, 14, 23], [27, 5, 10, 3, 14, 8, 0, 10, 27, 15, 20, 15, 26], [22, 10, 14, 11, 7, 6, 10, 0, 23, 20, 16, 15, 21], [29, 25, 25, 30, 21, 21, 27, 22, 0, 16, 14, 17, 30], [27, 16, 14, 19, 18, 17, 17, 20, 17, 0, 10, 8, 27], [22, 19, 19, 23, 15, 15, 21, 16, 13, 10, 0, 10, 21], [27, 16, 13, 19, 17, 14, 16, 15, 18, 7, 10, 0, 27], [12, 28, 32, 28, 19, 24, 28, 22, 29, 27, 21, 28, 0]], "luokat": [{"id": "pikku", "nimi": "Pikkubussi", "max": 16, "kuva": "pikku", "koko": "13–16"}, {"id": "midi", "nimi": "30–34-paikkainen", "max": 34, "kuva": "midi", "koko": "30–34"}, {"id": "b50", "nimi": "49–54-paikkainen", "max": 54, "kuva": "b50", "koko": "49–54"}, {"id": "iso", "nimi": "Iso bussi", "max": 60, "kuva": "iso", "koko": "57–60"}], "autot": {"Pikkubussi": {"kuva": "pikku", "koko": "13–16"}, "30–34-paikkainen": {"kuva": "midi", "koko": "30–34"}, "Honka-bussi": {"kuva": "honka", "koko": "49"}, "49–54-paikkainen": {"kuva": "b50", "koko": "49–54"}, "Iso bussi": {"kuva": "iso", "koko": "57–60"}}, "tasot": {"pikku": {"selite": "Lyhyt kuljetus pikkubussilla", "hinta": "alle 200 €"}, "iso": {"selite": "Lyhyt kuljetus isolla bussilla", "hinta": "200–300 € alkaen"}, "paiva": {"selite": "Muutaman tunnin päiväretki Helsingissä", "hinta": "noin 350–500 €"}}, "alv": 13.5, "t": {"kesken": "Kertokaa lähtöpaikka, kohde ja matkustajamäärä. Valituilla reiteillä hintataso näkyy heti, ja hinta tulee tarjouksessa.", "esteeton": "Myynti varmistaa ennen tarjousta sopivan auton, pyörätuolipaikat ja kyytiin nousun.", "ajatMyynti": "Myynti vahvistaa ajoajat tarjouksessa.", "ajatPerilla": "Myynti laskee lähtöajan ja vahvistaa ajoajat tarjouksessa.", "esteetonMyyja": "Ryhmässä on pyörätuolin käyttäjä tai muu esteettömyystarve. Varmistakaa esteetön kalusto ja hinnoittelu ennen tarjousta.", "taso": "Julkaistu hintataso, tarkka hinta tulee tarjouksessa. Hintaan vaikuttavat matkan pituus ja siihen käytetty aika, matkustajamäärä ja kuljetuksen ajankohta.", "tarkka": "Laskettu myynnin hinnoittelulla. Myynti vahvistaa vapaan kaluston.", "monipaiva": "Usean päivän matkan hinta lasketaan tarjoukseen.", "eiTasoa": "Hintataso näkyy, kun lähtö ja kohde löytyvät pikavalinnoista tai listasta. Muille reiteille hinta lasketaan tarjoukseen.", "valitsee": "Myynti valitsee ryhmällenne sopivan auton. Jos toivottu koko on varattu, tarjoamme vastaavan tai isomman.", "demoSposti": "Demo: viestiä ei lähetetty. Valmiissa sivustossa viesti lähtee asiakkaalle automaattisesti heti.", "demoTallennus": "Demo: tiedot tallentuvat vain tähän selaimeen, joten myyjän näkymä toimii samassa selaimessa ja samalla osoitteella.", "soitto": "Myynti soittaa teille takaisin. Toimisto avoinna arkisin 8–16.", "eiLoydy": "Tarjous näkyy siinä selaimessa, jossa pyyntö tehtiin.", "ehdot": "Myynti vahvistaa vapaan kaluston hyväksynnän jälkeen. Laskutustiedot kysytään vasta, kun tarjous hyväksytään.", "hyvaksytty": "Kiitos! Tilaus on vastaanotettu. Myynti vahvistaa varauksen sähköpostilla.", "vahvistettu": "Varaus on vahvistettu. Tervetuloa kyytiin!", "ytjHaku": "Nimi ja osoite haetaan Y-tunnuksella Patentti- ja rekisterihallituksen avoimesta datasta.", "ytjEi": "Yritystä ei löytynyt. Kirjoittakaa nimi ja osoite itse.", "odottaa": "Lähetämme tarjouksen sähköpostiinne, joten sivua ei tarvitse pitää auki. Jos sivu on auki, tarjous näkyy myös tässä.", "odottaaTekstari": "Lähetämme tarjouksen tekstiviestinä, joten sivua ei tarvitse pitää auki. Jos sivu on auki, tarjous näkyy myös tässä.", "postiTyhja": "Tehkää tarjouspyyntö puhelimessa vasemmalla. Viesti saapuu tähän heti.", "vahvistaOhje": "Tarkistakaa vapaa kalusto ja vahvistakaa varaus yhdellä napilla. Laskutustiedot voi kopioida suoraan laskutukseen.", "vahvistusLahti": "Asiakas sai vahvistuksen. Laskutustiedot ovat tässä viestissä valmiina.", "odottaaAsiakasta": "Odottaa asiakkaan hyväksyntää. Hyväksyntä ja laskutustiedot tulevat tähän postilaatikkoon omana viestinään.", "hyvaksyiJo": "Asiakas hyväksyi tarjouksen. Laskutustiedot tulivat omana viestinään.", "tyhja": "Tehkää tarjouspyyntö sivustolla toisessa ikkunassa, niin se ilmestyy tähän heti.", "eiHinnoittelua": "Hinnoittelua ei ole syötetty, joten myynti hinnoittelee käsin. Tunnetuilla reiteillä asiakas näkee julkaistun hintatason.", "ajatSovitaan": "Tarkat ajat sovitaan myynnin kanssa.", "eiReittia": "Reitille ei ole matkatietoa, hinnoitelkaa käsin.", "eiHinnoitteluaLuokka": "Tälle kokoluokalle ei ole syötetty hinnoittelua, joten hinnoitelkaa käsin.", "monipaivaMyyja": "Usean päivän matka hinnoitellaan käsin.", "eiKestoa": "Päiväretken kesto puuttuu, joten hinnoitelkaa käsin.", "alvVirheMyyja": "Hinnoittelun arvonlisävero on virheellinen, joten hinnoitelkaa käsin.", "kasin": "Hinnoitelkaa tarjous käsin.", "lisatLaskelma": "Laskelma kattaa vain päämatkan, joten hinnoitelkaa ne tarjoukseen.", "lisatKasin": "Ottakaa lisät mukaan tarjouksen hintaan.", "hinnatVirhe": "Tarkistakaa punaisella merkityt kentät: hinta ei voi olla negatiivinen. Kokoluokka ei saa tarkkaa hintaa ennen korjausta.", "alvVirhe": "Arvonlisäveron pitää olla nollan ja kolmenkymmenen prosentin välillä. Siihen asti tarkka hinta ei ole käytössä.", "hinnatKesken": "tarkka hinta vaatii myös €/km-hinnan ja minimin.", "hintaMuoto": "Tarkistakaa hinta: vain numerot, välilyönnit ja desimaalipilkku.", "hintaPieni": "Hinta on poikkeuksellisen pieni. Tarkistakaa summa ja vahvistakaa lähetys.", "hintaLaskelma": "Hinta on selvästi laskelmaa pienempi. Tarkistakaa summa ja vahvistakaa lähetys.", "lahetaSilti": "Lähetä silti", "toiveMuu": "Myynti valitsee sopivan koon ryhmänne mukaan.", "joVahvistettu": "Tilaus on jo vahvistettu, joten tietoja ei tallennettu uudelleen.", "hintaMuuttui": "Myynti päivitti tarjouksen hinnan. Tarkistakaa uusi hinta ja vahvistakaa tilaus uudelleen.", "yhteenveto": "Tarjouksen yhteenveto", "kokoluokka": "Kokoluokka", "yhteensaAlv": "Yhteensä sis. alv", "nopea": "Tarjous jopa parissa toimistotunnissa. Toimisto avoinna arkisin 8–16", "toimisto": "Toimisto avoinna arkisin 8–16", "yli60": "Isommalle ryhmälle useampi bussi: omalla kalustolla kuljetetaan useamman sadan henkilön kuljetukset samaan aikaan.", "reittilahde": "Matka ja ajoaika: © OpenStreetMap-tekijät, OSRM."}, "yritys": {"nimi": "Bus Travel Åbergin Linja Oy", "osoite": "Finnoonkartanonkatu 19, 02270 Espoo", "ytunnus": "Y-tunnus 1098704-8", "toimisto": "Toimisto avoinna arkisin 8–16", "lahettaja": "Åbergin Linja, tilausajomyynti <myynti@aberginlinja.fi>", "allekirjoitus": "Åbergin Linja, tilausajomyynti", "slogan": "Hymyilevä Bussiyhtiö", "puh": "09-884 2589", "puhTel": "tel:+35898842589", "sposti": "myynti@aberginlinja.fi"}};
 /* Åbergin Linja: tarjouskone, tarjousdokumentti ja myynnin näkymä (taso A, ei oikeaa sähköpostia).
    Tiedot tallentuvat vain tämän selaimen localStorageen; toinen ikkuna päivittyy storage-tapahtumasta.
    window.KONE tulee rakenna.py:stä: paikat, reittimatriisit, kokoluokat, julkaistut hintatasot ja lähteelliset tekstit. */
@@ -7,6 +7,8 @@ window.KONE={"paikat": [{"id": "lentoasema", "nimi": "Helsinki-Vantaan lentoasem
 var K=window.KONE||{}, T=K.t||{}, Y=K.yritys||{}, d=document;
 var PYYNNOT='ab-pyynnot', HINNAT='ab-hinnoittelu', LASKURI='ab-laskuri', VALITTU='ab-valittu';
 var vahennetty=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+// esittelyn puhelimessa (sama osoite, iframe) sivuston oma demopalkki piilotetaan: esittelyn palkki näkyy jo yläreunassa
+try{if(window.self!==window.top&&window.parent.document.body.classList.contains('esittely-sivu')) d.documentElement.classList.add('kehyksessa');}catch(e){}
 
 /* ---------------------------------------------------------------- tallennus */
 var muisti={};
@@ -29,7 +31,18 @@ function pvm(iso){var m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(iso||''); return m?(+m[
 function kello(ts){var t=new Date(ts); return t.getHours()+'.'+String(t.getMinutes()).padStart(2,'0');}
 function paivaJaKello(ts){var t=new Date(ts); return t.getDate()+'.'+(t.getMonth()+1)+'.'+t.getFullYear()+' klo '+kello(ts);}
 function kesto(ms){var m=Math.max(0,Math.round(ms/60000)); if(m<1) return 'alle minuutin'; if(m<60) return m+' min'; return Math.floor(m/60)+' h'+(m%60?' '+(m%60)+' min':'');}
-function num(x){var n=parseFloat(String(x==null?'':x).replace(',','.')); return isFinite(n)?n:0;}
+/* Euromäärä tekstistä: "1 200", "1.200", "1 200,50 €" ja "2,5". Välilyönnit (myös sitova ja kapea) ja € pois.
+   Piste tai pilkku, jota seuraa täsmälleen kolme numeroa ja sitten loppu tai uusi erotin, on tuhaterotin (ei "0,125"),
+   muu erotin on desimaali. Eksponenttimuoto ("12e3") ja muut merkit hylätään: tulos NaN. Tyhjä on NaN. */
+function puhdas(x){return String(x==null?'':x).replace(/[\s\u00a0\u202f€%]/g,'');}
+function jasenna(x){var s=puhdas(x); if(!/^[+-]?[\d.,]*\d[\d.,]*$/.test(s)) return NaN;
+ var etu=s.charAt(0)==='-'?-1:1; s=s.replace(/^[+-]/,'');
+ var osat=s.split(/[.,]/), erot=s.match(/[.,]/g)||[], kokonais=osat[0], desi=null;
+ for(var i=0;i<erot.length;i++){var seur=osat[i+1], tuhat=seur.length===3&&/^\d+$/.test(seur)&&desi===null&&!/^0*$/.test(osat[0]);
+  if(tuhat) kokonais+=seur; else if(desi===null&&i===erot.length-1) desi=seur; else return NaN;}
+ var n=parseFloat((kokonais||'0')+(desi?'.'+desi:'')); return isFinite(n)?etu*n:NaN;}
+function num(x){var n=jasenna(x); return isFinite(n)?n:0;}
+function tyhja(x){return puhdas(x)==='';}
 function etunimi(n){return String(n||'').trim().split(/\s+/)[0]||'';}
 function tanaan(){var t=new Date(); return t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0');}
 
@@ -47,8 +60,13 @@ function paikka(nimi){var n=avain(nimi); if(!n) return -1; n=ALIAS[n]||n; var i,
 function reitti(a,b){var i=paikka(a), j=paikka(b); if(i<0||j<0) return null; if(i===j) return {km:0,min:0}; return {km:K.km[i][j],min:K.min[i][j]};}
 function luokka(n){for(var i=0;i<LUOKAT.length;i++) if(n<=LUOKAT[i].max) return LUOKAT[i]; return null;}
 function hinnoittelu(){return lue(HINNAT,{});}
-function onHinnat(h){return !!h&&(num(h.km)>0||num(h.h)>0);}
-function alvp(H){return H&&H.alv!==undefined&&String(H.alv).trim()!==''?num(H.alv):K.alv;}
+var HKENTAT=['lahto','km','h','min'];
+// hinnoittelukenttä kelpaa tyhjänä tai lukuna, joka ei ole negatiivinen; ALV 0–30 %
+function arvoOk(v){var n=jasenna(v); return tyhja(v)||(isFinite(n)&&n>=0);}
+function alvOk(H){var v=H?H.alv:undefined, n=jasenna(v); return v===undefined||v===null||tyhja(v)||(isFinite(n)&&n>=0&&n<=30);}
+// automaattinen tarkka hinta vain, kun kaikki kentät kelpaavat ja €/km ja minimi ovat yli nollan
+function onHinnat(h){return !!h&&HKENTAT.every(function(k){return arvoOk(h[k]);})&&num(h.km)>0&&num(h.min)>0;}
+function alvp(H){return H&&H.alv!==undefined&&H.alv!==null&&!tyhja(H.alv)&&alvOk(H)?num(H.alv):K.alv;}
 
 /* Laskee hinnan pyynnön tiedoista. Tarkka hinta vain, jos myynti on syöttänyt kokoluokan hinnat
    (lähtömaksu, €/km, €/h, minimi). Muuten Åbergin julkaisema hintataso, jos molemmat päät ovat pikavalintoja. */
@@ -59,14 +77,16 @@ function laske(p,H){
  var l=luokka(n), autoja=1; if(!l){l=LUOKAT[LUOKAT.length-1]; autoja=Math.ceil(n/l.max);}
  tulos.luokka=l; tulos.autoja=autoja;
  var h=H[l.id];
- if(r&&onHinnat(h)&&muoto!=='monipaiva'&&!(muoto==='paiva'&&!(num(p.kesto)>0))){
+ if(r&&onHinnat(h)&&alvOk(H)&&muoto!=='monipaiva'&&!(muoto==='paiva'&&!(num(p.kesto)>0))){
   var lahto=num(h.lahto), ekm=num(h.km), eh=num(h.h), mini=num(h.min), suunnat=[];
   if(muoto==='paiva') suunnat=[['Päiväretki',lahto+2*r.km*ekm+num(p.kesto)*eh]];
   else{var yksi=lahto+r.km*ekm+(r.min/60)*eh; suunnat=muoto==='menopaluu'?[['Meno',yksi],['Paluu',yksi]]:[['Kuljetus',yksi]];}
   var summa=0; suunnat=suunnat.map(function(s){var v=Math.round(Math.max(s[1],mini)*autoja); summa+=v; return [s[0],v];});
-  var pros=alvp(H), vero=Math.round(summa*pros)/100;
-  tulos.tila='tarkka'; tulos.suunnat=suunnat; tulos.alv0=summa; tulos.alvp=pros; tulos.alv=vero; tulos.yht=summa+vero; tulos.hlo=(summa+vero)/n;
-  return tulos;}
+  // tarkka hinta vain, kun minimi on yli nollan ja summa vähintään minimi; muuten myynti hinnoittelee käsin
+  if(mini>0&&summa>=mini){
+   var pros=alvp(H), vero=Math.round(summa*pros)/100;
+   tulos.tila='tarkka'; tulos.suunnat=suunnat; tulos.alv0=summa; tulos.alvp=pros; tulos.alv=vero; tulos.yht=summa+vero; tulos.hlo=(summa+vero)/n;
+   return tulos;}}
  if(r&&n<=60&&muoto!=='monipaiva'){
   if(muoto==='paiva'){tulos.tila='taso'; tulos.taso=K.tasot.paiva; return tulos;}
   tulos.tila='taso'; tulos.taso=n<=16?K.tasot.pikku:K.tasot.iso; tulos.perSuunta=muoto==='menopaluu'; return tulos;}
@@ -129,26 +149,43 @@ function rivit(p){
  if(p.konteksti==='tapahtuma'&&p.laji==='lento'&&(p.lento||p.saapuu)) r.push(['Lento',[p.lento,p.saapuu?'saapuu '+klo(p.saapuu):''].filter(Boolean).join(', ')]);
  r.push(['Matkustajia',p.montako?p.montako+' hlö':'–']);
  if(p.esteeton) r.push(['Esteettömyys','Ryhmässä pyörätuolin käyttäjä tai muu esteettömyystarve']);
- if(p.toiveAuto) r.push(['Toivottu koko',p.toiveAuto]);
+ if(p.toiveAuto) r.push([AUTOT[p.toiveAuto]?'Toivottu koko':'Toivottu bussi',p.toiveAuto]);
  if(p.toiveet&&p.toiveet.length) r.push(['Toiveet',p.toiveet.join(', ')]);
  if(p.lisat) r.push(['Lisätiedot',p.lisat]);
  return r;}
 // matkan aikajana: lähtö, noudot, perillä ja paluu samassa järjestyksessä asiakkaalle, myyjälle ja tarjoukseen
 var AJAT={'Matka':1,'Nouto':1,'Noudot':1,'Lähtö':1,'Paluu':1,'Paluulähdöt':1};
 function muutRivit(p){return rivit(p).filter(function(x){return !AJAT[x[0]];});}
-function matkaHtml(p){return p.mista||p.minne?matkajana(p)+dl(muutRivit(p)):dl(rivit(p));}
-function matkajana(p){var pv=pvm(p.paiva), perilla=p.aikatapa==='perilla', a=[];
+// valmis=true: tarjous tai varaus asiakkaalle. Silloin ei luvata ajoaikojen vahvistusta tarjouksessa (se on jo tässä).
+function matkaHtml(p,valmis){return p.mista||p.minne?matkajana(p,valmis)+dl(muutRivit(p)):dl(rivit(p));}
+// jokin kellonaika puuttuu: lähtöaika (perillä-aika ei kerro lähtöä), paluuaika tai häiden paluulähtöjen ajat
+function ajatAuki(p){if(!p.aika||p.aikatapa==='perilla') return true; if(p.konteksti==='haat'&&p.useita) return !p.paluuajat; return paluullinen(p)&&(p.paluuAvoin||!p.paluuaika);}
+function matkajana(p,valmis){var pv=pvm(p.paiva), perilla=p.aikatapa==='perilla', a=[];
+ var huom=valmis?(ajatAuki(p)?T.ajatSovitaan:''):(perilla&&p.aika?T.ajatPerilla:T.ajatMyynti);
  a.push(['Lähtö',p.mista,[pv,perilla?'':klo(p.aika)].filter(Boolean).join(' ')]);
  (p.noudot||[]).forEach(function(n){a.push(['Nouto',n,'']);});
  a.push([perilla&&p.aika?'Perillä viimeistään':'Perillä',p.minne,perilla?klo(p.aika):'']);
  if(p.konteksti==='haat'&&p.useita) a.push(['Paluulähdöt',p.minne+' → '+p.mista,p.paluuajat||'ajat sovitaan']);
  else if(paluullinen(p)) a.push(['Paluu',p.minne+' → '+p.mista,[p.paluupaiva&&p.paluupaiva!==p.paiva?pvm(p.paluupaiva):'',p.paluuAvoin?'aika ei vielä tiedossa':klo(p.paluuaika)].filter(Boolean).join(' ')]);
  return '<ol class="matkajana">'+a.map(function(x){return '<li><span class="mj-mita">'+esc(x[0])+'</span><span class="mj-aika">'+esc(x[2])+'</span><span class="mj-paikka">'+esc(x[1]||'?')+'</span></li>';}).join('')+'</ol>'+
-  '<p class="matkajana-huom">'+esc(perilla&&p.aika?T.ajatPerilla:T.ajatMyynti)+'</p>';}
-// esteettömyystarve ja lisämatkat: myyjä varmistaa kaluston ja hinnan ennen tarjousta, joten laskettua hintaa ei esitäytetä
-function huomioEsteeton(p){var l=lisaSyyt(p);
+  (huom?'<p class="matkajana-huom">'+esc(huom)+'</p>':'');}
+// esteettömyystarve ja lisämatkat: myyjä varmistaa kaluston ja hinnan ennen tarjousta, joten laskettua hintaa ei esitäytetä.
+// "Laskelma kattaa vain päämatkan" vain, kun laskelma on olemassa (t.tila==='tarkka').
+function huomioEsteeton(p,t){var l=lisaSyyt(p);
  return (p.esteeton?'<p class="huomio-esteeton" role="note">'+esc(T.esteetonMyyja)+'</p>':'')+
-  (l.length?'<p class="huomio-lisat" role="note">Pyynnössä on '+esc(l.join(', '))+'. Laskelma kattaa vain päämatkan, joten hinnoitelkaa ne tarjoukseen.</p>':'');}
+  (l.length?'<p class="huomio-lisat" role="note">Pyynnössä on '+esc(l.join(', '))+'. '+esc(t&&t.tila==='tarkka'?T.lisatLaskelma:T.lisatKasin)+'</p>':'');}
+// miksi hintaa ei laskettu: myyjälle näytettävä syy (reitti puuttuu, monta päivää, kesto puuttuu tai kokoluokalla ei hinnoittelua)
+function kasinSyy(p,t,H){if(t.tila==='tarkka') return '';
+ if(!t.reitti) return T.eiReittia;
+ if(t.muoto==='monipaiva') return T.monipaivaMyyja;
+ if(t.muoto==='paiva'&&!(num(p.kesto)>0)) return T.eiKestoa;
+ if(t.luokka&&!onHinnat(H[t.luokka.id])) return T.eiHinnoitteluaLuokka;
+ if(!alvOk(H)) return T.alvVirheMyyja;
+ return T.kasin;}
+function ehdotusTaiSyy(p,t,H,luokka){var pa=luokka===''?'<p>':'<p class="erittely">';
+ if(t.tila==='tarkka') return pa+ehdotusOts(p)+t.suunnat.map(function(s){return s[0]+' '+eur(s[1]);}).join(', ')+(t.autoja>1?', '+t.autoja+' autoa':'')+' ('+esc(t.luokka.nimi)+(t.reitti?', '+luku(t.reitti.km)+' km':'')+').</p>';
+ var nahty=p.hinta&&p.hinta.tila==='taso'&&p.hinta.taso?'Asiakas näki hintatason '+esc(p.hinta.taso.hinta)+(p.hinta.perSuunta?' / suunta':'')+'. ':'';
+ return pa+nahty+esc(kasinSyy(p,t,H))+'</p>';}
 function ehdotusOts(p){return p.esteeton?'Tavallisen kaluston laskelma, ei esteetön: ':lisaSyyt(p).length?'Laskelma vain päämatkasta: ':'Ehdotus hinnoittelusta: ';}
 function dl(r){return '<dl>'+r.map(function(x){return '<dt>'+esc(x[0])+'</dt><dd>'+esc(x[1])+'</dd>';}).join('')+'</dl>';}
 function tarjousHinta(p){return p.tarjous||null;}
@@ -229,16 +266,44 @@ function tarkistaKentat(juuri){var eka=null; juuri.querySelectorAll('[required]'
 
 /* ---------------------------------------------------------------- hinnoittelu ja demon tyhjennys (myynti ja esittely) */
 function hinnoitteluPaneeli(hp,nappi,muuttui){
- function piirra(){var H=hinnoittelu();
-  hp.querySelectorAll('input[data-luokka]').forEach(function(i){var h=H[i.dataset.luokka]||{}; if(d.activeElement!==i) i.value=h[i.dataset.kentta]!=null?h[i.dataset.kentta]:'';});
+ // kentät tarkistetaan: ei negatiivisia, ALV 0–30 %. Virheellinen kenttä merkitään, eikä sen kokoluokka saa automaattista hintaa.
+ function piirra(){var H=hinnoittelu(), vika=false;
+  hp.querySelectorAll('input[data-luokka]').forEach(function(i){var h=H[i.dataset.luokka]||{}, v=h[i.dataset.kentta]; if(d.activeElement!==i) i.value=v!=null?v:'';
+   var ok=arvoOk(i.value); merkitse(i,ok); if(!ok) vika=true;});
   var a=hp.querySelector('input[name=alv]'); if(d.activeElement!==a) a.value=H.alv!=null&&H.alv!==''?H.alv:luku(K.alv);
+  var alvHyva=alvOk({alv:a.value}); merkitse(a,alvHyva);
   var kaytossa=LUOKAT.filter(function(l){return onHinnat(H[l.id]);}).map(function(l){return l.nimi;});
-  hp.querySelector('.tilannerivi').textContent=kaytossa.length?'Tarkka hinta käytössä: '+kaytossa.join(', ')+'. Asiakas saa näille tarjouksen heti.':T.eiHinnoittelua;}
+  // kokoluokka, jolle on syötetty jotain mutta €/km tai minimi puuttuu: kerrotaan, miksi tarkka hinta ei ole käytössä
+  var kesken=LUOKAT.filter(function(l){var h=H[l.id]; return h&&!onHinnat(h)&&HKENTAT.some(function(k){return !tyhja(h[k]);});}).map(function(l){return l.nimi;});
+  var tila=hp.querySelector('.tilannerivi');
+  var virheet=(vika?[T.hinnatVirhe]:[]).concat(alvHyva?[]:[T.alvVirhe]);
+  tila.innerHTML=(virheet.length?'<span class="virhe-teksti">'+esc(virheet.join(' '))+'</span> ':'')+
+   (alvHyva?esc(kaytossa.length?'Tarkka hinta käytössä: '+kaytossa.join(', ')+'. Asiakas saa näille tarjouksen heti.':T.eiHinnoittelua):'')+
+   (kesken.length?' <span class="hinnat-kesken">'+esc(kesken.join(', ')+': '+T.hinnatKesken)+'</span>':'');}
  hp.addEventListener('input',function(e){var i=e.target, H=hinnoittelu(); if(i.name==='alv') H.alv=i.value; else{H[i.dataset.luokka]=H[i.dataset.luokka]||{}; H[i.dataset.luokka][i.dataset.kentta]=i.value;}
   kirjoita(HINNAT,H); piirra(); if(muuttui) muuttui();});
  nappi.addEventListener('click',function(){var auki=hp.hidden; hp.hidden=!auki; nappi.setAttribute('aria-expanded',auki); if(auki){piirra(); hp.querySelector('input').focus();}});
  kuuntele(function(){if(!hp.hidden) piirra();});
  return piirra;}
+/* tarjoushinnan lomake (myynti ja esittely): esikatselu asiakkaan hinnasta ja vahvistus, jos hinta on alle 50 € tai alle 30 % laskelmasta */
+function hintaLomake(ehdotus,nappi){
+ return '<form class="vastaus" data-tarjous novalidate><label class="kentta">Tarjoushinta alv 0 % (€)<input name="hinta" inputmode="decimal" autocomplete="off" aria-describedby="hinta-esikatselu" value="'+(ehdotus!==''?Math.round(ehdotus):'')+'" required></label>'+
+  '<button class="nappi nappi--kelta" type="submit"><span>'+esc(nappi)+'</span></button>'+
+  '<p class="hinta-esikatselu" id="hinta-esikatselu" aria-live="polite"></p><p class="hinta-varoitus" role="alert" hidden></p></form>';}
+function asiakkaanHinta(v){var pros=alvp(hinnoittelu()); return v+Math.round(v*pros)/100;}
+function esikatselu(f){var x=f.elements.hinta, v=jasenna(x.value), e=f.querySelector('.hinta-esikatselu'); if(!e) return;
+ var ok=isFinite(v)&&v>0; e.classList.toggle('virhe-teksti',!tyhja(x.value)&&!ok);
+ e.textContent=tyhja(x.value)?'':ok?'Asiakkaalle '+eur2(asiakkaanHinta(v))+' sis. alv':T.hintaMuoto;}
+function hintaMuuttui(f){var w=f.querySelector('.hinta-varoitus'), b=f.querySelector('button[type=submit] span');
+ if(f.dataset.vahvista){delete f.dataset.vahvista; w.hidden=true; w.textContent=''; if(f.dataset.nappi) b.textContent=f.dataset.nappi;}
+ merkitse(f.elements.hinta,true); esikatselu(f);}
+// palauttaa hinnan, kun lähetys saa jatkua; muuten null (virhe tai vahvistus kysytty). Toinen painallus samalla hinnalla lähettää.
+function hintaLahtoon(f,t){var x=f.elements.hinta, v=jasenna(x.value);
+ if(!(isFinite(v)&&v>0)){merkitse(x,false); esikatselu(f); x.focus(); return null;}
+ var syy=v<50?T.hintaPieni:(t&&t.tila==='tarkka'&&v<0.3*t.alv0?T.hintaLaskelma+' Laskelma '+eur(t.alv0)+' alv 0 %.':'');
+ if(syy&&f.dataset.vahvista!==String(v)){var w=f.querySelector('.hinta-varoitus'), b=f.querySelector('button[type=submit] span');
+  f.dataset.vahvista=String(v); f.dataset.nappi=f.dataset.nappi||b.textContent; w.textContent=syy; w.hidden=false; b.textContent=T.lahetaSilti+' '+(v%1?eur2(v):eur(v)); return null;}
+ return v;}
 function tyhjennysNappi(b,jalkeen){var vahvista=false, alku=b.textContent;
  b.addEventListener('click',function(){if(!vahvista){vahvista=true; b.textContent='Vahvista: tyhjennä kaikki'; setTimeout(function(){vahvista=false; b.textContent=alku;},4000); return;}
   [PYYNNOT,HINNAT,LASKURI,VALITTU,LUETUT].forEach(poista); vahvista=false; b.textContent=alku; jalkeen();});}
@@ -325,6 +390,9 @@ if(kone){
   // esteettömyystarve: ei kokosuositusta, koska pyörätuolipaikat ja kyytiin nousu varmistetaan ensin
   if(el('esteeton')&&el('esteeton').checked){autoEl.hidden=false;
    autoEl.innerHTML='<span class="ka-teksti ka-esteeton"><small>Esteettömyys</small><span>'+esc(T.esteeton)+'</span>'+(toiveAuto?'<small>Toive: '+esc(toiveAuto)+'</small><button type="button" data-poista-toive>Poista toive</button>':'')+'</span>'; return;}
+  // toive, jota ei ole kokoluokkien kuvissa (esim. Kaupunkibussit): tekstikortti ilman kokoa, ettei lomake näytä väärää bussia
+  if(toiveAuto&&!AUTOT[toiveAuto]){autoEl.hidden=false;
+   autoEl.innerHTML='<span class="ka-teksti ka-toive"><small>Toivottu bussi</small><b>'+esc(toiveAuto)+'</b><span>'+esc(T.toiveMuu)+'</span><button type="button" data-poista-toive>Poista toive</button></span>'; return;}
   if(!a){autoEl.hidden=true; autoEl.innerHTML=''; return;}
   var otsikko=toiveAuto?'Toivottu koko':(t.autoja>1?t.autoja+' ×':'Ryhmällenne');
   autoEl.hidden=false;
@@ -397,6 +465,8 @@ if(kone){
 
  function tayta(o){o=o||{}; if(o.konteksti!==undefined&&o.konteksti!==null) asetaKonteksti(o.konteksti);
   ['mista','minne','montako','muoto','paiva'].forEach(function(k){if(o[k]) aseta(k,o[k]);});
+  // nappi kertoi henkilömäärän tyhjänä (esim. yli 60): edellinen määrä ei jää lomakkeeseen
+  if(o.montako==='') aseta('montako','');
   if(o.toiveet) kaikki('input[name=toive]').forEach(function(x){if(o.toiveet.indexOf(x.value)>=0) x.checked=true;});
   if(o.toive){toiveAuto=o.toive;} if(o.lisat&&!arvo('lisat')) aseta('lisat',o.lisat); paivitaHinta();}
  function avaa(o){if(!valmis.hidden){valmis.hidden=true; lom.hidden=false; valmisId='';} tayta(o);
@@ -410,7 +480,7 @@ if(kone){
    if(!f.length) return; var a=f[0], b=f[f.length-1]; if(e.shiftKey&&d.activeElement===a){e.preventDefault(); b.focus();} else if(!e.shiftKey&&d.activeElement===b){e.preventDefault(); a.focus();}
    else if(!kone.contains(d.activeElement)){e.preventDefault(); a.focus();}}});
  d.addEventListener('click',function(e){var t=e.target.closest('[data-kone]'); if(!t) return; e.preventDefault();
-  var o={konteksti:t.dataset.konteksti||sivuKonteksti()}; if(t.dataset.montako) o.montako=t.dataset.montako; if(t.dataset.toive) o.toive=t.dataset.toive; if(t.dataset.lisat) o.lisat=t.dataset.lisat;
+  var o={konteksti:t.dataset.konteksti||sivuKonteksti()}; if(t.dataset.montako!==undefined) o.montako=t.dataset.montako; if(t.dataset.toive) o.toive=t.dataset.toive; if(t.dataset.lisat) o.lisat=t.dataset.lisat;
   var tv=[].slice.call(d.querySelectorAll('[data-toivevalinnat] input:checked')).map(function(x){return x.value;}); if(tv.length) o.toiveet=tv;
   var top=d.querySelector('.top.auki'), vn=d.querySelector('.valikko-nappi'); if(top&&vn) vn.click(); avaa(o);});
  var pika=d.getElementById('pika');
@@ -422,18 +492,32 @@ if(kone){
  var s=d.getElementById('matkustajat'), vc=d.getElementById('valitsin-cta');
  if(s&&vc){var pv=function(){var n=+s.value; vc.dataset.montako=n>60?'':n; vc.querySelector('span').textContent=n>60?'Pyydä tarjous isolle ryhmälle':'Pyydä tarjous '+n+' hengelle';};
   s.addEventListener('input',pv); pv();
-  d.querySelectorAll('.auto-nappi').forEach(function(b){b.addEventListener('click',function(){var n=+s.value, m=+b.dataset.max||999; b.dataset.montako=n>60?'':(n<=m?n:m);},true);});}
+  d.querySelectorAll('.auto-nappi').forEach(function(b){b.addEventListener('click',function(){var n=+s.value; b.dataset.montako=n>60?'':n;  /* ryhmän koko siirtyy sellaisenaan (auditti K-13) */},true);});}
 }
 
 /* ---------------------------------------------------------------- tarjous asiakkaan silmin: hyväksyntä ja laskutustiedot */
 var doc=d.getElementById('tarjousdoc');
 if(doc){
- var id=new URLSearchParams(location.search).get('id'), lomakeAuki=false, ytjLoytyi='';
+ var id=new URLSearchParams(location.search).get('id'), lomakeAuki=false, ytjLoytyi='', ilmoitus='';
+ // tarjotun kokoluokan bussi: toivottu koko, jos se riittää ryhmälle, muuten kokoluokka henkilömäärästä. Esteettömyystarpeessa ei kuvaa,
+ // koska myynti valitsee esteettömän kaluston erikseen.
+ function tarjottuAuto(p){var n=Math.round(num(p.montako)), tv=p.toiveAuto&&AUTOT[p.toiveAuto];
+  if(p.esteeton||(p.toiveAuto&&!tv)) return null; // toive ilman kokoluokan kuvaa (esim. Kaupunkibussit): ei väärää bussia
+  if(tv&&n<=+String(tv.koko).split(/[–-]/).pop()) return {nimi:p.toiveAuto,kuva:tv.kuva,koko:tv.koko,autoja:1};
+  var t=laske(p,{}); return t.luokka?{nimi:t.luokka.nimi,kuva:t.luokka.kuva,koko:t.luokka.koko,autoja:t.autoja||1}:null;}
+ // tarjouksen yläosa: bussin kuva, yhteishinta ja Hyväksy-nappi heti näkyvissä myös puhelimessa
+ function kooste(p,nappi){var a=tarjottuAuto(p);
+  return '<section class="doc-kooste'+(a?'':' doc-kooste--ei-kuvaa')+'" aria-label="'+esc(T.yhteenveto)+'">'+
+   (a?'<img src="autot/'+a.kuva+'-280.webp" srcset="autot/'+a.kuva+'-280.webp 280w, autot/'+a.kuva+'-560.webp 560w" sizes="(max-width:760px) 112px, 200px" width="280" height="180" alt="'+esc(a.nimi)+'">'+
+    '<p class="dk-auto"><small>'+esc(T.kokoluokka)+'</small><b>'+(a.autoja>1?a.autoja+' × ':'')+esc(a.nimi)+'</b><small>'+esc(a.koko)+' paikkaa</small></p>':'')+
+   '<div class="dk-hinta"><p><small>'+esc(T.yhteensaAlv)+'</small><b>'+eur2(p.tarjous.yht)+'</b></p>'+
+   (nappi?'<button class="nappi nappi--kelta" type="button" data-hyvaksy><span>Hyväksy tarjous</span></button>':'')+'</div></section>';}
  var valinta=function(n,v,teksti,o){return '<label><input type="radio" name="'+n+'" value="'+v+'"'+(o?' checked':'')+'>'+teksti+'</label>';};
  var kentta=function(nimi,otsikko,attr,luokka,ehto){return '<label class="kentta'+(luokka?' '+luokka:'')+'"'+(ehto||'')+'><span>'+otsikko+'</span><input name="'+nimi+'"'+(attr||'')+'></label>';};
  function tilausLomake(p){var a=function(v){return v?' value="'+esc(v)+'"':'';};
-  return '<form class="tilauslomake" id="tilauslomake" novalidate aria-labelledby="tl-ots"><h2 id="tl-ots" tabindex="-1">Hyväksy tarjous</h2>'+
-   '<p class="doc-huom" style="margin-top:6px">Vain laskutukseen tarvittavat tiedot. Hinta '+eur2(p.tarjous.yht)+' sis. alv.</p>'+
+  return '<form class="tilauslomake" id="tilauslomake" novalidate aria-labelledby="tl-ots" data-ts="'+esc(p.tarjous.ts)+'"><h2 id="tl-ots" tabindex="-1">Hyväksy tarjous</h2>'+
+   '<p class="doc-huom" style="margin-top:6px">Vain laskutukseen tarvittavat tiedot. Hinta <span class="tl-hinta">'+eur2(p.tarjous.yht)+'</span> sis. alv.</p>'+
+   '<p class="tl-ilmo" role="alert" hidden></p>'+
    '<div class="kentat">'+
    '<div class="kentta koko"><span id="tl-maksaja">Kuka maksaa?</span><div class="vaihto" role="radiogroup" aria-labelledby="tl-maksaja">'+valinta('maksaja','yritys','Yritys tai yhdistys',true)+valinta('maksaja','yksityinen','Yksityishenkilö')+'</div></div>'+
    kentta('ytunnus','Y-tunnus',' required autocomplete="off" inputmode="numeric" placeholder="1234567-8" aria-describedby="ytj-tila"','',' data-maksaja="yritys"')+
@@ -449,7 +533,8 @@ if(doc){
    kentta('laskusposti','Laskun sähköpostiosoite',' type="email" required autocomplete="email"'+a(p.sposti),'koko',' data-tapa="sposti"')+
    kentta('viite','Viite tai kustannuspaikka <small>(vapaaehtoinen)</small>','','koko',' data-maksaja="yritys"')+
    kentta('yhteyshenkilo','Yhteyshenkilö matkalla',' autocomplete="name"'+a(p.nimi))+
-   kentta('yhteyspuh','Hänen puhelinnumeronsa',' type="tel" required autocomplete="tel"'+a(p.puhelin))+
+   // puhelin on pakollinen vain, jos pyynnössä ei ole sähköpostia
+   kentta('yhteyspuh','Hänen puhelinnumeronsa'+(p.sposti?' <small>(vapaaehtoinen)</small>':''),' type="tel"'+(p.sposti?'':' required')+' autocomplete="tel"'+a(p.puhelin))+
    '</div><div class="doc-napit"><button class="nappi nappi--kelta" type="submit"><span>Vahvista tilaus</span></button><button class="nappi nappi--reuna" type="button" data-peru><span>Peruuta</span></button></div></form>';}
  function nakyvyys(){var f=d.getElementById('tilauslomake'); if(!f) return; var m=f.elements.maksaja.value, tapa=m==='yksityinen'?'sposti':f.elements.laskutapa.value;
   f.querySelectorAll('[data-maksaja]').forEach(function(x){x.hidden=x.dataset.maksaja!==m;}); f.querySelectorAll('[data-tapa]').forEach(function(x){x.hidden=x.dataset.tapa!==tapa;});}
@@ -458,9 +543,11 @@ if(doc){
   var tarjottu=!!p.tarjous, hyv=hyvaksytty(p), vahv=p.tila==='vahvistettu';
   doc.innerHTML='<header class="doc-paa"><div><p class="merkki">Åbergin Linja<i></i></p><p class="slogan">'+esc(Y.slogan)+'</p></div>'+
    '<div class="doc-tunnus"><h1>'+(hyv?'Tilaus':tarjottu?'Tarjous':'Tarjouspyyntö')+'</h1><p>'+esc(p.id)+' · '+paivaJaKello(p.tarjous?p.tarjous.ts:p.luotu)+'</p>'+tilaHtml(p)+'</div></header>'+
+   (ilmoitus?'<p class="doc-odottaa doc-ilmo" role="status" tabindex="-1">'+esc(ilmoitus)+'</p>':'')+
    (hyv?'<p class="hyvaksytty-ilmo" role="status" tabindex="-1">'+esc(vahv?T.vahvistettu:T.hyvaksytty)+(vahv?' Vahvistettu '+paivaJaKello(p.vahvistettu)+'.':'')+'</p>':'')+
    (!tarjottu&&p.tila!=='soitto'?'<p class="doc-odottaa" role="status">'+esc(p.sposti||!p.puhelin?T.odottaa:T.odottaaTekstari)+'</p>':'')+
-   '<section class="doc-osio"><h2>Matka</h2>'+matkaHtml(p)+'</section>'+
+   (tarjottu?kooste(p,!hyv&&!lomakeAuki):'')+
+   '<section class="doc-osio"><h2>Matka</h2>'+matkaHtml(p,tarjottu)+'</section>'+
    '<section class="doc-osio"><h2>Hinta</h2>'+hintaRivitDoc(p)+(tarjottu&&!hyv?'<p class="doc-huom">'+esc(T.ehdot)+'</p>':'')+'</section>'+
    (lomakeAuki&&tarjottu&&!hyv?tilausLomake(p):'')+
    (hyv?'<section class="doc-osio"><h2>Laskutustiedot</h2>'+dl(laskutusRivit(p))+'</section>':'<section class="doc-osio"><h2>Tilaaja</h2>'+dl([['Nimi',p.nimi||'–'],['Yhteystiedot',[p.sposti,p.puhelin].filter(Boolean).join(', ')||'–']])+'</section>')+
@@ -482,12 +569,16 @@ if(doc){
   .catch(function(){if(x.value===v) tila.textContent=T.ytjEi;});}
  doc.addEventListener('click',function(e){
   if(e.target.closest('[data-tulosta]')){window.print(); return;}
-  if(e.target.closest('[data-hyvaksy]')){lomakeAuki=true; piirra(); var h=d.getElementById('tl-ots'); h.scrollIntoView({behavior:vahennetty?'auto':'smooth',block:'start'}); h.focus({preventScroll:true}); return;}
-  if(e.target.closest('[data-peru]')){lomakeAuki=false; piirra();}});
+  if(e.target.closest('[data-hyvaksy]')){lomakeAuki=true; ilmoitus=''; piirra(); var h=d.getElementById('tl-ots'); if(!h) return; h.scrollIntoView({behavior:vahennetty?'auto':'smooth',block:'start'}); h.focus({preventScroll:true}); return;}
+  if(e.target.closest('[data-peru]')){lomakeAuki=false; ilmoitus=''; piirra();}});
  doc.addEventListener('input',function(e){var x=e.target; if(x.dataset.auto&&e.isTrusted) delete x.dataset.auto; if(x.closest('.kentta.virhe')) merkitse(x,true); if(x.name==='ytunnus') yTunnus(x);});
  doc.addEventListener('change',function(e){if(e.target.type==='radio') nakyvyys();});
  doc.addEventListener('submit',function(e){var f=e.target.closest('#tilauslomake'); if(!f) return; e.preventDefault(); if(!tarkistaKentat(f)) return;
-  var v=function(n){return String(f.elements[n].value||'').trim();}, m=f.elements.maksaja.value, ts=Date.now(), p=hae(id); if(!p) return;
+  // pyyntö luetaan uudelleen juuri ennen tallennusta: toinen ikkuna on voinut jo hyväksyä tarjouksen tai myynti muuttaa hintaa
+  var v=function(n){return String(f.elements[n].value||'').trim();}, m=f.elements.maksaja.value, ts=Date.now(), p=hae(id);
+  if(!p||p.tila!=='tarjottu'||!p.tarjous){lomakeAuki=false; ilmoitus=p?T.joVahvistettu:''; piirra(); var jo=doc.querySelector('.doc-ilmo'); if(jo) jo.focus(); return;}
+  if(String(p.tarjous.ts)!==f.dataset.ts){f.dataset.ts=String(p.tarjous.ts); f.querySelector('.tl-hinta').textContent=eur2(p.tarjous.yht);
+   var ti=f.querySelector('.tl-ilmo'); ti.textContent=T.hintaMuuttui; ti.hidden=false; f.querySelector('.tl-hinta').scrollIntoView({behavior:vahennetty?'auto':'smooth',block:'center'}); return;}
   p.tilaus={ts:ts,maksaja:m,ytunnus:m==='yritys'?v('ytunnus'):'',yritys:m==='yritys'?v('yritys'):'',lnimi:m==='yksityinen'?v('lnimi'):'',osoite:v('osoite'),postinro:v('postinro'),toimipaikka:v('toimipaikka'),
    laskutapa:m==='yksityinen'?'sposti':f.elements.laskutapa.value,verkkolasku:v('verkkolasku'),valittaja:v('valittaja'),laskusposti:v('laskusposti'),viite:m==='yritys'?v('viite'):'',
    yhteyshenkilo:v('yhteyshenkilo'),yhteyspuh:v('yhteyspuh'),ytj:m==='yritys'&&ytjLoytyi===v('ytunnus')};
@@ -521,22 +612,21 @@ if(myynti){
    (p.puhelin?'<p style="margin-top:14px"><a class="nappi nappi--reuna" href="tel:'+esc(p.puhelin.replace(/[^\d+]/g,''))+'"><span>Soita asiakkaalle</span></a></p>':'')+
    (p.tilaus?'<h3>Laskutustiedot</h3>'+dl(laskutusRivit(p)):'')+'<h3>Matka</h3>'+matkaHtml(p)+
    (p.tila==='soitto'?'<p style="margin-top:22px"><button class="nappi nappi--sin" type="button" data-hoida><span>Merkitse hoidetuksi</span></button></p>':
-   '<h3>Tarjous</h3>'+huomioEsteeton(p)+(t.tila==='tarkka'?'<p class="erittely">'+ehdotusOts(p)+t.suunnat.map(function(s){return s[0]+' '+eur(s[1]);}).join(', ')+(t.autoja>1?', '+t.autoja+' autoa':'')+' ('+esc(t.luokka.nimi)+', '+(t.reitti?luku(t.reitti.km)+' km':'')+')</p>':
-    '<p class="erittely">'+(t.tila==='taso'?'Asiakas näki hintatason '+esc(t.taso.hinta)+(t.perSuunta?' / suunta':'')+'. ':'')+esc(onHinnat(H[t.luokka?t.luokka.id:''])?'':T.eiHinnoittelua)+'</p>')+
-   '<form class="vastaus" data-tarjous><label class="kentta">Tarjoushinta alv 0 % (€)<input name="hinta" inputmode="decimal" value="'+(ehdotus!==''?Math.round(ehdotus):'')+'" required></label>'+
-   '<button class="nappi nappi--kelta" type="submit"><span>'+(p.tarjous?'Päivitä tarjous':'Lähetä tarjous')+'</span></button></form>'+
-   '<p class="erittely">Alv '+luku(alvp(H))+' % lisätään. Asiakas näkee tarjouksen heti omassa ikkunassaan.</p>')+
+   // hyväksyttyä tarjousta ei voi enää muuttaa: hinta näytetään ilman lomaketta
+   (hyvaksytty(p)&&p.tarjous?'<h3>Tarjous</h3><p class="hyvaksytty-ilmo">Asiakas hyväksyi tarjouksen: '+eur2(p.tarjous.yht)+' sis. alv.</p>':
+   '<h3>Tarjous</h3>'+huomioEsteeton(p,t)+ehdotusTaiSyy(p,t,H)+hintaLomake(ehdotus,p.tarjous?'Päivitä tarjous':'Lähetä tarjous')+
+   '<p class="erittely">Alv '+luku(alvp(H))+' % lisätään. Asiakas näkee tarjouksen heti omassa ikkunassaan.</p>'))+
    '<h3>Tapahtumat</h3><ul class="aikajana-mini">'+hist.map(function(x){return '<li class="on">'+esc(x[0])+' '+kello(x[1])+'</li>';}).join('')+
    (p.tarjous||p.tila==='soitto'?'':'<li>Tarjous lähetetään</li>')+(hyvaksytty(p)||p.tila==='soitto'?'':'<li>Asiakas hyväksyy</li>')+'</ul>'+
    (p.tarjous?'<h3>Asiakkaalle lähtenyt viesti</h3>'+spostiHtml(p,'tarjous'):'')+
    '<p style="margin-top:18px"><a class="linkki" href="tarjous-nakyma.html?id='+encodeURIComponent(p.id)+'" target="_blank" rel="noopener">Avaa asiakkaan näkymä</a></p></div>';
-  tiedot.dataset.id=valittu; var uusi=tiedot.querySelector('input[name=hinta]'); if(uusi&&kesken!==null){uusi.value=kesken; uusi.dataset.muokattu='1';} if(uusi&&fokus) uusi.focus();}
- tiedot.addEventListener('input',function(e){if(e.target.name==='hinta') e.target.dataset.muokattu='1';});
+  tiedot.dataset.id=valittu; var uusi=tiedot.querySelector('input[name=hinta]'); if(uusi&&kesken!==null){uusi.value=kesken; uusi.dataset.muokattu='1';} if(uusi){esikatselu(uusi.form); if(fokus) uusi.focus();}}
+ tiedot.addEventListener('input',function(e){if(e.target.name==='hinta'){e.target.dataset.muokattu='1'; hintaMuuttui(e.target.form);}});
  jono.addEventListener('click',function(e){var b=e.target.closest('button[data-id]'); if(!b) return; valittu=b.dataset.id; kirjoita(VALITTU,valittu); history.replaceState(null,'','#'+encodeURIComponent(valittu)); piirraJono();
   if(window.innerWidth<1000) tiedot.scrollIntoView({behavior:vahennetty?'auto':'smooth',block:'start'});});
- tiedot.addEventListener('submit',function(e){var f=e.target.closest('[data-tarjous]'); if(!f) return; e.preventDefault(); var p=hae(valittu), v=num(f.elements.hinta.value);
-  if(!(v>0)){f.elements.hinta.focus(); f.querySelector('.kentta').classList.add('virhe'); return;}
-  var H=hinnoittelu(), pros=alvp(H), vero=Math.round(v*pros)/100, ts=Date.now(), t=laske(p);
+ tiedot.addEventListener('submit',function(e){var f=e.target.closest('[data-tarjous]'); if(!f) return; e.preventDefault(); var p=hae(valittu); if(!p||hyvaksytty(p)){piirraJono(); return;}
+  var t=laske(p), v=hintaLahtoon(f,t); if(v===null) return;
+  var H=hinnoittelu(), pros=alvp(H), vero=Math.round(v*pros)/100, ts=Date.now();
   p.tarjous={alv0:v,alvp:pros,alv:vero,yht:v+vero,ts:ts,auto:false,suunnat:t.tila==='tarkka'&&Math.round(t.alv0)===Math.round(v)?t.suunnat:null};
   if(!hyvaksytty(p)) p.tila='tarjottu'; p.historia=(p.historia||[]).concat([['Tarjous lähetettiin',ts]]); delete f.elements.hinta.dataset.muokattu; tallenna(p); piirraJono();
   var h=tiedot.querySelector('h3:last-of-type'); if(h) h.scrollIntoView({behavior:vahennetty?'auto':'smooth',block:'center'});});
@@ -593,33 +683,32 @@ if(posti){
     '<div class="pv-napit">'+(vahv?'':'<button class="nappi nappi--kelta" type="button" data-vahvista><span>Vahvista varaus asiakkaalle</span></button>')+'<button class="nappi nappi--reuna" type="button" data-kopioi><span>Kopioi laskutustiedot</span></button>'+
     (puhelin?'<button class="nappi nappi--reuna" type="button" data-puhelin="tarjous-nakyma.html?id='+encodeURIComponent(p.id)+'"><span>Näytä asiakkaan puhelimessa</span></button>':'')+'</div></div>'+
     '<h3>Laskutustiedot</h3>'+dl(laskutusRivit(p))+'<h3>Matka</h3>'+matkaHtml(p)+'<h3>Hinta</h3>'+hintaRivitDoc(p);}
-  else{var lomake=!p.tarjous||muuta[p.id], ehdotus=p.tarjous?p.tarjous.alv0:(t.tila==='tarkka'&&!kasin(p)?t.alv0:'');
+  // hyväksyttyä tai vahvistettua tarjousta ei voi enää muuttaa: ei lomaketta eikä Muuta hintaa -nappia
+  else{var lomake=!p.tarjous||(muuta[p.id]&&!hyvaksytty(p)), ehdotus=p.tarjous?p.tarjous.alv0:(t.tila==='tarkka'&&!kasin(p)?t.alv0:'');
    h+='<div class="pv-toimi'+(lomake?'':' pv-toimi--ok')+'">';
    if(!lomake) h+='<p class="pv-iso">'+(p.tarjous.auto?'Tarjous lähti asiakkaalle heti automaattisesti':'Tarjous lähetetty '+kello(p.tarjous.ts))+': '+eur2(p.tarjous.yht)+' sis. alv</p>'+
-    '<p>'+esc(hyvaksytty(p)?T.hyvaksyiJo:T.odottaaAsiakasta)+'</p><div class="pv-napit"><button class="nappi nappi--reuna" type="button" data-muuta><span>Muuta hintaa</span></button>'+
+    '<p>'+esc(hyvaksytty(p)?T.hyvaksyiJo:T.odottaaAsiakasta)+'</p><div class="pv-napit">'+(hyvaksytty(p)?'':'<button class="nappi nappi--reuna" type="button" data-muuta><span>Muuta hintaa</span></button>')+
     (puhelin?'<button class="nappi nappi--reuna" type="button" data-puhelin="tarjous-nakyma.html?id='+encodeURIComponent(p.id)+'"><span>Näytä asiakkaan puhelimessa</span></button>':'')+'</div>';
-   else h+='<p class="pv-iso">'+esc(p.tarjous?'Uusi hinta asiakkaalle':vastausaika(p)[0])+'</p>'+huomioEsteeton(p)+
-    (t.tila==='tarkka'?'<p>'+ehdotusOts(p)+t.suunnat.map(function(s){return s[0]+' '+eur(s[1]);}).join(', ')+(t.autoja>1?', '+t.autoja+' autoa':'')+' ('+esc(t.luokka.nimi)+(t.reitti?', '+luku(t.reitti.km)+' km':'')+').</p>':
-     '<p>'+(p.hinta&&p.hinta.tila==='taso'?'Asiakas näki hintatason '+esc(p.hinta.taso.hinta)+(p.hinta.perSuunta?' / suunta':'')+'. ':'')+esc(T.eiHinnoittelua)+'</p>')+
-    '<form class="vastaus" data-tarjous><label class="kentta">Tarjoushinta alv 0 % (€)<input name="hinta" inputmode="decimal" value="'+(ehdotus!==''?Math.round(ehdotus):'')+'" required></label>'+
-    '<button class="nappi nappi--kelta" type="submit"><span>'+(p.tarjous?'Lähetä uusi hinta':'Lähetä tarjous')+'</span></button></form>'+
+   else h+='<p class="pv-iso">'+esc(p.tarjous?'Uusi hinta asiakkaalle':vastausaika(p)[0])+'</p>'+huomioEsteeton(p,t)+ehdotusTaiSyy(p,t,H,'')+
+    hintaLomake(ehdotus,p.tarjous?'Lähetä uusi hinta':'Lähetä tarjous')+
     '<p class="erittely">Alv '+luku(alvp(H))+' % lisätään. Asiakas saa tarjouksen heti ja hyväksyy sen yhdellä napilla.</p>';
    h+='</div><h3>Asiakas</h3>'+dl([['Nimi',p.nimi||'–'],['Sähköposti',p.sposti||'–'],['Puhelin',p.puhelin||'–']])+
     (p.puhelin?'<p style="margin-top:10px"><a class="linkki" href="'+tel(p.puhelin)+'">Soita asiakkaalle</a></p>':'')+
     '<h3>Matka</h3>'+matkaHtml(p)+(t.reitti&&t.reitti.km>0?'<p class="erittely">'+luku(t.reitti.km)+' km, ajoaika noin '+t.reitti.min+' min. '+esc(T.reittilahde)+'</p>':'');}
   pluku.innerHTML='<article class="pv">'+h+'</article>'; pluku.dataset.m=avoin;
-  var uusi=pluku.querySelector('input[name=hinta]'); if(uusi&&kesken!==null){uusi.value=kesken; uusi.dataset.muokattu='1';} if(uusi&&fokus) uusi.focus();}
+  var uusi=pluku.querySelector('input[name=hinta]'); if(uusi&&kesken!==null){uusi.value=kesken; uusi.dataset.muokattu='1';} if(uusi){esikatselu(uusi.form); if(fokus) uusi.focus();}}
  plista.addEventListener('click',function(e){var b=e.target.closest('[data-m]'); if(!b) return; avoin=b.dataset.m; piirraLista(); pluku.scrollTop=0;
   if(window.innerWidth<1000) pluku.scrollIntoView({behavior:vahennetty?'auto':'smooth',block:'start'});});
  var nykyinen=function(){var id=avoin.split(':')[0]; return hae(id);};
- pluku.addEventListener('input',function(e){if(e.target.name==='hinta'){e.target.dataset.muokattu='1'; merkitse(e.target,true);}});
- pluku.addEventListener('submit',function(e){var f=e.target.closest('[data-tarjous]'); if(!f) return; e.preventDefault(); var p=nykyinen(), v=num(f.elements.hinta.value);
-  if(!p) return; if(!(v>0)){merkitse(f.elements.hinta,false); f.elements.hinta.focus(); return;}
-  var H=hinnoittelu(), pros=alvp(H), vero=Math.round(v*pros)/100, ts=Date.now(), t=laske(p,H);
+ pluku.addEventListener('input',function(e){if(e.target.name==='hinta'){e.target.dataset.muokattu='1'; hintaMuuttui(e.target.form);}});
+ pluku.addEventListener('submit',function(e){var f=e.target.closest('[data-tarjous]'); if(!f) return; e.preventDefault(); var p=nykyinen();
+  if(!p) return; if(p.tarjous&&hyvaksytty(p)){muuta[p.id]=false; piirraLista(); return;}
+  var H=hinnoittelu(), t=laske(p,H), v=hintaLahtoon(f,t); if(v===null) return;
+  var pros=alvp(H), vero=Math.round(v*pros)/100, ts=Date.now();
   p.tarjous={alv0:v,alvp:pros,alv:vero,yht:v+vero,ts:ts,auto:false,suunnat:t.tila==='tarkka'&&Math.round(t.alv0)===Math.round(v)?t.suunnat:null};
   if(!hyvaksytty(p)) p.tila='tarjottu'; p.historia=(p.historia||[]).concat([['Tarjous lähetettiin',ts]]); muuta[p.id]=false; delete f.elements.hinta.dataset.muokattu; tallenna(p); piirraLista();});
  pluku.addEventListener('click',function(e){var p=nykyinen(), b; if(!p) return;
-  if(e.target.closest('[data-muuta]')){muuta[p.id]=true; piirraViesti(); var i=pluku.querySelector('input[name=hinta]'); if(i){i.focus(); i.select();} return;}
+  if(e.target.closest('[data-muuta]')){if(hyvaksytty(p)) return; muuta[p.id]=true; piirraViesti(); var i=pluku.querySelector('input[name=hinta]'); if(i){i.focus(); i.select();} return;}
   if((b=e.target.closest('[data-puhelin]'))&&puhelin){puhelin.src=b.dataset.puhelin; return;}
   if(e.target.closest('[data-hoida]')){p.tila='hoidettu'; p.historia=(p.historia||[]).concat([['Soitettu ja hoidettu',Date.now()]]); tallenna(p); piirraLista(); return;}
   if(e.target.closest('[data-vahvista]')){p.tila='vahvistettu'; p.vahvistettu=Date.now(); p.historia=(p.historia||[]).concat([['Varaus vahvistettiin',p.vahvistettu]]); tallenna(p); piirraLista(); return;}
@@ -627,6 +716,14 @@ if(posti){
    if(navigator.clipboard&&navigator.clipboard.writeText) navigator.clipboard.writeText(laskutusTeksti(p)).then(function(){valmis('Kopioitu leikepöydälle');},function(){valmis('Kopiointi estetty');}); else valmis('Kopiointi estetty');}});
  var hp=d.getElementById('hinnoittelu'), piirraH=hp?hinnoitteluPaneeli(hp,d.getElementById('avaa-hinnoittelu'),piirraViesti):null;
  var koti=d.getElementById('puhelin-koti'); if(koti&&puhelin) koti.addEventListener('click',function(){puhelin.src='index.html';});
+ // yhden ruudun esittely: puhelin on oikean puhelimen kokoinen (375 × 812, noin 9:19,5) ja skaalautuu näkymän korkeuteen,
+ // joten sivusto asettuu kuten puhelimessa eikä kehys litisty
+ var kehys=puhelin&&puhelin.parentNode, yksiRuutu=window.matchMedia('(min-width:1001px) and (min-height:520px)');
+ function sovitaPuhelin(){if(!kehys) return;
+  if(!yksiRuutu.matches){kehys.classList.remove('skaalattu'); kehys.style.removeProperty('--s'); return;}
+  kehys.classList.add('skaalattu'); var yla=kehys.getBoundingClientRect().top, korkeus=Math.min(836,Math.max(240,window.innerHeight-yla-16));
+  kehys.style.setProperty('--s',((korkeus-24)/812).toFixed(4));}
+ if(kehys){sovitaPuhelin(); window.addEventListener('resize',sovitaPuhelin);}
  var tyhj=d.getElementById('tyhjenna'); if(tyhj) tyhjennysNappi(tyhj,function(){avoin=''; tunnetut=[]; muuta={}; if(puhelin) puhelin.src='index.html'; piirraLista(); if(piirraH) piirraH();});
  kuuntele(piirraLista); setInterval(function(){if(!d.hidden) piirraLista();},30000);
  piirraLista();

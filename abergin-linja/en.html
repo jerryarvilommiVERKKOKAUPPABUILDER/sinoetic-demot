@@ -41,7 +41,7 @@ p{margin:0}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .ohita{position:absolute;left:-999px;top:0;z-index:99;background:var(--kelta);color:var(--yo);padding:12px 16px;font-weight:700}
 .ohita:focus{left:8px;top:8px}
-:focus-visible{outline:3px solid var(--kelta);outline-offset:3px}
+:focus-visible{outline:3px solid var(--kelta);outline-offset:2px;box-shadow:0 0 0 2px var(--yo)}
 .demopalkki{margin:0;min-height:var(--palkki);display:flex;align-items:center;justify-content:center;padding:6px var(--reuna);background:#fff;color:var(--harmaa);font-size:12px;line-height:1.25;font-weight:600;text-align:center;position:relative;z-index:60}
 .silma{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--sin);margin-bottom:18px}
 .silma::before{content:"";width:28px;height:3px;border-radius:2px;background:var(--kelta)}
@@ -86,7 +86,7 @@ p{margin:0}
 @media (max-width:920px){
  .top nav,.top .puh,.top .nappi,.top .kieli{display:none}
  .valikko-nappi{display:inline-flex}
- .top.auki{position:fixed;top:0;bottom:0;z-index:70;background:var(--yo);color:#fff}
+ .top.auki{position:fixed;top:0;bottom:0;z-index:70;background:var(--yo);color:#fff;overflow-y:auto;overscroll-behavior:contain}
  .top.auki .wrap{flex-wrap:wrap;align-content:flex-start;height:auto;padding-top:15px}
  .top.auki nav{display:flex;flex-direction:column;width:100%;margin:24px 0 0;gap:0}
  .top.auki nav a{font-size:26px;font-weight:700;padding:14px 0;border-radius:0;border-bottom:1px solid rgba(255,255,255,.12);background:none!important}
@@ -95,14 +95,15 @@ p{margin:0}
  .top.auki .nappi{display:inline-flex;margin-top:22px;width:100%;justify-content:center;min-height:54px}
 }
 /* ensinäkymä */
-.hero{position:relative;min-height:600px;height:calc(100svh - var(--palkki));max-height:940px;color:#fff;background:var(--yo);overflow:hidden;display:flex;align-items:flex-end}
+.hero{position:relative;min-height:max(600px,calc(100svh - var(--palkki)));max-height:940px;color:#fff;background:var(--yo);overflow:hidden;display:flex;align-items:flex-end}
 .hero-kuvat,.hero-kuvat img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .hero-kuvat img{opacity:0;transition:opacity 1.8s ease}
 .hero-kuvat img.on{opacity:1}
 .liike .hero-kuvat img.on{animation:hidas 14s ease-out both}
 @keyframes hidas{from{transform:scale(1.08)}to{transform:scale(1)}}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(8,16,26,.86) 0%,rgba(8,16,26,.45) 38%,rgba(8,16,26,0) 66%),linear-gradient(to right,rgba(8,16,26,.55),rgba(8,16,26,0) 60%);pointer-events:none}
-.hero .wrap{position:relative;z-index:2;width:100%;padding-bottom:150px}
+.hero .wrap{position:relative;z-index:2;width:100%;padding-top:120px;padding-bottom:150px}
+.hero::before{content:"";position:absolute;inset:0 0 auto 0;height:220px;z-index:1;pointer-events:none;background:linear-gradient(to bottom,rgba(8,16,26,.72),rgba(8,16,26,.35) 55%,rgba(8,16,26,0))}
 .hero .rivi{display:inline-flex;align-items:center;gap:10px;font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:20px}
 .hero .rivi::before{content:"";width:28px;height:3px;border-radius:2px;background:var(--kelta)}
 .hero h1{font-size:clamp(40px,4.4vw,56px);max-width:15ch;letter-spacing:-.035em;line-height:1}
@@ -118,11 +119,11 @@ p{margin:0}
 .pika label>span{font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--harmaa)}
 .pika input{border:0;font:600 18px/1.3 var(--f);color:var(--muste);padding:4px 0;background:transparent;min-width:0;width:100%}
 .pika input:focus{outline:none}
-.pika label:focus-within{background:var(--pohja);border-radius:14px}
+.pika label:focus-within{background:var(--pohja);border-radius:14px;box-shadow:inset 0 0 0 2px var(--sin)}
 .pika form>button{border:0;cursor:pointer;margin-left:10px;font-family:var(--f)}
 .pika .pika-maara{display:flex;flex-direction:column;justify-content:center;gap:2px;padding:12px 18px;min-width:0}
 .pika .pika-maara>span{font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--harmaa)}
-.pika .pika-maara:focus-within{background:var(--pohja);border-radius:14px}
+.pika .pika-maara:focus-within{background:var(--pohja);border-radius:14px;box-shadow:inset 0 0 0 2px var(--sin)}
 .pika-ala{display:flex;flex-wrap:wrap;gap:8px 22px;align-items:center;margin-top:16px;font-size:14.5px;color:var(--harmaa);font-weight:600}
 .pika-ala b{color:var(--muste)}
 .pika-ala svg{width:17px;height:17px;fill:none;stroke:var(--sin);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;vertical-align:-3px;margin-right:6px}
@@ -215,6 +216,10 @@ input[type=range]{width:100%;margin:22px 0 8px;accent-color:var(--sin);height:28
 .hinnat figure{margin:32px 0 0;border-radius:var(--sade);overflow:hidden;aspect-ratio:16/10}
 .hinnat figure img{width:100%;height:100%;object-fit:cover}
 /* kuvapohjainen osio */
+.vastuu-yla{display:grid;grid-template-columns:minmax(0,640px) minmax(0,560px);justify-content:space-between;gap:clamp(28px,4vw,64px);align-items:center}
+.vastuu-kuva{margin:0;border-radius:22px;overflow:hidden;aspect-ratio:813/469}
+.vastuu-kuva img{width:100%;height:100%;object-fit:cover}
+@media (max-width:1000px){.vastuu-yla{grid-template-columns:minmax(0,1fr)}.vastuu-kuva{max-width:813px}}
 .kuvapohja{position:relative;color:#fff;overflow:hidden;isolation:isolate}
 .kuvapohja>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
 .kuvapohja::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(to right,rgba(8,16,26,.9) 0%,rgba(8,16,26,.7) 50%,rgba(8,16,26,.35) 100%)}
@@ -261,13 +266,18 @@ details p{padding:0 40px 24px 0;color:var(--harmaa);font-size:16.5px}
 .ala-pohja a{color:#c9d3df}
 .ala-pohja{margin-top:56px;padding-top:24px;border-top:1px solid rgba(255,255,255,.1);font-size:13px;color:#8796a8;display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
 /* alasivun ensinäkymä */
-.alahero{position:relative;background:var(--yo);color:#fff;padding-top:calc(76px + var(--palkki));overflow:hidden}
-.alahero .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,72px);align-items:center;min-height:min(680px,calc(88svh - 76px - var(--palkki)));padding-bottom:56px;padding-top:32px}
-.alahero h1{font-size:clamp(36px,4.2vw,54px);max-width:14ch}
-.alahero .ingressi{font-size:clamp(18px,1.5vw,20px);color:#c9d3df;margin-top:20px;max-width:46ch}
-.alahero .napit{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
-.alahero figure{margin:0;width:100%;border-radius:24px;overflow:hidden;aspect-ratio:5/4;max-height:560px}
-.alahero figure img{width:100%;height:100%;object-fit:cover}
+.alahero{position:relative;background:var(--yo);color:#fff;overflow:hidden;text-align:center}
+.vc-ruutu{position:relative;min-height:520px;height:calc(100svh - var(--palkki));max-height:900px;display:flex;align-items:flex-end;overflow:hidden}
+.alahero .vc-kuva,.vc-kuva img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;margin:0}
+.liike .vc-kuva img{transform:scale(calc(1.1 - var(--v,0) * .1));will-change:transform}
+.vc-ruutu::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(11,24,38,1) 0%,rgba(8,16,26,.82) 26%,rgba(8,16,26,.35) 44%,rgba(8,16,26,0) 60%),linear-gradient(to bottom,rgba(8,16,26,.75),rgba(8,16,26,0) 26%);pointer-events:none}
+.vc-ruutu .wrap{position:relative;z-index:2;width:100%;padding-bottom:clamp(40px,7vh,72px)}
+.alahero .murut{display:none}
+.alahero h1{font-size:clamp(44px,6.2vw,84px);max-width:18ch;margin:0 auto;letter-spacing:-.045em;line-height:.98}
+.alahero .napit{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px;justify-content:center}
+.alahero .vc-ing{max-width:calc(780px + 2 * var(--reuna));text-align:left;padding-top:clamp(28px,5vh,48px);padding-bottom:clamp(48px,8vh,88px)}
+.alahero .ingressi{margin:0;font-size:clamp(19px,1.8vw,23px);line-height:1.5;color:#e6ecf3}
+.vc-kuva figcaption.kt{z-index:3;left:auto;right:var(--reuna);bottom:auto;top:calc(76px + var(--palkki) + 12px);max-width:min(360px,calc(100% - 2 * var(--reuna)));text-align:left}
 .murut{font-size:14px;color:#9fb0c3;margin-bottom:22px;font-weight:600}
 .alahero .silma{color:var(--kelta)}
 .murut a{text-decoration:none}
@@ -320,7 +330,7 @@ figcaption.kt span{opacity:.7;margin-left:6px}
 .tarina .lisaa svg,.viitteet .lahde svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s}
 .tarina:hover .lisaa svg{transform:translateX(4px)}
 /* arviot */
-.arviot{display:grid;grid-template-columns:1.35fr 1fr 1fr 1fr;margin:0 0 44px;padding:30px 0;border-top:1px solid var(--raja);border-bottom:1px solid var(--raja)}
+.arviot{display:grid;grid-template-columns:1fr 1fr;margin:0 0 44px;padding:30px 0;border-top:1px solid var(--raja);border-bottom:1px solid var(--raja)}
 .arviot>div{padding:4px 28px;border-left:1px solid var(--raja);min-width:0}
 .arviot>div:first-child{border-left:0;padding-left:0}
 .arviot strong{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;font-size:clamp(36px,3.6vw,50px);font-weight:750;letter-spacing:-.04em;line-height:1;color:var(--yo)}
@@ -427,8 +437,8 @@ figcaption.kt span{opacity:.7;margin-left:6px}
 /* tiivis EM-referenssi ja bussikoot palvelusivuilla */
 .em-tiivis{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(32px,6vw,88px);align-items:center}
 .em-tiivis .tilastot{display:grid;grid-template-columns:1fr 1fr;gap:28px 32px;margin:0}
-.koot{display:grid;grid-template-columns:1fr 1.25fr;gap:clamp(32px,6vw,88px);align-items:center}
-.koko-napit{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.koot{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:clamp(32px,6vw,88px);align-items:center}
+.koko-napit{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
 .koko-nappi{display:flex;flex-direction:column;align-items:flex-start;gap:2px;min-height:148px;padding:20px 20px 18px;border:1px solid var(--raja);border-radius:var(--sade);background:#fff;color:var(--yo);font:inherit;text-align:left;cursor:pointer;transition:border-color .2s,transform .25s,box-shadow .25s}
 .koko-nappi:hover{border-color:var(--yo);transform:translateY(-3px);box-shadow:var(--var)}
 .koko-nappi:focus-visible{outline:3px solid var(--sin);outline-offset:2px}
@@ -451,8 +461,10 @@ figcaption.kt span{opacity:.7;margin-left:6px}
  .seuraava .wrap{grid-template-columns:1fr}
  .seuraava a{padding:36px 0}
  .seuraava .seur-toinen{padding-left:0;border-left:0;border-top:1px solid var(--raja)}
- .koko-napit{grid-template-columns:1fr 1fr}
- .koko-nappi{min-height:128px}
+ .koko-napit{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .koko-nappi{min-height:128px;min-width:0}
+ .koko-nappi strong{overflow-wrap:anywhere;hyphens:auto}
+ @media (max-width:360px){.koko-nappi strong{font-size:24px}}
 }
 @media (max-width:600px){.vaiheet{grid-template-columns:1fr}.tarinat{grid-template-columns:1fr}.tarina{min-height:0}}
 /* tarjouslomake */
@@ -468,7 +480,7 @@ figcaption.kt span{opacity:.7;margin-left:6px}
 .kentta{display:flex;flex-direction:column;gap:6px;font-weight:650;font-size:15px}
 .kentta input,.kentta textarea,.kentta select{font:500 17px/1.4 var(--f);color:var(--muste);padding:14px 16px;border:1.5px solid var(--raja);border-radius:12px;background:#fff;width:100%}
 .kentta textarea{min-height:120px;resize:vertical}
-.kentta input:focus,.kentta textarea:focus,.kentta select:focus{outline:none;border-color:var(--sin);box-shadow:0 0 0 4px rgba(56,100,146,.15)}
+.kentta input:focus,.kentta textarea:focus,.kentta select:focus{outline:2px solid var(--sin);outline-offset:1px;border-color:var(--sin);box-shadow:0 0 0 4px rgba(56,100,146,.15)}
 .kentta small{font-weight:500;color:var(--harmaa);font-size:13.5px}
 .kentta.virhe input{border-color:#c0392b}
 .valinnat{display:flex;flex-wrap:wrap;gap:10px}
@@ -517,6 +529,7 @@ figcaption.kt span{opacity:.7;margin-left:6px}
  .luvut strong{font-size:30px;white-space:nowrap}
  .hero{height:auto;min-height:calc(88svh - var(--palkki))}
  .hero .wrap{padding-bottom:40px;padding-top:140px}
+ .hero::after{background:linear-gradient(to top,rgba(8,16,26,.9) 0%,rgba(8,16,26,.62) 50%,rgba(8,16,26,.35) 100%)}
  .hero h1{font-size:clamp(36px,10.4vw,44px)}
  .sarjapisteet{bottom:auto;top:calc(76px + 16px)}
  .hero .napit .nappi{flex:1;justify-content:center;padding:0 16px}
@@ -543,9 +556,13 @@ figcaption.kt span{opacity:.7;margin-left:6px}
  .ala ul{gap:2px}
  .ala li a,.ala p a,.murut a,.ala-pohja a{display:inline-flex;align-items:center;min-height:44px}
  .linkki{min-height:44px}
- .alahero{padding-top:76px}
- .alahero .wrap{min-height:0;padding-bottom:40px;padding-top:16px;gap:24px}
- .alahero figure{aspect-ratio:3/2}
+ .vc-ruutu{height:auto;min-height:calc(86svh - var(--palkki));padding-top:calc(76px + var(--palkki))}
+ .vc-ruutu .wrap{padding-bottom:28px}
+ .alahero h1{font-size:clamp(38px,11vw,48px)}
+ .alahero .napit .nappi{flex:1;justify-content:center;padding:0 16px}
+ .alahero .ingressi{font-size:18px}
+ .alahero .vc-kuva[style*="--kp"] img{object-position:var(--kp)!important}
+ .vc-kuva figcaption.kt{top:auto;bottom:auto;top:calc(64px + var(--palkki));right:10px;font-size:12px}
  .cta .napit .nappi{flex:1;justify-content:center}
  .alapalkki{display:grid;grid-template-columns:1fr 1.4fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:40;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 -1px 0 var(--raja);transform:translateY(110%);transition:transform .3s}
  .alapalkki.nakyy{transform:none}
@@ -584,14 +601,20 @@ figcaption.kt span{opacity:.7;margin-left:6px}
 .tyypit label{position:relative;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 15px;border:1.5px solid var(--raja);border-radius:999px;font-weight:650;font-size:15px;cursor:pointer;background:#fff;transition:border-color .2s,background .2s}
 .tyypit input{position:absolute;opacity:0;width:1px;height:1px}
 .tyypit label:has(input:checked){border-color:var(--sin);background:#eef3f9;color:var(--yo)}
-.tyypit label:has(input:focus-visible){outline:3px solid var(--kelta);outline-offset:2px}
+.tyypit label:has(input:focus-visible){outline:3px solid var(--kelta);outline-offset:2px;box-shadow:0 0 0 2px var(--yo)}
 .tyypit svg{width:18px;height:18px;fill:none;stroke:var(--sin);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .vaihto{display:grid;grid-template-columns:1fr 1fr;border:1.5px solid var(--raja);border-radius:12px;padding:4px;gap:4px}
-.vaihto label{display:flex;align-items:center;justify-content:center;min-height:42px;border-radius:9px;font-weight:650;font-size:15px;cursor:pointer;position:relative}
+.vaihto label{display:flex;align-items:center;justify-content:center;min-height:42px;padding:4px 10px;text-align:center;line-height:1.2;border-radius:9px;font-weight:650;font-size:15px;cursor:pointer;position:relative}
 .vaihto input{position:absolute;opacity:0;width:1px;height:1px}
 .vaihto label:has(input:checked){background:var(--yo);color:#fff}
-.vaihto label:has(input:focus-visible){outline:3px solid var(--kelta)}
-.laskuri{display:grid;grid-template-columns:48px 1fr 48px;border:1.5px solid var(--raja);border-radius:12px;overflow:hidden}
+.vaihto label:has(input:focus-visible){outline:3px solid var(--kelta);outline-offset:2px;box-shadow:0 0 0 2px var(--yo)}
+.laskuri{display:grid;grid-template-columns:48px 1fr 48px;border:1.5px solid var(--raja);border-radius:12px}
+.laskuri button:first-child{border-radius:10px 0 0 10px}
+.laskuri button:last-child{border-radius:0 10px 10px 0}
+/* fokus näkyy kaksisävyisenä myös −/+-napeissa ja henkilömääräkentässä (kelta + tumma, ettei keltainen huku valkoiseen) */
+.laskuri button:focus-visible{position:relative;z-index:1;outline:3px solid var(--kelta);outline-offset:2px;box-shadow:0 0 0 2px var(--yo)}
+.laskuri:has(input:focus-visible){outline:3px solid var(--kelta);outline-offset:2px;box-shadow:0 0 0 2px var(--yo)}
+.laskuri input:focus,.laskuri input:focus-visible{outline:none;box-shadow:none}
 .laskuri button{border:0;background:var(--pohja);font:700 22px/1 var(--f);color:var(--yo);cursor:pointer}
 .laskuri button:hover{background:#e6ebf1}
 .laskuri input{border:0!important;border-radius:0!important;text-align:center;font-weight:700!important;-moz-appearance:textfield}
@@ -602,6 +625,9 @@ figcaption.kt span{opacity:.7;margin-left:6px}
 .pikat button:hover{border-color:var(--sin);color:var(--sin)}
 .valinta-ruutu{flex-direction:row!important;align-items:flex-start;gap:10px!important;font-weight:600!important;cursor:pointer}
 .valinta-ruutu input{accent-color:var(--sin);width:20px!important;height:20px;padding:0!important;margin-top:1px;flex:none}
+.valinta-ruutu:has(input:focus-visible),.valinnat label:has(input:focus-visible){outline:3px solid var(--kelta);outline-offset:2px;box-shadow:0 0 0 2px var(--yo);border-radius:10px}
+.valinnat label:has(input:focus-visible){border-radius:999px}
+.valinta-ruutu input:focus-visible,.valinnat input:focus-visible{outline:none;box-shadow:none}
 .kentta-virhe{color:#c0392b!important;font-weight:650!important}
 .kentta-virhe[hidden]{display:none}
 .kone-yhteenveto{background:var(--pohja);border-radius:14px;padding:14px 18px 16px;margin:-4px 0 20px;font-size:14.5px}
@@ -609,7 +635,7 @@ figcaption.kt span{opacity:.7;margin-left:6px}
 .kone-yhteenveto .yv-paa{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:6px}
 .kone-yhteenveto .yv-paa b{font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--sin)}
 .kone-yhteenveto .yv-paa button{border:0;background:none;padding:0;font:700 14px var(--f);color:var(--sin);text-decoration:underline;text-underline-offset:3px;cursor:pointer;min-height:36px}
-.kone-yhteenveto dl{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;margin:0}
+.kone-yhteenveto dl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 14px;margin:0}
 .kone-yhteenveto dt{color:var(--harmaa);font-weight:600}
 .kone-yhteenveto dd{margin:0;font-weight:650;color:var(--muste);overflow-wrap:anywhere}
 .hinta-arvio{margin-top:22px;border-radius:16px;background:var(--yo);color:#fff;padding:20px 22px;display:grid;gap:10px}
@@ -654,7 +680,7 @@ figcaption.kt span{opacity:.7;margin-left:6px}
 .sposti-runko{padding:20px 18px;display:grid;gap:12px;line-height:1.55}
 .sposti-runko .nappi{justify-self:start;min-height:46px}
 .sposti-runko table{border-collapse:collapse;width:100%;font-size:14.5px}
-.sposti-runko td{padding:6px 0;border-bottom:1px solid var(--raja);vertical-align:top}
+.sposti-runko td{padding:6px 0;border-bottom:1px solid var(--raja);vertical-align:top;overflow-wrap:anywhere}
 .sposti-runko td:first-child{color:var(--harmaa);width:38%;padding-right:12px}
 .allekirjoitus{font-size:14px;color:var(--harmaa)}
 /* tarjousdokumentti */
@@ -673,11 +699,13 @@ figcaption.kt span{opacity:.7;margin-left:6px}
 .tila--soitto{background:#f2e6fb;color:#6a2c91}
 .doc-osio{padding:26px 0;border-bottom:1px solid var(--raja)}
 .doc-osio h2{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--sin);margin-bottom:14px}
-.doc dl{display:grid;grid-template-columns:180px 1fr;gap:10px 20px;margin:0;font-size:16px}
+.doc dl{display:grid;grid-template-columns:180px minmax(0,1fr);gap:10px 20px;margin:0;font-size:16px}
 .doc dt{color:var(--harmaa);font-weight:600}
-.doc dd{margin:0;font-weight:600}
+.doc dd{margin:0;font-weight:600;overflow-wrap:anywhere;min-width:0}
 .doc-hinta{display:grid;gap:10px;font-size:16px}
 .doc-hinta div{display:flex;justify-content:space-between;gap:16px}
+.doc-hinta div>span:first-child{min-width:0;overflow-wrap:anywhere}
+.doc-hinta div>span:last-child{white-space:nowrap}
 .doc-hinta .yht{font-size:clamp(24px,2.8vw,32px);font-weight:750;letter-spacing:-.03em;padding-top:12px;border-top:2px solid var(--yo)}
 .doc-huom{font-size:14px;color:var(--harmaa);margin-top:14px}
 .doc-napit{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
@@ -685,6 +713,21 @@ figcaption.kt span{opacity:.7;margin-left:6px}
 .doc-ala{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding-top:24px;font-size:14px;color:var(--harmaa)}
 .doc-ala b{color:var(--muste)}
 .hyvaksytty-ilmo{margin-top:22px;padding:16px 18px;border-radius:14px;background:#dcf3e4;color:#17663a;font-weight:650}
+/* K-18 ja V-23: tarjouksen yläosa, jossa bussin kuva, yhteishinta ja Hyväksy-nappi */
+.doc-kooste{display:grid;grid-template-columns:200px minmax(0,1fr) auto;gap:16px 22px;align-items:center;margin-top:24px;padding:16px;border-radius:16px;background:var(--pohja)}
+.doc-kooste--ei-kuvaa{grid-template-columns:minmax(0,1fr)}
+.doc-kooste img{display:block;width:200px;height:auto;aspect-ratio:14/9;object-fit:cover;border-radius:12px}
+.dk-auto{display:flex;flex-direction:column;gap:2px;min-width:0}
+.dk-auto small,.dk-hinta small{font-size:13px;font-weight:650;color:var(--harmaa)}
+.dk-auto b{font-size:18px;color:var(--yo);line-height:1.25}
+.dk-hinta{display:flex;flex-direction:column;align-items:flex-end;gap:10px;text-align:right}
+.dk-hinta p{display:flex;flex-direction:column;gap:2px}
+.dk-hinta b{font-size:clamp(24px,2.8vw,30px);font-weight:750;letter-spacing:-.03em;color:var(--yo);white-space:nowrap;line-height:1.1}
+.dk-hinta .nappi{min-height:48px}
+.doc-kooste--ei-kuvaa .dk-hinta{flex-direction:row;justify-content:space-between;align-items:center;text-align:left;flex-wrap:wrap}
+.tl-ilmo{margin-top:12px;padding:12px 14px;border-radius:12px;background:#fff4c2;color:#5c4600;font-weight:650}
+.tl-ilmo[hidden]{display:none}
+.doc-ilmo:focus{outline:none}
 /* sovellussivut: myynti ja tarjous */
 .sovellus{background:var(--pohja);min-height:100vh}
 .sov-paa{background:var(--yo);color:#fff}
@@ -705,7 +748,7 @@ figcaption.kt span{opacity:.7;margin-left:6px}
 .jono button{all:unset;box-sizing:border-box;display:grid;gap:6px;padding:16px 18px;border-radius:16px;background:#fff;border:1.5px solid var(--raja);cursor:pointer;transition:border-color .2s,box-shadow .2s}
 .jono button:hover{border-color:#c5cfdb}
 .jono button[aria-current]{border-color:var(--sin);box-shadow:0 12px 30px -22px rgba(56,100,146,.9)}
-.jono button:focus-visible{outline:3px solid var(--kelta);outline-offset:2px}
+.jono button:focus-visible{outline:3px solid var(--kelta);outline-offset:2px;box-shadow:0 0 0 2px var(--yo)}
 .jono .j-ylä{display:flex;justify-content:space-between;align-items:center;gap:10px}
 .jono .j-ylä .tila{margin:0}
 .jono .j-aika{font-size:13px;color:var(--harmaa);font-weight:600}
@@ -720,7 +763,7 @@ figcaption.kt span{opacity:.7;margin-left:6px}
 .kortti-valk{background:#fff;border-radius:20px;border:1px solid var(--raja);padding:clamp(20px,3vw,32px)}
 .kortti-valk h2{font-size:clamp(22px,2.2vw,28px)}
 .kortti-valk h3{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--sin);margin:26px 0 12px}
-.kortti-valk dl{display:grid;grid-template-columns:150px 1fr;gap:8px 16px;margin:0;font-size:15.5px}
+.kortti-valk dl{display:grid;grid-template-columns:150px minmax(0,1fr);gap:8px 16px;margin:0;font-size:15.5px}
 .kortti-valk dt{color:var(--harmaa);font-weight:600}
 .kortti-valk dd{margin:0;font-weight:600;overflow-wrap:anywhere}
 .aikajana-mini{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:14.5px}
@@ -740,6 +783,14 @@ figcaption.kt span{opacity:.7;margin-left:6px}
 .hinnoittelu input{width:100%;min-width:70px;font:600 16px var(--f);padding:10px 10px;border:1.5px solid var(--raja);border-radius:10px}
 .hinnoittelu input:focus{outline:none;border-color:var(--sin);box-shadow:0 0 0 4px rgba(56,100,146,.15)}
 .hinnoittelu .tilannerivi{margin-top:14px;font-size:14px;font-weight:650}
+.hinnoittelu input[aria-invalid=true]{border-color:#b3261e;background:#fdf1f0}
+.hinnoittelu .hinnat-kesken{display:block;margin-top:4px;color:#6b5200}
+/* K-01: tarjoushinnan esikatselu ja vahvistus */
+.vastaus .hinta-esikatselu,.vastaus .hinta-varoitus{grid-column:1/-1;margin:0}
+.hinta-esikatselu{font-size:14px;font-weight:650;color:var(--yo)}
+.hinta-esikatselu:empty{display:none}
+.hinta-varoitus{padding:10px 12px;border-radius:10px;background:#fdecea;border-left:4px solid #b3261e;color:#7a1b14;font-size:14px;font-weight:650;line-height:1.4}
+.hinta-varoitus[hidden]{display:none}
 /* luottamusmerkit */
 .merkkirivi{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
 .merkkirivi a,.merkkirivi span.mk{display:flex;align-items:center;justify-content:center;background:#fff;border-radius:14px;padding:10px 14px;height:78px;border:1px solid var(--raja);text-decoration:none}
@@ -755,7 +806,7 @@ figcaption.kt span{opacity:.7;margin-left:6px}
 /* kalustovalitsimen tarjouspolku */
 .auto[data-max]{cursor:pointer}
 .auto-nappi{position:absolute;inset:0;border:0;background:transparent;border-radius:16px;cursor:pointer;font-size:0;font-family:inherit}
-.auto-nappi:focus-visible{outline:3px solid var(--kelta);outline-offset:2px}
+.auto-nappi:focus-visible{outline:3px solid var(--kelta);outline-offset:2px;box-shadow:0 0 0 2px var(--yo)}
 .auto{position:relative}
 .auto .pyyda{grid-column:2/4;font-size:13.5px;font-weight:700;color:var(--sin);display:none}
 .auto.sopii .pyyda{display:block}
@@ -781,7 +832,14 @@ figcaption.kt span{opacity:.7;margin-left:6px}
  .doc dd,.kortti-valk dd{margin-bottom:10px}
  .doc-tunnus{text-align:left}
  .doc-ala{grid-template-columns:1fr}
+ .doc-kooste{grid-template-columns:112px minmax(0,1fr);gap:12px 14px;padding:12px}
+ .doc-kooste img{width:112px}
+ .dk-hinta{grid-column:1/-1;flex-direction:row;flex-wrap:wrap;justify-content:space-between;align-items:center;text-align:left;padding-top:10px;border-top:1px solid var(--raja)}
+ .doc-kooste--ei-kuvaa .dk-hinta{padding-top:0;border-top:0}
+ .dk-hinta .nappi{flex:1 1 100%;justify-content:center}
  .vastaus{grid-template-columns:1fr}
+ .vastaus .hinta-esikatselu,.vastaus .hinta-varoitus{order:1}
+ .vastaus button{order:2}
  .hinnoittelu{overflow-x:auto}
  .merkkirivi a,.merkkirivi span.mk{height:64px;padding:8px 10px}
  .merkkirivi img{max-height:46px}
@@ -796,8 +854,35 @@ body.kone-auki{overflow:hidden}
  .sovellus{background:#fff}
  .sov-runko{padding:0}
  .doc{border:0;box-shadow:none;padding:0;max-width:none}
- .doc-tulostus{display:block!important;font-size:11px;color:#566170;margin-top:18px}
- @page{size:A4;margin:16mm}
+ /* bussin kuva pienenä ja välit tiiviimmiksi, jotta tarjous mahtuu yhdelle A4-sivulle */
+ .doc-kooste{grid-template-columns:84px minmax(0,1fr) auto;padding:6px 10px;margin-top:10px;gap:6px 14px;background:none;border:1px solid #ccd5df;break-inside:avoid}
+ .doc-kooste img{width:84px;border-radius:6px}
+ .dk-auto b{font-size:15px}
+ .dk-hinta b{font-size:20px}
+ .dk-hinta .nappi{display:none}
+ .doc-osio h2{margin-bottom:6px;font-size:12px}
+ .doc-hinta .yht{font-size:19px;padding-top:6px}
+ .doc-huom{font-size:12.5px;margin-top:8px}
+ /* matkan aikajana yhdelle riville: vaihe, paikka ja aika */
+ .doc .matkajana{margin:0 0 6px}
+ .doc .matkajana li{grid-template-columns:150px minmax(0,1fr) auto;gap:0 12px;padding:0 0 3px 22px;font-size:13px}
+ .doc .matkajana .mj-paikka{grid-column:2;grid-row:1}
+ .doc .matkajana .mj-aika{grid-column:3;grid-row:1}
+ .doc .matkajana li::after{top:13px}
+ .doc .matkajana-huom{margin-bottom:6px;font-size:12px}
+ .doc-paa .merkki{font-size:22px}
+ .doc-tunnus h1{font-size:26px}
+ .doc-tunnus p{font-size:12.5px;margin-top:2px}
+ .doc .tila{margin-top:4px;padding:2px 8px;font-size:11.5px}
+ .doc .tila--vahvistettu{color:#17663a;border:1px solid #17663a}
+ .doc-paa{padding-bottom:10px}
+ .doc-osio{padding:10px 0}
+ .doc dl{gap:2px 16px;font-size:13px}
+ .doc-hinta{gap:3px;font-size:13px}
+ .doc-ala{padding-top:10px;font-size:12px}
+ .hyvaksytty-ilmo,.doc-odottaa{margin-top:10px;padding:6px 12px;font-size:13px}
+ .doc-tulostus{display:block!important;font-size:11px;color:#566170;margin-top:10px}
+ @page{size:A4;margin:14mm}
 }
 .doc-tulostus{display:none}
 
@@ -827,6 +912,8 @@ input[type=range]{height:44px}
 .huomio-esteeton{margin:12px 0;padding:12px 14px;border-radius:10px;background:#fff6dc;border-left:4px solid var(--kelta);color:var(--yo);font-weight:650;font-size:14.5px;line-height:1.45}
 .ka-esteeton{padding:4px 0 4px 6px}
 .ka-esteeton>span{font-size:14.5px;font-weight:600;color:var(--yo);line-height:1.4}
+.ka-toive>span{font-size:13.5px;color:var(--harmaa);line-height:1.35}
+.kone-auto:has(.ka-toive){padding:10px 14px}
 .ka-teksti button{align-self:flex-start;border:0;background:none;padding:0;margin-top:2px;font:700 13px var(--f);color:var(--sin);text-decoration:underline;cursor:pointer;min-height:28px}
 .kone-valmis .kuittaus--tarjous svg{background:#2f9e5b;stroke:#fff}
 
@@ -851,7 +938,7 @@ input[type=range]{height:44px}
 .pl-rivi{display:flex;flex-direction:column;gap:3px;width:100%;text-align:left;padding:12px 16px;border:0;border-top:1px solid var(--raja);background:transparent;font:inherit;color:var(--muste);cursor:pointer}
 .pl-rivi:hover{background:#fff}
 .pl-rivi[aria-current]{background:#fff;box-shadow:inset 3px 0 0 var(--sin)}
-.pl-rivi:focus-visible{outline:3px solid var(--kelta);outline-offset:-3px}
+.pl-rivi:focus-visible{outline:3px solid var(--kelta);outline-offset:-3px;box-shadow:inset 0 0 0 5px var(--yo)}
 .pl-yla{display:flex;justify-content:space-between;gap:8px;font-size:14.5px}
 .pl-yla span{font-size:13px;color:var(--harmaa)}
 .pl-aihe{font-size:13.5px;line-height:1.35;color:var(--harmaa);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
@@ -875,7 +962,7 @@ input[type=range]{height:44px}
 .pv-napit .nappi,.pv .vastaus .nappi{min-height:44px;padding:0 18px;font-size:15px}
 .pv .vastaus{margin-top:12px}
 .pv h3{margin-top:24px;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--sin)}
-.pv dl{display:grid;grid-template-columns:minmax(120px,max-content) 1fr;gap:6px 16px;margin:10px 0 0;font-size:15px}
+.pv dl{display:grid;grid-template-columns:minmax(120px,max-content) minmax(0,1fr);gap:6px 16px;margin:10px 0 0;font-size:15px}
 .pv dt{color:var(--harmaa)}
 .pv dd{margin:0;font-weight:600;overflow-wrap:anywhere}
 .pv .doc-hinta{margin-top:10px}
@@ -903,7 +990,7 @@ input[type=range]{height:44px}
 .es-myyja{min-width:0}
 .pv-napit button,.pv .vastaus button{border:0;font-family:var(--f);cursor:pointer}
 /* Tietokoneella esittely täyttää täsmälleen yhden ruudun: puhelimen sisäinen vieritys ei voi vierittää sivua, joten otsikot pysyvät näkyvissä. */
-@media (min-width:1001px) and (min-height:620px){
+@media (min-width:1001px) and (min-height:520px){
  body.esittely-sivu{height:100vh;min-height:0;display:flex;flex-direction:column;overflow:hidden}
  .esittely-sivu .sov-runko{flex:1;min-height:0;display:flex;padding:0}
  .esittely{flex:1;min-height:0;width:100%;display:flex;flex-direction:column;padding:12px var(--reuna) 16px}
@@ -911,8 +998,15 @@ input[type=range]{height:44px}
  .es-asiakas,.es-myyja{display:flex;flex-direction:column;min-height:0}
  .puhelin{flex:1;min-height:0;display:flex;max-height:820px}
  .puhelin iframe{height:auto;flex:1}
- .es-myyja .hinnoittelu{flex:none;max-height:46%;overflow-y:auto}
+ /* K-04: hinnoittelu avautuu koko myyjän alueelle, jolloin kaikki kokoluokat, ALV ja tilannerivi näkyvät */
+ .es-myyja .hinnoittelu{flex:1;min-height:0;max-height:none;overflow-y:auto;margin-bottom:0!important}
+ .es-myyja .hinnoittelu:not([hidden])+.posti{display:none}
  .es-myyja .posti{flex:1;min-height:0;max-height:820px}
+ /* V-08: puhelin on oikean puhelimen kokoinen (375 × 812) ja skaalataan näkymän korkeuteen (kone.js asettaa --s) */
+ .es-asiakas{align-items:center}
+ .es-asiakas .es-ots{align-self:stretch}
+ .puhelin.skaalattu{flex:none;display:block;width:calc(375px * var(--s) + 24px);height:calc(812px * var(--s) + 24px);max-height:none;overflow:hidden}
+ .puhelin.skaalattu iframe{flex:none;width:375px;height:812px;transform:scale(var(--s));transform-origin:0 0;border-radius:calc(32px / var(--s))}
  .posti-lista,.posti-luku{min-height:0}
 }
 @media (max-width:1000px){
@@ -928,6 +1022,30 @@ input[type=range]{height:44px}
  .pv dd{margin-bottom:8px}
  .es-polku li{font-size:13px}
 }
+/* matalalla näytöllä esittelyn otsakkeet tiiviimmiksi, jotta puhelimelle ja hinnoittelulle jää korkeutta */
+@media (min-width:1001px) and (min-height:520px) and (max-height:720px){
+ .esittely-sivu .sov-paa .wrap{min-height:54px}
+ .esittely-sivu .sov-paa .linkit a,.esittely-sivu .sov-paa .linkit button{min-height:36px;padding:7px 13px}
+ .esittely{padding-top:8px}
+ .es-polku{margin-bottom:8px}
+ .es-polku li{padding:3px 12px 3px 4px;font-size:13px}
+ .es-polku li::before{width:22px;height:22px}
+ .es-ots{min-height:36px;margin-bottom:6px}
+ .es-pieni{min-height:36px}
+ .es-myyja .hinnoittelu{padding:14px 20px}
+ .es-myyja .hinnoittelu h2{font-size:21px}
+ .es-myyja .hinnoittelu .erittely{margin-top:4px}
+ .es-myyja .hinnoittelu table{margin-top:6px}
+ .es-myyja .hinnoittelu th{padding:4px 8px 4px 0}
+ .es-myyja .hinnoittelu td{padding:3px 8px 3px 0}
+ .es-myyja .hinnoittelu input{padding:6px 9px}
+ .es-myyja .hinnoittelu .kentta{margin-top:8px!important;flex-direction:row;align-items:center;gap:12px;max-width:none!important}
+ .es-myyja .hinnoittelu .kentta input{width:110px;min-width:0}
+ .es-myyja .hinnoittelu .tilannerivi{margin-top:8px}
+}
+/* esittelyn puhelimessa sivuston oma demopalkki piilotetaan (kone.js lisää luokan), esittelyn palkki näkyy jo */
+html.kehyksessa{--palkki:0px}
+html.kehyksessa .demopalkki{display:none}
 @media (prefers-reduced-motion:reduce){.pl-rivi.saapui{animation:none}}
 
 /* kierros 5: käyttötarkoitus, noutopaikat, aikataulu, toiveet ja matkan aikajana */
@@ -990,7 +1108,7 @@ input[type=range]{height:44px}
 </header>
 <main id="sisalto">
 <section class="hero" aria-labelledby="h1" lang="en">
-  <div class="hero-kuvat"><img class="on" src="kuvat/k06-1280.webp" srcset="kuvat/k06-640.webp 640w, kuvat/k06-1280.webp 1280w, kuvat/k06-1600.webp 1600w" sizes="(max-aspect-ratio: 1/1) 300vw, 100vw" width="1280" height="668" alt="Yellow Åbergin Linja coaches at the airport bus terminal" style="object-position:55% 55%" fetchpriority="high" decoding="async"><img src="kuvat/k10-1280.webp" srcset="kuvat/k10-640.webp 640w, kuvat/k10-1280.webp 1280w, kuvat/k10-1920.webp 1920w, kuvat/k10-1920.webp 1920w" sizes="(max-aspect-ratio: 1/1) 300vw, 100vw" width="1280" height="960" alt="Yellow Åbergin Linja coach by the forest at dusk" style="object-position:50% 55%" loading="lazy" decoding="async"></div>
+  <div class="hero-kuvat"><img class="on" src="kuvat/k06-1280.webp" srcset="kuvat/k06-640.webp 640w, kuvat/k06-1280.webp 1280w, kuvat/k06-1600.webp 1600w" sizes="(max-aspect-ratio: 1/1) 300vw, 100vw" width="1280" height="668" alt="Yellow Åbergin Linja coaches at the airport bus terminal" style="object-position:55% 55%" fetchpriority="high" decoding="async"><img src="kuvat/k10-1280.webp" srcset="kuvat/k10-640.webp 640w, kuvat/k10-1280.webp 1280w, kuvat/k10-1920.webp 1920w" sizes="(max-aspect-ratio: 1/1) 300vw, 100vw" width="1280" height="960" alt="Yellow Åbergin Linja coach by the forest at dusk" style="object-position:50% 55%" loading="lazy" decoding="async"></div>
   <div class="sarjapisteet" aria-hidden="true"><span class="on"></span><span></span></div>
   <div class="wrap" style="padding-bottom:110px">
     <p class="rivi">Espoo · Helsinki · Finland</p>
@@ -1055,8 +1173,8 @@ input[type=range]{height:44px}
       <div>
         <h2>Charter sales</h2>
         <ul>
-          <li data-lahteet="yhteystiedot-09 yhteystiedot-10 yhteystiedot-12">Charter sales: Petri Nissinen, <span class="nw">040-539 4976</span></li>
-          <li data-lahteet="yhteystiedot-14">Charter on-call service <span class="nw">0400-505 713</span></li>
+          <li data-lahteet="yhteystiedot-09 yhteystiedot-10 yhteystiedot-12">Charter sales: Petri Nissinen, <span class="nw"><a href="tel:+358405394976">040-539 4976</a></span></li>
+          <li data-lahteet="yhteystiedot-14">Charter on-call service <span class="nw"><a href="tel:+358400505713">0400-505 713</a></span></li>
         </ul>
       </div>
       <div>
@@ -1066,7 +1184,7 @@ input[type=range]{height:44px}
     </div>
     <div class="ala-pohja">
       <span><span data-lahteet="yhteystiedot-19 yhteystiedot-21">Bus Travel Åbergin Linja Oy, Business ID <span class="nw">1098704-8</span></span> · <span data-lahteet="yhteystiedot-16 yhteystiedot-18">Åbergin Linja Oy, Business ID <span class="nw">0101233-7</span></span></span>
-      <span><a href="https://bustravel.fi/wp-content/uploads/2019/10/TietosuojarekisteriABERG.pdf" rel="noopener">Privacy policy (in Finnish)</a> · Concept demo by Sinoetic. Text and photos from Åbergin Linja's own website. The form sends nothing.</span>
+      <span><a href="https://bustravel.fi/wp-content/uploads/2019/10/TietosuojarekisteriABERG.pdf" rel="noopener">Privacy policy (in Finnish)</a> · Concept demo by Sinoetic. Text and photos from Åbergin Linja's own website and social media, one photo from Wikimedia Commons (CC BY 4.0). The form sends nothing.</span>
     </div>
   </div>
 </footer>
@@ -1076,6 +1194,7 @@ input[type=range]{height:44px}
 (function(){
 var d=document, h=d.documentElement, vahennetty=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 if(!vahennetty) h.classList.add('liike');
+var vc=d.querySelector('.vc-ruutu'); if(vc&&!vahennetty){var vt=0; var vz=function(){vt=0; vc.style.setProperty('--v',Math.min(1,Math.max(0,window.scrollY/Math.max(260,window.innerHeight*.6))).toFixed(3));}; window.addEventListener('scroll',function(){if(!vt) vt=requestAnimationFrame(vz);},{passive:true}); vz();}
 var top=d.querySelector('.top'), nappi=d.querySelector('.valikko-nappi'), palkki=d.querySelector('.alapalkki');
 function vieritys(){var y=window.scrollY; if(top) top.classList.toggle('kiinni', y>40); if(palkki) palkki.classList.toggle('nakyy', y>420);}
 window.addEventListener('scroll', vieritys, {passive:true}); vieritys();
@@ -1119,7 +1238,7 @@ if(nay){var tabit=[].slice.call(nay.querySelectorAll('[role=tab]')), maara=d.get
   var koko=function(){var n=+maara.value, yli=n>60; nluku.innerHTML=(yli?'yli 60':n)+'<small>matkustajaa</small>';
    var sop=tav.filter(function(t){return +t.dataset.max>=n;})[0]||tav[tav.length-1];
    ntulos.innerHTML=yli?ntulos.dataset.yli:'<b>'+sop.dataset.nimi+'</b> '+ntulos.dataset.sopii;
-   nay.querySelectorAll('.n-tiedot [data-kone]').forEach(function(b){b.dataset.montako=yli?'':Math.min(n,+b.dataset.max||999);});
+   nay.querySelectorAll('.n-tiedot [data-kone]').forEach(function(b){b.dataset.montako=yli?'':n;});  // ryhmän koko sellaisenaan, myös isompaan kuin välilehden bussi
    return sop;};
   maara.addEventListener('input',function(){valitse(koko());}); koko();}
  // osoite kalusto.html#np-midi (vanhojen bussisivujen ohjaus) avaa sen bussin
