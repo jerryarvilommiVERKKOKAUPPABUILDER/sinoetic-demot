@@ -172,7 +172,9 @@ function sovittu(p){var o=p.tarjous&&p.tarjous.ohjelma; if(!o) return p;
  q.noudot=n.map(function(x){return x.paikka||'noutopaikka sovitaan';}); q.noutoAjat=n.map(function(x){return x.aika;});
  if(o.paluu){q.paluuaika=o.paluu; q.paluuAvoin=false;}
  q.lahtoPaikka=o.lahtoPaikka&&o.lahtoPaikka!==p.mista?o.lahtoPaikka:''; q.perillaPaikka=o.perillaPaikka&&o.perillaPaikka!==p.minne?o.perillaPaikka:''; q.paluuPaikka=o.paluuPaikka||'';
- q.varusteet=o.varusteet||''; return q;}
+ q.jatot=o.jatot||''; q.kohta=o.kohta||''; q.varusteet=o.varusteet||''; return q;}
+// paluun määränpää: myyjän jättöpaikat (Mousen 7. arvio) tai lähtöpaikka
+function paluuKohde(q){return q.jatot||q.lahtoPaikka||q.mista||'';}
 function noudotTeksti(p){return p.noudot.map(function(n,i){var a=p.noutoAjat&&p.noutoAjat[i]; return n+(a?' '+klo(a):'');}).join(', ');}
 function rivit(p){
  if(sopimus(p)) return sopimusRivit(p);
@@ -185,6 +187,8 @@ function rivit(p){
  r.push(['Muoto',MUODOT[p.muoto]||'']);
  r.push(['Lähtö',(pvm(p.paiva)||'sovitaan')+(perilla?', perillä viimeistään '+klo(p.aika):p.aika?' '+klo(p.aika):'')+(p.perillaKlo?', perillä viimeistään '+klo(p.perillaKlo):'')]);
  if(paluullinen(p)) r.push(['Paluu',(pvm(p.paluupaiva)||'sama päivä')+(p.paluuAvoin?', aika ei vielä tiedossa':p.paluuaika?' '+klo(p.paluuaika):'')+(p.paluuPaikka?', lähtö: '+p.paluuPaikka:'')]);
+ if(p.jatot) r.push(['Jättöpaikat paluussa',p.jatot]);
+ if(p.kohta) r.push(['Kohtaamisohje',p.kohta]);
  if(p.konteksti==='haat'&&p.useita) r.push(['Paluulähdöt',p.paluuajat||'useampi, ajat sovitaan']);
  if(p.muoto==='paiva') r.push(['Kesto',p.kesto?p.kesto+' h':'sovitaan']);
  if(kausi(p)) r.push(['Muut matkat',muutMatkat(p)]);
@@ -199,7 +203,7 @@ function rivit(p){
  if(p.lisat) r.push(['Lisätiedot',p.lisat]);
  return r;}
 // matkan aikajana: lähtö, noudot, perillä ja paluu samassa järjestyksessä asiakkaalle, myyjälle ja tarjoukseen
-var AJAT={'Matka':1,'Nouto':1,'Noudot':1,'Lähtö':1,'Lähtöpaikka':1,'Määränpää':1,'Paluu':1,'Paluulähdöt':1};
+var AJAT={'Matka':1,'Nouto':1,'Noudot':1,'Lähtö':1,'Lähtöpaikka':1,'Määränpää':1,'Paluu':1,'Paluulähdöt':1,'Jättöpaikat paluussa':1};
 function muutRivit(p){return rivit(p).filter(function(x){return !AJAT[x[0]];});}
 // kauden kuljetukset (Mousen 5. arvio): tiivis kooste ja lista, josta näkee, mitkä matkat ovat tiedossa tai tarjouksessa ja mitkä vielä auki
 var KAUSI_POIS={'Muut matkat':1,'Matkustajia':1,'Muoto':1};
@@ -226,7 +230,7 @@ function matkajana(p,valmis){var sov=!!(p.tarjous&&p.tarjous.ohjelma&&p.tarjous.
  var pk=perilla&&p.aika?p.aika:p.perillaKlo||'';
  a.push([pk?'Perillä viimeistään':'Perillä',p.perillaPaikka||kohdeTeksti(p),klo(pk)]);
  if(p.konteksti==='haat'&&p.useita) a.push(['Paluulähdöt',p.minne+' → '+p.mista,p.paluuajat||'ajat sovitaan']);
- else if(paluullinen(p)) a.push([sov&&p.paluuaika?'Paluulähtö':'Paluu',(p.paluuPaikka||p.perillaPaikka||kohdeTeksti(p)||'?')+' → '+p.mista,[p.paluupaiva&&p.paluupaiva!==p.paiva?pvm(p.paluupaiva):'',p.paluuAvoin?'aika ei vielä tiedossa':klo(p.paluuaika)].filter(Boolean).join(' ')]);
+ else if(paluullinen(p)) a.push([sov&&p.paluuaika?'Paluulähtö':'Paluu',(p.paluuPaikka||p.perillaPaikka||kohdeTeksti(p)||'?')+' → '+paluuKohde(p),[p.paluupaiva&&p.paluupaiva!==p.paiva?pvm(p.paluupaiva):'',p.paluuAvoin?'aika ei vielä tiedossa':klo(p.paluuaika)].filter(Boolean).join(' ')]);
  return '<ol class="matkajana">'+a.map(function(x){return '<li><span class="mj-mita">'+esc(x[0])+'</span><span class="mj-aika">'+esc(x[2])+'</span><span class="mj-paikka">'+esc(x[1]||'?')+'</span></li>';}).join('')+'</ol>'+
   (huom?'<p class="matkajana-huom">'+esc(huom)+'</p>':'');}
 // lähtöohje (Mousen 5. arvio): vahvistetusta matkasta tekstinä joukkueen tai ryhmän viestiketjuun, ilman hintaa ja laskutustietoja
@@ -239,9 +243,10 @@ function lahtoOhje(p){var q=sovittu(p), r=[], kk=function(a){return a?' '+klo(a)
  r.push([kayttoNimi(q)||'Bussimatka',vp].filter(Boolean).join(' '));
  r.push('Lähtö'+(q.aikatapa!=='perilla'?kk(q.aika):'')+': '+(q.lahtoPaikka||q.mista||''));
  (q.noudot||[]).forEach(function(n,i){r.push('Nouto'+kk(q.noutoAjat&&q.noutoAjat[i])+': '+n);});
+ if(q.kohta) r.push('Kohtaamisohje: '+q.kohta);
  var pk=q.aikatapa==='perilla'&&q.aika?q.aika:q.perillaKlo; r.push((pk?'Perillä viimeistään'+kk(pk):'Perillä')+': '+(q.perillaPaikka||kohdeTeksti(q)||''));
  if(q.konteksti==='haat'&&q.useita) r.push('Paluulähdöt: '+(q.paluuajat||'ajat sovitaan'));
- else if(paluullinen(q)) r.push('Paluulähtö'+(q.paluupaiva&&q.paluupaiva!==q.paiva?' '+pvm(q.paluupaiva):'')+(q.paluuAvoin?'':kk(q.paluuaika))+': '+(q.paluuPaikka||q.perillaPaikka||kohdeTeksti(q)||'')+' → '+(q.mista||'')+(q.paluuaika&&!q.paluuAvoin?'':', aika tarkentuu'));
+ else if(paluullinen(q)) r.push('Paluulähtö'+(q.paluupaiva&&q.paluupaiva!==q.paiva?' '+pvm(q.paluupaiva):'')+(q.paluuAvoin?'':kk(q.paluuaika))+': '+(q.paluuPaikka||q.perillaPaikka||kohdeTeksti(q)||'')+' → '+paluuKohde(q)+(q.paluuaika&&!q.paluuAvoin?'':', aika tarkentuu'));
  if(kausi(q)&&(q.matkat||[]).length) r.push('Muut matkat: '+muutMatkat(q));
  var a=ohjeAuto(q); if(a) r.push('Bussi: '+a);
  if(q.varusteet) r.push('Bussissa: '+q.varusteet);
@@ -392,7 +397,7 @@ function hinnoitteluPaneeli(hp,nappi,muuttui){
  return piirra;}
 /* tarjoushinnan lomake (myynti ja esittely): esikatselu asiakkaan hinnasta ja vahvistus, jos hinta on alle 50 € tai alle 30 % laskelmasta */
 // Mousen 5. arvio: myyjä täydentää tarjoukseen lähtöajan, noudot, paluun ja sovitut varusteet. Asiakkaan "perillä viimeistään" näkyy ohjeena.
-var OHJELMA=['a_lahto','a_lpaikka','a_n1','a_np1','a_n2','a_np2','a_n3','a_np3','a_ppaikka','a_paluu','a_pppaikka','a_varusteet'];
+var OHJELMA=['a_lahto','a_lpaikka','a_n1','a_np1','a_n2','a_np2','a_n3','a_np3','a_kohta','a_ppaikka','a_paluu','a_pppaikka','a_jatot','a_varusteet'];
 // esittelyn esimerkkimatka (Mousen 6. arvio): tarkat paikat valmiina, jotta palaverissa näkyy lähtöohje, jonka huoltaja voi kopioida sellaisenaan.
 // Osoitteet tarkistettu 12.11.2026: Kauppakeskus Entresse ja Sello (liikkeiden osoitetiedot, Fonecta), Tammelan stadion (StadiumDB, finnisharchitecture.fi).
 var ESIMERKKI={lahto:'10:45',lahtoPaikka:'Kauppakeskus Entresse, Siltakatu 11, Espoo',noudot:[{aika:'11:00',paikka:'Kauppakeskus Sello, Leppävaarankatu 3–9, Espoo'}],
@@ -401,17 +406,21 @@ function ohjelmaKentat(p){if(!p||sopimus(p)) return ''; var esim=!!p.esimerkki&&
  var lahto=o.lahto||(perilla?'':p.aika||''), paluu=o.paluu||(p.paluuAvoin?'':p.paluuaika||''), n=noutoLista(o,p), varusteet=o.varusteet!=null?o.varusteet:(p.toiveet||[]).join(', ');
  var ohje=[esim?'Esimerkkimatka: aikataulu ja paikat on täytetty valmiiksi.':'',perilla?'Asiakas: perillä viimeistään '+klo(p.aika)+'.':'', r&&r.km>0?'Ajomatka '+luku(r.km)+' km, noin '+ajoaika(r.min)+'.':''].filter(Boolean).join(' ');
  var PK='Pysäkki, osoite tai karttalinkki', kentta=function(ots,nimi,arvo,tyyppi,ph){return '<label class="kentta"><span>'+ots+'</span><input'+(tyyppi?' type="'+tyyppi+'"':'')+' name="'+nimi+'" value="'+esc(arvo||'')+'"'+(ph?' placeholder="'+esc(ph)+'"':'')+(tyyppi?'':' autocomplete="off"')+'></label>';};
- var rivi=function(a,b){return '<div class="ohjelma-rivi">'+a+b+'</div>';}, noutoja=Math.min(3,n.length+1), h='';
+ var rivi=function(a,b){return '<div class="ohjelma-rivi">'+a+b+'</div>';}, noutoja=Math.min(3,n.length+1), h='', lyhyt=function(x){return String(x||'').split(',')[0].trim();};
+ // jättöpaikat oletuksena noutojen käänteinen järjestys ja lopuksi lähtöpaikka
+ var jatot=o.jatot!=null?o.jatot:(n.length?n.map(function(x){return lyhyt(x.paikka);}).filter(Boolean).reverse().concat([lyhyt(o.lahtoPaikka||p.mista)]).filter(Boolean).join(' → '):'');
  for(var i=0;i<noutoja;i++) h+=rivi(kentta('Nouto klo','a_n'+(i+1),(n[i]||{}).aika,'time'),kentta('Noutopaikka','a_np'+(i+1),(n[i]||{}).paikka,'',PK));
  return '<fieldset class="ohjelma"><legend>Aikataulu tarjoukseen</legend>'+(ohje?'<p class="ohjelma-huom">'+esc(ohje)+'</p>':'')+
   rivi(kentta('Lähtö klo','a_lahto',lahto,'time'),kentta('Lähtöpaikka','a_lpaikka',o.lahtoPaikka||p.mista,'',PK))+h+
+  '<label class="kentta"><span>Kohtaamisohje <small>(vapaaehtoinen)</small></span><textarea name="a_kohta" rows="2" placeholder="Mistä kohtaa bussiin noustaan: sisäänkäynti, pysäkki tai karttalinkki">'+esc(o.kohta||'')+'</textarea></label>'+
   kentta('Perillä <small>(paikka tarkemmin)</small>','a_ppaikka',o.perillaPaikka||p.minne,'','Osoite tai karttalinkki')+
-  (paluullinen(p)?rivi(kentta('Paluulähtö klo','a_paluu',paluu,'time'),kentta('Paluulähtöpaikka','a_pppaikka',o.paluuPaikka,'','Sama kuin perillä')):'')+
+  (paluullinen(p)?rivi(kentta('Paluulähtö klo','a_paluu',paluu,'time'),kentta('Paluulähtöpaikka','a_pppaikka',o.paluuPaikka,'','Sama kuin perillä'))+
+   kentta('Jättöpaikat paluussa <small>(järjestyksessä)</small>','a_jatot',jatot,'','Tyhjä = takaisin lähtöpaikalle'):'')+
   kentta('Sovitut varusteet <small>(vapaaehtoinen)</small>','a_varusteet',varusteet,'','Esim. tilaa varustekasseille, WC')+'</fieldset>';}
 function lueOhjelma(f){var e=f.elements, v=function(n){return e[n]?String(e[n].value||'').trim():'';}; if(!e.a_lahto) return null;
  var noudot=[1,2,3].map(function(i){return {aika:v('a_n'+i),paikka:v('a_np'+i)};}).filter(function(x){return x.aika||x.paikka;});
- var o={lahto:v('a_lahto'),lahtoPaikka:v('a_lpaikka'),noudot:noudot,perillaPaikka:v('a_ppaikka'),paluu:v('a_paluu'),paluuPaikka:v('a_pppaikka'),varusteet:v('a_varusteet')};
- return o.lahto||o.paluu||noudot.length||o.varusteet||o.lahtoPaikka||o.perillaPaikka||o.paluuPaikka?o:null;}
+ var o={lahto:v('a_lahto'),lahtoPaikka:v('a_lpaikka'),noudot:noudot,kohta:v('a_kohta'),perillaPaikka:v('a_ppaikka'),paluu:v('a_paluu'),paluuPaikka:v('a_pppaikka'),jatot:v('a_jatot'),varusteet:v('a_varusteet')};
+ return o.lahto||o.paluu||noudot.length||o.varusteet||o.lahtoPaikka||o.perillaPaikka||o.paluuPaikka||o.jatot||o.kohta?o:null;}
 // 30 sekunnin päivitys ja toisen ikkunan muutos piirtävät lomakkeen uudelleen: myyjän kesken kirjoittama aikataulu ja kohdistus säilyvät
 function ohjelmaTalteen(juuri){var f=juuri.querySelector('form[data-tarjous]'); if(!f||!f.dataset.ohjelma) return null; var v={}, a=d.activeElement;
  OHJELMA.forEach(function(n){if(f.elements[n]) v[n]=f.elements[n].value;}); if(a&&a.form===f&&OHJELMA.indexOf(a.name)>=0) v._fokus=a.name; return v;}
