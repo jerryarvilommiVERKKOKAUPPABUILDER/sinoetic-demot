@@ -1185,6 +1185,8 @@ html.kehyksessa .demopalkki{display:none}
 .myynti--tyhja .tyhja{max-width:680px;margin:12px auto 0}
 .tyhja-napit{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:18px}
 .tyhja .tyhja-napit .nappi{margin-top:0}
+/* sopimustarjous (Mousen 4. arvio): oma lyhyt vaihe ilman matkan kenttiä */
+.kone-johdanto{margin:-8px 0 18px;font-size:15px;color:var(--harmaa)}
 
 /* tekninen hionta 12.11.2026 (auditti 11.11.) */
 /* T-11: kohdistettu elementti ei jää kiinteän yläpalkin tai puhelimen alapalkin alle (otsikkoankkurien paikka ennallaan: 88 + 12 = 100 px) */
