@@ -1225,6 +1225,24 @@ html.kehyksessa .demopalkki{display:none}
 .tl-ajat .doc-huom{margin:0 0 14px}
 .ohjelma-ajat{background:#fff6d6;border-left:3px solid var(--kelta);padding:8px 12px;border-radius:6px;color:var(--muste)}
 @media (max-width:760px){.tl-ajat{padding:14px 12px 4px;margin-left:-8px;margin-right:-8px}}
+/* Mousen 10. arvio (12.11.2026): tilat, lähetyksen esteet, muutokset ja myynnin varmistamat tiedot */
+.tila--tarkistettava{background:#fff1e0;color:#8a4b00}
+.tila--alustava{background:#eef0f3;color:#3d4a5c;border:1px dashed #6b7686}
+.tarjous-esteet{grid-column:1/-1;padding:12px 14px;border-radius:10px;background:#fdecea;border-left:4px solid #b3261e;color:#7a1b14;font-size:14.5px;font-weight:600;line-height:1.45}
+.tarjous-esteet[hidden]{display:none}
+.tarjous-esteet:focus{outline:2px solid #b3261e;outline-offset:2px}
+.tarjous-esteet ul,.tl-ilmo ul,.valmius-lista,.muutokset{margin:6px 0 0;padding-left:20px;display:grid;gap:4px}
+.valmius-lista{margin-top:10px;font-size:14.5px;color:var(--muste)}
+.muutokset{font-weight:550}
+.muutokset s{color:var(--harmaa)}
+.doc-muutos p+ul,.doc-muutos ul+p{margin-top:8px}
+.doc-muutos:focus{outline:none}
+.hyvaksytty-ilmo--kesken{background:#fff4c2;color:#5c4600}
+.doc-alustava{border:1.5px dashed #6b7686;border-radius:14px;padding:16px 18px}
+.vastaus .ohjelma-este,.vastaus .ohjelma-kausi{grid-column:1/-1}
+.ohjelma-kausi .valinta-ruutu{display:flex;gap:10px;align-items:flex-start;min-height:44px;font-weight:550;font-size:15px;line-height:1.4;cursor:pointer}
+.ohjelma-kausi .valinta-ruutu input{width:20px;height:20px;margin-top:1px;flex:0 0 auto;accent-color:var(--sin)}
+.ohjelma-este select{min-height:48px}
 
 /* tekninen hionta 12.11.2026 (auditti 11.11.) */
 /* T-11: kohdistettu elementti ei jää kiinteän yläpalkin tai puhelimen alapalkin alle (otsikkoankkurien paikka ennallaan: 88 + 12 = 100 px) */
