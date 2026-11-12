@@ -1205,7 +1205,9 @@ html.kehyksessa .demopalkki{display:none}
 .ohjelma{border:1.5px solid var(--raja);border-radius:12px;padding:12px 14px 14px;margin:0;display:grid;gap:10px;min-width:0}
 .ohjelma legend{padding:0 4px;font-weight:700;font-size:15px}
 .ohjelma-huom{font-size:14px;color:var(--harmaa);font-weight:550;margin:0}
-.ohjelma-ajat{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.ohjelma-rivi{display:flex;flex-wrap:wrap;gap:10px}
+.ohjelma-rivi>.kentta{flex:1 1 200px;min-width:0}
+.ohjelma-rivi>.kentta:first-child{flex:0 0 150px}
 .ohjelma textarea{resize:vertical}
 .ohje-teksti{white-space:pre-wrap;font:500 14.5px/1.6 var(--f);background:var(--pohja);border-radius:12px;padding:14px 16px;margin:10px 0 0;overflow-wrap:anywhere;color:var(--muste)}
 .ohje-napit{margin-top:12px}
