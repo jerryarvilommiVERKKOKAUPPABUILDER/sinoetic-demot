@@ -22,7 +22,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 
-<link rel="stylesheet" href="sivusto.css?v=c358993605">
+<link rel="stylesheet" href="sivusto.css?v=3ff9caeb72">
 </head>
 <body class="konteksti-tapahtuma">
 <a class="ohita" href="#sisalto">Siirry sisältöön</a>
@@ -161,14 +161,13 @@
             <label class="kentta"><span><span id="paiva-ots">Lähtöpäivä</span><small data-jos-tiedossa hidden> (jos tiedossa)</small></span><input name="paiva" type="date" required aria-describedby="paiva-virhe"><small class="kentta-virhe" id="paiva-virhe" hidden></small></label>
             <label class="kentta" data-nakyy="menopaluu monipaiva">Paluupäivä<input name="paluupaiva" type="date" aria-describedby="paluupaiva-virhe"><small class="kentta-virhe" id="paluupaiva-virhe" hidden></small></label>
             <label class="kentta" data-nakyy="paiva">Kesto tunteina<input name="kesto" type="number" min="1" max="24" inputmode="numeric" required></label>
+            <div class="kentta koko" data-aikataulu><span id="k-aikatapa">Aikataulu</span><div class="vaihto" role="radiogroup" aria-labelledby="k-aikatapa"><label><input type="radio" name="aikatapa" value="lahto" checked>Lähtöaika</label><label><input type="radio" name="aikatapa" value="perilla">Perillä viimeistään</label></div><small class="aikataulu-ohje">Myynti ei tiedä ottelun tai tapahtuman aikataulua, joten ajat kysytään teiltä.</small></div>
+            <div class="kentta aika-kentta" data-aikataulu><label class="kentta"><span id="aika-ots">Lähtöaika</span><input name="aika" type="time" required aria-describedby="aika-virhe"></label><label class="valinta-ruutu pieni-ruutu"><input type="checkbox" name="aikaAvoin" value="1"><span>Ei vielä tiedossa</span></label><small class="kentta-virhe" id="aika-virhe" hidden></small></div>
+            <div class="kentta aika-kentta" data-nakyy="menopaluu paiva monipaiva" data-aikataulu data-paluu><label class="kentta"><span>Paluulähtö</span><input name="paluuaika" type="time" required aria-describedby="paluuaika-virhe"></label><label class="valinta-ruutu pieni-ruutu"><input type="checkbox" name="paluuAvoin" value="1"><span>Ei vielä tiedossa</span></label><small class="kentta-virhe" id="paluuaika-virhe" hidden></small></div>
             <p class="kone-kiire koko" id="kone-kiire" hidden data-lahteet="yhteystiedot-14">Kiireellisissä tapauksissa tilausajopäivystys <span class="nw"><a href="tel:+358400505713">0400-505 713</a></span>.</p>
             <fieldset class="kentta koko kausi" data-kausi hidden><legend>Kauden muut matkat</legend><p class="kausi-ohje">Ensimmäinen matka on yllä. Lisätkää muut tiedossa olevat pelimatkat.</p><div class="kausi-rivit" id="kausi-rivit"></div><button type="button" class="lisaa-nappi" data-lisaa-matka><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><span>Lisää matka</span></button></fieldset>
-            <button type="button" class="lisat-nappi koko" id="lisat-nappi" aria-expanded="false" aria-controls="kone-lisat"><span><b>Lisää tietoja <small>(vapaaehtoinen)</small></b><small>Kellonajat, noutopaikat ja toiveet bussille</small></span><svg class="alas" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+            <button type="button" class="lisat-nappi koko" id="lisat-nappi" aria-expanded="false" aria-controls="kone-lisat"><span><b>Lisää tietoja <small>(vapaaehtoinen)</small></b><small>Noutopaikat ja toiveet bussille</small></span><svg class="alas" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
             <div class="kentat koko lisat-sisus" id="kone-lisat" hidden>
-              <div class="kentta koko"><span id="k-aikatapa">Aikataulu</span><div class="vaihto" role="radiogroup" aria-labelledby="k-aikatapa"><label><input type="radio" name="aikatapa" value="lahto" checked>Lähtöaika</label><label><input type="radio" name="aikatapa" value="perilla">Perillä viimeistään</label></div></div>
-              <label class="kentta"><span><span id="aika-ots">Lähtöaika</span> <small>(vapaaehtoinen)</small></span><input name="aika" type="time" aria-describedby="aika-virhe"><small class="kentta-virhe" id="aika-virhe" hidden></small></label>
-              <label class="kentta" data-nakyy="menopaluu monipaiva"><span>Paluuaika <small>(vapaaehtoinen)</small></span><input name="paluuaika" type="time" aria-describedby="paluuaika-virhe"><small class="kentta-virhe" id="paluuaika-virhe" hidden></small></label>
-              <label class="kentta koko valinta-ruutu pieni-ruutu" data-nakyy="menopaluu monipaiva"><input type="checkbox" name="paluuAvoin" value="1"><span>Paluun aika ei ole vielä tiedossa</span></label>
               <div class="noudot koko" id="noudot"></div>
               <button type="button" class="lisaa-nappi koko" data-lisaa-nouto><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><span>Lisää noutopaikka</span></button>
               <fieldset class="kentta koko toiveet"><legend>Toiveet bussille <small>(vapaaehtoinen)</small></legend><div class="valinnat"><label><input type="checkbox" name="toive" value="Pöytäryhmä">Pöytäryhmä</label><label><input type="checkbox" name="toive" value="Paljon tavaratilaa">Paljon tavaratilaa</label><label><input type="checkbox" name="toive" value="WC">WC</label></div><small>Myynti varmistaa varusteet tarjoukseen.</small></fieldset>

@@ -1216,6 +1216,15 @@ html.kehyksessa .demopalkki{display:none}
 .ohje-napit{margin-top:12px}
 .es-napit{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
 @media print{.ohje-napit{display:none}}
+/* Lordin palaute 12.11.2026: kellonajat kysytään tilaajalta (lomake, hyväksyntä), myyjälle muistutus olla arvaamatta */
+.aika-kentta{gap:4px}
+.aika-kentta>.valinta-ruutu{min-height:44px;font-size:14.5px!important}
+.aikataulu-ohje{margin-top:2px}
+.tl-ajat{margin:18px 0 22px;padding:18px 18px 8px;border:1.5px solid var(--raja);border-radius:14px;background:#fff}
+.tl-ajat legend{padding:0 6px;font-weight:750;font-size:17px}
+.tl-ajat .doc-huom{margin:0 0 14px}
+.ohjelma-ajat{background:#fff6d6;border-left:3px solid var(--kelta);padding:8px 12px;border-radius:6px;color:var(--muste)}
+@media (max-width:760px){.tl-ajat{padding:14px 12px 4px;margin-left:-8px;margin-right:-8px}}
 
 /* tekninen hionta 12.11.2026 (auditti 11.11.) */
 /* T-11: kohdistettu elementti ei jää kiinteän yläpalkin tai puhelimen alapalkin alle (otsikkoankkurien paikka ennallaan: 88 + 12 = 100 px) */
