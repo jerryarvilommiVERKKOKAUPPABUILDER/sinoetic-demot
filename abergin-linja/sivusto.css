@@ -1243,6 +1243,28 @@ html.kehyksessa .demopalkki{display:none}
 .ohjelma-kausi .valinta-ruutu{display:flex;gap:10px;align-items:flex-start;min-height:44px;font-weight:550;font-size:15px;line-height:1.4;cursor:pointer}
 .ohjelma-kausi .valinta-ruutu input{width:20px;height:20px;margin-top:1px;flex:0 0 auto;accent-color:var(--sin)}
 .ohjelma-este select{min-height:48px}
+/* Lord 14.11.2026: hinta-arvion tulos isona: reitti, hinta ja bussi samassa kortissa heti ryhmärivin alla */
+.kone-tulos{display:grid;grid-template-columns:minmax(0,1fr) 200px;gap:16px 20px;align-items:end;padding:20px 22px 18px;border-radius:18px;background:var(--yo);color:#fff;box-shadow:0 22px 44px -26px rgba(12,27,43,.7);animation:tulosSisaan .35s ease-out}
+@keyframes tulosSisaan{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.kone-tulos[hidden]{display:none}
+.kt-reitti{grid-column:1/-1;display:grid;gap:3px;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.14)}
+.kt-reitti p{display:flex;flex-wrap:wrap;align-items:center;gap:2px 8px;font-size:15.5px;font-weight:650;line-height:1.35}
+.kt-reitti svg{width:18px;height:18px;fill:none;stroke:var(--kelta);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.kt-reitti small{font-size:13.5px;color:#aebbcb}
+.kt-hinta{min-width:0;display:grid;gap:4px;align-self:center}
+.kt-ots{font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--kelta)}
+.kt-iso{color:var(--kelta);line-height:1.05}
+.kt-iso b{font-size:clamp(34px,3.6vw,44px);font-weight:750;letter-spacing:-.035em;white-space:nowrap}
+.kt-iso small{font-size:16px;font-weight:650;color:#fff}
+.kt-ala{font-size:14px;color:#dce4ee;line-height:1.4}
+.kt-auto{margin:0;display:grid;gap:8px}
+.kt-auto img{width:100%;height:auto;aspect-ratio:14/9;object-fit:cover;border-radius:12px;background:#22364b}
+.kt-auto figcaption{display:grid;gap:1px;font-size:13px;color:#aebbcb;line-height:1.35}
+.kt-auto figcaption b{font-size:15px;color:#fff}
+.kt-huom{grid-column:1/-1;font-size:13px;color:#aebbcb;line-height:1.45}
+.tulos-auki .kone-auto{display:none}
+@media (max-width:760px){.kone-tulos{grid-template-columns:minmax(0,1fr) 40%;padding:16px 16px 14px;gap:12px 14px}.kt-iso b{font-size:30px}.kt-iso small{font-size:14px}.kt-auto figcaption b{font-size:14px;white-space:nowrap}}
+@media (prefers-reduced-motion:reduce){.kone-tulos{animation:none}}
 
 /* tekninen hionta 12.11.2026 (auditti 11.11.) */
 /* T-11: kohdistettu elementti ei jää kiinteän yläpalkin tai puhelimen alapalkin alle (otsikkoankkurien paikka ennallaan: 88 + 12 = 100 px) */
@@ -1303,3 +1325,59 @@ figcaption.kt>a:only-child{display:flex;align-items:center;min-height:44px;margi
 /* 4: yhteystietojen kolme nappia puhelimessa allekkain, ettei numero katkea neljälle riville */
 @media (max-width:760px){.alahero .napit:has(>.nappi:nth-child(3)) .nappi{flex:1 1 100%;white-space:nowrap}}
 @media (max-width:760px){.valinta-kortit{grid-template-columns:1fr}.valinta{padding:22px 20px}.valinta .nappi{width:100%;justify-content:center}}
+/* 14.11.2026 Lord "Tee kaikki 6" (Åbergin oman etusivun vertailu) */
+/* 1 ensinäkymä: kirkas saaristotiekuva ensin ja kevyempi varjostus; leveällä näytöllä kuva levenee, jolloin bussi siirtyy oikealle otsikon tieltä */
+.hero--kirkas::after{background:linear-gradient(to top,rgba(8,16,26,.8) 0%,rgba(8,16,26,.36) 34%,rgba(8,16,26,0) 58%),linear-gradient(to right,rgba(8,16,26,.52),rgba(8,16,26,0) 50%)}
+.hero--kirkas::before{background:linear-gradient(to bottom,rgba(8,16,26,.55),rgba(8,16,26,.2) 55%,rgba(8,16,26,0))}
+.hero--kirkas h1,.hero--kirkas .ingressi,.hero--kirkas .rivi{text-shadow:0 2px 22px rgba(8,16,26,.55)}
+@media (min-width:1001px) and (min-aspect-ratio:5/4){.hero-kuvat img.oikealle{width:124%;max-width:none}}
+@media (max-width:760px){.hero--kirkas::after{background:linear-gradient(to top,rgba(8,16,26,.9) 0%,rgba(8,16,26,.6) 50%,rgba(8,16,26,.22) 100%)}}
+/* 2 kuljettajat */
+.kuljettajat .kaksi{grid-template-columns:minmax(0,520px) 1fr}
+.kuljettajat-kuva{margin:0 18px 18px 0;border-radius:22px;overflow:hidden;aspect-ratio:1/1;box-shadow:18px 18px 0 var(--kelta)}
+.kuljettajat-kuva img{width:100%;height:100%;object-fit:cover}
+.kuljettajat .napit,.uusin .napit{display:flex;flex-wrap:wrap;gap:14px 26px;align-items:center}
+@media (max-width:1000px){.kuljettajat .kaksi{grid-template-columns:1fr}.kuljettajat-kuva{max-width:520px}}
+@media (max-width:760px){.kuljettajat-kuva{margin:0 12px 12px 0;box-shadow:12px 12px 0 var(--kelta)}}
+/* 3 luottamusmerkit isoina asiakasarvioiden yhteydessä */
+.arviot--kolme{grid-template-columns:repeat(3,1fr)}
+.luottamus{display:flex;align-items:center;gap:22px 40px;flex-wrap:wrap;margin:-12px 0 52px;padding:24px 28px;border-radius:20px;background:var(--pohja)}
+.luottamus .merkkirivi{gap:14px}
+.luottamus .merkkirivi span.mk{height:116px;padding:14px 22px}
+.luottamus .merkkirivi img{max-height:86px}
+.luottamus .merkkirivi .mk--iso img{max-height:94px}
+.lu-teksti{flex:1 1 300px;display:grid;gap:8px;justify-items:start}
+.lu-teksti p{font-size:16.5px;line-height:1.5;color:var(--yo);font-weight:600}
+.lu-teksti p+p{font-weight:500;color:var(--harmaa)}
+@media (max-width:1000px){.arviot--kolme{grid-template-columns:1fr 1fr}}
+@media (max-width:760px){.luottamus{padding:18px;margin-top:-6px}.luottamus .merkkirivi span.mk{height:86px;padding:10px 14px}.luottamus .merkkirivi img{max-height:62px}.luottamus .merkkirivi .mk--iso img{max-height:68px}}
+/* 5 uusin bussi */
+.uusin-runko{display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(36px,5vw,80px);align-items:center}
+.uusin-runko>*{min-width:0}
+.uusin-kuvat{margin:0;position:relative;padding-top:15%}
+.uusin-iso{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:767/411;background:#22364b}
+.uusin-iso img,.uusin-pieni img{width:100%;height:100%;object-fit:cover}
+.uusin-merkki{position:absolute;left:16px;top:16px;padding:7px 14px;border-radius:999px;background:var(--kelta);color:var(--yo);font-weight:750;font-size:14px;letter-spacing:.02em;line-height:1.2}
+.uusin-pieni{position:absolute;right:0;top:0;width:38%;aspect-ratio:4/3;border-radius:18px;overflow:hidden;border:5px solid var(--yo);box-shadow:0 26px 50px -18px rgba(0,0,0,.65)}
+.uusin-tekija{margin-top:12px;font-size:13px;line-height:1.4;color:#aebbcb}
+.uusin .johdanto+p,.uusin p+p:not(.johdanto){margin-top:14px;color:#c9d3df}
+.uusin-tiedot{list-style:none;margin:28px 0 0;padding:24px 0 0;border-top:1px solid rgba(255,255,255,.14);display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.uusin-tiedot strong{display:block;font-size:clamp(28px,2.8vw,38px);font-weight:750;letter-spacing:-.03em;color:var(--kelta);line-height:1}
+.uusin-tiedot span{display:block;margin-top:8px;font-size:14.5px;color:#c9d3df;line-height:1.4}
+@media (max-width:1000px){.uusin-runko{grid-template-columns:1fr}}
+@media (max-width:760px){.uusin-kuvat{padding-top:18%}.uusin-pieni{width:42%;border-width:4px;border-radius:14px}.uusin-tiedot{gap:12px}.uusin-tiedot span{font-size:13.5px}}
+/* 6 vertailusivu (palaverisivu, ei julkaisuun): kuvakaappaukset rinnakkain */
+.vrt{margin-top:56px}
+.vrt h2{font-size:clamp(26px,2.6vw,34px);margin-bottom:20px}
+.vrt-parit{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+.vrt-parit figure{margin:0;display:grid;gap:12px;min-width:0}
+.vrt-kehys{border-radius:16px;overflow:hidden;border:1.5px solid var(--raja);box-shadow:0 18px 40px -26px rgba(12,27,43,.45);background:#fff}
+.vrt-kehys img{display:block;width:100%;height:auto}
+.vrt-kehys--pitka{max-height:740px;overflow-y:auto}
+.vrt-uusi .vrt-kehys{border:3px solid var(--kelta)}
+.vrt-parit figcaption{font-size:15px;line-height:1.5;color:var(--harmaa)}
+.vrt-parit figcaption b{display:block;color:var(--yo);font-size:16px;margin-bottom:2px}
+.vrt-yksityis{display:grid;grid-template-columns:200px 1fr;gap:14px;align-items:center;padding:12px;border-radius:14px;background:#fff4f2;border:1px solid #f3c9c1}
+.vrt-yksityis img{width:100%;height:auto;border-radius:8px;border:1px solid var(--raja)}
+.vrt-yksityis p{font-size:14.5px;line-height:1.45;color:var(--yo)}
+@media (max-width:760px){.vrt-parit{grid-template-columns:1fr}.vrt-kehys--pitka{max-height:520px}.vrt-yksityis{grid-template-columns:1fr}}

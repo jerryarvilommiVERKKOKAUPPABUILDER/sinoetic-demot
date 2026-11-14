@@ -22,7 +22,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 
-<link rel="stylesheet" href="sivusto.css?v=e145f386e1">
+<link rel="stylesheet" href="sivusto.css?v=91c4e3152d">
 </head>
 <body class="konteksti-tapahtuma">
 <a class="ohita" href="#sisalto">Siirry sisältöön</a>
@@ -155,6 +155,7 @@
             <label class="kentta koko"><span>Kohde<small data-jos-tiedossa hidden> (jos tiedossa)</small></span><input name="minne" list="ab-paikat" required autocomplete="off" placeholder="Esim. Helsinki-Vantaan lentoasema"></label>
             <div class="pikat koko"><span>Pikavalinta lähtöpaikaksi:</span><button type="button" data-arvo="Helsinki-Vantaan lentoasema">Lentoasema</button><button type="button" data-arvo="Helsingin päärautatieasema">Rautatieasema</button><button type="button" data-arvo="Länsiterminaali T2, Helsinki">Länsiterminaali</button><button type="button" data-arvo="Messukeskus, Helsinki">Messukeskus</button><button type="button" data-arvo="Espoon keskus">Espoon keskus</button><button type="button" data-arvo="Tampere" data-pk="urheilu" hidden>Tampere</button><button type="button" data-arvo="Turku" data-pk="urheilu" hidden>Turku</button><button type="button" data-arvo="Lahti" data-pk="urheilu" hidden>Lahti</button><button type="button" data-arvo="Vierumäki, Heinola" data-pk="urheilu" hidden>Vierumäki</button><button type="button" data-arvo="Jyväskylä" data-pk="urheilu" hidden>Jyväskylä</button></div>
             <div class="kentta koko ryhma"><span>Matkustajia<small data-jos-tiedossa hidden> (arvio riittää)</small></span><div class="ryhma-rivi"><div class="laskuri"><button type="button" data-askel="-1" aria-label="Matkustajia: yksi vähemmän">−</button><input name="montako" type="number" min="1" max="999" inputmode="numeric" required placeholder="hlö" aria-label="Matkustajia" aria-describedby="montako-virhe"><button type="button" data-askel="1" aria-label="Matkustajia: yksi enemmän">+</button></div><div class="kone-auto" id="kone-auto" aria-live="polite"></div></div><small class="kentta-virhe" id="montako-virhe" hidden></small></div>
+            <div class="kone-tulos koko" id="kone-tulos" hidden></div>
             <label class="kentta koko valinta-ruutu"><input type="checkbox" name="esteeton" value="1" aria-controls="esteeton-lisa"><span>Ryhmässä on pyörätuolin käyttäjä tai muu esteettömyystarve</span></label>
             <label class="kentta koko" id="esteeton-lisa" data-esteeton hidden><span>Mitä ryhmä tarvitsee? <small>(vapaaehtoinen)</small></span><input name="esteetonLisa" autocomplete="off" placeholder="Esim. kaksi pyörätuolia, kyytiin nousu ilman portaita"></label>
             <div class="kentta koko"><span id="k-muoto">Matka</span><div class="vaihto" role="radiogroup" aria-labelledby="k-muoto"><label><input type="radio" name="muoto" value="kuljetus" checked>Yksi suunta</label><label><input type="radio" name="muoto" value="menopaluu">Meno ja paluu</label><label><input type="radio" name="muoto" value="paiva">Päiväretki</label><label><input type="radio" name="muoto" value="monipaiva">Monta päivää</label></div></div>
