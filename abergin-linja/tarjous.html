@@ -22,7 +22,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 
-<link rel="stylesheet" href="sivusto.css?v=a88b383048">
+<link rel="stylesheet" href="sivusto.css?v=6bafc29986">
 </head>
 <body>
 <a class="ohita" href="#sisalto">Siirry sisältöön</a>
@@ -58,7 +58,7 @@
         <section data-askel="1">
           <h2>Mistä minne ja milloin?</h2>
           <div class="omin" id="kone-omin">
-            <label for="omin-teksti"><b>Kerro matka omin sanoin</b><small>Kirjoita tai sanele. Lomake täyttyy tekstistä, ja kenttiä voi korjata alla.</small></label>
+            <label for="omin-teksti"><b>Kertokaa matka omin sanoin</b><small>Kirjoittakaa tai sanelkaa. Lomake täyttyy tekstistä, ja kenttiä voi korjata alla.</small></label>
             <div class="omin-rivi"><textarea id="omin-teksti" rows="2" placeholder="Esim. 34 hengen joukkue Espoosta Tampereelle lauantaina, perillä klo 14, paluu illalla"></textarea>
               <button type="button" class="omin-mikki" id="omin-mikki" hidden aria-pressed="false" aria-label="Sanele matka" title="Sanelu käyttää selaimen puheentunnistusta"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></button></div>
             <ul class="omin-lista" id="omin-lista" aria-live="polite" hidden></ul>
@@ -78,7 +78,7 @@
             <label class="kentta"><span><span id="paiva-ots">Lähtöpäivä</span><small data-jos-tiedossa hidden> (jos tiedossa)</small></span><input name="paiva" type="date" required aria-describedby="paiva-virhe"><small class="kentta-virhe" id="paiva-virhe" hidden></small></label>
             <label class="kentta" data-nakyy="menopaluu monipaiva">Paluupäivä<input name="paluupaiva" type="date" aria-describedby="paluupaiva-virhe"><small class="kentta-virhe" id="paluupaiva-virhe" hidden></small></label>
             <label class="kentta" data-nakyy="paiva">Kesto tunteina<input name="kesto" type="number" min="1" max="24" inputmode="numeric" required></label>
-            <div class="kentta koko" data-aikataulu><span id="k-aikatapa">Aikataulu</span><div class="vaihto" role="radiogroup" aria-labelledby="k-aikatapa"><label><input type="radio" name="aikatapa" value="lahto" checked>Lähtöaika</label><label><input type="radio" name="aikatapa" value="perilla">Perillä viimeistään</label></div><small class="aikataulu-ohje">Myynti ei tiedä ottelun tai tapahtuman aikataulua, joten ajat kysytään teiltä.</small></div>
+            <div class="kentta koko" data-aikataulu><span id="k-aikatapa">Aikataulu</span><div class="vaihto" role="radiogroup" aria-labelledby="k-aikatapa"><label><input type="radio" name="aikatapa" value="lahto" checked>Lähtöaika</label><label><input type="radio" name="aikatapa" value="perilla">Perillä viimeistään</label></div><small class="aikataulu-ohje">Kertokaa, milloin ryhmän pitää olla perillä. Suunnittelemme lähtöajan sen perusteella.</small></div>
             <div class="kentta aika-kentta" data-aikataulu><label class="kentta"><span id="aika-ots">Lähtöaika</span><input name="aika" type="time" required aria-describedby="aika-virhe"></label><label class="valinta-ruutu pieni-ruutu"><input type="checkbox" name="aikaAvoin" value="1"><span>Ei vielä tiedossa</span></label><small class="kentta-virhe" id="aika-virhe" hidden></small></div>
             <div class="kentta aika-kentta" data-nakyy="menopaluu paiva monipaiva" data-aikataulu data-paluu><label class="kentta"><span>Paluulähtö</span><input name="paluuaika" type="time" required aria-describedby="paluuaika-virhe"></label><label class="valinta-ruutu pieni-ruutu"><input type="checkbox" name="paluuAvoin" value="1"><span>Ei vielä tiedossa</span></label><small class="kentta-virhe" id="paluuaika-virhe" hidden></small></div>
             <p class="kone-kiire koko" id="kone-kiire" hidden data-lahteet="yhteystiedot-14">Kiireellisissä tapauksissa tilausajopäivystys <span class="nw"><a href="tel:+358400505713">0400-505 713</a></span>.</p>
@@ -143,10 +143,10 @@
 </div>
 <datalist id="ab-paikat"><option value="Helsinki-Vantaan lentoasema"></option><option value="Helsingin päärautatieasema"></option><option value="Länsiterminaali T2, Helsinki"></option><option value="Katajanokan terminaali, Helsinki"></option><option value="Messukeskus, Helsinki"></option><option value="Olympiastadion, Helsinki"></option><option value="Kauppatori, Helsinki"></option><option value="Linnanmäki, Helsinki"></option><option value="Espoon keskus"></option><option value="Tapiola, Espoo"></option><option value="Leppävaara, Espoo"></option><option value="Otaniemi, Espoo"></option><option value="Tikkurila, Vantaa"></option><option value="Helsinki, keskusta"></option><option value="Porvoo"></option><option value="Lahti"></option><option value="Vierumäki, Heinola"></option><option value="Hämeenlinna"></option><option value="Tampere"></option><option value="Turku"></option><option value="Jyväskylä"></option><option value="Seinäjoki"></option><option value="Oulu"></option><option value="Kuopio"></option><option value="Pori"></option><option value="Kotka"></option><option value="Lappeenranta"></option><option value="Lohja"></option><option value="Hanko"></option><option value="Tammisaari, Raasepori"></option><option value="Fiskars, Raasepori"></option><option value="Mänttä"></option></datalist></div>
     <aside class="sivupalkki">
-      <div class="laatikko"><h3>Kaksi vaihetta</h3><p>Y-tunnus ja laskutustiedot kysytään vasta, kun tarjous hyväksytään.</p></div>
+      <div class="laatikko"><h3>Mitä tietoja tarvitaan</h3><p>Lähtöpaikka, kohde, matkustajamäärä, päivä ja kellonaika. Jos kellonaika ei ole vielä tiedossa, sen voi ilmoittaa myöhemmin.</p><p style="margin-top:10px">Y-tunnus ja laskutustiedot kysytään vasta, kun tarjous hyväksytään.</p></div>
       <div class="laatikko"><h3>Muut tavat</h3><p data-lahteet="tarjouspyynto-05">Voitte myös lähettää sähköpostia osoitteeseen <a href="mailto:myynti@aberginlinja.fi">myynti@aberginlinja.fi</a> tai soittaa numeroon <span class="nw"><a href="tel:+35898842589">09-884 2589</a></span> arkisin.</p><p style="margin-top:14px"><a class="linkki" href="tel:+35898842589" data-lahteet="tarjouspyynto-05"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg> <span class="nw">09-884 2589</span></a></p></div>
       <div class="laatikko"><h3>Kiire?</h3><p data-lahteet="yhteystiedot-14">Kiireellisissä tapauksissa tilausajopäivystys <span class="nw"><a href="tel:+358400505713">0400-505 713</a></span>.</p></div>
-      <div class="laatikko"><h3>Hintataso</h3><p data-lahteet="etusivu-25">Lyhyt kuljetus pikkubussilla maksaa alle 200 euroa ja isolla bussilla <span class="nw">200–300</span> euroa alkaen. Muutaman tunnin päiväretki Helsingissä maksaa noin <span class="nw">350–500</span> euroa.</p></div>
+      <div class="laatikko"><h3>Hintataso</h3><p data-lahteet="etusivu-25">Lyhyt kuljetus pikkubussilla maksaa alle 200 euroa ja isolla bussilla <span class="nw">200–300</span> euroa alkaen. Muutaman tunnin päiväretki Helsingissä maksaa noin <span class="nw">350–500</span> euroa.</p><p>Hinnat ovat Åbergin Linjan omalla sivullaan julkaisemia esimerkkejä Helsingistä. Tarkka hinta ja se, mitä siihen sisältyy, kerrotaan tarjouksessa.</p></div>
     </aside>
   </div>
 </section>

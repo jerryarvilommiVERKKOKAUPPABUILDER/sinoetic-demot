@@ -346,6 +346,8 @@ figcaption.kt span{opacity:.7;margin-left:6px}
 .tumma .lahde,.sininen .lahde{color:#aebbcb}
 /* tarinat */
 .tarinat{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.tarinat--kolme{grid-template-columns:repeat(3,1fr)}
+@media (max-width:1100px) and (min-width:761px){.tarinat.tarinat--kolme{grid-template-columns:repeat(3,1fr)}.tarinat--kolme .tarina{min-height:320px;padding:26px 22px 24px}}
 .tarina{display:flex;flex-direction:column;min-height:420px;padding:32px 30px 28px;border-radius:var(--sade);background:var(--yo);color:#fff;text-decoration:none;transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s}
 .tarina:hover{transform:translateY(-6px);box-shadow:var(--var)}
 .tarina--kelta{background:var(--kelta);color:var(--yo)}
@@ -1365,6 +1367,16 @@ html.kehyksessa .demopalkki{display:none}
 .johto-tehtavat .johto-ilmo{background:#e8f5ec;color:#14532d}
 @media (max-width:600px){.doc-ehdot dl{grid-template-columns:1fr;gap:2px 0}.doc-ehdot dd{margin-bottom:8px}}
 
+/* Phase 2 (15.11.2026): muutospyyntö vahvistettuun matkaan */
+.muutos-lista{list-style:none;margin:0 0 14px;padding:0;display:grid;gap:10px}
+.muutos-lista li{padding:12px 14px;border-radius:12px;background:#f3f5f8;font-size:15px;line-height:1.45}
+.muutos-lista p{margin-top:4px;white-space:pre-wrap;overflow-wrap:anywhere}
+.muutos-lista small{display:block;margin-top:4px;color:var(--harmaa);font-size:13px}
+.muutos-tila{display:inline-block;margin-left:8px;padding:2px 9px;border-radius:999px;background:#fff4c2;color:#5c4600;font-size:12.5px;font-weight:700}
+.muutos-tila.on{background:#dff3e4;color:#17603a}
+.muutos-lomake textarea{min-height:88px;width:100%}
+.doc-muutospyynto .doc-huom+.doc-huom{margin-top:6px}
+
 /* tekninen hionta 12.11.2026 (auditti 11.11.) */
 /* T-11: kohdistettu elementti ei jää kiinteän yläpalkin tai puhelimen alapalkin alle (otsikkoankkurien paikka ennallaan: 88 + 12 = 100 px) */
 html:has(.top){scroll-padding-top:88px}
@@ -1524,3 +1536,114 @@ form[data-kv] .huom:focus{outline:none}
 .vrt-yksityis img{width:100%;height:auto;border-radius:8px;border:1px solid var(--raja)}
 .vrt-yksityis p{font-size:14.5px;line-height:1.45;color:var(--yo)}
 @media (max-width:760px){.vrt-parit{grid-template-columns:1fr}.vrt-kehys--pitka{max-height:520px}.vrt-yksityis{grid-template-columns:1fr}}
+
+/* Phase 2 (15.11.2026): mitä tilaajan pitää kertoa -lista, retkien tyypit ja sisältö */
+.tarve-lista{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;counter-reset:tarve}
+.tarve-lista--nelja{grid-template-columns:repeat(4,minmax(0,1fr))}
+.tarve-lista li{counter-increment:tarve;position:relative;padding:22px 22px 22px 66px;border-radius:var(--sade);background:#fff;border:1px solid var(--raja)}
+.tarve-lista li::before{content:counter(tarve);position:absolute;left:20px;top:20px;width:32px;height:32px;border-radius:50%;background:var(--kelta);color:var(--yo);font-weight:800;font-size:15px;display:grid;place-items:center}
+.tarve-lista h3{font-size:18px;line-height:1.25}
+.tarve-lista p{margin-top:6px;font-size:15.5px;line-height:1.5;color:var(--harmaa)}
+.tarve-loppu{margin-top:24px;max-width:72ch;font-size:16.5px;line-height:1.55;color:var(--muste)}
+.tumma .sopimus-lista li{color:#e6edf5}
+.tumma .sopimus-lista svg{stroke:var(--kelta)}
+.lista-ots{font-size:19px;margin-bottom:16px}
+.tumma .lista-ots{color:#fff}
+.em-tiivis .lainaus{margin:0}
+.isolainaus--tiivis{padding:clamp(56px,7vw,96px) 0}
+.isolainaus--tiivis .yla{align-items:center}
+.isolainaus--tiivis .tilastot{grid-template-columns:1fr;margin:0;gap:22px;border:0;padding:0}
+.retki-tyypit{list-style:none;margin:0 0 28px;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.retki-tyypit li{padding:18px 20px;border-radius:16px;background:var(--pohja);display:grid;gap:4px}
+.retki-tyypit b{font-size:16.5px}
+.retki-tyypit span{font-size:15px;line-height:1.45;color:var(--harmaa)}
+.retki-tyyppi{align-self:flex-start;display:inline-block;margin-bottom:12px;padding:5px 11px;border-radius:999px;background:#e8eef6;color:var(--sin-2);font-size:12.5px;font-weight:750;letter-spacing:.04em;text-transform:uppercase}
+.retki--iso .retki-tyyppi{background:var(--kelta);color:var(--yo)}
+.retki-sis{margin:18px 0 22px;display:grid;gap:12px}
+.retki-sis dt{font-weight:750;font-size:12.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--harmaa)}
+.retki-sis dd{margin:3px 0 0;font-size:15.5px;line-height:1.45}
+.retki--iso .retki-sis dt{color:#9fb0c3}
+.retki--iso .retki-sis dd{color:#e6edf5}
+.retki .napit{margin-top:auto}
+.lista2--kolme{grid-template-columns:repeat(3,minmax(0,1fr))}
+.tarve-lista--pysty{grid-template-columns:1fr;margin-top:32px}
+.luvut li{min-width:0}
+.luvut li>span{overflow-wrap:anywhere;hyphens:auto}
+.tarve-lista--ei li{padding-left:22px}
+.tarve-lista--ei li::before{display:none}
+.tarve-lista p+p{margin-top:8px}
+.kv-ruutu{display:flex;align-items:center;gap:10px;font-weight:600}
+.kv-ruutu input{width:20px;height:20px;flex:0 0 20px}
+.kysely{margin-top:28px;display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;padding:20px 24px;border-radius:var(--sade);background:var(--yo);color:#fff}
+.kysely strong{font-size:clamp(30px,3vw,42px);font-weight:760;letter-spacing:-.04em;color:var(--kelta);white-space:nowrap}
+.kysely span{font-size:15.5px;line-height:1.45;color:#dbe4ee}
+@media (max-width:640px){.kysely{grid-template-columns:1fr;gap:8px}}
+.kaksi--yla{align-items:start}
+.vastaavat{list-style:none;margin:32px 0 0;padding:0;display:grid;gap:12px}
+.vastaavat li{display:grid;gap:3px;padding:18px 22px;border-radius:16px;background:#fff;border:1px solid var(--raja)}
+.vastaavat .nimike{font-size:12.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--sin)}
+.vastaavat b{font-size:20px;letter-spacing:-.01em}
+.aikajana--tiivis li.lisa{display:none}
+.aikajana--tiivis.auki li.lisa{display:grid}
+.aikajana-nappi{margin-top:28px}
+.aikajana-nappi .nappi{border:1.5px solid var(--raja);background:#fff;cursor:pointer;font-family:var(--f)}
+.asiat{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.asiat>li{display:flex;flex-direction:column;padding:26px;border-radius:var(--sade);background:var(--pohja);scroll-margin-top:110px}
+.asiat h3{font-size:22px;letter-spacing:-.02em}
+.asiat li>p{margin-top:8px;font-size:15.5px;line-height:1.5;color:var(--harmaa)}
+.asia-yht{margin-top:14px;display:grid;gap:4px}
+.asia-rivi{font-size:16.5px;font-weight:650}
+.asia-rivi .linkki{font-size:inherit}
+.asiat .huom{margin-top:12px;font-size:14px}
+.asia-loppu{margin-top:auto;padding-top:18px}
+.asiat-muut{margin:44px 0 16px;font-size:20px}
+@media (max-width:1000px){.asiat,.lista2--kolme{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.asiat,.lista2--kolme{grid-template-columns:1fr}.asiat>li{padding:20px}}
+.ref-vaiheet{margin:28px 0 0;display:grid;gap:22px}
+.ref-vaiheet dt{font-size:12.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--sin)}
+.ref-vaiheet dd{margin:6px 0 0;font-size:17px;line-height:1.55}
+.ref-vaiheet blockquote{margin:0;padding-left:18px;border-left:3px solid var(--kelta)}
+.ref-vaiheet blockquote p{font-size:19px;font-weight:600;line-height:1.4;letter-spacing:-.01em}
+.ref-vaiheet blockquote footer{margin-top:8px;font-size:14.5px;color:var(--harmaa)}
+.case figure .tilastot{margin-top:22px}
+.ref-kortit{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.ref-kortit>li{display:flex;flex-direction:column;padding:28px;border-radius:var(--sade);background:#fff;border:1px solid var(--raja)}
+.ref-kortit .nimi{font-size:12.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--sin)}
+.ref-kortit h3{margin-top:8px;font-size:clamp(24px,2.2vw,30px);letter-spacing:-.03em}
+.ref-kortit .ref-vaiheet{margin-top:18px;gap:16px}
+.ref-kortit .ref-vaiheet dd{font-size:15.5px;line-height:1.5}
+.ref-kortit .ref-vaiheet blockquote p{font-size:16.5px}
+.ref-kortit .lahde{margin-top:auto;padding-top:20px}
+.vert-kehys{border-radius:var(--sade);background:#fff;border:1px solid var(--raja);overflow:hidden}
+.vert{width:100%;border-collapse:collapse;font-size:15.5px}
+.vert th,.vert td{padding:14px 12px;text-align:center;border-bottom:1px solid var(--raja);vertical-align:middle}
+.vert tbody tr:last-child th,.vert tbody tr:last-child td{border-bottom:0}
+.vert thead th{font-size:12.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--harmaa);background:var(--pohja)}
+.vert th[scope=row],.vert thead th:first-child{text-align:left;padding-left:22px}
+.vert th[scope=row] b{display:block;font-size:17px}
+.vert th[scope=row] small{display:block;margin-top:2px;font-size:13.5px;font-weight:500;color:var(--harmaa)}
+.vert td svg{width:22px;height:22px;fill:none;stroke:var(--sin);stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+.vert td.ei{color:#a3adba}
+.vert td.sopii,.vert thead th:last-child{text-align:left;padding-right:22px;font-size:15px;color:var(--muste)}
+.n-var-ots{margin-top:18px;font-size:12.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--harmaa)}
+.n-vahv{margin-top:12px;font-size:14px;line-height:1.45;color:var(--harmaa)}
+.uusin--vaalea .uusin-tekija{color:var(--harmaa)}
+@media (max-width:1000px){.ref-kortit{grid-template-columns:1fr}}
+@media (max-width:860px){
+ .vert thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+ .vert,.vert tbody{display:block}
+ .vert tr{display:flex;flex-wrap:wrap;gap:6px;padding:16px 16px 14px;border-bottom:1px solid var(--raja)}
+ .vert tbody tr:last-child{border-bottom:0}
+ .vert th[scope=row]{flex:1 0 100%;padding:0 0 6px;border:0}
+ .vert td{border:0;padding:0}
+ .vert td.ei{display:none}
+ .vert td.on{display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border-radius:999px;background:var(--pohja);font-size:13.5px;font-weight:650}
+ .vert td.on::after{content:attr(data-n)}
+ .vert td.on svg{width:15px;height:15px}
+ .vert td.sopii{flex:1 0 100%;padding:6px 0 0;font-size:14.5px;color:var(--harmaa)}
+}
+.retki--iso figure{aspect-ratio:auto;position:relative;min-height:340px}
+.retki--iso figure img{position:absolute;inset:0}
+@media (max-width:1000px){.tarve-lista,.tarve-lista--nelja{grid-template-columns:1fr 1fr}.isolainaus--tiivis .tilastot{grid-template-columns:1fr 1fr;margin-top:8px}}
+@media (max-width:760px){.retki-tyypit{grid-template-columns:1fr;gap:8px;margin-bottom:20px}.retki-tyypit li{padding:14px 16px}.retki--iso figure{aspect-ratio:3/2;min-height:0}}
+@media (max-width:640px){.tarve-lista,.tarve-lista--nelja{grid-template-columns:1fr;gap:10px}.tarve-lista li{padding:16px 16px 16px 58px}.tarve-lista li::before{left:14px;top:15px}.isolainaus--tiivis .tilastot{grid-template-columns:1fr}}
