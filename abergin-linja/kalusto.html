@@ -22,7 +22,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 
-<link rel="stylesheet" href="sivusto.css?v=2562adecc9">
+<link rel="stylesheet" href="sivusto.css?v=a88b383048">
 <style>
 /* käytännön kysymykset (Mousen 5. arvio): kuva, faktat ja nappi tarjouspyyntöön */
 .kysymykset{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2vw,28px)}
@@ -576,6 +576,39 @@ if(vid&&vn){var oma=false, vt=vn.querySelector('.vn-teksti');
  if(!vahennetty&&!saasto&&'IntersectionObserver' in window){new IntersectionObserver(function(es){es.forEach(function(e){if(oma) return; clearTimeout(vviive); if(e.isIntersecting){vviive=setTimeout(function(){if(oma) return; var pr=vid.play(); if(pr&&pr.catch) pr.catch(function(){});},700);} else if(!vid.paused) vid.pause();});},{threshold:.35}).observe(vid);}
  vtila();}
 // tarjouskone, tarjousdokumentti ja myynnin näkymä ovat kone.js:ssä
+})();
+// Phase 1 (15.11.2026): en- ja sv-sivun lyhyt tarjouspyyntö (form[data-kv]); sivut eivät lataa kone.js:ää, joten tarkistus on tässä
+(function(){function tanaan(){var t=new Date(); return t.getFullYear()+"-"+String(t.getMonth()+1).padStart(2,"0")+"-"+String(t.getDate()).padStart(2,"0");}
+function avain(s){return String(s||"").toLowerCase().replace(/[(),.]/g," ").replace(/\s+/g," ").trim();}
+// Phase 1 (15.11.2026): samat säännöt kuin suomenkielisessä lomakkeessa. Ilman nimeä ja toimivaa sähköpostia pyyntöä ei hyväksytä,
+// mennyttä tai epäkelpoa päivää ei hyväksytä, matkustajamäärä on kokonaisluku 1–999 (isommasta kerrotaan viestissä, ei katkaista),
+// ja yli 60 hengen ryhmästä kerrotaan, että se kulkee usealla bussilla. Virhetekstit ovat sivun kielellä.
+var KV={en:{from:'Tell us where the trip starts.',to:'Tell us the destination.',sama:'The start and the destination are the same.',pvm:'This date has already passed.',pvmVirhe:'Check the date.',
+  pax:'Number of passengers: a whole number, at least 1.',paxIso:'The form takes up to 999 passengers. Please describe a larger group in the message.',name:'Tell us your name.',email:'Check the email address. We reply by email.',
+  iso:'A group of this size travels in several buses. Sales will plan the vehicles for you.',
+  ok:function(f){return 'Thank you, '+f.name+'. Demo: nothing is sent. On the finished website this request ('+f.from+' – '+f.to+', '+f.pax+' passengers) goes straight to sales, and the quote comes to '+f.email+'.';}},
+ sv:{from:'Berätta varifrån resan startar.',to:'Berätta resmålet.',sama:'Start och resmål är samma plats.',pvm:'Datumet har redan passerat.',pvmVirhe:'Kontrollera datumet.',
+  pax:'Antal passagerare: ett heltal, minst 1.',paxIso:'Formuläret tar högst 999 passagerare. Beskriv en större grupp i meddelandet.',name:'Berätta ert namn.',email:'Kontrollera e-postadressen. Vi svarar per e-post.',
+  iso:'En så stor grupp reser med flera bussar. Försäljningen planerar fordonen åt er.',
+  ok:function(f){return 'Tack, '+f.name+'. Demo: ingenting skickas. På den färdiga webbplatsen går förfrågan ('+f.from+' – '+f.to+', '+f.pax+' passagerare) direkt till försäljningen, och offerten kommer till '+f.email+'.';}}};
+[].forEach.call(document.querySelectorAll('form[data-kv]'),function(f){var t=KV[f.dataset.kv]||KV.en, e=f.elements, huom=f.querySelector('.huom'), vihje=f.querySelector('.kv-vihje');
+ if(e.date) e.date.min=tanaan();
+ function merkki(x,teksti){var k=x.closest('.kentta'), s=k.querySelector('.kentta-virhe');
+  if(!s){s=document.createElement('small'); s.className='kentta-virhe'; s.id='kv-'+f.dataset.kv+'-'+x.name; k.appendChild(s); x.setAttribute('aria-describedby',s.id);}
+  s.textContent=teksti||''; s.hidden=!teksti; k.classList.toggle('virhe',!!teksti); x.setAttribute('aria-invalid',teksti?'true':'false'); return !teksti;}
+ function tarkista(){var v={}, a=e.from.value.trim(), b=e.to.value.trim(), px=e.pax.value.trim(), n=Number(px);
+  if(!a) v.from=t.from; if(!b) v.to=t.to; else if(a&&avain(a)===avain(b)) v.to=t.sama;
+  if(e.date.validity&&e.date.validity.badInput) v.date=t.pvmVirhe; else if(e.date.value&&e.date.value<tanaan()) v.date=t.pvm;
+  if(!/^\d+$/.test(px)||n<1) v.pax=t.pax; else if(n>999) v.pax=t.paxIso;
+  if(!e.name.value.trim()) v.name=t.name; if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(e.email.value.trim())) v.email=t.email;
+  return v;}
+ f.addEventListener('input',function(ev){var x=ev.target; if(x.name&&x.getAttribute('aria-invalid')==='true') merkki(x,tarkista()[x.name]||''); huom.hidden=true;
+  var n=Number(e.pax.value); vihje.hidden=!(/^\d+$/.test(e.pax.value.trim())&&n>60&&n<=999); if(!vihje.hidden) vihje.textContent=t.iso;});
+ f.addEventListener('submit',function(ev){ev.preventDefault(); var v=tarkista(), eka=null;
+  ['from','to','date','pax','name','email'].forEach(function(k){if(!merkki(e[k],v[k]||'')&&!eka) eka=e[k];});
+  if(eka){huom.hidden=true; eka.focus(); return;}
+  huom.textContent=t.ok({name:e.name.value.trim(),from:e.from.value.trim(),to:e.to.value.trim(),pax:e.pax.value.trim(),email:e.email.value.trim()});
+  huom.hidden=false; f.reset(); vihje.hidden=true; huom.focus();});});
 })();
 </script>
 <script src="kone.js" defer></script>

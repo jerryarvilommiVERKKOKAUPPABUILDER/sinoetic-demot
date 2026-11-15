@@ -1339,6 +1339,31 @@ html.kehyksessa .demopalkki{display:none}
 .johto-tyhja{font-size:14px;color:var(--harmaa)}
 @media (max-width:1000px){.johto-luvut{grid-template-columns:1fr 1fr}.johto-ruudukko{grid-template-columns:1fr}}
 @media (max-width:760px){.johto-putki li{grid-template-columns:78px minmax(0,1fr) 24px 72px;font-size:13px}.johto-kaytot li{grid-template-columns:112px minmax(0,1fr) 24px}.johto-ajot button{grid-template-columns:46px minmax(0,1fr)}.johto-ajot .tila{display:none}}
+/* Phase 1 (15.11.2026): omin sanoin -ehdotusten tilat, virhetekstit ja puhelimen alapalkki */
+.omin-lista .omin-kasin{border-style:dashed;border-color:var(--sin)}
+.omin-lista em{font-style:normal;font-size:11.5px;font-weight:650;color:var(--sin)}
+.omin-lista .omin-epavarma{border-style:dashed;border-color:#b98900;background:#fffdf2;align-items:center}
+.omin-lista .omin-epavarma em{color:#7a5b00}
+.omin-lista .omin-epavarma button{border:0;border-radius:999px;background:var(--yo);color:#fff;font:700 12.5px/1 var(--f);padding:7px 11px;min-height:30px;cursor:pointer}
+.omin-lista .omin-huom{flex-basis:100%;border-radius:10px;background:#fff;border:1px solid #e4b100;color:var(--yo);font-weight:600;padding:8px 12px}
+.omin textarea{overflow:hidden}
+.kentta-virhe[data-auto]{display:block;margin-top:2px;font-size:13.5px}
+.kentta-virhe[data-auto][hidden]{display:none}
+@media (max-width:480px){.kone-lomake[data-askel="2"] .kone-ala .yhteensa{display:none}}
+@media (max-width:359px){.kone-tulos{grid-template-columns:minmax(0,1fr) 92px;gap:10px 12px;padding:14px}.kt-iso b{font-size:25px}.kt-iso b.kt-teksti{font-size:19px}.kt-auto figcaption b{font-size:12.5px;white-space:normal;overflow-wrap:anywhere}.kt-auto figcaption span,.kt-huom,.kt-ala{font-size:12.5px}}
+.suun-huom{font-size:14px;line-height:1.45;color:#ffe680;font-weight:600}
+/* Phase 1: tarjouksen ehdot, hyväksynnän merkitys ja demomerkinnät */
+.doc-ehdot dl{display:grid;grid-template-columns:minmax(120px,auto) minmax(0,1fr);gap:8px 18px}
+.doc-ehdot dt{font-weight:700;color:var(--yo)}
+.doc-ehdot dd{margin:0;line-height:1.5}
+.doc-demo{margin-top:8px;font-size:13.5px;color:var(--harmaa);font-weight:600}
+.tl-merkitys{margin-top:18px;padding:12px 14px;border-radius:12px;background:var(--pohja);font-size:14.5px;font-weight:600;line-height:1.45;color:var(--yo)}
+.tl-ehdot{margin-top:12px}
+.ehdot-puuttuu{color:#7a5b00}
+.vastaus .kentta--hinta input{font-size:20px;font-weight:700;max-width:220px}
+.johto-kortti h3 small{font-weight:600;font-size:12.5px;color:var(--harmaa);letter-spacing:0;margin-left:6px}
+.johto-tehtavat .johto-ilmo{background:#e8f5ec;color:#14532d}
+@media (max-width:600px){.doc-ehdot dl{grid-template-columns:1fr;gap:2px 0}.doc-ehdot dd{margin-bottom:8px}}
 
 /* tekninen hionta 12.11.2026 (auditti 11.11.) */
 /* T-11: kohdistettu elementti ei jää kiinteän yläpalkin tai puhelimen alapalkin alle (otsikkoankkurien paikka ennallaan: 88 + 12 = 100 px) */
@@ -1440,6 +1465,13 @@ figcaption.kt>a:only-child{display:flex;align-items:center;min-height:44px;margi
 .uusin-tiedot span{display:block;margin-top:8px;font-size:14.5px;color:#c9d3df;line-height:1.4}
 @media (max-width:1000px){.uusin-runko{grid-template-columns:1fr}}
 @media (max-width:760px){.uusin-kuvat{padding-top:18%}.uusin-pieni{width:42%;border-width:4px;border-radius:14px}.uusin-tiedot{gap:12px}.uusin-tiedot span{font-size:13.5px}}
+/* Phase 1 (15.11.2026): vieraskielinen lyhyt tarjouspyyntö */
+.kv-ohje{margin:0 0 18px;font-size:15px;line-height:1.5;color:var(--harmaa)}
+.kv-vihje{margin-top:14px;padding:10px 14px;border-radius:12px;background:var(--pohja);font-size:14.5px;font-weight:600;color:var(--yo)}
+.kv-vihje[hidden]{display:none}
+form[data-kv] .kentta.virhe input,form[data-kv] .kentta.virhe textarea{border-color:#c0392b}
+form[data-kv] .kentta-virhe{font-size:13.5px}
+form[data-kv] .huom:focus{outline:none}
 /* arvoauditti 14.11.2026: yrityksen oma logo */
 .merkki img{display:block;height:24px;width:auto}
 .ala .merkki img{height:26px}
