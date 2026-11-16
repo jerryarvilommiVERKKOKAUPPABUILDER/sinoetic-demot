@@ -959,7 +959,23 @@ if(kone){
   var li=el('lisat'); if(li&&(!li.value||li.value===ominLisat)){li.value=teksti; ominLisat=teksti;}
   if(lisatKaytossa()) avaaLisat(true);
   ominViime=o; paivitaHinta(); siivoaVirheet(); ominKuva={}; OMIN_KENTAT.forEach(function(k){ominKuva[k]=ominLue(k);}); ominPiirra(o);
-  if(!teksti&&!Object.keys(ominAsetti).length) ominKasin={};}
+  if(!teksti&&!Object.keys(ominAsetti).length) ominKasin={};
+  setTimeout(ominNakyviin,40);}
+ // Phase 3 (16.11.2026): puhelimen näppäimistö peittää ruudun alaosan. Kun tekstistä syntyy tuloskortti tai tunnistettujen lista,
+ // lomake vierittyy niin, että kortti mahtuu näppäimistön yläpuolelle ja tekstikentän viimeinen rivi pysyy näkyvissä.
+ // Näkyvä alue luetaan visualViewportista (iOS ja Android eivät pienennä sivun korkeutta näppäimistön ajaksi).
+ function ominNakyviin(){var vv=window.visualViewport; if(!vv||!ominT) return;
+  var runko=upotettu?null:lom.querySelector('.kone-runko'), peitto=Math.max(0,window.innerHeight-vv.height-vv.offsetTop), auki=peitto>80&&d.activeElement===ominT;
+  // näppäimistön ajaksi tunnistetut tiedot ovat yhdellä vieritettävällä rivillä ja kortissa näkyy vain reitti ja hinta (kone.css .nk-auki)
+  lom.classList.toggle('nk-auki',auki); if(runko) runko.style.setProperty('--nk',auki?peitto+'px':'0px');
+  if(!auki) return;
+  var kohde=(tulosEl&&!tulosEl.hidden&&tulosEl.parentNode===ominPaikka)?tulosEl:(ominL&&!ominL.hidden?ominL:null); if(!kohde) return;
+  var ylaPalkki=runko?runko.getBoundingClientRect().top:(d.querySelector('.top.kiinni')?76:0);
+  var yla=Math.max(vv.offsetTop,ylaPalkki)+6, ala=vv.offsetTop+vv.height-10, puute=kohde.getBoundingClientRect().bottom-ala; if(puute<=0) return;
+  var siirto=Math.min(puute,Math.max(0,ominT.getBoundingClientRect().bottom-40-yla)); if(siirto<=0) return;
+  if(runko) runko.scrollTop+=siirto; else window.scrollBy(0,siirto);}
+ if(ominT) ominT.addEventListener('blur',function(){setTimeout(ominNakyviin,80);});
+ if(window.visualViewport&&ominT) window.visualViewport.addEventListener('resize',function(){setTimeout(ominNakyviin,60);});
  // ehdotus, jota ei aseteta itsestään (listan ulkopuolinen paikka): käyttäjä hyväksyy sen napista
  if(ominL) ominL.addEventListener('click',function(e){var b=e.target.closest('[data-omin-kayta]'); if(!b) return; aseta(b.dataset.ominKayta,b.dataset.arvo); ominKasin[b.dataset.ominKayta]=true; if(ominKuva) ominKuva[b.dataset.ominKayta]=b.dataset.arvo;
   paivitaHinta(); siivoaVirheet(); ominPiirra(ominViime||{huomiot:[],vieraat:[]});});
@@ -1177,7 +1193,13 @@ if(kone){
   pikaOmin.addEventListener('submit',function(e){e.preventDefault(); var teksti=pikaOmin.elements.teksti.value.trim();
    if(!valmis.hidden){valmis.hidden=true; lom.hidden=false; valmisId=''; sKirjoita(LAHETETTY,null);} sKirjoita(LUONNOS,null); tyhjennaLomake();
    ominT.value=teksti; ominSovella(); avaa({}); ominKorkeus();
-   setTimeout(function(){var runko=lom.querySelector('.kone-runko'); if(runko) runko.scrollTop=0; if(!teksti) ominT.focus();},60);});}
+   setTimeout(function(){var runko=lom.querySelector('.kone-runko'); if(runko) runko.scrollTop=0; if(!teksti) ominT.focus();},60);});
+  // Phase 3 (16.11.2026): etusivun omin sanoin -kenttä on monirivinen ja kasvaa tekstin mukaan. Enter tekee rivinvaihdon,
+  // nappi tai Ctrl/Cmd + Enter avaa lomakkeen.
+  var pikaT=pikaOmin.elements.teksti;
+  if(pikaT&&pikaT.tagName==='TEXTAREA'){var pikaKork=function(){pikaT.style.height='auto'; pikaT.style.height=Math.min(200,Math.max(52,pikaT.scrollHeight))+'px';};
+   pikaT.addEventListener('input',pikaKork);
+   pikaT.addEventListener('keydown',function(e){if(e.key==='Enter'&&(e.ctrlKey||e.metaKey)){e.preventDefault(); if(pikaOmin.requestSubmit) pikaOmin.requestSubmit(); else pikaOmin.querySelector('button[type=submit]').click();}});}}
  // O-06: "Katso hintataso" lupaa hintatason vain reitillä, jolle se on; tuntemattomalla tai pitkällä reitillä nappi on "Jatka"
  var pikaTeksti=pika&&pika.querySelector('button[type=submit] span'), pikaAlku=pikaTeksti?pikaTeksti.textContent:'';
  function pikaNappi(){if(!pikaTeksti) return; var f=pika.elements, a=f.mista.value.trim(), b=f.minne.value.trim(), tunnettu=function(x){return !x||paikka(x)>=0;}, ei=!tunnettu(a)||!tunnettu(b);

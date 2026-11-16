@@ -22,7 +22,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 
-<link rel="stylesheet" href="sivusto.css?v=6bafc29986">
+<link rel="stylesheet" href="sivusto.css?v=67df8dd91c">
 </head>
 <body>
 <a class="ohita" href="#sisalto">Siirry sisältöön</a>
@@ -291,6 +291,30 @@ if(vid&&vn){var oma=false, vt=vn.querySelector('.vn-teksti');
  var saasto=navigator.connection&&navigator.connection.saveData, vviive=null;
  if(!vahennetty&&!saasto&&'IntersectionObserver' in window){new IntersectionObserver(function(es){es.forEach(function(e){if(oma) return; clearTimeout(vviive); if(e.isIntersecting){vviive=setTimeout(function(){if(oma) return; var pr=vid.play(); if(pr&&pr.catch) pr.catch(function(){});},700);} else if(!vid.paused) vid.pause();});},{threshold:.35}).observe(vid);}
  vtila();}
+// Phase 3 (16.11.2026): liukusäädin ei muutu, kun sivua vieritetään sormella sen yli. Pystysuuntainen veto vierittää sivua
+// (touch-action: pan-y) ja arvo palautetaan siihen, mikä se oli ennen kosketusta. Napautus ja vaakaveto säätävät kuten ennen.
+[].forEach.call(d.querySelectorAll('input[type=range]'),function(r){var alku=null, x0=0, y0=0, pysty=false;
+ var palauta=function(){if(alku!==null&&r.value!==alku){r.value=alku; r.dispatchEvent(new Event('input',{bubbles:true}));}};
+ r.style.touchAction='pan-y';
+ r.addEventListener('touchstart',function(e){alku=r.value; x0=e.touches[0].clientX; y0=e.touches[0].clientY; pysty=false;},{passive:true});
+ r.addEventListener('touchmove',function(e){if(alku===null||pysty) return; var dx=Math.abs(e.touches[0].clientX-x0), dy=Math.abs(e.touches[0].clientY-y0); if(dy>10&&dy>dx*1.5){pysty=true; palauta();}},{passive:true});
+ r.addEventListener('input',function(e){if(pysty&&e.isTrusted) palauta();});
+ r.addEventListener('touchcancel',function(){palauta(); alku=null;},{passive:true});
+ r.addEventListener('touchend',function(){if(pysty) palauta(); alku=null; pysty=false;},{passive:true});});
+// Phase 3: tulostus. Vierittämättömät osiot (ilmestymisanimaatio) ja laiskasti ladattavat kuvat näkyvät myös paperilla, ja kysymykset aukeavat.
+window.addEventListener('beforeprint',function(){d.querySelectorAll('.ilm').forEach(function(el){el.classList.add('nakyy');});
+ d.querySelectorAll('img[loading=lazy]').forEach(function(im){im.loading='eager';}); d.querySelectorAll('details').forEach(function(x){if(!x.open){x.open=true; x.dataset.tulostus='1';}});});
+window.addEventListener('afterprint',function(){d.querySelectorAll('details[data-tulostus]').forEach(function(x){x.open=false; x.removeAttribute('data-tulostus');});});
+// Phase 3: lomakkeen kenttäkohtaiset virhetekstit (form[data-tarkista]): teksti kentän alla, aria-invalid, yhteenveto ruudunlukijalle ja kohdistus ensimmäiseen virheeseen
+[].forEach.call(d.querySelectorAll('form[data-tarkista]'),function(f){f.noValidate=true; var ok=f.querySelector('.huom'), yht=f.querySelector('.lomake-virheet');
+ function merkki(x,t){var k=x.closest('.kentta'), s=k.querySelector('.kentta-virhe'); if(!s){s=d.createElement('small'); s.className='kentta-virhe'; s.id='v-'+(f.id||'lomake')+'-'+x.name; k.appendChild(s); x.setAttribute('aria-describedby',s.id);}
+  s.textContent=t||''; s.hidden=!t; k.classList.toggle('virhe',!!t); x.setAttribute('aria-invalid',t?'true':'false'); return !t;}
+ function virhe(x){var v=String(x.value).trim(); if(x.required&&!v) return x.dataset.virhe||'Täyttäkää tämä kenttä.';
+  if(x.type==='email'&&v&&!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) return x.dataset.virheMuoto||'Tarkistakaa sähköpostiosoite.'; return '';}
+ f.addEventListener('input',function(e){var x=e.target; if(x.name&&x.getAttribute('aria-invalid')==='true') merkki(x,virhe(x)); if(ok) ok.hidden=true;});
+ f.addEventListener('submit',function(e){e.preventDefault(); var eka=null, n=0; [].forEach.call(f.elements,function(x){if(!x.name||x.type==='submit') return; if(!merkki(x,virhe(x))){n++; if(!eka) eka=x;}});
+  if(eka){if(yht){yht.textContent=n===1?'Yksi kenttä vaatii korjausta.':n+' kenttää vaatii korjausta.'; yht.hidden=false;} if(ok) ok.hidden=true; eka.focus(); return;}
+  if(yht) yht.hidden=true; f.reset(); if(ok){ok.hidden=false; ok.setAttribute('tabindex','-1'); ok.focus();}});});
 // tarjouskone, tarjousdokumentti ja myynnin näkymä ovat kone.js:ssä
 })();
 // Phase 1 (15.11.2026): en- ja sv-sivun lyhyt tarjouspyyntö (form[data-kv]); sivut eivät lataa kone.js:ää, joten tarkistus on tässä

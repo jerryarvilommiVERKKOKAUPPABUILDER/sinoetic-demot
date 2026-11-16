@@ -1377,6 +1377,19 @@ html.kehyksessa .demopalkki{display:none}
 .muutos-lomake textarea{min-height:88px;width:100%}
 .doc-muutospyynto .doc-huom+.doc-huom{margin-top:6px}
 
+/* Phase 3 (16.11.2026): puhelimen näppäimistön peittämä osa lisätään lomakkeen vieritysvaraksi (kone.js ominNakyviin) */
+.kone-runko::after{content:"";display:block;height:var(--nk,0px)}
+/* Näppäimistö auki puhelimessa: tunnistetut tiedot yhdellä vieritettävällä rivillä ja tuloskortissa vain reitti ja hinta, jotta kortti mahtuu näppäimistön yläpuolelle */
+.nk-auki .omin-lista{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-top:8px}
+.nk-auki .omin-lista::-webkit-scrollbar{display:none}
+.nk-auki .omin-lista li{flex:none;white-space:nowrap}
+.nk-auki #omin-tulos:not(:empty){margin-top:8px}
+.nk-auki .kone-tulos{grid-template-columns:minmax(0,1fr);gap:6px;padding:12px 14px}
+.nk-auki .kt-reitti{padding-bottom:8px}
+.nk-auki .kt-reitti small,.nk-auki .kt-auto,.nk-auki .kt-ala,.nk-auki .kt-huom{display:none}
+.nk-auki .kt-iso b{font-size:24px}
+.nk-auki .kt-iso b.kt-teksti{font-size:20px}
+
 /* tekninen hionta 12.11.2026 (auditti 11.11.) */
 /* T-11: kohdistettu elementti ei jää kiinteän yläpalkin tai puhelimen alapalkin alle (otsikkoankkurien paikka ennallaan: 88 + 12 = 100 px) */
 html:has(.top){scroll-padding-top:88px}
@@ -1647,3 +1660,256 @@ form[data-kv] .huom:focus{outline:none}
 @media (max-width:1000px){.tarve-lista,.tarve-lista--nelja{grid-template-columns:1fr 1fr}.isolainaus--tiivis .tilastot{grid-template-columns:1fr 1fr;margin-top:8px}}
 @media (max-width:760px){.retki-tyypit{grid-template-columns:1fr;gap:8px;margin-bottom:20px}.retki-tyypit li{padding:14px 16px}.retki--iso figure{aspect-ratio:3/2;min-height:0}}
 @media (max-width:640px){.tarve-lista,.tarve-lista--nelja{grid-template-columns:1fr;gap:10px}.tarve-lista li{padding:16px 16px 16px 58px}.tarve-lista li::before{left:14px;top:15px}.isolainaus--tiivis .tilastot{grid-template-columns:1fr}}
+
+/* ============ Phase 3 (16.11.2026): visuaalinen, mobiili- ja tekninen viimeistely ============ */
+/* 1 Fontti: varafontti Inter Tightin mitoilla (leveys ja rivin korkeus), jotta fontin vaihtuminen ei siirrä asettelua */
+@font-face{font-family:'Inter Tight vara';src:local('Arial'),local('ArialMT'),local('Liberation Sans'),local('Arimo');font-weight:100 599;size-adjust:97.1%;ascent-override:99.8%;descent-override:24.8%;line-gap-override:0%}
+@font-face{font-family:'Inter Tight vara';src:local('Arial Bold'),local('Arial-BoldMT'),local('Liberation Sans Bold'),local('Arimo Bold');font-weight:600 900;size-adjust:96.2%;ascent-override:100.7%;descent-override:25.1%;line-gap-override:0%}
+:root{--f:'Inter Tight','Inter Tight vara',system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;
+ /* välit: yksi asteikko koko sivustolle */
+ --tila-osio:clamp(56px,7vw,104px);--tila-jatko:clamp(48px,5.6vw,80px);--tila-otsake:clamp(28px,3.2vw,44px);
+ /* lomakekentän reuna: 3,7:1 valkoisella ja 3,3:1 harmaalla pohjalla (ennen 1,25:1) */
+ --kentta:#7b8794;
+ /* ensinäkymän tekstipalstan leveys ja kuvan vasen reuna (sivun sisältöleveyden mukaan) */
+ --ah-t:clamp(360px,33vw,480px);--ah-l:calc(max(var(--reuna),(100% - 1240px)/2 + var(--reuna)) + var(--ah-t) + 28px)}
+
+/* 2 Yläpalkki: kiinnitettynä tumma, jolloin yrityksen virallinen logo (LINJA valkoisena) erottuu. Logo isompana. */
+.top.kiinni{background:rgba(12,27,43,.97);color:#fff;box-shadow:0 1px 0 rgba(255,255,255,.08),0 14px 30px -24px rgba(0,0,0,.8)}
+.top.kiinni nav a:hover,.top.kiinni nav a[aria-current]{background:rgba(255,255,255,.14)}
+.top nav>a[aria-current],.top nav .pv>a[aria-current]{opacity:1;text-decoration:underline;text-decoration-color:var(--kelta);text-decoration-thickness:2px;text-underline-offset:7px}
+.top .puh:hover span{text-decoration:underline;text-underline-offset:4px}
+.merkki{flex:none}
+.merkki img{height:26px}
+.ala .merkki img{height:30px}
+.top nav a{white-space:nowrap}
+@media (min-width:921px){.top .wrap{gap:20px}.top nav{gap:2px}.top nav a{padding:10px 12px}}
+@media (min-width:1280px){.merkki img{height:30px}}
+/* 921–1279 px: yläpalkin osat on mitoitettu niin, että valikko mahtuu yhdelle riville eikä sivu vieri vaakaan (mitattu 921–1300 px, FI, EN ja SV) */
+@media (min-width:921px) and (max-width:1180px){.merkki img{height:23px}.top .puh span{display:none}.top .puh{min-width:44px;justify-content:center}}
+@media (min-width:921px) and (max-width:1100px){.top .wrap{gap:14px}.top nav a{padding:10px 9px}}
+@media (min-width:921px) and (max-width:1020px){.merkki img{height:21px}.top .wrap{gap:10px}.top nav a{padding:10px 5px}.top .kielet{gap:10px}.top .puh{min-width:32px}.top .wrap>.nappi{padding:0 14px}}
+@media (max-width:760px){.merkki img{height:23px}}
+@media (max-width:340px){.merkki img{height:20px}}
+/* 761–920 px: tarjouspyyntö pysyy näkyvissä yläpalkissa (puhelimessa sen hoitaa alapalkki) */
+@media (min-width:761px) and (max-width:920px){.top:not(.auki) .wrap>.nappi{display:inline-flex;order:1;margin-left:auto}.top:not(.auki) .valikko-nappi{order:2;margin-left:0}}
+
+/* 3 Alasivun ensinäkymä: teksti vasemmalla tummalla pohjalla, kuva oikealla koko korkeudelta ruudun reunaan */
+.ah{position:relative;background:var(--yo);color:#fff;text-align:left;overflow:hidden;isolation:isolate}
+.ah .ah-kuva{position:absolute;inset:0 0 0 auto;width:min(calc(100% - var(--ah-l)),var(--ml,100vw));margin:0;z-index:0;background:#13283e}
+.ah-kuva img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:var(--kd,50% 50%)}
+.ah-kuva::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:
+ linear-gradient(to right,var(--yo) 0,rgba(12,27,43,.6) 4.5%,rgba(12,27,43,0) 13%),
+ linear-gradient(to bottom,rgba(8,16,26,var(--yla,.6)) 0,rgba(8,16,26,0) 150px)}
+.ah-sis{position:relative;z-index:2;display:flex;align-items:flex-end;min-height:clamp(540px,calc(76svh - var(--palkki)),660px);padding-top:calc(76px + 44px);padding-bottom:clamp(40px,6vh,64px)}
+.ah-teksti{width:var(--ah-t);max-width:100%}
+.ah .murut{display:none}
+.ah .silma{color:var(--kelta);margin-bottom:16px}
+.ah h1{font-size:clamp(38px,4.1vw,58px);line-height:1.02;letter-spacing:-.04em;margin:0;max-width:none;text-wrap:balance}
+.ah .ingressi{margin:18px 0 0;font-size:clamp(17.5px,1.35vw,19.5px);line-height:1.5;color:#dbe4ee;max-width:none}
+.ah .napit{display:flex;flex-wrap:wrap;gap:10px 12px;margin-top:26px;justify-content:flex-start}
+.ah .napit .nappi{min-height:50px;padding:0 22px}
+.ah .oikopolut{margin-top:20px}
+.ah-kuva figcaption.kt{position:absolute;z-index:3;left:auto;right:var(--reuna);top:auto;bottom:18px;max-width:min(320px,calc(100% - 2 * var(--reuna)));text-align:left;font-size:12px;font-weight:500;padding:6px 10px;background:rgba(12,27,43,.62)}
+/* etusivu 1001–1199 px: koko ruudun kuvassa bussi jäisi otsikon alle, joten kuva on oikealla kuten alasivuilla; 1200 px:stä ylöspäin koko ruudun kuva */
+@media (min-width:1001px) and (max-width:1199px){
+ .hero--kirkas{min-height:clamp(560px,calc(78svh - var(--palkki)),700px);max-height:none}
+ .hero--kirkas .hero-kuvat{inset:0 0 0 auto;width:calc(100% - var(--ah-l))}
+ .hero--kirkas .hero-kuvat img.oikealle{width:100%}
+ .hero--kirkas::after,.hero--kirkas::before{display:none}
+ .hero--kirkas .hero-kuvat::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:
+  linear-gradient(to right,var(--yo) 0,rgba(12,27,43,.6) 4.5%,rgba(12,27,43,0) 13%),linear-gradient(to bottom,rgba(8,16,26,.6) 0,rgba(8,16,26,0) 150px)}
+ .hero--kirkas .wrap>*{max-width:var(--ah-t)}
+ .hero--kirkas h1,.hero--kirkas .ingressi,.hero--kirkas .rivi{text-shadow:none}
+}
+/* en ja sv: sama asettelu etusivun rakenteella */
+@media (min-width:1001px){
+ .hero--jako{min-height:clamp(560px,calc(78svh - var(--palkki)),700px);max-height:none}
+ .hero--jako .hero-kuvat{inset:0 0 0 auto;width:calc(100% - var(--ah-l))}
+ .hero--jako::after,.hero--jako::before{display:none}
+ .hero--jako .hero-kuvat::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:
+  linear-gradient(to right,var(--yo) 0,rgba(12,27,43,.6) 4.5%,rgba(12,27,43,0) 13%),linear-gradient(to bottom,rgba(8,16,26,.6) 0,rgba(8,16,26,0) 150px)}
+ .hero--jako .wrap>*{max-width:var(--ah-t)}
+ .hero--jako .wrap{padding-bottom:clamp(48px,7vh,72px)!important}
+}
+/* etusivu: yksi terävä kuva, ei kuvasarjaa eikä alkuzoomausta */
+.hero-kuvat img{object-position:var(--kd,50% 50%)}
+.hero-kuvat img.on{animation:none!important;transition:none}
+@media (max-width:1000px){
+ /* etusivu ja kieliversiot: kuva ylhäällä kokonaan näkyvissä, teksti sen alla tummalla pohjalla (sama kuin alasivuilla) */
+ .hero{display:block;height:auto;min-height:0;max-height:none}
+ .hero-kuvat{position:relative;inset:auto;height:clamp(250px,42svh,430px)}
+ .hero::after{display:none}
+ .hero-kuvat::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(to top,var(--yo) 0,rgba(12,27,43,0) 64px)}
+ .hero::before{height:150px}
+ .hero .wrap{padding-top:22px}
+ .hero--jako .wrap{padding-bottom:44px!important}
+ .hero--kirkas h1,.hero--kirkas .ingressi,.hero--kirkas .rivi{text-shadow:none}
+ .hero .sarjaohjain,.hero .sarjapisteet{display:none}
+ .ah .ah-kuva{position:relative;inset:auto;width:100%;height:clamp(250px,42svh,430px)}
+ .ah-kuva::before{background:linear-gradient(to bottom,rgba(8,16,26,var(--yla,.6)) 0,rgba(8,16,26,0) 140px),linear-gradient(to top,var(--yo) 0,rgba(12,27,43,0) 60px)}
+ .ah-sis{display:block;min-height:0;padding-top:18px;padding-bottom:36px}
+ .ah-teksti{width:auto;max-width:660px}
+ .ah-kuva figcaption.kt{right:auto;left:var(--reuna);bottom:16px}
+}
+@media (max-width:760px){
+ /* Puhelimen ensinäkymä on matala: otsikko, ingressi, napit, Siirry kohtaan -rivi ja seuraavan osion alku mahtuvat 375 × 812 px:n ruutuun
+    (Mousen 9. arvio 12.11.2026; vanha regressio mouse9 tarkistaa tämän). */
+ .ah .ah-kuva,.hero-kuvat{height:clamp(204px,32svh,330px)}
+ .ah-kuva img,.hero-kuvat img{object-position:var(--kp,50% 50%)}
+ .ah-sis{padding-top:14px;padding-bottom:26px}
+ .ah .silma{margin-bottom:10px}
+ .ah h1{font-size:clamp(31px,8.8vw,40px)}
+ .ah .ingressi{margin-top:12px;font-size:16.5px;line-height:1.45}
+ .ah .napit{margin-top:18px;gap:8px 10px}
+ .ah .oikopolut{display:block;margin-top:8px}
+ .ah .oikopolut>span{display:none}
+ .ah .oikopolut a{white-space:nowrap}
+ .osio.valinnat{padding-top:24px}
+ .ah .napit .nappi{flex:1 1 auto;justify-content:center;padding:0 16px}
+ .ah .napit:has(>.nappi:nth-child(3)) .nappi{flex:1 1 100%;white-space:nowrap}
+ .ah-kuva figcaption.kt{left:10px;bottom:12px;font-size:11.5px;max-width:calc(100% - 20px)}
+ .hero .wrap{padding-top:18px!important;padding-bottom:34px!important}
+ .hero .napit .nappi,.ah .napit .nappi{min-height:50px}
+}
+@media (max-width:360px){.hero .napit .nappi,.ah .napit .nappi{flex:1 1 100%}}
+/* 4 Välit: osion ylä- ja alatila yhdestä muuttujasta. Kaksi samanväristä osiota peräkkäin: yksi väli (luokka osio--jatko, ks. valit()). */
+.osio{padding:var(--tila-osio) 0}
+.osio.osio--jatko{padding-top:0;margin-top:calc(var(--tila-jatko) - var(--tila-osio))}
+.otsake{margin-bottom:var(--tila-otsake)}
+.isolainaus{padding:var(--tila-osio) 0}
+.cta{padding:clamp(52px,6vw,88px) 0}
+.ala{padding-top:clamp(48px,5vw,72px)}
+
+/* 5 Asiakkaat luottavat: yksi korttityyli, merkit samankokoisissa kehyksissä, lähteet alaviitteenä */
+.arviot{margin-bottom:20px}
+.luottamus{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:18px 40px;align-items:center;margin:0 0 20px;padding:0;background:none;border-radius:0}
+.luottamus .merkkirivi{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.luottamus .merkkirivi span.mk{height:112px;padding:16px;background:#fff;border:1px solid var(--raja);border-radius:16px}
+.luottamus .merkkirivi img,.luottamus .merkkirivi .mk--iso img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain}
+.luottamus .merkkirivi .mk--iso img{max-height:80px}
+.luottamus .merkkirivi span.mk:nth-child(3) img{max-height:56px}
+.lu-teksti{display:grid;gap:8px;justify-items:start}
+.tarinat--kolme .tarina,.tarinat--kolme .tarina.tarina--kelta,.tarinat--kolme .tarina.tarina--vaalea{background:var(--yo);color:#fff}
+.tarinat--kolme .tarina strong{color:var(--kelta)}
+.tarinat--kolme .tarina p,.tarinat--kolme .tarina.tarina--kelta p,.tarinat--kolme .tarina.tarina--vaalea p{color:#c9d3df}
+.lahde--ala{margin-top:22px;padding-top:16px;border-top:1px solid var(--raja);font-size:13px}
+@media (max-width:1000px){.luottamus{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:760px) and (min-width:601px){.tarinat.tarinat--kolme{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:760px){.luottamus .merkkirivi{gap:8px}.luottamus .merkkirivi span.mk{height:84px;padding:10px}.luottamus .merkkirivi .mk--iso img{max-height:62px}.luottamus .merkkirivi span.mk:nth-child(3) img{max-height:40px}}
+
+/* 6 Kuvat: neliökuva kokonaan (työpaikat), kuvallinen referenssikortti */
+.lista2-kuva figure:has(>img.nelio),.iso-kuva:has(>img.nelio){aspect-ratio:1/1}
+.ref-kortit{grid-template-columns:repeat(2,minmax(0,1fr))}
+.ref-kortit>li.ref--kuva{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,400px) minmax(0,1fr);padding:0;overflow:hidden}
+.ref--kuva figure{position:relative;margin:0;min-height:100%;background:var(--pohja)}
+.ref--kuva figure img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ref--kuva .ref-sis{display:flex;flex-direction:column;padding:30px 34px}
+@media (max-width:1000px){.ref-kortit{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:760px){.ref-kortit>li.ref--kuva{grid-template-columns:minmax(0,1fr)}.ref--kuva figure{aspect-ratio:4/3;min-height:0}.ref--kuva .ref-sis{padding:22px}}
+
+/* 7 Yhteystiedot: asiat kuvakkeilla, tärkein korostettuna, henkilökortit ja kartta */
+.asiat>li{background:#fff;border:1px solid var(--raja);padding:26px 26px 24px}
+.asia-ik{width:46px;height:46px;border-radius:14px;background:var(--pohja);display:grid;place-items:center;margin-bottom:16px}
+.asia-ik svg{width:24px;height:24px;fill:none;stroke:var(--sin);stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.asiat>li.asia--paa{background:var(--yo);border-color:var(--yo);color:#fff}
+.asia--paa .asia-ik,.asia--kiire .asia-ik{background:var(--kelta)}
+.asia--paa .asia-ik svg,.asia--kiire .asia-ik svg{stroke:var(--yo)}
+.asiat>li.asia--paa>p,.asiat>li.asia--paa .huom{color:#c9d3df}
+.asiat>li.asia--kiire{border:1.5px solid #c2a800;background:#fffbe0}
+.asiat>li.asia--kiire>p,.asiat>li.asia--kiire .huom{color:#4d5560}
+.asia-yht{margin-top:14px;display:grid;gap:0;justify-items:start}
+.asia-nimi{display:flex;align-items:center;gap:10px;font-weight:700;font-size:16.5px;margin-bottom:4px}
+.nimikirjaimet{flex:none;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:var(--sin);color:#fff;font-size:13.5px;font-weight:800;letter-spacing:.02em}
+.asia--paa .nimikirjaimet{background:rgba(255,255,255,.18)}
+.yht-linkki{display:inline-flex;align-items:center;gap:10px;min-height:44px;font-weight:700;font-size:17px;color:var(--sin);text-decoration:none}
+.yht-linkki svg{flex:none;width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:2.1;stroke-linecap:round;stroke-linejoin:round}
+.yht-linkki span{text-decoration:underline;text-decoration-color:rgba(56,100,146,.4);text-decoration-thickness:1.5px;text-underline-offset:4px;overflow-wrap:anywhere}
+.yht-linkki:hover span{text-decoration-color:currentColor}
+.asia--paa .yht-linkki{color:#fff}
+.asia--paa .yht-linkki span{text-decoration-color:rgba(237,209,0,.75)}
+.asia--paa .asia-loppu .nappi{margin-top:4px}
+.henkilot{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.henkilo{display:grid;grid-template-columns:auto minmax(0,1fr);gap:18px;align-items:start;padding:22px 24px;border-radius:var(--sade);background:var(--pohja)}
+.henkilo .nimikirjaimet{width:56px;height:56px;font-size:19px}
+.nimikirjaimet--ik svg{width:26px;height:26px;fill:none;stroke:#fff;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.henkilo .nimike{font-size:12.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--sin)}
+.henkilo h4{margin:2px 0 2px;font-size:20px;letter-spacing:-.01em;line-height:1.2}
+.henkilo p:not(.nimike){font-size:14.5px;color:var(--harmaa)}
+.kartta{position:relative;margin:0;border-radius:22px;overflow:hidden;aspect-ratio:1200/680;background:#e6ecee;box-shadow:var(--var)}
+.kartta img{width:100%;height:100%;object-fit:cover;display:block}
+.kartta-merkki{position:absolute;left:var(--mx);top:var(--my);transform:translate(-50%,calc(-100% + 12px));display:flex;flex-direction:column;align-items:center;pointer-events:none}
+.kartta-merkki b{padding:7px 12px;border-radius:10px;background:var(--yo);color:#fff;font-size:13.5px;font-weight:700;white-space:nowrap;box-shadow:0 8px 20px -8px rgba(12,27,43,.7)}
+.kartta-merkki::after{content:"";width:16px;height:16px;margin-top:5px;border-radius:50%;background:var(--kelta);border:4px solid var(--yo);box-shadow:0 0 0 7px rgba(237,209,0,.32)}
+.kartta figcaption{position:absolute;right:8px;bottom:8px;padding:3px 8px;border-radius:8px;background:rgba(255,255,255,.9);font-size:11.5px;line-height:1.4;color:#39424e}
+.kartta figcaption a{color:inherit}
+@media (max-width:760px){.henkilot{grid-template-columns:minmax(0,1fr)}.henkilo{padding:18px}.asiat>li{padding:20px}.kartta{aspect-ratio:4/3}}
+
+/* 8 Lomakkeet: kenttien reunat vähintään 3:1, kohdistus näkyy pyöristetyn kehyksen mukaisena, selaimen oma listanuoli pois */
+.kentta input,.kentta textarea,.kentta select,.laskuri,.hinnoittelu input,.omin textarea,.omin-mikki,.valinnat label,.tyypit label,.vaihto label,.pika-vaihto,.kone select,.kone input:not([type=range]):not([type=checkbox]):not([type=radio]),.kone textarea{border-color:var(--kentta)}
+.laskuri input,.kone .laskuri input{border-color:transparent}
+.kentta.virhe input,.kentta.virhe textarea,.kentta.virhe select,.kone .virhe input,.kone .virhe select,.kone .virhe textarea{border-color:#b3261e}
+input[list]::-webkit-calendar-picker-indicator{display:none!important}
+.pika form{gap:8px;padding:12px}
+.pika label,.pika .pika-maara{border:1.5px solid var(--kentta);border-radius:14px;padding:8px 14px}
+.pika label:focus-within,.pika .pika-maara:focus-within{background:#fff;border-color:var(--sin);box-shadow:0 0 0 3px rgba(56,100,146,.3)}
+.pika input:focus,.pika input:focus-visible,.pika textarea:focus,.pika textarea:focus-visible{outline:none;box-shadow:none}
+.pika form>button{margin-left:0}
+.pika .laskuri button:focus-visible{outline:2px solid var(--sin);outline-offset:0;box-shadow:none;border-radius:8px}
+.pika-omin textarea{display:block;width:100%;min-height:52px;max-height:200px;border:0;padding:4px 0;background:transparent;resize:none;font:600 17px/1.4 var(--f);color:var(--muste)}
+.lomake-virheet{margin:0 0 16px;padding:12px 14px;border-radius:12px;background:#fdf1f0;border:1.5px solid #b3261e;color:#8c1d18;font-weight:650;font-size:15px}
+.lomake-virheet[hidden]{display:none}
+form[data-tarkista] .huom:focus{outline:none}
+@media (max-width:1000px){.pika label{border-bottom:1.5px solid var(--kentta)}.pika form>button{margin:2px 0 0}}
+
+/* 9 Kosketuskohteet ja linkit: erilliset tekstilinkit vähintään 28 px korkeita myös työpöydällä */
+@media (min-width:761px){.linkki{min-height:28px}.ala li a,.ala p a,.ala-pohja a{display:inline-flex;align-items:center;min-height:28px}.ala ul{gap:4px}}
+
+.lahde a{display:inline-block;padding:4px 0}
+.lahde>a:only-child{display:inline-flex;align-items:center;min-height:28px;padding:0}
+@media (max-width:760px){.lahde>a:only-child{min-height:44px}}
+/* kosketuslaitteella (myös tabletti) erilliset linkit ovat vähintään 44 px korkeita */
+@media (pointer:coarse){.linkki,.ala li a,.ala p a,.ala-pohja a,.lahde>a:only-child{min-height:44px}}
+.kartta figcaption a{display:inline-block;padding:5px 0}
+@media (min-width:921px){.top .kieli{min-width:24px;justify-content:center}}
+/* tekstin kontrasti vaalealla pohjalla: nämä kaksi olivat vaaleaa tekstiä vaalealla pohjalla (1,0:1 ja 1,5:1) */
+.huom--tumma{color:var(--harmaa)}
+.tumma .huom--tumma,.kuvapohja .huom--tumma,.retki--iso .huom--tumma{color:#c8d3df}
+.sininen .huom--tumma{color:#e3ebf4}
+/* tekstin seassa olevat puhelin- ja sähköpostilinkit vähintään 24 px korkeita (ei muuta nappien tai korttien linkkejä) */
+:where(a[href^="tel:"],a[href^="mailto:"]){display:inline-block;padding:2px 0}
+.uusin--vaalea .johdanto+p,.uusin--vaalea p+p:not(.johdanto),.uusin--vaalea .lahde{color:var(--harmaa)}
+.uusin--vaalea .uusin-tiedot span{color:var(--harmaa)}
+.uusin--vaalea .uusin-tiedot strong{color:var(--yo)}
+.uusin--vaalea .uusin-tiedot{border-top-color:var(--raja)}
+
+/* painikkeiden tilat: painallus ja pois käytöstä samalla tavalla kaikissa napeissa */
+.nappi:active{transform:translateY(1px)}
+.nappi:disabled,.nappi[aria-disabled=true]{opacity:.55;cursor:not-allowed;box-shadow:none}
+
+/* 10 Virhesivu */
+.virhesivu{padding-bottom:clamp(56px,8vw,104px);text-align:left}
+.virhesivu h1,.virhesivu .ingressi{margin-left:0;text-align:left}
+.virhe-koodi{font-size:clamp(64px,12vw,140px);font-weight:800;letter-spacing:-.05em;line-height:.9;color:var(--kelta);margin-bottom:10px}
+.virhe-linkit{list-style:none;margin:32px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.virhe-linkit a{position:relative;display:flex;flex-direction:column;gap:4px;height:100%;padding:20px 44px 20px 20px;border-radius:16px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);color:#fff;text-decoration:none;transition:background .2s}
+.virhe-linkit a:hover{background:rgba(255,255,255,.16)}
+.virhe-linkit b{font-size:19px}
+.virhe-linkit span{font-size:14.5px;color:#c9d3df;line-height:1.4}
+.virhe-linkit svg{position:absolute;right:16px;top:22px;width:20px;height:20px;fill:none;stroke:var(--kelta);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.virhe-yht{margin-top:28px;color:#c9d3df;font-size:16px}
+.virhe-yht a{color:#fff;font-weight:700;display:inline-flex;align-items:center;min-height:44px}
+@media (max-width:900px){.virhe-linkit{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.virhe-linkit{grid-template-columns:minmax(0,1fr)}}
+
+/* 11 Tulostus: vierittämättömät osiot ja kuvat näkyvät, kiinteät palkit pois */
+@media print{
+ .liike .ilm{opacity:1!important;transform:none!important;transition:none!important}
+ .top,.alapalkki,.kone,.katselin,.ohita,.oikopolut,.seuraava,.sarjaohjain,.video-nappi{display:none!important}
+ body{padding-bottom:0!important;font-size:12pt}
+ .ah,.hero,.tumma,.ala,.cta,.nappi,.tarina{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ .ah-sis{min-height:0;padding-top:28px}
+ .hero{min-height:0!important;max-height:none}
+ .osio{padding:28px 0}
+ h2,h3{break-after:avoid}
+ figure,li,blockquote,.kortti,.tarina{break-inside:avoid}
+}
