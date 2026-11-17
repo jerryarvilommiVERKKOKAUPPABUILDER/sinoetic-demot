@@ -1190,9 +1190,9 @@ html.kehyksessa .demopalkki{display:none}
 .myynti--tyhja .tyhja{max-width:680px;margin:12px auto 0}
 .tyhja-napit{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:18px}
 .tyhja .tyhja-napit .nappi{margin-top:0}
-/* sopimustarjous (Mousen 4. arvio): oma lyhyt vaihe ilman matkan kenttiä */
+/* sopimustarjous (arvio 4): oma lyhyt vaihe ilman matkan kenttiä */
 .kone-johdanto{margin:-8px 0 18px;font-size:15px;color:var(--harmaa)}
-/* Mousen 5. arvio: kauden matkat yhdellä silmäyksellä */
+/* arvio 5: kauden matkat yhdellä silmäyksellä */
 .kausi-kooste{font-weight:650;font-size:15px;line-height:1.5;margin:4px 0 10px}
 .kausi-kooste span{color:var(--harmaa);font-weight:500}
 .kausi-matkat{list-style:none;margin:0 0 12px;padding:0;display:grid;gap:6px}
@@ -1218,7 +1218,7 @@ html.kehyksessa .demopalkki{display:none}
 .ohje-napit{margin-top:12px}
 .es-napit{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
 @media print{.ohje-napit{display:none}}
-/* Lordin palaute 12.11.2026: kellonajat kysytään tilaajalta (lomake, hyväksyntä), myyjälle muistutus olla arvaamatta */
+/* palaute 12.11.2026: kellonajat kysytään tilaajalta (lomake, hyväksyntä), myyjälle muistutus olla arvaamatta */
 .aika-kentta{gap:4px}
 .aika-kentta>.valinta-ruutu{min-height:44px;font-size:14.5px!important}
 .aikataulu-ohje{margin-top:2px}
@@ -1227,7 +1227,7 @@ html.kehyksessa .demopalkki{display:none}
 .tl-ajat .doc-huom{margin:0 0 14px}
 .ohjelma-ajat{background:#fff6d6;border-left:3px solid var(--kelta);padding:8px 12px;border-radius:6px;color:var(--muste)}
 @media (max-width:760px){.tl-ajat{padding:14px 12px 4px;margin-left:-8px;margin-right:-8px}}
-/* Mousen 10. arvio (12.11.2026): tilat, lähetyksen esteet, muutokset ja myynnin varmistamat tiedot */
+/* arvio 10 (12.11.2026): tilat, lähetyksen esteet, muutokset ja myynnin varmistamat tiedot */
 .tila--tarkistettava{background:#fff1e0;color:#8a4b00}
 .tila--alustava{background:#eef0f3;color:#3d4a5c;border:1px dashed #6b7686}
 .tarjous-esteet{grid-column:1/-1;padding:12px 14px;border-radius:10px;background:#fdecea;border-left:4px solid #b3261e;color:#7a1b14;font-size:14.5px;font-weight:600;line-height:1.45}
@@ -1245,7 +1245,7 @@ html.kehyksessa .demopalkki{display:none}
 .ohjelma-kausi .valinta-ruutu{display:flex;gap:10px;align-items:flex-start;min-height:44px;font-weight:550;font-size:15px;line-height:1.4;cursor:pointer}
 .ohjelma-kausi .valinta-ruutu input{width:20px;height:20px;margin-top:1px;flex:0 0 auto;accent-color:var(--sin)}
 .ohjelma-este select{min-height:48px}
-/* Lord 14.11.2026: hinta-arvion tulos isona: reitti, hinta ja bussi samassa kortissa heti ryhmärivin alla */
+/* palaute 14.11.2026: hinta-arvion tulos isona: reitti, hinta ja bussi samassa kortissa heti ryhmärivin alla */
 .kone-tulos{display:grid;grid-template-columns:minmax(0,1fr) 200px;gap:16px 20px;align-items:end;padding:20px 22px 18px;border-radius:18px;background:var(--yo);color:#fff;box-shadow:0 22px 44px -26px rgba(12,27,43,.7);animation:tulosSisaan .35s ease-out}
 @keyframes tulosSisaan{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 .kone-tulos[hidden]{display:none}
@@ -1268,7 +1268,7 @@ html.kehyksessa .demopalkki{display:none}
 @media (max-width:760px){.kone-tulos{grid-template-columns:minmax(0,1fr) 40%;padding:16px 16px 14px;gap:12px 14px}.kt-iso b{font-size:30px}.kt-iso small{font-size:14px}.kt-auto figcaption b{font-size:14px;white-space:nowrap}}
 @media (prefers-reduced-motion:reduce){.kone-tulos{animation:none}}
 .kt-iso b.kt-teksti{font-size:clamp(24px,2.6vw,30px);letter-spacing:-.02em;white-space:normal}
-/* Lord 14.11.2026: matka omin sanoin */
+/* palaute 14.11.2026: matka omin sanoin */
 .omin{margin:0 0 20px;padding:14px 16px 16px;border-radius:16px;background:linear-gradient(180deg,#fffbe0,#fff7c2);border:1.5px solid #f0df7a}
 .omin label{display:grid;gap:2px;margin-bottom:10px}
 .omin label b{font-size:16px;color:var(--yo);letter-spacing:-.01em}
@@ -1421,7 +1421,7 @@ figcaption.kt>a:only-child{display:flex;align-items:center;min-height:44px;margi
 .auto.pieni h3{color:var(--harmaa)}
 /* T-21: PAIKKAA-merkki ei leikkaudu kapeassa bussikuvassa */
 @media (max-width:760px){.auto .koko small{display:block;margin:1px 0 0;font-size:9.5px}}
-/* Mousen 9. arvio 12.11.2026 */
+/* arvio 9 12.11.2026 */
 /* 1: tarjouslomakkeen otsikko omaan tilaansa yläpalkin alle, hieman pienempänä */
 .alahero--lomake{padding-top:calc(76px + var(--palkki) + 28px)}
 .alahero--lomake .wrap{padding-top:0}
@@ -1449,7 +1449,7 @@ figcaption.kt>a:only-child{display:flex;align-items:center;min-height:44px;margi
 /* 4: yhteystietojen kolme nappia puhelimessa allekkain, ettei numero katkea neljälle riville */
 @media (max-width:760px){.alahero .napit:has(>.nappi:nth-child(3)) .nappi{flex:1 1 100%;white-space:nowrap}}
 @media (max-width:760px){.valinta-kortit{grid-template-columns:1fr}.valinta{padding:22px 20px}.valinta .nappi{width:100%;justify-content:center}}
-/* 14.11.2026 Lord "Tee kaikki 6" (Åbergin oman etusivun vertailu) */
+/* 14.11.2026 palaute (Åbergin oman etusivun vertailu) */
 /* 1 ensinäkymä: kirkas saaristotiekuva ensin ja kevyempi varjostus; leveällä näytöllä kuva levenee, jolloin bussi siirtyy oikealle otsikon tieltä */
 .hero--kirkas::after{background:linear-gradient(to top,rgba(8,16,26,.8) 0%,rgba(8,16,26,.36) 34%,rgba(8,16,26,0) 58%),linear-gradient(to right,rgba(8,16,26,.52),rgba(8,16,26,0) 50%)}
 .hero--kirkas::before{background:linear-gradient(to bottom,rgba(8,16,26,.55),rgba(8,16,26,.2) 55%,rgba(8,16,26,0))}
@@ -1636,7 +1636,9 @@ form[data-kv] .huom:focus{outline:none}
 .vert th[scope=row] b{display:block;font-size:17px}
 .vert th[scope=row] small{display:block;margin-top:2px;font-size:13.5px;font-weight:500;color:var(--harmaa)}
 .vert td svg{width:22px;height:22px;fill:none;stroke:var(--sin);stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
-.vert td.ei{color:#a3adba}
+.vert td.ei{color:var(--harmaa)}
+.vert td.ei .kysy{font-size:13px;font-weight:650;letter-spacing:.02em}
+.vert-huom{margin-top:16px;font-size:15px;color:var(--harmaa)}
 .vert td.sopii,.vert thead th:last-child{text-align:left;padding-right:22px;font-size:15px;color:var(--muste)}
 .n-var-ots{margin-top:18px;font-size:12.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--harmaa)}
 .n-vahv{margin-top:12px;font-size:14px;line-height:1.45;color:var(--harmaa)}
@@ -1753,7 +1755,7 @@ form[data-kv] .huom:focus{outline:none}
 }
 @media (max-width:760px){
  /* Puhelimen ensinäkymä on matala: otsikko, ingressi, napit, Siirry kohtaan -rivi ja seuraavan osion alku mahtuvat 375 × 812 px:n ruutuun
-    (Mousen 9. arvio 12.11.2026; vanha regressio mouse9 tarkistaa tämän). */
+    (arvio 9 12.11.2026; vanha regressio tarkistaa tämän). */
  .ah .ah-kuva,.hero-kuvat{height:clamp(204px,32svh,330px)}
  .ah-kuva img,.hero-kuvat img{object-position:var(--kp,50% 50%)}
  .ah-sis{padding-top:14px;padding-bottom:26px}
@@ -1913,3 +1915,20 @@ form[data-tarkista] .huom:focus{outline:none}
  h2,h3{break-after:avoid}
  figure,li,blockquote,.kortti,.tarina{break-inside:avoid}
 }
+
+.asiakirja-yla{padding-bottom:clamp(28px,4vw,48px);text-align:left}
+.asiakirja-yla h1,.asiakirja-yla .ingressi{margin-left:0;text-align:left;max-width:30ch}
+.asiakirja-yla .ingressi{max-width:62ch}
+.asiakirja{padding-top:clamp(32px,4vw,56px)}
+.asiakirja-runko>*{max-width:820px}
+.asiakirja-osio+.asiakirja-osio{margin-top:clamp(28px,3.4vw,44px);padding-top:clamp(28px,3.4vw,44px);border-top:1px solid var(--raja)}
+.asiakirja-osio h2{font-size:clamp(22px,2.2vw,28px);margin-bottom:12px}
+.asiakirja-osio p{max-width:68ch;color:var(--muste)}
+.asiakirja-osio p+p,.asiakirja-osio p+div,.asiakirja-osio ul+p{margin-top:12px}
+.asiakirja-lista{margin:0;padding-left:1.2em;display:grid;gap:8px;max-width:68ch}
+.asiakirja-lista a{font-weight:600}
+.asiakirja-poista{margin-top:18px;padding:20px;border-radius:var(--sade);background:var(--pohja);display:grid;gap:14px;justify-items:start}
+.asiakirja-tila:empty{display:none}
+.asiakirja-tila{font-weight:600}
+/* numeroimaton tarvelista: puhelimen mediasääntö ei saa palauttaa numeron tilaa (vika näkyi Phase 5:n uusilla sivuilla) */
+@media (max-width:640px){.tarve-lista--ei li{padding-left:16px}}
