@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Keittiölaskuri – konseptidemo Korona Keittiöille</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%276%27 fill=%27%2314110e%27/%3E%3Cpath d=%27M7 23V11h18v12M7 16h18M13 16v7M19 16v7%27 fill=%27none%27 stroke=%27%23c9a46c%27 stroke-width=%272.2%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27/%3E%3C/svg%3E">
+<style>
+  /* Demon isäntäsivu (vaihe J, V6): demopalkki ja laskuri koko ikkunan kokoisena. Ei jäljittele Koronan sivustoa.
+     noindex ja robots.txt, favicon data-URI:na, fontit ja kuvat omasta kansiosta: ei kolmannen osapuolen pyyntöjä. */
+  html,body{height:100%;margin:0}
+  body{display:flex;flex-direction:column;height:100dvh;background:#fff;font-family:"Barlow",system-ui,sans-serif}
+  .demopalkki{flex:none;display:flex;align-items:center;gap:6px 14px;flex-wrap:wrap;padding:3px 12px;background:#1d2327;color:#e9e8e3;font-size:13px;line-height:1.3;min-height:28px;box-sizing:border-box}
+  .demopalkki b{color:#fff;font-weight:600}
+  .demopalkki label{margin-left:auto;display:flex;align-items:center;gap:6px;white-space:nowrap}
+  .demopalkki select{font:inherit;color:#fff;background:#2c3338;border:1px solid #ffffff40;border-radius:0;padding:1px 6px;min-height:22px}
+  .demopalkki select:focus-visible{outline:2px solid #7fa6d1;outline-offset:2px}
+  korona-keittiolaskuri{flex:1;min-height:0;display:block}
+  @media (max-width:1100px){.demopalkki .pitka{display:none}.demopalkki{flex-wrap:nowrap}.demopalkki>span{min-width:0}}
+  @media (max-width:760px){body{height:auto;min-height:100dvh}.demopalkki{flex-wrap:wrap}.demopalkki select{min-height:30px;max-width:150px}}
+</style>
+</head>
+<body>
+<div class="demopalkki" data-demopalkki>
+  <span><b>Epävirallinen konseptidemo</b> – ei Korona Keittiöiden virallinen sivusto<span class="pitka"> · esimerkkihinnat · mitään ei lähetetä</span> · 17.11.2026</span>
+  <label><span>Demon asetus: hinnan näyttö</span>
+    <select id="hinnan-naytto" aria-label="Demon asetus: hinnan näyttö">
+      <option value="noin">Noin-hinta</option>
+      <option value="haarukka">Haarukka ±10 %</option>
+      <option value="piilossa">Vasta yhteystietojen jälkeen</option>
+    </select>
+  </label>
+</div>
+<korona-keittiolaskuri id="laskuri"></korona-keittiolaskuri>
+<script src="korona-keittiolaskuri.js"></script>
+<script>
+  (function () {
+    var v = document.getElementById('laskuri'), s = document.getElementById('hinnan-naytto');
+    s.addEventListener('change', function () { v.setAttribute('hinta', s.value); });
+  })();
+</script>
+</body>
+</html>

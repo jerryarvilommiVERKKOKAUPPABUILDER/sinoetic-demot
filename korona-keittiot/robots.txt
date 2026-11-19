@@ -1,0 +1,3 @@
+# Epävirallinen konseptidemo: ei hakukoneisiin.
+User-agent: *
+Disallow: /
