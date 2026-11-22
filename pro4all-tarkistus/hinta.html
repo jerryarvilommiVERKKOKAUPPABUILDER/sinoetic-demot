@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Remontin hinta, kotitalousvähennys ja sopimus – Pro4All Oy, Porvoo</title>
+<meta name="description" content="Mistä remontin hinta koostuu, paljonko kotitalousvähennys palauttaa ja miten työstä sovitaan. Laske kotitalousvähennys vuoden 2026 luvuilla.">
+<meta property="og:title" content="Remontin hinta, kotitalousvähennys ja sopimus – Pro4All Oy, Porvoo">
+<meta property="og:description" content="Mistä remontin hinta koostuu, paljonko kotitalousvähennys palauttaa ja miten työstä sovitaan. Laske kotitalousvähennys vuoden 2026 luvuilla.">
+<meta property="og:image" content="https://demo.sinoetic.com/pro4all/assets/og.jpg">
+<meta name="theme-color" content="#faf8f4">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231d1b18'/%3E%3Crect x='9' y='9' width='14' height='14' fill='%23c9a67c'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="tyyli.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body class="s-hinta">
+<a class="skip" href="#sisalto">Siirry sisältöön</a>
+<div class="demobar" data-demopalkki><span>Epävirallinen konseptidemo – ei Pro4All Oy:n virallinen sivusto</span><a href="lisaosat.html">Lisäosa: hinta-arvio</a></div>
+
+<header class="top">
+  <div class="wrap top-in">
+    <a class="mark" href="index.html" data-lahde="prh">Pro4All <small>Remontit · Porvoo</small></a>
+    <nav class="nav" id="valikko" aria-label="Päävalikko">
+      <a href="kylpyhuoneremontti.html">Kylpyhuoneet</a>
+      <a href="keittioremontti.html">Keittiöt</a>
+      <a href="kokonaisremontti.html">Kokonaisremontit</a>
+      <a href="hinta.html" aria-current="page">Hinta ja kulku</a>
+      <a href="yritys.html">Yritys</a>
+    </nav>
+    <a class="btn btn--sm" href="tarjouspyynto.html">Pyydä tarjous</a>
+    <button class="menu-btn" type="button" aria-controls="valikko" aria-expanded="false" aria-label="Avaa valikko"><i></i><i></i></button>
+  </div>
+</header>
+
+<main id="sisalto">
+
+  <section class="phead phead--split" aria-labelledby="otsikko">
+    <div class="wrap">
+      <p class="label"><span class="ticks"></span>Hinta ja remontin kulku</p>
+      <h1 class="h1" id="otsikko">Mistä remontin hinta koostuu ja miten työ etenee</h1>
+      <p class="lead">Saat hinnan kirjallisena, kun olemme nähneet kohteen. Tällä sivulla näet, mistä hinta koostuu, paljonko kotitalousvähennys palauttaa ja miten asioista sovitaan.</p>
+    </div>
+  </section>
+
+  <section class="sec--tight" style="padding-top: clamp(20px, 3vw, 40px)" id="kotitalousvahennys" aria-labelledby="h-kv">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="h2" id="h-kv">Laske kotitalousvähennys</h2>
+        <p class="lead">Syötä tarjouksen työn osuus, niin näet, paljonko saat siitä takaisin verotuksessa.</p>
+      </div>
+
+      <form class="calc" data-kv data-pros="40" data-max="2100" data-oma="150" novalidate onsubmit="return false" data-dock-piiloon>
+        <div class="calc-in">
+          <div class="fg" data-esimerkki>
+            <label class="f-label" for="kv-tyo">Työn osuus, sisältää arvonlisäveron</label>
+            <div class="money"><input class="in" id="kv-tyo" name="tyo" type="text" inputmode="decimal" value="5000" autocomplete="off" aria-describedby="kv-virhe"></div>
+            <p class="f-err" id="kv-virhe" role="alert">Kirjoita summa numeroina, esimerkiksi 5000.</p>
+            <input class="range" type="range" name="tyoliuku" min="500" max="15000" step="100" value="5000" aria-label="Työn osuus euroina">
+          </div>
+          <fieldset class="fg">
+            <legend>Kuka maksaa remontin?</legend>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="maksajia" value="1" checked><span>Yksi henkilö</span></label>
+              <label class="chip"><input type="radio" name="maksajia" value="2"><span>Kaksi, esimerkiksi puolisot</span></label>
+            </div>
+          </fieldset>
+          <p class="help" data-lahde="vero">Vuonna 2026 vähennys on 40&nbsp;% työn osuudesta. Omavastuu on 150&nbsp;€ ja enimmäismäärä 2&nbsp;100&nbsp;€ henkilöltä vuodessa.</p>
+        </div>
+        <div class="calc-out" aria-live="polite">
+          <span class="k">Kotitalousvähennys yhteensä</span>
+          <span class="v" data-kv-yht></span>
+          <dl>
+            <div><dt>Työn osuus</dt><dd data-kv-tyo></dd></div>
+            <div><dt>Ensimmäisen maksajan vähennys</dt><dd data-kv-a></dd></div>
+            <div data-kv-b-rivi hidden><dt>Toisen maksajan vähennys</dt><dd data-kv-b></dd></div>
+            <div><dt>Työstä jää maksettavaksi</dt><dd data-kv-jaa></dd></div>
+          </dl>
+          <p class="k" data-kv-katto hidden style="margin-top: 14px">Enimmäismäärä täyttyi.</p>
+          <p data-kv-kaksi hidden style="margin-top: 14px; font-size: 14.5px; color: var(--on-dark-2)">Kun maksajia on kaksi, vähennys jaetaan ja kumpikin maksaa oman omavastuunsa.</p>
+        </div>
+      </form>
+      <p class="src">Laskuri on suuntaa antava, ja Verohallinto vahvistaa vähennyksen verotuksessa. Vähennyksen saa vain työstä, ei tarvikkeista eikä matkakuluista, eikä töistä, jotka kuuluvat taloyhtiön vastuulle. Lähde: <a href="https://www.vero.fi/henkiloasiakkaat/verokortti-ja-veroilmoitus/tulot-ja-vahennykset/kotitalousvahennys/" target="_blank" rel="noopener">Verohallinto, kotitalousvähennys</a>.</p>
+      <div class="note" style="margin-top: 28px">
+        <h3>Mitä vähennykseen tarvitaan</h3>
+        <p><span data-lahde="prh">Pro4All Oy on ennakkoperintärekisterissä</span>, mikä on vähennyksen ehto. Laskussa työn osuus on omalla rivillään, joten voit hakea vähennyksen OmaVerossa suoraan laskun perusteella.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="h-osat">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="label"><span class="ticks"></span>Hinnan osat</p>
+        <h2 class="h2" id="h-osat">Mistä remontin hinta koostuu</h2>
+      </div>
+      <ul class="rows">
+        <li><h3>Työ</h3><p>Purku, rakentaminen, pinnat ja asennukset. Tästä osasta saat kotitalousvähennyksen.</p></li>
+        <li><h3>Tarvikkeet ja materiaalit</h3><p>Laatat, levyt, kalusteet ja kiinnitystarvikkeet. Voit hankkia osan itse, jos haluat.</p></li>
+        <li><h3>Putki- ja sähkötyöt</h3><p>Pisteiden siirrot ja uudet liitännät. Määrä riippuu siitä, muuttuuko tilan pohja.</p></li>
+        <li><h3>Purkujäte ja kuljetukset</h3><p>Vanhan materiaalin poisvienti ja tavaroiden tuonti kohteeseen.</p></li>
+        <li><h3>Varaus yllätyksille</h3><p>Vanhassa rakenteessa voi olla jotain, mikä näkyy vasta purussa. Sovimme etukäteen, miten se käsitellään.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec sec--stone" aria-labelledby="h-eteneminen">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="label"><span class="ticks"></span>Näin remontti etenee</p>
+        <h2 class="h2" id="h-eteneminen">Neljä vaihetta tarjouspyynnöstä aloitukseen</h2>
+      </div>
+      <ol class="steps" data-steps>
+        <li class="step">
+          <span class="step-n">01</span>
+          <h3>Tarjouspyyntö</h3>
+          <p>Kerrot, mitä remontoidaan, ja liität kuvat kohteesta. Kuvista näemme lähtötilanteen ja osaamme varautua käyntiin.</p>
+          <div class="needs"><span class="need"><b>Sinulta</b> kuvat ja lyhyt kuvaus</span></div>
+        </li>
+        <li class="step">
+          <span class="step-n">02</span>
+          <h3>Käynti kohteessa</h3>
+          <p>Katsomme tilan paikan päällä ja käymme läpi toiveesi, materiaalit ja aikataulun.</p>
+          <div class="needs"><span class="need"><b>Sinulta</b> sopiva aika käynnille</span></div>
+        </li>
+        <li class="step">
+          <span class="step-n">03</span>
+          <h3>Kirjallinen tarjous</h3>
+          <p>Erittelemme tarjouksessa työn, tarvikkeet ja aikataulun, joten näet, mistä hinta koostuu.</p>
+          <div class="needs"><span class="need"><b>Sinulta</b> hyväksyntä tai muutostoiveet</span></div>
+        </li>
+        <li class="step">
+          <span class="step-n">04</span>
+          <h3>Sopimus ja aloitus</h3>
+          <p>Kirjaamme sovitun sopimukseen ja aloitamme työn sovittuna päivänä.</p>
+          <div class="needs"><span class="need"><b>Sinulta</b> pääsy kohteeseen</span></div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="h-erittely">
+    <div class="wrap split">
+      <div class="doc" role="img" aria-label="Kuvitus tarjouksen rakenteesta: työ, tarvikkeet ja muut kulut ovat omilla riveillään, ja kotitalousvähennykseen oikeuttava työn osuus on korostettu." data-esimerkki>
+        <div class="doc-head"><b>Tarjous</b><span>Kylpyhuoneremontti</span></div>
+        <h4>Työ</h4>
+        <ul>
+          <li>Purku ja suojaus <i></i></li>
+          <li>Vedeneristys ja laatoitus <i></i></li>
+          <li>Putki- ja sähkötyöt <i></i></li>
+          <li>Kalusteiden asennus <i></i></li>
+          <li class="hl">Työn osuus yhteensä <i></i></li>
+        </ul>
+        <h4>Tarvikkeet</h4>
+        <ul>
+          <li>Laatat ja saumat <i></i></li>
+          <li>Vedeneristystarvikkeet <i></i></li>
+          <li>Kalusteet ja hanat <i></i></li>
+        </ul>
+        <h4>Muut</h4>
+        <ul>
+          <li>Purkujäte ja kuljetukset <i></i></li>
+          <li class="sum">Yhteensä, sisältää arvonlisäveron <i></i></li>
+        </ul>
+      </div>
+      <div class="stack">
+        <p class="label"><span class="ticks"></span>Tarjous</p>
+        <h2 class="h2" id="h-erittely">Jokainen osa omalla rivillään</h2>
+        <p class="txt">Kuva näyttää tarjouksen rakenteen. Summat tulevat omaan tarjoukseesi käynnin jälkeen.</p>
+        <p class="txt">Kun työ ja tarvikkeet on eritelty, voit verrata tarjouksia rivi riviltä ja näet heti, mistä osasta kotitalousvähennys lasketaan.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--stone" aria-labelledby="h-sovimme">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="label"><span class="ticks"></span>Sopimus</p>
+        <h2 class="h2" id="h-sovimme">Näin sovimme työstä</h2>
+      </div>
+      <ul class="rows">
+        <li><h3>Kirjallisesti ennen aloitusta</h3><p>Sovimme työn sisällön, hinnan ja aikataulun kirjallisesti ennen kuin työ alkaa.</p></li>
+        <li><h3>Arviolla on yläraja</h3><p data-lahde="ksl">Jos hinta on annettu arviona, lopullinen hinta saa ylittää sen enintään 15&nbsp;%, ellei muusta ole sovittu.</p></li>
+        <li><h3>Lisätyöt vain sovitusti</h3><p>Jos työn aikana tulee tarve lisätyölle, sovimme siitä ja sen hinnasta kirjallisesti ennen kuin se tehdään.</p></li>
+        <li><h3>Yhteinen läpikäynti</h3><p>Käymme valmiin työn läpi yhdessä ja kirjaamme, jos jotain jää korjattavaksi.</p></li>
+      </ul>
+      <p class="src">Hinta-arvion ylitysraja: <a href="https://www.finlex.fi/fi/lainsaadanto/1978/38" target="_blank" rel="noopener">kuluttajansuojalaki, 8 luku</a>.</p>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="h-ukk">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="label"><span class="ticks"></span>Usein kysyttyä</p>
+        <h2 class="h2" id="h-ukk">Kysymyksiä hinnasta</h2>
+      </div>
+      <div class="faq">
+        <details><summary>Miksi sivulla ei ole valmista hintaa?</summary><div class="ans"><p>Koska hinta ilman kohteen näkemistä olisi arvaus. Samankokoiset tilat voivat erota paljon sen mukaan, mitä pinnan alla on ja mitä siirretään. Saat hinnan kirjallisena käynnin jälkeen.</p></div></details>
+        <details><summary>Voiko tarjouksen saada pelkkien kuvien perusteella?</summary><div class="ans"><p>Kuvat auttavat meitä valmistautumaan, mutta tarjous tehdään käynnin jälkeen. Näin hinta perustuu siihen, mitä kohteessa oikeasti on.</p></div></details>
+        <details><summary>Kumpi hankkii materiaalit?</summary><div class="ans"><p>Kumpi vain. Sovimme tarjouksessa, mitä hankit itse ja mitä me, ja molemmat näkyvät omina riveinään.</p></div></details>
+        <details><summary>Miten haen kotitalousvähennyksen?</summary><div class="ans"><p>Haet sen OmaVerossa laskun perusteella. Tarvitset laskun, jossa työn osuus on eritelty, ja tiedon siitä, että olet maksanut laskun.</p></div></details>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="sec ask on-dark" id="tarjous" aria-labelledby="h-tarjous" data-dock-piiloon>
+    <div class="wrap ask-grid">
+      <div>
+        <p class="label"><span class="ticks"></span>Tarjouspyyntö</p>
+        <h2 class="h2" id="h-tarjous">Kerro remontista, niin katsotaan se yhdessä</h2>
+        <p class="lead">Neljä lyhyttä vaihetta ja kolme kuvaa kohteesta. Neliöitä ei tarvitse mitata.</p>
+        <ol class="next">
+          <li><b>01</b><span>Lähetät pyynnön ja kuvat.</span></li>
+          <li><b>02</b><span>Otamme yhteyttä ja sovimme käynnin kohteessa.</span></li>
+          <li><b>03</b><span>Saat kirjallisen tarjouksen.</span></li>
+        </ol>
+        <div class="row"><a class="btn btn--oak" href="tarjouspyynto.html">Pyydä tarjous <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5"/></svg></a></div>
+      </div>
+      <div class="call" id="soitto">
+        <div data-soitto-alku><h3>Vai soitammeko sinulle?</h3>
+        <p>Jätä numerosi ja kerro, milloin sinut tavoittaa parhaiten.</p></div>
+        <form novalidate data-soitto onsubmit="return false">
+          <div class="fg">
+            <label class="f-label" for="s-puh">Puhelinnumero</label>
+            <input class="in" id="s-puh" name="puhelin" type="tel" autocomplete="tel" inputmode="tel" required aria-describedby="s-viesti">
+          </div>
+          <fieldset class="fg">
+            <legend>Milloin sopii?</legend>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="aika" value="Aamupäivällä" checked><span>Aamupäivällä</span></label>
+              <label class="chip"><input type="radio" name="aika" value="Iltapäivällä"><span>Iltapäivällä</span></label>
+              <label class="chip"><input type="radio" name="aika" value="Illalla"><span>Illalla</span></label>
+            </div>
+          </fieldset>
+          <div class="form-end"><button class="btn btn--line" type="submit">Pyydä soitto</button><span class="form-msg" id="s-viesti" data-viesti aria-live="polite"></span></div>
+        </form>
+        <div data-soitto-ok hidden tabindex="-1">
+          <h3>Soittopyyntö on valmis</h3>
+          <p>Soittoa toivottu <span data-soitto-aika></span>. <span data-esimerkki>Tämä on demo: mitään ei lähetetty eikä tallennettu.</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="ticks"></div>
+    <div class="foot-in">
+      <div>
+        <a class="mark" href="index.html">Pro4All</a>
+        <p data-lahde="prh">Pro4All Oy · Y-tunnus 3480581-9<br>Tolkkinen, Porvoo</p>
+      </div>
+      <nav aria-label="Palvelut">
+        <h2>Palvelut</h2>
+        <a href="kylpyhuoneremontti.html">Kylpyhuone- ja WC-remontit</a>
+        <a href="keittioremontti.html">Keittiöremontit</a>
+        <a href="kokonaisremontti.html">Kokonaisremontit ja kunnostus</a>
+        <a href="yritys.html#yrityksille">Yrityksille ja taloyhtiöille</a>
+      </nav>
+      <nav aria-label="Tietoa">
+        <h2>Tietoa</h2>
+        <a href="hinta.html">Hinta ja remontin kulku</a>
+        <a href="yritys.html">Yritys ja toiminta-alue</a>
+        <a href="tarjouspyynto.html">Pyydä tarjous</a>
+        <a href="tietosuoja.html">Tietosuoja</a>
+      </nav>
+    </div>
+    <p class="foot-note">Sivujen kuvat ovat havainnekuvia. Konseptidemo: Sinoetic.</p>
+  </div>
+</footer>
+
+<div class="dock" data-dock>
+  <a class="btn btn--line" href="#soitto">Pyydä soitto</a>
+  <a class="btn" href="tarjouspyynto.html">Pyydä tarjous</a>
+</div>
+<script src="sivusto.js" defer></script>
+</body>
+</html>
