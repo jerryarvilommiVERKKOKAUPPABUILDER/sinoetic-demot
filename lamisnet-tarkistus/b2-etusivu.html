@@ -1,0 +1,1496 @@
+<!doctype html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Voiko joku lähettää sähköpostia yrityksesi nimissä? – CNP Group, Lappeenranta</title>
+<meta name="description" content="CNP Group, Lappeenranta: yritysten kyberturva ja IT-tuki. Tarkista yrityksesi sähköpostin huijaussuoja, vastaa kuuteen kysymykseen ja saat tulostettavan raportin.">
+<meta property="og:title" content="Voiko joku lähettää sähköpostia yrityksesi nimissä? – CNP Group, Lappeenranta">
+<meta property="og:description" content="Tarkista sähköpostin huijaussuoja, vastaa kuuteen kysymykseen ja saat raportin.">
+<meta property="og:image" content="assets/banneri-2172.jpg">
+<link rel="icon" href="assets/tunnus-cnp.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400..700&family=Manrope:wght@400..800&display=swap" rel="stylesheet">
+<!--
+  LamisNET / CNP Group, vaihtoehto B2 (20.11.2026, CBoy/CboyV2). Itsenäinen prototyyppi: kaikki CSS ja JS tässä tiedostossa.
+  Idea: sivu tekee Ismolle kauppaa. Kävijä tarkistaa verkkotunnuksensa sähköpostin suojauksen julkisista DNS-tiedoista
+  (Googlen ja Cloudflaren julkiset DNS-palvelut, CORS sallittu, ei palvelinta eikä kuukausimaksua), vastaa kuuteen kysymykseen
+  ja saa tulostettavan raportin, joka kulkee yhteydenottopyynnön mukana. Faktat: sources.json (data-lahde).
+-->
+<style>
+:root{
+  --pohja:#f6f2ea; --paperi:#fffdf8; --muste:#0b1730; --muste2:#49546c; --viiva:rgba(11,23,48,.15);
+  --yo:#071127; --yo2:#0d1c3f; --yoviiva:rgba(160,185,235,.18); --yoteksti:#c9d3e8; --yoteksti2:#9fb0cf;
+  --aksentti:#8a5f0e; --kulta:#e6b755; --kulta2:#f2cd7a;
+  --v-cyber:#1746b8; --v-lamis:#b9480a;
+  --ok:#46d39a; --varo:#f5b544; --vaara:#ff7a6b; --tieto:#8fb4ff; --tunt:#a3adc2;
+  --ok-t:#0b6b43; --ok-b:#e1f4e9; --varo-t:#7a4f00; --varo-b:#fbefd2; --vaara-t:#9e1c12; --vaara-b:#fbe3df;
+  --tieto-t:#1a4fb8; --tieto-b:#e6eefc; --tunt-t:#4a5266; --tunt-b:#eceef3;
+  --otsikkof:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --leipa:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --leveys:1200px;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;scroll-padding-top:92px}
+body{margin:0;background:var(--pohja);color:var(--muste);font-family:var(--leipa);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+p{margin:0;text-wrap:pretty}
+h1,h2,h3,h4{font-family:var(--otsikkof);font-weight:600;letter-spacing:-.02em;line-height:1.08;margin:0;text-wrap:balance;overflow-wrap:break-word}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--aksentti);outline-offset:3px;border-radius:3px}
+.hero :focus-visible,.lohko.yo :focus-visible,.nosto :focus-visible{outline-color:var(--kulta)}
+.kapea{max-width:var(--leveys);margin:0 auto;padding:0 32px}
+.kapea-s{max-width:880px}
+.nb{white-space:nowrap}
+.vh{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.ohita{position:absolute;left:12px;top:-60px;z-index:100;background:var(--muste);color:#fff;padding:10px 16px;border-radius:4px;font-weight:800;text-decoration:none}
+.ohita:focus{top:12px}
+
+.demopalkki{background:var(--yo);color:#b9c4dc;font-size:12.5px;letter-spacing:.02em;text-align:center;padding:7px 16px;line-height:1.35;border-bottom:1px solid var(--yoviiva)}
+
+/* Yläpalkki (sama kuin B:n alasivuilla) */
+.yla{position:sticky;top:0;z-index:30;background:rgba(255,253,248,.975);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--viiva)}
+.yla .kapea{display:flex;align-items:center;gap:24px;height:72px}
+.yla .logo{display:flex;align-items:center;min-height:44px;margin-left:-6px}
+.yla .logo img{height:54px;width:auto}
+.yla nav.paa{display:flex;gap:2px;margin-left:auto}
+.yla nav.paa a{font-size:14.5px;font-weight:700;text-decoration:none;color:var(--muste2);padding:12px;min-height:44px;display:inline-flex;align-items:center;gap:8px;transition:color .2s}
+.yla nav.paa a:hover{color:var(--muste)}
+.yla nav.paa a img,.valikko nav a img{width:24px;height:24px;flex:none}
+.yla .puh{font-weight:800;font-size:15px;text-decoration:none;white-space:nowrap;min-height:44px;display:inline-flex;align-items:center;gap:9px;padding:0 18px;background:var(--muste);color:#fff;border-radius:4px}
+.yla .puh i{width:7px;height:7px;border-radius:50%;background:var(--kulta)}
+.valikko{display:none}
+.yla .hata{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 4px;font-size:14.5px;font-weight:800;color:#b42318;text-decoration:none;white-space:nowrap}
+.yla .hata i{flex:none;width:8px;height:8px;border-radius:50%;background:#d6432f;box-shadow:0 0 0 3px rgba(214,67,47,.18)}
+.yla .hata:hover{text-decoration:underline;text-underline-offset:4px}
+.yla .hata[aria-current="page"]{box-shadow:inset 0 -3px 0 #d6432f}
+.yla .hata .hata-l{display:none}
+.valikko nav a.hata-v{color:#b42318}
+
+/* Napit */
+.nappi{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:4px;font-family:var(--leipa);font-weight:800;font-size:15.5px;text-decoration:none;border:0;cursor:pointer;transition:transform .2s,background .2s,color .2s,box-shadow .2s;white-space:nowrap;line-height:1.2}
+.nappi svg{width:16px;height:16px;flex:none}
+.nappi:hover{transform:translateY(-2px)}
+.nappi.a1{background:var(--muste);color:#fff;box-shadow:inset 0 -3px 0 var(--kulta)}
+.nappi.kulta{background:var(--kulta);color:var(--yo)}
+.nappi.kulta:hover{background:var(--kulta2)}
+.nappi.vaalea{background:transparent;color:#f3f6fc;box-shadow:inset 0 0 0 1.5px rgba(243,246,252,.55)}
+.nappi.vaalea:hover{box-shadow:inset 0 0 0 1.5px #f3f6fc}
+.linkki{background:none;border:0;padding:0;cursor:pointer;font-weight:700;text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1.5px;min-height:44px;display:inline-flex;align-items:center}
+
+/* ============ ENSINÄKYMÄ: TARKISTUS ============ */
+.hero{position:relative;overflow:hidden;background:var(--yo);color:#f3f6fc;isolation:isolate}
+.hero::before{content:"";position:absolute;inset:0;z-index:-2;background:radial-gradient(70% 90% at 22% 38%,#0f2149 0%,rgba(7,17,39,0) 70%),radial-gradient(50% 60% at 88% 46%,rgba(30,70,170,.22) 0%,rgba(7,17,39,0) 70%)}
+.kuitu{position:absolute;left:0;right:0;top:0;height:clamp(520px,calc(100svh - 104px),860px);z-index:-1;pointer-events:none;opacity:0;transition:opacity 1.4s ease}
+.kuitu.valmis{opacity:1}
+.kuitu canvas{position:absolute;left:0;top:0;width:100%;height:100%}
+.hero-sisus{position:relative;padding-top:clamp(36px,9vh,104px);padding-bottom:clamp(40px,7vh,88px);min-height:min(calc(100svh - 104px),820px)}
+.hero-palsta{max-width:760px}
+.silmake{display:flex;align-items:center;gap:10px;font-size:12.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--kulta);margin-bottom:clamp(14px,2.4vh,24px)}
+.silmake img{width:26px;height:26px;flex:none}
+.silmake i{font-style:normal;margin:0 4px}
+.hero h1{font-size:clamp(36px,min(5.4vw,9.6vh),80px);line-height:1.03;letter-spacing:-.028em;max-width:15.5ch;color:#f7f9fd}
+.hero .ingressi{margin-top:clamp(14px,2.4vh,22px);font-size:clamp(16.5px,1.35vw,19.5px);color:var(--yoteksti);max-width:600px}
+.haku{margin-top:clamp(20px,3.6vh,36px);max-width:640px}
+.haku-rivi{display:flex;background:var(--paperi);border-radius:6px;padding:6px;box-shadow:0 0 0 1px rgba(230,183,85,.0),0 30px 60px -30px rgba(0,0,0,.7);transition:box-shadow .25s}
+.haku-rivi:focus-within{box-shadow:0 0 0 3px var(--kulta),0 0 0 7px rgba(230,183,85,.28),0 30px 60px -30px rgba(0,0,0,.7)}
+.haku input{flex:1;min-width:0;border:0;background:transparent;font-family:var(--leipa);font-size:20px;font-weight:600;color:var(--muste);padding:0 14px;height:56px;outline:none}
+.haku input::placeholder{color:#8a93a6;font-weight:500}
+.haku .nappi{min-height:56px;padding:0 28px;border-radius:4px;font-size:16.5px}
+.haku-vihje{margin-top:10px;font-size:14.5px;color:var(--yoteksti2);min-height:1.5em}
+.haku-vihje b{color:#f3f6fc;font-weight:700}
+.haku-virhe{margin-top:10px;font-size:15px;font-weight:700;color:#ffb3a8}
+.polku{display:flex;flex-wrap:wrap;gap:6px 0;list-style:none;margin:clamp(16px,2.6vh,26px) 0 0;padding:0;counter-reset:p;font-size:14px;font-weight:700;color:var(--yoteksti2)}
+.polku li{display:flex;align-items:center;gap:8px;counter-increment:p}
+.polku li::before{content:counter(p);display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;border:1.5px solid rgba(159,176,207,.5);font-size:12px;font-weight:800}
+.polku li+li::after{content:none}
+.polku li:not(:last-child){margin-right:10px}
+.polku li:not(:last-child)>span::after{content:"";display:inline-block;width:28px;height:1px;background:rgba(159,176,207,.4);vertical-align:middle;margin-left:12px}
+.polku li.nyt{color:#f3f6fc}
+.polku li.nyt::before{border-color:var(--kulta);color:var(--kulta)}
+.polku li.tehty::before{content:"✓";background:var(--kulta);border-color:var(--kulta);color:var(--yo)}
+.pienet{margin-top:14px;font-size:14px;color:var(--yoteksti2);display:flex;flex-wrap:wrap;align-items:center;gap:0 14px}
+.pienet .linkki{font-size:14px;color:#dfe6f4;min-height:40px}
+.miten{margin-top:6px;max-width:620px;font-size:15px;color:var(--yoteksti);border-left:2px solid var(--kulta);padding:4px 0 4px 16px}
+.muu{margin-top:clamp(14px,2.4vh,22px);font-size:15px;color:var(--yoteksti2)}
+.muu a{color:#f3f6fc;font-weight:700;text-underline-offset:4px;display:inline-flex;min-height:44px;align-items:center;gap:8px}
+.muu-o{color:#dfe6f4;margin-right:6px}
+.muu a img{width:22px;height:22px;flex:none}
+.muu .ero{margin:0 8px;color:rgba(159,176,207,.6)}
+
+/* Tarkistuksen eteneminen */
+.skannaus{list-style:none;margin:18px 0 0;padding:16px 18px;max-width:640px;border:1px solid var(--yoviiva);border-radius:8px;background:rgba(9,22,52,.6);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);font-family:var(--mono);font-size:14px;color:var(--yoteksti)}
+.skannaus li{display:flex;justify-content:space-between;gap:16px;padding:3px 0}
+.skannaus li b{font-weight:600;color:var(--yoteksti2)}
+.skannaus li.valmis b{color:var(--ok)}
+
+/* Tulos */
+.tulos{margin-top:clamp(22px,3.6vh,36px);max-width:820px;border:1px solid var(--yoviiva);border-radius:10px;background:rgba(9,22,52,.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);outline:none;overflow:hidden}
+.tulos-paa{padding:clamp(20px,3vw,32px) clamp(20px,3vw,34px) 18px;border-bottom:1px solid var(--yoviiva);position:relative}
+.tulos-paa::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--tv,var(--tunt))}
+.tulos[data-v="vaara"]{--tv:var(--vaara)} .tulos[data-v="varo"]{--tv:var(--varo)} .tulos[data-v="ok"]{--tv:var(--ok)}
+.tulos-meta{font-size:14px;color:var(--yoteksti2);display:flex;flex-wrap:wrap;gap:4px 10px}
+.tulos-meta b{font-family:var(--mono);font-weight:600;color:#f3f6fc;font-size:14.5px}
+.tulos-vastaus{margin-top:10px;font-size:clamp(28px,3.4vw,44px);line-height:1.08;color:var(--tv);letter-spacing:-.022em}
+.tulos-selitys{margin-top:10px;color:var(--yoteksti);font-size:16.5px;max-width:640px}
+.tulos-suositus{margin-top:14px;padding-top:12px;border-top:1px dashed var(--yoviiva);font-size:14px;color:var(--yoteksti2);max-width:640px}
+.rivit{list-style:none;margin:0;padding:0}
+.rivi{display:grid;grid-template-columns:22px minmax(0,1fr) auto;gap:2px 14px;padding:18px clamp(20px,3vw,34px);border-bottom:1px solid var(--yoviiva)}
+.rivi:last-child{border-bottom:0}
+.rivi .merkki{width:12px;height:12px;border-radius:50%;margin-top:9px;background:var(--rv);box-shadow:0 0 0 4px color-mix(in srgb,var(--rv) 22%,transparent),0 0 18px var(--rv)}
+.rivi[data-tila="ok"]{--rv:var(--ok)} .rivi[data-tila="varo"]{--rv:var(--varo)} .rivi[data-tila="vaara"]{--rv:var(--vaara)} .rivi[data-tila="tieto"]{--rv:var(--tieto)} .rivi[data-tila="tunt"]{--rv:var(--tunt)}
+.rivi h3{font-family:var(--leipa);font-size:17px;font-weight:800;letter-spacing:0;line-height:1.4;color:#f3f6fc}
+.rivi h3 small{font-family:var(--mono);font-size:12.5px;font-weight:600;color:var(--yoteksti2);margin-left:8px;letter-spacing:.04em}
+.rivi p{grid-column:2;color:var(--yoteksti);font-size:15.5px;margin-top:2px}
+.rivi .tila-teksti{grid-column:3;grid-row:1;align-self:start;font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--rv);padding:5px 10px;border:1px solid color-mix(in srgb,var(--rv) 45%,transparent);border-radius:999px;white-space:nowrap}
+.rivi details{grid-column:2;margin-top:6px}
+.rivi summary{cursor:pointer;font-size:13.5px;font-weight:700;color:var(--yoteksti2);display:inline-flex;align-items:center;min-height:32px;list-style:none;text-decoration:underline;text-underline-offset:3px}
+.rivi summary::-webkit-details-marker{display:none}
+.rivi code{display:block;margin-top:6px;font-family:var(--mono);font-size:13px;line-height:1.5;color:#dfe6f4;background:rgba(0,6,22,.55);border:1px solid var(--yoviiva);border-radius:6px;padding:10px 12px;white-space:pre-wrap;word-break:break-all}
+.tulos-jatko{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px;padding:20px clamp(20px,3vw,34px) 24px;background:rgba(230,183,85,.07);border-top:1px solid var(--yoviiva)}
+.tulos-jatko p{flex:1 1 320px;color:var(--yoteksti);font-size:15.5px}
+.tulos-jatko .linkki{color:#dfe6f4;font-size:15px}
+@media (prefers-reduced-motion:no-preference){
+  .rivi.tulee{animation:tulee .5s cubic-bezier(.2,.7,.2,1) both}
+  @keyframes tulee{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+}
+
+/* Luottamusrivi */
+.todisteet-kaista{background:var(--paperi);border-bottom:1px solid var(--viiva)}
+.todisteet{display:grid;grid-template-columns:repeat(4,1fr);margin:0;padding:0;list-style:none}
+.todisteet li{padding:22px 20px;border-left:1px solid var(--viiva);font-family:var(--otsikkof);font-weight:600;font-size:clamp(17px,1.5vw,20px);letter-spacing:-.012em;line-height:1.25}
+.todisteet li:first-child{border-left:0;padding-left:0}
+
+/* Lohkot */
+.lohko{padding:clamp(64px,9vw,128px) 0}
+.lohko.paperi{background:var(--paperi);border-top:1px solid var(--viiva)}
+.lohko.yo{background:var(--yo);color:#f3f6fc}
+.vaihe{display:inline-flex;align-items:center;gap:10px;font-size:12.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--aksentti);margin-bottom:14px}
+.vaihe b{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--aksentti);color:#fff;font-size:13px;letter-spacing:0}
+.lohko.yo .vaihe{color:var(--kulta)} .lohko.yo .vaihe b{background:var(--kulta);color:var(--yo)}
+.o2{font-size:clamp(32px,4.2vw,58px);max-width:900px}
+.lohko .ingressi{margin-top:16px;font-size:clamp(16.5px,1.3vw,19px);color:var(--muste2);max-width:640px}
+.lohko.yo .ingressi{color:var(--yoteksti)}
+.keski{text-align:center;margin-left:auto;margin-right:auto}
+.keski .ingressi{margin-left:auto;margin-right:auto}
+
+/* Pikatesti */
+.testi{margin:clamp(28px,4vw,44px) auto 0;max-width:760px;background:var(--paperi);border:1px solid var(--viiva);border-radius:10px;box-shadow:0 40px 70px -48px rgba(7,17,39,.45);text-align:left;overflow:hidden}
+.testi-paa{display:flex;align-items:center;gap:14px;padding:18px 24px;border-bottom:1px solid var(--viiva)}
+.testi-paa img{width:40px;height:40px}
+.testi-paa small{display:block;font-size:11.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--v-cyber)}
+.testi-paa strong{display:block;font-family:var(--otsikkof);font-size:20px;font-weight:600;line-height:1.2}
+.testi-laskuri{margin-left:auto;font-size:14px;font-weight:800;color:var(--muste2);white-space:nowrap}
+.testi-palkki{display:grid;grid-template-columns:repeat(6,1fr);gap:4px;padding:0 24px;margin-top:14px}
+.testi-palkki i{height:4px;border-radius:2px;background:rgba(11,23,48,.1);transition:background .3s}
+.testi-palkki i.on{background:var(--v-cyber)}
+.testi-runko{padding:22px 24px 26px}
+.testi-tieto{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:700;color:var(--tieto-t);background:var(--tieto-b);border-radius:999px;padding:5px 12px;margin-bottom:12px}
+.testi-tieto::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--tieto-t)}
+.testi-alue{font-size:12.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muste2)}
+.testi-teksti{margin-top:6px;font-family:var(--otsikkof);font-weight:600;font-size:clamp(22px,2.3vw,28px);line-height:1.25;letter-spacing:-.012em;min-height:2.5em}
+.testi-vastaukset{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px}
+.testi-vastaukset button{min-height:56px;border:1.5px solid rgba(11,23,48,.25);background:#fff;border-radius:6px;font-weight:800;font-size:16.5px;cursor:pointer;transition:border-color .2s,background .2s,transform .15s}
+.testi-vastaukset button:hover{border-color:var(--muste)}
+.testi-vastaukset button[aria-pressed="true"]{background:var(--muste);border-color:var(--muste);color:#fff}
+.testi-ala{display:flex;justify-content:space-between;align-items:center;margin-top:12px;min-height:44px}
+.testi-ala .linkki{font-size:15px;color:var(--muste2)}
+.testi-valmis{padding:20px 24px 22px;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:6px 20px;text-align:center;outline:none}
+.testi-valmis p{color:var(--muste2)}
+.testi-valmis p b{color:var(--muste)}
+.testi-valmis .linkki{color:var(--muste2);font-size:15px}
+
+/* Raportti */
+.raportti-lohko{position:relative;overflow:hidden}
+.raportti-lohko::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 50% at 50% 0%,#12285a 0%,rgba(7,17,39,0) 70%);pointer-events:none}
+.raportti-lohko .kapea{position:relative}
+.arkki{position:relative;margin:clamp(30px,4vw,48px) auto 0;max-width:880px;background:var(--paperi);color:var(--muste);border-radius:4px;padding:clamp(22px,4.4vw,56px);box-shadow:0 50px 90px -40px rgba(0,0,0,.75),0 0 0 1px rgba(255,255,255,.04);text-align:left}
+.arkki::before{content:"";position:absolute;left:0;right:0;top:0;height:5px;background:linear-gradient(90deg,var(--v-cyber),#3d7bff 55%,var(--kulta));border-radius:4px 4px 0 0}
+.arkki-paa{display:flex;justify-content:space-between;align-items:flex-start;gap:20px 32px;flex-wrap:wrap;padding-bottom:22px;border-bottom:2px solid var(--muste)}
+.arkki-paa img{height:58px;width:auto;margin-left:-6px}
+.arkki-laji{font-family:var(--otsikkof);font-size:clamp(22px,2.4vw,30px);font-weight:600;letter-spacing:-.015em;line-height:1.15;text-align:right}
+.arkki-meta{display:grid;grid-template-columns:auto auto;gap:2px 14px;margin:10px 0 0;font-size:13.5px;justify-content:end}
+.arkki-meta dt{color:var(--muste2)}
+.arkki-meta dd{margin:0;font-weight:800;font-family:var(--mono);font-size:13.5px;text-align:right}
+.yhteenveto{display:grid;grid-template-columns:auto auto minmax(0,1fr);gap:18px clamp(20px,3vw,40px);align-items:start;padding:26px 0;border-bottom:1px solid var(--viiva)}
+.luku{display:flex;flex-direction:column}
+.luku span{font-family:var(--leipa);font-weight:800;font-size:clamp(38px,4.4vw,56px);line-height:1;letter-spacing:-.03em}
+.luku span small{font-size:.5em;color:var(--muste2);font-weight:700}
+.luku .tyhja{font-weight:300;color:#b3ab9b}
+.luku em{font-style:normal;margin-top:6px;font-size:13.5px;color:var(--muste2);max-width:150px;line-height:1.35}
+.tiivis{font-size:16px;color:var(--muste);border-left:1px solid var(--viiva);padding-left:clamp(16px,2.4vw,32px)}
+.arkki h3{font-size:clamp(20px,2vw,24px);margin:28px 0 14px}
+.askeleet{list-style:none;margin:0;padding:0;counter-reset:a;display:grid;gap:10px}
+.askeleet li{counter-increment:a;display:grid;grid-template-columns:40px minmax(0,1fr);gap:0 14px;padding:14px 16px;background:#fff;border:1px solid var(--viiva);border-radius:6px}
+.askeleet li::before{content:counter(a);grid-row:1/4;display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--muste);color:#fff;font-weight:800;font-size:17px}
+.askeleet small{font-size:11.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muste2)}
+.askeleet strong{font-size:16.5px;line-height:1.4}
+.askeleet span{font-size:15px;color:var(--muste2);margin-top:2px}
+.loydokset{width:100%;border-collapse:collapse;font-size:15px}
+.loydokset th{text-align:left;font-size:11.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muste2);padding:0 12px 8px 0;border-bottom:1px solid var(--muste)}
+.loydokset td{padding:12px 12px 12px 0;border-bottom:1px solid var(--viiva);vertical-align:top}
+.loydokset td:first-child{font-weight:800;width:30%}
+.loydokset td:first-child small{display:block;font-family:var(--mono);font-weight:600;font-size:12px;color:var(--muste2)}
+.loydokset td:nth-child(2){width:1%;white-space:nowrap}
+.loydokset td:last-child{color:var(--muste2);padding-right:0}
+.pilleri{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:var(--pb);color:var(--pt)}
+.pilleri[data-tila="ok"]{--pb:var(--ok-b);--pt:var(--ok-t)} .pilleri[data-tila="varo"]{--pb:var(--varo-b);--pt:var(--varo-t)} .pilleri[data-tila="vaara"]{--pb:var(--vaara-b);--pt:var(--vaara-t)} .pilleri[data-tila="tieto"]{--pb:var(--tieto-b);--pt:var(--tieto-t)} .pilleri[data-tila="tunt"]{--pb:var(--tunt-b);--pt:var(--tunt-t)}
+.arkki-ala{margin-top:28px;padding-top:16px;border-top:2px solid var(--muste);font-size:13px;color:var(--muste2);display:grid;gap:6px}
+.luuranko{display:block;height:12px;border-radius:3px;background:#e9e3d7}
+.luuranko.l2{width:62%} .luuranko.l3{width:38%}
+@media (prefers-reduced-motion:no-preference){
+  .luuranko{background:linear-gradient(90deg,#e9e3d7 0%,#f3eee4 40%,#e9e3d7 80%);background-size:300% 100%;animation:hohde 2.2s ease-in-out infinite}
+  @keyframes hohde{from{background-position:100% 0}to{background-position:0 0}}
+}
+.arkki.lukittu .loyd-osa{display:none}
+.arkki-lukko{position:relative;margin-top:-170px;padding:150px 0 4px;display:flex;justify-content:center;background:linear-gradient(180deg,rgba(255,253,248,0) 0%,rgba(255,253,248,.9) 42%,var(--paperi) 66%)}
+.lukko-kortti{max-width:460px;text-align:center}
+.lukko-kortti p{font-family:var(--otsikkof);font-weight:600;font-size:clamp(20px,2.2vw,25px);line-height:1.3;letter-spacing:-.01em}
+.lukko-kortti .nappi{margin-top:18px}
+.arkki-toiminnot{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:12px 18px;margin-top:28px}
+.arkki-toiminnot .linkki{color:#dfe6f4}
+.raportti-ohje{max-width:620px}
+
+/* Yhteydenotto */
+.yh-suorat{display:flex;flex-wrap:wrap;gap:6px 28px;margin-top:18px;font-weight:800;font-size:18px}
+.yh-suorat a{text-decoration:none;min-height:44px;display:inline-flex;align-items:center;border-bottom:2px solid var(--kulta)}
+.yh-lomake{margin-top:clamp(24px,3vw,36px);display:grid;gap:18px;background:#fff;border:1px solid var(--viiva);border-radius:10px;padding:clamp(20px,3vw,32px)}
+.aiheet{border:0;margin:0;padding:0}
+.aiheet legend{font-size:14px;font-weight:800;margin-bottom:10px;padding:0}
+.aiheet div{display:flex;flex-wrap:wrap;gap:8px}
+.aiheet label{position:relative}
+.aiheet input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.aiheet span{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border:1.5px solid rgba(11,23,48,.22);border-radius:999px;font-size:15px;font-weight:700;cursor:pointer;transition:background .2s,border-color .2s}
+.aiheet input:checked+span{background:var(--muste);border-color:var(--muste);color:#fff}
+.aiheet input:focus-visible+span{outline:2px solid var(--aksentti);outline-offset:3px}
+.kentat{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.kentat .koko{grid-column:1/-1}
+.kentta span{display:block;font-size:14px;font-weight:800;margin-bottom:6px}
+.kentta input,.kentta textarea{width:100%;font:inherit;font-size:16.5px;color:var(--muste);background:var(--paperi);border:1.5px solid rgba(11,23,48,.22);border-radius:6px;padding:12px 14px;min-height:50px}
+.kentta textarea{resize:vertical;min-height:120px;line-height:1.5}
+.kentta input:focus,.kentta textarea:focus{outline:none;border-color:var(--muste);box-shadow:0 0 0 3px rgba(230,183,85,.45)}
+.kentta [aria-invalid="true"]{border-color:var(--vaara-t)}
+.yh-mukana{font-size:14.5px;color:var(--ok-t);background:var(--ok-b);border-radius:6px;padding:10px 14px}
+.yh-virhe{font-size:15px;font-weight:700;color:var(--vaara-t)}
+.yh-lomake .nappi{justify-self:start}
+.yh-kiitos{margin-top:28px;background:#fff;border:1px solid var(--viiva);border-left:4px solid var(--ok-t);border-radius:8px;padding:24px 26px}
+.yh-kiitos h3{font-size:28px}
+.yh-kiitos p{margin-top:8px;color:var(--muste2)}
+
+/* Muut polut */
+.ovet{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:clamp(24px,3vw,40px)}
+.ovi{display:flex;flex-direction:column;align-items:flex-start;gap:12px;background:var(--paperi);border:1px solid var(--viiva);border-top:3px solid var(--ov);padding:clamp(22px,3vw,34px)}
+.ovi[data-nimi="lamis"]{--ov:var(--v-lamis)} .ovi[data-nimi="cnp"]{--ov:var(--aksentti)}
+.ovi img{width:46px;height:46px}
+.ovi h3{font-size:clamp(23px,2.3vw,30px)}
+.ovi p{color:var(--muste2)}
+.ovi .napit{display:flex;flex-wrap:wrap;align-items:center;gap:10px 20px;margin-top:auto;padding-top:8px}
+.ovi .linkki,.ovi .sivulinkki{font-size:15.5px;color:var(--muste)}
+.sivulinkki{font-weight:700;text-underline-offset:4px;min-height:44px;display:inline-flex;align-items:center;gap:6px}
+
+/* Uutisnosto */
+.nosto{background:var(--yo);color:#f3f6fc;padding:clamp(40px,5vw,72px) 0;border-top:1px solid var(--yoviiva)}
+.nosto .kapea{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px 48px;align-items:end}
+.nosto-silmake{display:inline-flex;align-items:center;gap:10px;font-size:12.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#ff9a6b}
+.nosto-silmake i{width:9px;height:9px;border-radius:50%;background:#ff6a3c}
+.nosto h2{margin-top:12px;font-size:clamp(28px,3.6vw,48px);line-height:1.08;max-width:820px}
+.nosto h2 a{text-decoration:underline;text-decoration-color:transparent;text-decoration-thickness:3px;text-underline-offset:8px;transition:text-decoration-color .25s}
+.nosto h2 a:hover{text-decoration-color:var(--kulta)}
+.nosto p{margin-top:10px;color:var(--yoteksti2);font-size:15px}
+.nosto .sivulinkki{color:#f3f6fc;font-size:16px;white-space:nowrap}
+@media (prefers-reduced-motion:no-preference){
+  .nosto-silmake i{animation:syke 2.4s ease-out infinite}
+  @keyframes syke{0%{box-shadow:0 0 0 0 rgba(255,106,60,.55)}70%,100%{box-shadow:0 0 0 12px rgba(255,106,60,0)}}
+}
+
+/* Alatunniste */
+.ala{background:var(--paperi);border-top:1px solid var(--viiva);padding:36px 0 32px;font-size:14.5px;color:var(--muste2)}
+.ala .kapea{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px}
+.ala img{height:52px;width:auto;margin-left:-6px}
+.ala p{max-width:640px}
+.ala nav{display:flex;flex-wrap:wrap;gap:0 18px}
+.ala nav a{min-height:44px;display:inline-flex;align-items:center;font-weight:700;color:var(--muste)}
+.soittopalkki{display:none}
+
+
+
+/* V1: neljä tarkistusta kuidun solmuina */
+.solmut{list-style:none;margin:0;padding:0;position:absolute;inset:0;display:none}
+.kuitu.solmut-on .solmut{display:block}
+.solmut li{position:absolute;transform:translate(-50%,calc(-100% + 8px));display:flex;flex-direction:column;align-items:center;gap:3px;font-family:var(--mono);white-space:nowrap}
+.solmut b,.solmut span{background:rgba(7,17,39,.82);padding:1px 7px;border-radius:3px;line-height:1.45}
+.solmut b{font-size:12px;font-weight:700;letter-spacing:.08em;color:#dfe6f4}
+.solmut span{font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--sv,var(--yoteksti2))}
+.solmut i{width:16px;height:16px;border-radius:50%;margin-top:4px;background:var(--yo);border:2px solid var(--sv,#5b8cff);box-shadow:0 0 0 4px rgba(7,17,39,.85),0 0 18px var(--sv,#3f7cff);transition:background .3s,border-color .3s,box-shadow .3s}
+.solmut li[data-tila="ok"]{--sv:var(--ok)} .solmut li[data-tila="varo"]{--sv:var(--varo)} .solmut li[data-tila="vaara"]{--sv:var(--vaara)} .solmut li[data-tila="tieto"]{--sv:var(--tieto)} .solmut li[data-tila="tunt"]{--sv:var(--tunt)} .solmut li[data-tila="haku"]{--sv:#d6e4ff}
+.solmut li[data-tila="ok"] i,.solmut li[data-tila="varo"] i,.solmut li[data-tila="vaara"] i,.solmut li[data-tila="tieto"] i,.solmut li[data-tila="tunt"] i{background:var(--sv)}
+@keyframes solmusyke{50%{transform:scale(1.3)}}
+.solmut li[data-tila="haku"] i{animation:solmusyke .8s ease-in-out infinite}
+
+/* 21.11.2026: vastaus otsikon paikalle (W1), korjausjatko (M1), aloituskortit (R6), raportin kokoaminen (W2) */
+.otsikko-pino{display:grid}
+.otsikko-pino>*{grid-area:1/1}
+#hero-o{transition:opacity .2s ease}
+.hero-vastaus{align-self:start;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .28s ease,transform .28s ease,visibility 0s linear .28s}
+.hero-vastaus small{display:block;font-family:var(--mono);font-size:clamp(14px,1.3vw,16px);font-weight:600;letter-spacing:.02em;color:var(--yoteksti);margin-bottom:12px}
+.hero-vastaus small::before{content:"";display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:10px;background:var(--tv);box-shadow:0 0 14px var(--tv);vertical-align:1px}
+.hero-vastaus strong{display:block;font-family:var(--otsikkof);font-weight:600;font-size:clamp(36px,min(5.4vw,9.6vh),80px);line-height:1.03;letter-spacing:-.028em;color:var(--tv);max-width:15.5ch;text-wrap:balance}
+.hero[data-v="vaara"]{--tv:var(--vaara)} .hero[data-v="varo"]{--tv:var(--varo)} .hero[data-v="ok"]{--tv:var(--ok)}
+.hero.vastattu #hero-o{opacity:0;pointer-events:none;position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.hero-selitys{margin-top:clamp(14px,2.2vh,20px);font-size:clamp(17px,1.4vw,20px);color:#eef2fa;max-width:640px}
+.hero.vastattu .hero-palsta>.ingressi:not(.hero-selitys){display:none}
+.hero:not(.vastattu) .hero-selitys{display:none}
+.hero.vastattu .hero-vastaus{opacity:1;visibility:visible;transform:none;transition:opacity .28s ease .12s,transform .28s ease .12s,visibility 0s}
+.hero.vastattu .tulos-vastaus{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.hero.vastattu .tulos-selitys{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.hero.vastattu .tulos-paa{padding-bottom:4px}
+[data-tunnus]{white-space:nowrap}
+.tulos-raja{margin-top:12px;font-size:13.5px;color:var(--yoteksti2);max-width:640px}
+.rivi .korjaus{grid-column:2;margin-top:6px;font-size:15px;color:#eef2fa}
+.rivi .korjaus b{color:var(--kulta);font-weight:800}
+/* Parannus 1: myyntihetki heti vastauksen alla (21.11.) */
+.hero-toimet{margin-top:clamp(16px,2.4vh,24px);max-width:640px}
+.hero:not(.vastattu) .hero-toimet{display:none}
+.hero-toimet .napit{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+.ht-o{color:#eef2fa;font-size:16px;margin-bottom:12px;max-width:600px}
+.ht-o b{color:#fff;font-weight:800}
+.ht-pieni{margin-top:10px;color:var(--yoteksti2);font-size:14px}
+.ht-pieni b{font-family:var(--mono);color:#f3f6fc;font-weight:600;white-space:nowrap}
+.ht-lisaa{color:#dfe6f4;font-size:14.5px;font-weight:700;text-underline-offset:4px}
+.ht-lisaa:hover{color:#fff}
+.hero.vastattu .haku .nappi.kulta{background:#fff;color:var(--muste);box-shadow:inset 0 0 0 1.5px rgba(11,23,48,.32)}
+.hero.vastattu .haku .nappi.kulta:hover{box-shadow:inset 0 0 0 1.5px var(--muste)}
+.hero.vastattu .haku{margin-top:clamp(20px,3vh,30px)}
+@media (max-width:760px){.hero-toimet .nappi{width:100%} .ht-lisaa{display:inline-block;padding:6px 0}}
+/* Parannus 2: väärennetty viesti havainnekorttina */
+.vaarennos{margin:0;padding:18px clamp(20px,3vw,34px) 22px;border-bottom:1px solid var(--yoviiva)}
+.vaarennos figcaption{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;color:var(--yoteksti);font-size:14.5px;margin-bottom:12px}
+.vaarennos .esim{font-size:11.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--yo);background:var(--yoteksti2);border-radius:3px;padding:3px 7px}
+.posti{background:#fff;color:var(--muste);border-radius:6px;max-width:560px;box-shadow:0 18px 40px -18px rgba(0,0,0,.55);overflow:hidden}
+.posti-rivi{display:grid;grid-template-columns:76px 1fr;gap:10px;padding:10px 16px;border-bottom:1px solid #e6e8ee;font-size:14.5px}
+.posti-rivi span{color:#6b7385}
+.posti-rivi b{font-weight:700;overflow-wrap:anywhere}
+.posti-runko{padding:14px 16px 16px;font-size:15px;line-height:1.55;color:#2b3448}
+.leima{display:flex;align-items:flex-start;gap:10px;margin:0;padding:12px 16px;font-size:14.5px;font-weight:700;line-height:1.4;border-top:3px solid var(--lv,var(--tunt));background:var(--lb,var(--tunt-b));color:var(--lt,var(--tunt-t))}
+.leima i{flex:none;width:18px;height:18px;margin-top:1px;border-radius:50%;background:var(--lv,var(--tunt));position:relative}
+.leima[data-v="ok"]{--lv:#1f9e6a;--lb:var(--ok-b);--lt:var(--ok-t)}
+.leima[data-v="varo"]{--lv:#d08a12;--lb:var(--varo-b);--lt:var(--varo-t)}
+.leima[data-v="vaara"]{--lv:#d6432f;--lb:var(--vaara-b);--lt:var(--vaara-t)}
+.leima i::after{content:"";position:absolute;left:5px;top:8px;width:8px;height:2px;background:#fff;border-radius:1px}
+.leima[data-v="ok"] i::after{left:5px;top:5px;width:7px;height:4px;background:none;border:solid #fff;border-width:0 0 2px 2px;transform:rotate(-45deg)}
+@media (prefers-reduced-motion:no-preference){.vaarennos.odottaa .leima{opacity:0} .vaarennos.leimaa .leima{animation:leima .5s cubic-bezier(.2,.9,.3,1.2) .2s both}}
+@keyframes leima{from{opacity:0;transform:scale(1.06)}to{opacity:1;transform:none}}
+@media (max-width:420px){.posti-rivi{grid-template-columns:1fr;gap:2px}}
+/* Parannus 4: jaettava linkki */
+.jaa-tila{flex:1 1 100%;color:var(--yoteksti);font-size:14.5px}
+.jaa-tila input{width:100%;margin-top:6px;padding:8px 10px;border-radius:4px;border:1px solid var(--yoviiva);background:rgba(255,255,255,.06);color:#f3f6fc;font-family:var(--mono);font-size:13.5px}
+.tulos-korjaus{padding:22px clamp(20px,3vw,34px) 24px;background:rgba(230,183,85,.1);border-top:1px solid rgba(230,183,85,.35)}
+.tulos-korjaus h3{font-size:clamp(24px,2.4vw,30px);color:#f7f9fd}
+.tulos-korjaus p{margin-top:6px;color:var(--yoteksti);font-size:15.5px;max-width:600px}
+.tulos-korjaus p b{font-family:var(--mono);color:#f3f6fc;font-weight:600}
+.tulos-korjaus .napit{display:flex;flex-wrap:wrap;gap:10px 14px;margin-top:16px}
+.tulos.korjattava .tulos-jatko{background:none}
+.lohko.aloita{padding:clamp(52px,6.5vw,92px) 0}
+.brandi{font-size:12.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--aksentti);margin-bottom:12px}
+.aloita .ovet{grid-template-columns:repeat(3,minmax(0,1fr));list-style:none;padding:0}
+.ovi[data-nimi="cyber"]{--ov:var(--v-cyber)}
+.arkki-soita{margin-top:10px;font-size:13.5px;font-weight:700;text-align:right}
+.yh-hinta{font-size:15px;font-weight:700;color:var(--muste)}
+.yh-tietosuoja{margin-top:14px;font-size:14px;color:var(--muste2)}
+.yh-tietosuoja a{font-weight:700;color:var(--muste)}
+.yh-viite{font-size:14px}
+.yh-viite b{font-family:var(--mono);font-weight:600;color:var(--muste)}
+.yh-seuraavaksi{margin:14px 0 0;padding-left:22px;color:var(--muste);display:grid;gap:4px}
+.yh-kiitos .yh-kiire{margin-top:14px;color:var(--muste)}
+.yh-kiitos .yh-kiire a{font-weight:800}
+@keyframes kokoa{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.arkki.kokoaa .yhteenveto,.arkki.kokoaa .askeleet li,.arkki.kokoaa .loydokset tbody tr{animation:kokoa .38s cubic-bezier(.2,.7,.2,1) both}
+.arkki.kokoaa .askeleet li:nth-child(1){animation-delay:.12s} .arkki.kokoaa .askeleet li:nth-child(2){animation-delay:.2s} .arkki.kokoaa .askeleet li:nth-child(3){animation-delay:.28s}
+.arkki.kokoaa .loydokset tbody tr:nth-child(1){animation-delay:.34s} .arkki.kokoaa .loydokset tbody tr:nth-child(2){animation-delay:.38s} .arkki.kokoaa .loydokset tbody tr:nth-child(3){animation-delay:.42s} .arkki.kokoaa .loydokset tbody tr:nth-child(4){animation-delay:.46s} .arkki.kokoaa .loydokset tbody tr:nth-child(5){animation-delay:.5s} .arkki.kokoaa .loydokset tbody tr:nth-child(6){animation-delay:.54s} .arkki.kokoaa .loydokset tbody tr:nth-child(7){animation-delay:.58s} .arkki.kokoaa .loydokset tbody tr:nth-child(8){animation-delay:.62s} .arkki.kokoaa .loydokset tbody tr:nth-child(9){animation-delay:.66s} .arkki.kokoaa .loydokset tbody tr:nth-child(10){animation-delay:.7s}
+@media (max-width:960px){.aloita .ovet{grid-template-columns:1fr}}
+@media (max-width:760px){.arkki-soita{text-align:left} .tulos-korjaus .nappi{width:100%}}
+
+/* ============ PUHELIN ============ */
+@media (max-width:370px){.yla .kapea .hata{display:none} .yla .kapea .hata ~ .valikko{margin-left:auto}}
+@media (max-width:960px){
+  .yla nav.paa,.yla .puh{display:none}
+  .yla .kapea{height:62px;padding:0 18px;gap:12px}
+  .yla .hata{margin-left:auto;font-size:13.5px;gap:6px;padding:0 2px}
+  .yla .hata ~ .valikko{margin-left:0}
+  .yla .hata .hata-p{display:none} .yla .hata .hata-l{display:inline}
+  .yla .logo img{height:44px}
+  .valikko{display:block;position:relative;margin-left:auto}
+  .valikko summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;border:1px solid var(--viiva);border-radius:4px;font-weight:800;font-size:15px}
+  .valikko summary::-webkit-details-marker{display:none}
+  .valikko summary::after{content:"";width:7px;height:7px;border-right:1.8px solid currentColor;border-bottom:1.8px solid currentColor;transform:rotate(45deg) translateY(-2px)}
+  .valikko[open] summary::after{transform:rotate(225deg) translateY(-2px)}
+  .valikko nav{position:absolute;right:0;top:52px;width:min(300px,calc(100vw - 36px));background:var(--paperi);border:1px solid var(--viiva);border-radius:6px;padding:8px;box-shadow:0 24px 48px -24px rgba(7,17,39,.45)}
+  .valikko nav a{display:flex;align-items:center;gap:10px;padding:10px 12px;text-decoration:none;font-weight:700;font-size:16px;min-height:48px}
+  .kapea{padding:0 18px}
+  .todisteet{grid-template-columns:1fr 1fr}
+  .todisteet li{padding:16px 14px;font-size:16.5px}
+  .todisteet li:nth-child(3){border-left:0;padding-left:0}
+  .todisteet li:nth-child(n+3){border-top:1px solid var(--viiva)}
+  .ovet{grid-template-columns:1fr}
+  .nosto .kapea{grid-template-columns:minmax(0,1fr)}
+  .yhteenveto{grid-template-columns:auto auto}
+  .tiivis{grid-column:1/-1;border-left:0;padding-left:0;border-top:1px solid var(--viiva);padding-top:16px}
+  .kuitu{height:150px}
+  .hero-sisus{min-height:0;padding-top:158px}
+}
+@media (max-width:760px){
+  body{padding-bottom:72px}
+  .kuitu{height:112px}
+  .hero-sisus{padding-top:116px;padding-bottom:40px}
+  .hero h1{max-width:none}
+  .silmake{align-items:flex-start;line-height:1.5}
+  .silmake i{display:none}
+  .silmake .nb{display:block}
+  .polku{gap:10px 18px}
+  .polku li:not(:last-child){margin-right:0}
+  .polku li:not(:last-child)>span::after{content:none}
+  .muu .ero{display:none}
+  .muu a{margin-right:16px}
+  .rivi{grid-template-columns:18px minmax(0,1fr);padding:16px 18px}
+  .rivi .tila-teksti{grid-column:2;grid-row:auto;justify-self:start;margin-top:6px}
+  .rivi .merkki{margin-top:7px}
+  .rivi p,.rivi details{grid-column:2}
+  .kentat{grid-template-columns:1fr}
+  .testi-paa{padding:14px 16px}
+  .testi-palkki{padding:0 16px}
+  .testi-runko{padding:18px 16px 20px}
+  .testi-vastaukset{grid-template-columns:1fr;gap:8px}
+  .testi-laskuri{font-size:13px}
+  .arkki-laji,.arkki-meta{text-align:left;justify-content:start}
+  .arkki-meta dd{text-align:left}
+  .loydokset thead{display:none}
+  .loydokset,.loydokset tbody,.loydokset tr,.loydokset td{display:block;width:auto!important}
+  .loydokset tr{padding:12px 0;border-bottom:1px solid var(--viiva)}
+  .loydokset td{border:0;padding:2px 0}
+  .loydokset td:nth-child(2){margin:6px 0}
+  .nappi{white-space:normal;text-align:center}
+  .tulos-jatko .nappi{width:100%}
+  .soittopalkki{display:grid;grid-template-columns:1fr 1fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:40;padding:8px 12px calc(8px + env(safe-area-inset-bottom));background:rgba(255,253,248,.96);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--viiva)}
+  .soittopalkki .nappi{min-height:48px;padding:0 10px;font-size:15px}
+  .soittopalkki .sp2{background:#fff;color:var(--muste);box-shadow:inset 0 0 0 1.5px var(--muste)}
+}
+@media (max-width:380px){
+  .haku-rivi{flex-direction:column;gap:6px}
+  .haku .nappi{width:100%}
+  .hero h1{font-size:31px}
+  .kuitu{height:88px}
+  .hero-sisus{padding-top:92px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+
+/* Tuloste: vain raportti */
+@media print{
+  @page{size:A4;margin:14mm}
+  body{background:#fff;padding:0}
+  .demopalkki,.yla,.ala,.soittopalkki,.ohita,main>section:not(#raportti){display:none!important}
+  #raportti{background:none;padding:0;color:var(--muste)}
+  #raportti::before{display:none}
+  #raportti .kapea>:not(.arkki){display:none!important}
+  .arkki{box-shadow:none;margin:0;max-width:none;padding:0;background:#fff}
+  .askeleet li{background:#fff}
+  .arkki::before{display:none}
+  .arkki-lukko{display:none!important}
+  .askeleet li{break-inside:avoid}
+  .loydokset tr{break-inside:avoid}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+<a class="ohita" href="#tarkista">Siirry tarkistukseen</a>
+<div class="demopalkki" data-demopalkki>Epävirallinen konseptidemo – ei LamisNET Palvelut Oy:n virallinen sivusto</div>
+<header class="yla">
+  <div class="kapea">
+    <a class="logo" href="b2-etusivu.html" aria-label="CNP Group, etusivu"><img src="assets/logo-cnp.webp" alt="CNP Group" width="900" height="359"></a>
+    <nav class="paa" aria-label="Päävalikko"><a href="b2-cybernet.html"><img src="assets/tunnus-cyber.webp" alt="" width="24" height="24">Kyberturva</a><a href="b2-lamisnet.html"><img src="assets/tunnus-lamis.webp" alt="" width="24" height="24">IT-tuki</a><a href="b2-uutiset.html">Tietoturva nyt</a></nav>
+    <a class="hata" href="b2-hata.html"><i aria-hidden="true"></i><span class="hata-p">Tietoturvaloukkaus?</span><span class="hata-l">Tietomurto?</span></a>
+    <a class="puh" href="tel:+358401636588" data-lahde="y1"><i aria-hidden="true"></i>040 1636 588</a>
+    <details class="valikko"><summary>Valikko</summary><nav aria-label="Valikko"><a class="hata-v" href="b2-hata.html">Tietoturvaloukkaus? Toimi näin</a><a href="#tarkista">Tarkista sähköposti</a><a href="b2-cybernet.html"><img src="assets/tunnus-cyber.webp" alt="" width="24" height="24">Kyberturva</a><a href="b2-lamisnet.html"><img src="assets/tunnus-lamis.webp" alt="" width="24" height="24">IT-tuki</a><a href="b2-uutiset.html">Tietoturva nyt</a><a href="#yhteys">Ota yhteyttä</a><a href="tel:+358401636588" data-lahde="y1">Soita 040 1636 588</a></nav></details>
+  </div>
+</header>
+
+<main>
+<!-- 1 / 3: ULKOA -->
+<section class="hero" id="tarkista" aria-labelledby="hero-o">
+  <div class="kuitu" aria-hidden="true"><canvas class="kuitu-pohja"></canvas><canvas class="kuitu-valo"></canvas><ol class="solmut"><li data-s="mx" data-oletus="palvelin"><b>MX</b><span>palvelin</span><i></i></li><li data-s="spf" data-oletus="lähettäjät"><b>SPF</b><span>lähettäjät</span><i></i></li><li data-s="dkim" data-oletus="allekirjoitus"><b>DKIM</b><span>allekirjoitus</span><i></i></li><li data-s="dmarc" data-oletus="huijaussuoja"><b>DMARC</b><span>huijaussuoja</span><i></i></li></ol></div>
+  <div class="kapea hero-sisus">
+    <div class="hero-palsta">
+      <p class="silmake" data-lahde="y1 e4"><img src="assets/tunnus-cnp.webp" alt="" width="26" height="26"><span>Lappeenranta <i aria-hidden="true">·</i> <span class="nb">yritysten IT-tuki ja kyberturva</span></span></p>
+      <div class="otsikko-pino">
+        <h1 id="hero-o">Voiko joku lähettää sähköpostia yrityksesi nimissä?</h1>
+        <p class="hero-vastaus" aria-hidden="true"><small></small><strong></strong></p>
+      </div>
+      <p class="ingressi">Kirjoita yrityksesi verkkotunnus. Näet muutamassa sekunnissa, miten yrityksesi sähköposti on suojattu väärennetyiltä viesteiltä.</p>
+      <p class="ingressi hero-selitys" aria-hidden="true" hidden></p>
+      <div class="hero-toimet">
+        <div class="ht-korjaus">
+          <p class="ht-o"><b>Korjataanko tämä?</b> <span data-lahde="k1">Korjaus tehdään asteittain, ettei yrityksesi omien viestien kulku katkea.</span></p>
+          <div class="napit"><a class="nappi kulta" href="#yhteys" data-aihe="Korjausehdotus" data-raportti>Pyydä korjausehdotus</a><a class="nappi vaalea" href="tel:+358401636588" data-lahde="y1">Soita 040 1636 588</a></div>
+          <p class="ht-pieni">Kerro soittaessasi verkkotunnuksesi <b data-tunnus></b>. <a class="ht-lisaa" href="#tulos">Näytä tarkemmin</a></p>
+        </div>
+        <div class="ht-jatko">
+          <div class="napit"><a class="nappi kulta" href="#testi">Jatka kysymyksiin <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 9h12M10 4l5 5-5 5"/></svg></a><a class="ht-lisaa" href="#tulos">Näytä tarkemmin</a></div>
+        </div>
+      </div>
+
+      <form class="haku" novalidate>
+        <label class="vh" for="verkkotunnus">Yrityksesi verkkotunnus</label>
+        <div class="haku-rivi">
+          <input id="verkkotunnus" name="verkkotunnus" type="text" inputmode="url" autocomplete="url" autocapitalize="none" autocorrect="off" spellcheck="false" placeholder="yrityksesi.fi" aria-describedby="haku-vihje">
+          <button type="submit" class="nappi kulta" data-paatoiminto>Tarkista</button>
+        </div>
+        <p class="haku-vihje" id="haku-vihje" aria-live="polite"></p>
+        <p class="haku-virhe" role="alert" hidden></p>
+      </form>
+
+      <ol class="skannaus" hidden aria-label="Tarkistus etenee">
+        <li data-s="mx"><span>Sähköpostipalvelin (MX)</span><b>haetaan…</b></li>
+        <li data-s="spf"><span>Lähettäjäluettelo (SPF)</span><b>haetaan…</b></li>
+        <li data-s="dkim"><span>Allekirjoitus (DKIM)</span><b>haetaan…</b></li>
+        <li data-s="dmarc"><span>Huijaussuoja (DMARC)</span><b>haetaan…</b></li>
+      </ol>
+
+      <div class="tulos" id="tulos" tabindex="-1" hidden aria-labelledby="tulos-o">
+        <div class="tulos-paa">
+          <p class="tulos-meta"><b class="tulos-domain"></b><span class="tulos-aika"></span></p>
+          <h2 class="tulos-vastaus" id="tulos-o"></h2>
+          <p class="tulos-selitys"></p>
+          <p class="tulos-suositus" data-lahde="k1" hidden>Kyberturvallisuus&shy;keskus suosittelee ottamaan SPF:n, DKIM:n ja DMARCin käyttöön kaikissa verkkotunnuksissa, joista lähetetään sähköpostia.</p>
+        </div>
+        <figure class="vaarennos" data-esimerkki>
+          <figcaption><span class="esim">Esimerkki</span>Näin väärennös näkyisi vastaanottajan postilaatikossa</figcaption>
+          <div class="posti">
+            <div class="posti-rivi"><span>Lähettäjä</span><b>Toimitusjohtaja &lt;<span data-vosoite></span>&gt;</b></div>
+            <div class="posti-rivi"><span>Aihe</span><b>Kiireellinen maksu vielä tänään</b></div>
+            <p class="posti-runko">Hei, hoidatko liitteen laskun ennen kolmea? Olen palaverissa enkä pääse puhelimeen.</p>
+            <p class="leima"><i aria-hidden="true"></i><span data-leima></span></p>
+          </div>
+        </figure>
+        <ul class="rivit"></ul>
+        <div class="tulos-jatko">
+          <p>Ulkoa näkyvä osa on tässä. Kuusi kysymystä kertoo sisäpuolen, ja saat kaikesta tulostettavan raportin.</p>
+          <a class="nappi kulta" href="#testi" data-jatka>Jatka kysymyksiin <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 9h12M10 4l5 5-5 5"/></svg></a>
+          <button type="button" class="linkki uusi-haku">Tarkista toinen verkkotunnus</button>
+          <button type="button" class="linkki jaa-tulos">Jaa tulos</button>
+          <p class="jaa-tila" aria-live="polite" hidden></p>
+          <p class="tulos-raja">Tarkistus kertoo vain tämän verkkotunnuksen julkiset asetukset, eikä se ole tietoturvatesti tai sertifikaatti. Huijaussuoja ei estä samannäköisiä verkkotunnuksia, pelkän lähettäjän nimen väärentämistä eikä murretulta tililtä lähetettyjä viestejä.</p>
+        </div>
+      </div>
+
+      <ol class="polku" aria-label="Näin se etenee"><li class="nyt"><span>Tarkistus</span></li><li><span>Kuusi kysymystä</span></li><li><span>Raportti</span></li></ol>
+      <p class="pienet"><span>Maksuton · Ei rekisteröitymistä · Verkkotunnus ei tallennu meille</span><button type="button" class="linkki" aria-expanded="false" aria-controls="miten">Miten tarkistus toimii?</button></p>
+      <div class="miten" id="miten" hidden data-lahde="r1 r2 r3">
+        <p>Tarkistus lukee verkkotunnuksen julkiset DNS-tiedot: sähköpostipalvelimen (MX), lähettäjäluettelon (SPF), allekirjoituksen (DKIM) ja huijaussuojan (DMARC). Samat tiedot näkee jokainen sähköpostipalvelin, joka saa yrityksestäsi viestin. Lähettäjäluettelo tarkistaa viestin teknisen lähettäjän; vastaanottajan näkemän osoitteen sitoo siihen vasta huijaussuoja. Haku tehdään selaimestasi Googlen tai Cloudflaren julkisen DNS-palvelun kautta: ne näkevät kysytyt nimet (verkkotunnus ja sen sähköpostiasetusten nimet) ja selaimesi IP-osoitteen. Meille verkkotunnusta ei lähetetä: tulos säilyy vain tämän välilehden muistissa, kunnes suljet sen. <a href="b2-tietosuoja.html">Tietosuoja</a></p>
+      </div>
+      <p class="muu"><span class="muu-o">Jokin ei toimi juuri nyt?</span> <a href="b2-lamisnet.html"><img src="assets/tunnus-lamis.webp" alt="" width="22" height="22">IT-tuki ja etätuki</a><span class="ero" aria-hidden="true">·</span><a href="tel:+358401636588" data-lahde="y1">Soita 040 1636 588</a></p>
+      <noscript><p class="muu">Tarkistus tarvitsee JavaScriptin. Voit myös soittaa: 040 1636 588.</p></noscript>
+    </div>
+  </div>
+  <p class="vh" role="status" aria-live="polite" id="tila"></p>
+</section>
+
+<section class="todisteet-kaista" aria-label="Miksi CNP">
+  <div class="kapea">
+    <ul class="todisteet">
+      <li data-lahde="f4">Yli 30 vuoden kokemus alalta</li>
+      <li data-lahde="f1">Peruskartoitus maksutta</li>
+      <li data-lahde="f3">Ei pakollista palvelusopimusta</li>
+      <li data-lahde="f5">Laitteet, tuki ja tietoturva yhdeltä luukulta</li>
+    </ul>
+  </div>
+</section>
+
+<section class="lohko aloita" id="aloita" aria-labelledby="aloita-o">
+  <div class="kapea">
+    <p class="brandi" data-lahde="e4">CNP Group: kyberturva ja IT-tuki</p>
+    <h2 class="o2" id="aloita-o">Mistä aloitetaan?</h2>
+    <p class="ingressi" data-lahde="e4">CNP Group kokoaa yhteen CNP CyberNETin kyberturvan sekä LamisNETin IT-tuen, laitteet ja ylläpidon.</p>
+    <ol class="ovet">
+      <li class="ovi" data-nimi="lamis">
+        <img src="assets/tunnus-lamis.webp" alt="" width="46" height="46" loading="lazy">
+        <h3>Jokin ei toimi juuri nyt</h3>
+        <p data-lahde="l2 f3">Soita, niin katsotaan, mistä on kyse. Palvelusopimusta ei tarvita.</p>
+        <div class="napit"><a class="nappi a1" href="tel:+358401636588" data-lahde="y1">Soita 040 1636 588</a><a class="sivulinkki" href="b2-lamisnet.html">IT-tuki ja etätuki</a></div>
+      </li>
+      <li class="ovi" data-nimi="cyber">
+        <img src="assets/tunnus-cyber.webp" alt="" width="46" height="46" loading="lazy">
+        <h3>Onko tietoturvamme kunnossa?</h3>
+        <p data-lahde="e7">Pikatarkistus näyttää sähköpostin suojauksen heti, ja kuusi kysymystä kertoo loput.</p>
+        <div class="napit"><a class="nappi a1" href="#tarkista">Tee pikatarkistus</a><a class="sivulinkki" href="b2-cybernet.html">Kyberturva</a></div>
+      </li>
+      <li class="ovi" data-nimi="cnp">
+        <img src="assets/tunnus-cnp.webp" alt="" width="46" height="46" loading="lazy">
+        <h3>Tarvitsemme <span class="nb">IT-kumppanin</span> tai laitteita</h3>
+        <p data-lahde="e3 f5">Laitteet, tuki ja tietoturva yhdeltä luukulta. Sovitaan yhdessä, mitä kehitetään ensin.</p>
+        <div class="napit"><a class="nappi a1" href="#yhteys" data-aihe="Peruskartoitus">Pyydä peruskartoitus</a></div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- 2 / 3: SISÄLTÄ -->
+<section class="lohko" id="sisapuoli" aria-labelledby="sisa-o" hidden data-odottaa>
+  <div class="kapea kapea-s keski">
+    <p class="vaihe" data-esimerkki><b>2</b>Vaihe 2 / 3</p>
+    <h2 class="o2 keski" id="sisa-o">Kuusi kysymystä siitä, mitä ulkoa ei näe</h2>
+    <p class="ingressi">Ulkoa ei näe kirjautumisia, varmuuskopioita eikä laitteita. Kun vastaat kuuteen kysymykseen, raportti kertoo nekin.</p>
+
+    <div class="testi" id="testi" data-esimerkki>
+      <div class="testi-paa"><img src="assets/tunnus-cyber.webp" alt="" width="40" height="40"><div><small>CNP CyberNET Palvelut</small><strong>Pikatarkistus</strong></div><span class="testi-laskuri" aria-live="polite">Kysymys 1 / 6</span></div>
+      <div class="testi-palkki" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="testi-runko">
+        <p class="testi-tieto" hidden></p>
+        <p class="testi-alue"></p>
+        <p class="testi-teksti" id="testi-teksti" tabindex="-1"></p>
+        <div class="testi-vastaukset" role="group" aria-labelledby="testi-teksti">
+          <button type="button" data-v="k" aria-pressed="false">Kyllä</button>
+          <button type="button" data-v="e" aria-pressed="false">Ei</button>
+          <button type="button" data-v="t" aria-pressed="false">En tiedä</button>
+        </div>
+        <div class="testi-ala"><button type="button" class="linkki testi-takaisin" hidden>Edellinen kysymys</button><span></span></div>
+      </div>
+      <div class="testi-valmis" tabindex="-1" hidden>
+        <p><b>Kuusi vastausta annettu.</b> Raportti on koottu alle.</p>
+        <button type="button" class="linkki testi-uudelleen">Vastaa uudelleen</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 / 3: RAPORTTI -->
+<section class="lohko yo raportti-lohko" id="raportti" aria-labelledby="rap-o" hidden data-odottaa>
+  <div class="kapea keski">
+    <p class="vaihe" data-esimerkki><b>3</b>Vaihe 3 / 3</p>
+    <h2 class="o2 keski" id="rap-o" tabindex="-1">Raporttisi</h2>
+    <p class="ingressi raportti-ohje">Raportti kootaan tähän tarkistuksesta ja vastauksistasi. Sen voi tulostaa, tallentaa PDF:ksi tai käydä läpi kanssamme.</p>
+
+    <article class="arkki lukittu" id="arkki" data-esimerkki aria-label="Tietoturvan pikaraportti">
+      <header class="arkki-paa">
+        <img src="assets/logo-cyber.webp" alt="CNP CyberNET Palvelut" width="900" height="337">
+        <div>
+          <p class="arkki-laji">Tietoturvan pikaraportti</p>
+          <dl class="arkki-meta">
+            <dt>Verkkotunnus</dt><dd data-r="domain">–</dd>
+            <dt>Päivämäärä</dt><dd data-r="pvm">–</dd>
+            <dt>Tunniste</dt><dd data-r="nro">–</dd>
+          </dl>
+          <p class="arkki-soita" data-lahde="y1">Soita 040 1636 588 ja kerro verkkotunnuksesi.</p>
+        </div>
+      </header>
+      <div class="yhteenveto">
+        <div class="luku"><span data-r="ulkoa"><b class="tyhja">–</b><small>/3</small></span><em>ulkoa näkyvää suojausta kunnossa</em></div>
+        <div class="luku"><span data-r="sisalta"><b class="tyhja">–</b><small>/6</small></span><em>sisäpuolen asiaa kunnossa vastaustesi mukaan</em></div>
+        <p class="tiivis" data-r="tiivis"><span class="luuranko"></span><span class="luuranko l2" style="margin-top:8px"></span></p>
+      </div>
+      <h3 data-r="askel-o">Kolme seuraavaa askelta</h3>
+      <ol class="askeleet" data-r="askeleet">
+        <li><small><span class="luuranko l3"></span></small><strong><span class="luuranko" style="margin-top:6px"></span></strong></li>
+        <li><small><span class="luuranko l3"></span></small><strong><span class="luuranko l2" style="margin-top:6px"></span></strong></li>
+        <li><small><span class="luuranko l3"></span></small><strong><span class="luuranko" style="margin-top:6px"></span></strong></li>
+      </ol>
+      <div class="loyd-osa">
+      <h3>Löydökset</h3>
+      <table class="loydokset">
+        <thead><tr><th scope="col">Alue</th><th scope="col">Tilanne</th><th scope="col">Huomio</th></tr></thead>
+        <tbody data-r="loydokset"></tbody>
+      </table>
+      <footer class="arkki-ala">
+        <p>Pikaraportti perustuu verkkotunnuksen julkisiin DNS-tietoihin (mitattu) ja omiin vastauksiisi. Se antaa suunnan, mutta se ei ole tietoturvatesti eikä sertifikaatti, eikä se korvaa kartoitusta. Huijaussuoja ei estä samannäköisiä verkkotunnuksia, pelkän lähettäjän nimen väärentämistä eikä murretulta tililtä lähetettyjä viestejä.</p>
+        <p data-lahde="y1">CNP CyberNET Palvelut · LamisNET Palvelut Oy · Y-tunnus 3161928-7 · Lappeenranta · 040 1636 588 · asiakaspalvelu@lamisnet.fi</p>
+      </footer>
+      </div>
+      <div class="arkki-lukko" data-lukko>
+        <div class="lukko-kortti">
+          <p data-lukko-teksti>Raportti valmistuu kahdessa vaiheessa: ensin tarkistus, sitten kuusi kysymystä.</p>
+          <a class="nappi a1" href="#tarkista" data-lukko-nappi>Aloita tarkistus</a>
+        </div>
+      </div>
+    </article>
+
+    <div class="arkki-toiminnot" hidden>
+      <a class="nappi kulta" href="#yhteys" data-aihe="Raportin läpikäynti" data-raportti>Käydään raportti läpi <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 9h12M10 4l5 5-5 5"/></svg></a>
+      <button type="button" class="nappi vaalea tulosta">Tulosta tai tallenna PDF</button>
+      <button type="button" class="linkki alusta">Aloita alusta</button>
+    </div>
+  </div>
+</section>
+
+<!-- YHTEYDENOTTO -->
+<section class="lohko paperi" id="yhteys" aria-labelledby="yh-o">
+  <div class="kapea kapea-s">
+    <h2 class="o2" id="yh-o">Pyydä yhteydenotto</h2>
+    <p class="ingressi" data-lahde="f1">Otamme sinuun yhteyttä ja sovimme, miten edetään.</p>
+    <div class="yh-suorat" data-lahde="y1"><a href="tel:+358401636588">+358 40 1636 588</a><a href="mailto:asiakaspalvelu@lamisnet.fi">asiakaspalvelu@lamisnet.fi</a></div>
+    <form class="yh-lomake" novalidate data-esimerkki>
+      <fieldset class="aiheet"><legend>Mitä asia koskee?</legend><div>
+        <label><input type="radio" name="aihe" value="Korjausehdotus"><span>Korjausehdotus</span></label>
+        <label><input type="radio" name="aihe" value="Raportin läpikäynti"><span>Raportin läpikäynti</span></label>
+        <label><input type="radio" name="aihe" value="Tietoturvakartoitus"><span>Tietoturvakartoitus</span></label>
+        <label><input type="radio" name="aihe" value="Peruskartoitus" checked><span>Peruskartoitus</span></label>
+        <label><input type="radio" name="aihe" value="Vika tai tukipyyntö"><span>Vika tai tukipyyntö</span></label>
+        <label><input type="radio" name="aihe" value="Laitteet"><span>Laitteet</span></label>
+      </div></fieldset>
+      <div class="kentat">
+        <label class="kentta"><span>Nimi</span><input type="text" name="nimi" autocomplete="name" required></label>
+        <label class="kentta"><span>Sähköposti tai puhelin</span><input type="text" name="yhteys" autocomplete="email" inputmode="email" required></label>
+        <label class="kentta koko"><span>Yritys tai verkkotunnus (vapaaehtoinen)</span><input type="text" name="yritys" autocomplete="organization"></label>
+        <label class="kentta koko"><span>Viesti (vapaaehtoinen)</span><textarea name="viesti" rows="4"></textarea></label>
+      </div>
+      <p class="yh-mukana" hidden>Raportin yhteenveto on viestikentässä. Voit muokata sitä ennen lähettämistä.</p>
+      <p class="yh-virhe" role="alert" hidden></p>
+      <p class="yh-hinta">Sovimme hinnan ennen kuin työ alkaa.</p>
+      <button type="submit" class="nappi a1">Lähetä pyyntö</button>
+    </form>
+    <p class="yh-tietosuoja">Tietojen käsittely: <a href="b2-tietosuoja.html">Tietosuoja</a></p>
+    <div class="yh-kiitos" tabindex="-1" hidden>
+      <h3>Kiitos, pyyntösi on perillä.</h3>
+      <p class="yh-viite">Pyyntö <b data-pyynto></b></p>
+      <ol class="yh-seuraavaksi">
+        <li>Luemme pyyntösi ja otamme sinuun yhteyttä.</li>
+        <li>Sovimme hinnan ja aikataulun ennen kuin työ alkaa.</li>
+      </ol>
+      <p class="yh-kiire" data-lahde="y1">Kiireessä soita <a href="tel:+358401636588">040 1636 588</a>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TIETOTURVA NYT -->
+<section class="nosto" aria-labelledby="nosto-o" data-esimerkki>
+  <div class="kapea">
+    <div>
+      <span class="nosto-silmake"><i aria-hidden="true"></i>Tietoturva nyt · Kyberturvallisuuskeskus</span>
+      <h2 id="nosto-o"><a href="https://www.kyberturvallisuuskeskus.fi/fi/uutiset/kyberturvallisuuskeskuksen-viikkokatsaus-472026" target="_blank" rel="noopener" data-lahde="u2">Kyberturvallisuus&shy;keskuksen viikkokatsaus – 47/2026</a></h2>
+      <p>20.11.2026</p>
+    </div>
+    <a class="sivulinkki" href="b2-uutiset.html">Kaikki tietoturvauutiset <svg viewBox="0 0 18 18" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 9h12M10 4l5 5-5 5"/></svg></a>
+  </div>
+</section>
+</main>
+
+<footer class="ala">
+  <div class="kapea">
+    <img src="assets/logo-cnp.webp" alt="CNP Group" width="900" height="359" loading="lazy">
+    <p data-lahde="y1">LamisNET Palvelut Oy, Lappeenranta. Y-tunnus 3161928-7. Aputoiminimet <span class="nb">CNP Group</span> ja <span class="nb">CNP CyberNET Palvelut</span>.</p>
+    <nav aria-label="Alatunniste"><a href="b2-etusivu.html">Etusivu</a><a href="b2-cybernet.html">Kyberturva</a><a href="b2-lamisnet.html">IT-tuki</a><a href="b2-uutiset.html">Tietoturva nyt</a><a href="b2-tietosuoja.html">Tietosuoja</a></nav>
+  </div>
+</footer>
+<div class="soittopalkki"><a class="nappi a1" href="tel:+358401636588" data-lahde="y1">Soita 040 1636 588</a><a class="nappi sp2" href="#yhteys">Jätä pyyntö</a></div>
+
+<script>
+(() => {
+'use strict';
+const rm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $ = (s, el = document) => el.querySelector(s);
+const $$ = (s, el = document) => [...el.querySelectorAll(s)];
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const LUVUT = ['nolla','yksi','kaksi','kolme','neljä','viisi','kuusi'];
+const tila = { dns: null, vastaukset: {}, testiValmis: false, nro: null };
+
+function vierita(el){ el.scrollIntoView({ behavior: rm ? 'auto' : 'smooth', block: 'start' }); }
+function nayta(el){ el.hidden = false; el.focus({ preventScroll: true }); const r = el.getBoundingClientRect(); if (r.top < 90 || r.top > innerHeight * .65) vierita(el); }
+
+/* Valikko sulkeutuu, kun klikataan muualle tai linkkiä */
+document.addEventListener('click', e => { const v = $('.valikko'); if (v && v.open && (!v.contains(e.target) || e.target.closest('.valikko nav a'))) v.open = false; });
+
+/* ================= ELÄVÄ KUITU: Ismon bannerin johtimet piirrettynä koodilla =================
+   Isolla näytöllä nippu tulee oikealta reunalta ja kokoontuu tarkistuskentän kohdalle; puhelimessa kaksi nippua
+   tulee reunoilta kohti keskikohtaa kuten Ismon bannerissa. Pulssit kulkevat kohti kenttää; tarkistuksen aikana
+   nopeasti, tuloksen jälkeen kohtauskohta hehkuu tuloksen värillä. Vähennetty liike: vain pysäytetty kuva. */
+const kuitu = (() => {
+  const hero = $('.hero'), kehys = $('.kuitu', hero);
+  const pohja = $('.kuitu-pohja', kehys), valo = $('.kuitu-valo', kehys);
+  const cp = pohja.getContext('2d'), cv = valo.getContext('2d');
+  const SININEN = ['#3f7cff', '#2f68f0', '#5b8cff'], KULTA = '#e6b755', VAALEA = '#9cbcff';
+  const VARI = { ok: '#46d39a', varo: '#f5b544', vaara: '#ff7a6b' };
+  const rgba = (hex, a) => { const n = parseInt(hex.slice(1), 16); return `rgba(${n >> 16},${(n >> 8) & 255},${n & 255},${a})`; };
+  let siemen = 1;
+  const rnd = () => { siemen = siemen + 0x6D2B79F5 | 0; let t = Math.imul(siemen ^ siemen >>> 15, 1 | siemen); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
+  const gs = (a, b) => a + rnd() * (b - a);          // geometria: sama sommitelma joka latauksella
+  const sat = (a, b) => a + Math.random() * (b - a); // liike
+  let W = 0, H = 0, dpr = 1, radat = [], pulssit = [], solmut = [], satamat = [];
+  let moodi = 'lepo', tilaVari = null, purkaus = 0, silmukka = 0, edellinen = 0, nakyva = true, hiljene = 0;
+  const herata = ms => { hiljene = ms === Infinity ? Infinity : performance.now() + ms; kaynnista(); };
+
+  function rata(suunta, y0, y1, xm, mutka, xLoppu, vari, alfa, paksuus){
+    const pts = [], x0 = suunta < 0 ? W + 20 : -20, askel = 4, ennen = x => suunta < 0 ? x > xLoppu : x < xLoppu;
+    for (let x = x0; suunta < 0 ? x > xm : x < xm; x += suunta * askel) pts.push([x, y0]);
+    const n = Math.max(8, Math.ceil(mutka / askel));
+    for (let i = 0; i <= n; i++){ const t = i / n, e = t * t * (3 - 2 * t); pts.push([xm + suunta * mutka * t, y0 + (y1 - y0) * e]); }
+    for (let x = xm + suunta * (mutka + askel); ennen(x); x += suunta * askel) pts.push([x, y1]);
+    pts.push([xLoppu, y1]);
+    const L = [0];
+    for (let i = 1; i < pts.length; i++) L.push(L[i - 1] + Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]));
+    return { pts, L, pituus: L[L.length - 1], x0, xLoppu, vari, alfa, paksuus, seuraava: sat(.3, 5) };
+  }
+  function nippu(suunta, n, yK, levea, tiivis, xLoppu, kultaiset){
+    const reuna = suunta < 0 ? W : 0, matka = Math.abs(xLoppu - reuna);
+    for (let i = 0; i < n; i++){
+      const off = i - (n - 1) / 2;
+      const y0 = yK + off * levea + gs(-.3, .3) * levea, y1 = yK + off * tiivis;
+      const mutka = Math.min(Math.abs(y1 - y0) * 1.7 + gs(40, 90), matka * .5);
+      const xm = reuna + suunta * gs(.04, .42) * Math.max(0, matka - mutka);
+      const k = kultaiset.includes(i);
+      radat.push(rata(suunta, y0, y1, xm, mutka, xLoppu + gs(-24, 24), k ? KULTA : SININEN[i % 3], k ? .95 : gs(.4, .8), k ? 1.5 : gs(.9, 1.35)));
+    }
+  }
+  const hav = (r, x) => { const t = (x - r.x0) / (r.xLoppu - r.x0); return t < .5 ? 1 : Math.max(0, 1 - (t - .5) / .5); };
+  function rakenna(){
+    const kr = kehys.getBoundingClientRect();
+    W = Math.round(kr.width); H = Math.round(kr.height);
+    if (!W || !H) return;
+    siemen = 20261124;
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    for (const c of [pohja, valo]){ c.width = Math.round(W * dpr); c.height = Math.round(H * dpr); }
+    radat = []; pulssit = []; solmut = []; satamat = [];
+    if (W > 960){
+      const fr = $('.haku-rivi', hero).getBoundingClientRect();
+      const yK = Math.min(H - 70, Math.max(70, (fr.top + fr.bottom) / 2 - kr.top));
+      const xL = Math.min(W - 180, fr.right - kr.left + 44), vara = Math.min(yK, H - yK) - 14;
+      nippu(-1, 11, yK, Math.max(8, Math.min(24, vara / 5.6)), 6, xL, [3, 8]);
+      const r = Math.min(170, vara + 8);
+      satamat.push([xL + 8, yK, r, r]);
+      const leveys = W - (xL + 70), askel = Math.min(130, (leveys - 80) / 3), lev = Math.max(8, Math.min(24, vara / 5.6));
+      const sopii = askel >= 70 && lev >= 18;
+      kehys.classList.toggle('solmut-on', sopii);
+      if (sopii) $$('.solmut li', kehys).forEach((li, j) => {
+        const rr = radat[[9, 6, 4, 1][j]], tx = W - 80 - j * askel;
+        let p = rr.pts[0]; for (const q of rr.pts) if (Math.abs(q[0] - tx) < Math.abs(p[0] - tx)) p = q;
+        li.style.left = Math.round(p[0]) + 'px'; li.style.top = Math.round(p[1]) + 'px';
+      });
+    } else {
+      kehys.classList.remove('solmut-on');
+      const yK = H * .5;
+      nippu(-1, 7, yK, H * .085, 4, W * .6, [2]);
+      nippu(1, 7, yK, H * .085, 4, W * .4, [4]);
+      satamat.push([W / 2, yK, Math.min(170, W * .3), H / 2 - 2]);
+    }
+    radat.forEach(r => { if (rnd() < .5) solmut.push({ r, s: gs(.12, .55) * r.pituus, koko: gs(1.6, 2.4), v: gs(0, 6) }); });
+    piirraPohja(); piirraValo(0);
+  }
+  function piirraPohja(){
+    cp.setTransform(dpr, 0, 0, dpr, 0, 0);
+    cp.clearRect(0, 0, W, H);
+    cp.globalCompositeOperation = 'lighter';
+    cp.lineCap = 'round'; cp.lineJoin = 'round';
+    for (const r of radat){
+      for (const [lev, a] of [[5, .1], [r.paksuus, 1]]){
+        const g = cp.createLinearGradient(r.x0, 0, r.xLoppu, 0);
+        g.addColorStop(0, rgba(r.vari, r.alfa * a)); g.addColorStop(.5, rgba(r.vari, r.alfa * a)); g.addColorStop(1, rgba(r.vari, 0));
+        cp.strokeStyle = g; cp.lineWidth = lev;
+        cp.beginPath(); r.pts.forEach(([x, y], i) => i ? cp.lineTo(x, y) : cp.moveTo(x, y)); cp.stroke();
+      }
+    }
+    cp.globalCompositeOperation = 'source-over';
+  }
+  function kohta(r, s){
+    if (s <= 0) return r.pts[0];
+    if (s >= r.pituus) return r.pts[r.pts.length - 1];
+    let lo = 0, hi = r.L.length - 1;
+    while (hi - lo > 1){ const m = (lo + hi) >> 1; if (r.L[m] < s) lo = m; else hi = m; }
+    const t = (s - r.L[lo]) / ((r.L[hi] - r.L[lo]) || 1), a = r.pts[lo], b = r.pts[hi];
+    return [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t];
+  }
+  function hehku(c, x, y, sade, vari, alfa){
+    if (alfa <= 0) return;
+    const g = c.createRadialGradient(x, y, 0, x, y, sade);
+    g.addColorStop(0, rgba(vari, Math.min(1, alfa))); g.addColorStop(1, rgba(vari, 0));
+    c.fillStyle = g; c.beginPath(); c.arc(x, y, sade, 0, Math.PI * 2); c.fill();
+  }
+  function piirraValo(aika){
+    cv.setTransform(dpr, 0, 0, dpr, 0, 0);
+    cv.clearRect(0, 0, W, H);
+    cv.globalCompositeOperation = 'lighter';
+    const t = (aika || 0) / 1000;
+    const sv = moodi === 'tulos' && tilaVari ? tilaVari : '#3f7cff';
+    const sa = (moodi === 'haku' ? .4 : moodi === 'tulos' ? .3 : .16) * (rm ? 1 : .82 + .18 * Math.sin(t * 1.3)) + purkaus * .32;
+    for (const [x, y, rx, ry] of satamat){
+      cv.save(); cv.translate(x, y); cv.scale(rx / ry, 1); hehku(cv, 0, 0, ry, sv, sa); cv.restore();
+    }
+    for (const n of solmut){
+      const [x, y] = kohta(n.r, n.s), f = hav(n.r, x);
+      if (f <= 0) continue;
+      hehku(cv, x, y, 8, n.r.vari, .55 * f * (rm ? .85 : .55 + .45 * Math.sin(t * 1.7 + n.v)));
+      cv.fillStyle = rgba('#ffffff', .9 * f); cv.beginPath(); cv.arc(x, y, n.koko * .55, 0, Math.PI * 2); cv.fill();
+    }
+    cv.lineCap = 'round'; cv.lineWidth = 1.8;
+    for (const p of pulssit){
+      const r = p.r, paa = Math.min(p.s, r.pituus), hanta = Math.max(0, p.s - p.hanta);
+      if (paa <= hanta) continue;
+      const [x1, y1] = kohta(r, hanta), [x2, y2] = kohta(r, paa), f = hav(r, x2);
+      if (f <= .01) continue;
+      const g = cv.createLinearGradient(x1, y1, x2, y2);
+      g.addColorStop(0, rgba(p.vari, 0)); g.addColorStop(1, rgba(p.vari, p.alfa * f));
+      cv.strokeStyle = g; cv.beginPath(); cv.moveTo(x1, y1);
+      for (let s = hanta + 4; s < paa; s += 4){ const [x, y] = kohta(r, s); cv.lineTo(x, y); }
+      cv.lineTo(x2, y2); cv.stroke();
+      hehku(cv, x2, y2, 7, p.vari, p.alfa * f * .9);
+    }
+    cv.globalCompositeOperation = 'source-over';
+  }
+  function lisaa(r, vari, nopeus, alfa){ pulssit.push({ r, s: 0, v: nopeus, vari, alfa, hanta: sat(50, 110) }); }
+  function paivita(dt){
+    purkaus = Math.max(0, purkaus - dt * .8);
+    for (const r of radat){
+      r.seuraava -= dt;
+      if (r.seuraava > 0 || performance.now() > hiljene) continue;
+      const oma = r.vari === KULTA ? KULTA : VAALEA;
+      if (moodi === 'haku'){ lisaa(r, '#d6e4ff', sat(430, 580), 1); r.seuraava = sat(.09, .32); }
+      else if (moodi === 'tulos'){ lisaa(r, tilaVari && Math.random() < .5 ? tilaVari : oma, sat(110, 170), .9); r.seuraava = sat(1.8, 4.6); }
+      else { lisaa(r, oma, sat(95, 150), .8); r.seuraava = sat(2.6, 7); }
+    }
+    for (const p of pulssit) p.s += p.v * dt;
+    pulssit = pulssit.filter(p => p.s - p.hanta < p.r.pituus).slice(-400);
+  }
+  function kierros(aika){
+    silmukka = requestAnimationFrame(kierros);
+    const dt = Math.min(.05, edellinen ? (aika - edellinen) / 1000 : .016); edellinen = aika;
+    paivita(dt); piirraValo(aika);
+    if (performance.now() > hiljene && !pulssit.length && purkaus <= 0) pysayta(); /* WCAG 2.2.2: liike pysähtyy noin 5 s jälkeen */
+  }
+  function kaynnista(){ if (rm || silmukka || !nakyva || document.hidden || !radat.length) return; edellinen = 0; silmukka = requestAnimationFrame(kierros); }
+  function pysayta(){ if (silmukka) cancelAnimationFrame(silmukka); silmukka = 0; }
+
+  let ajastin = 0, koko = '';
+  const muuttui = () => { clearTimeout(ajastin); ajastin = setTimeout(() => { const r = kehys.getBoundingClientRect(), k = Math.round(r.width) + 'x' + Math.round(r.height); if (k !== koko){ koko = k; rakenna(); } }, 150); };
+  const alku = () => { rakenna(); koko = W + 'x' + H; kehys.classList.add('valmis'); herata(5000); };
+  Promise.race([document.fonts ? document.fonts.ready : Promise.resolve(), new Promise(r => setTimeout(r, 700))]).then(alku);
+  if ('ResizeObserver' in window) new ResizeObserver(muuttui).observe(kehys); else addEventListener('resize', muuttui);
+  if ('IntersectionObserver' in window) new IntersectionObserver(e => { nakyva = e[0].isIntersecting; nakyva ? kaynnista() : pysayta(); }).observe(kehys);
+  document.addEventListener('visibilitychange', () => document.hidden ? pysayta() : kaynnista());
+  return {
+    haku(){ moodi = 'haku'; tilaVari = null; radat.forEach(r => { r.seuraava = sat(0, .25); }); if (rm) piirraValo(0); else herata(Infinity); },
+    tulos(v){ moodi = 'tulos'; tilaVari = VARI[v] || null; if (rm){ purkaus = 0; piirraValo(0); return; } purkaus = 1; herata(5000); radat.forEach((r, i) => { r.seuraava = sat(1.8, 3.4); setTimeout(() => lisaa(r, tilaVari || VAALEA, sat(380, 480), 1), i * 30); }); },
+    lepo(){ moodi = 'lepo'; tilaVari = null; purkaus = 0; if (rm) piirraValo(0); else herata(5000); }
+  };
+})();
+
+/* ================= SÄHKÖPOSTIN SUOJAUKSEN TARKISTUS (julkinen DNS) ================= */
+const DOH = [
+  (n, t) => [`https://dns.google/resolve?name=${encodeURIComponent(n)}&type=${t}&edns_client_subnet=0.0.0.0/0`, {}],
+  (n, t) => [`https://cloudflare-dns.com/dns-query?name=${encodeURIComponent(n)}&type=${t}`, { headers: { accept: 'application/dns-json' } }]
+];
+async function kysy(nimi, tyyppi){
+  let sf = 0;
+  for (const p of DOH){
+    const [url, opt] = p(nimi, tyyppi), c = new AbortController(), aj = setTimeout(() => c.abort(), 6000);
+    try {
+      const r = await fetch(url, { ...opt, signal: c.signal, cache: 'no-store', referrerPolicy: 'no-referrer' });
+      if (!r.ok) continue;
+      const j = await r.json();
+      if (j.Status === 0 || j.Status === 3) return j;
+      if (j.Status === 2) sf++;
+    } catch (e) { /* kokeillaan seuraavaa palvelua */ } finally { clearTimeout(aj); }
+  }
+  throw new Error(sf === DOH.length ? 'servfail' : 'dns');
+}
+const txt = j => (j.Answer || []).filter(a => a.type === 16).map(a => {
+  let d = a.data || '';
+  if (d.startsWith('"')){ const m = d.match(/"((?:[^"\\]|\\.)*)"/g); if (m) d = m.map(s => s.slice(1, -1).replace(/\\(.)/g, '$1')).join(''); }
+  return d.trim();
+});
+function puhdista(syote){
+  let s = (syote || '').trim().toLowerCase();
+  if (!s) return null;
+  const kaava = /^[a-z][a-z0-9+.-]*:\/\//;
+  if (kaava.test(s)) s = s.replace(kaava, '').split(/[\/?#]/)[0];
+  if (s.includes('@')) s = s.slice(s.lastIndexOf('@') + 1);
+  s = s.split(/[\/?#\s]/)[0].replace(/:\d+$/, '').replace(/\.+$/, '').replace(/^www\./, '');
+  if (!s || !s.includes('.')) return null;
+  let host; try { host = new URL('http://' + s).hostname; } catch (e) { return null; }
+  if (!/^(?=.{4,253}$)(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+(?:[a-z]{2,63}|xn--[a-z0-9-]{1,59})$/.test(host)) return null;
+  return { kysely: host, naytto: s };
+}
+const PALVELUT = [
+  [/\.mail\.protection\.outlook\.com$|\.mx\.microsoft$/, 'Microsoft 365', 'm365'],
+  [/(^|\.)google(mail)?\.com$/, 'Google Workspace', 'google'],
+  [/\.zoho\.[a-z.]+$/, 'Zoho Mail', 'muu'],
+  [/\.pphosted\.com$/, 'Proofpoint', 'suodatin'],
+  [/\.mimecast\.com$/, 'Mimecast', 'suodatin'],
+  [/\.(messagelabs|symanteccloud)\.com$/, 'Broadcom Email Security', 'suodatin'],
+  [/\.barracudanetworks\.com$/, 'Barracuda', 'suodatin'],
+  [/\.protonmail\.ch$/, 'Proton Mail', 'muu'],
+  [/\.icloud\.com$/, 'iCloud Mail', 'muu'],
+  [/\.zoner\.fi$/, 'Zoner', 'muu'],
+  [/\.one\.com$/, 'one.com', 'muu'],
+  [/\.louhi\.(fi|net)$/, 'Louhi', 'muu']
+];
+function tunnista(host){
+  for (const [re, nimi, laji] of PALVELUT) if (re.test(host)) return { nimi, laji };
+  return { nimi: host.split('.').slice(-2).join('.'), laji: 'muu', tuntematon: true };
+}
+const VALITSIMET = ['selector1', 'selector2', 'google', 'default', 's1', 's2', 'k1', 'dkim', 'mail', 'key1', 'sig1', 'fm1', 'protonmail'];
+
+function merkitse(s, teksti){ const li = $(`.skannaus [data-s="${s}"]`); if (li){ li.classList.add('valmis'); $('b', li).textContent = teksti; } solmu(s, 'haku', 'luettu'); }
+function solmu(k, tila_, teksti){ const li = $(`.solmut [data-s="${k}"]`); if (!li) return; li.dataset.tila = tila_; $('span', li).textContent = teksti || li.dataset.oletus; }
+const SOLMUT = ['mx', 'spf', 'dkim', 'dmarc'];
+function nollaaSolmut(){ SOLMUT.forEach(k => solmu(k, '', '')); }
+
+const DMARC_RE = /^v=DMARC1\s*(;|$)/;
+/* DMARC-tietue haetaan ensin verkkotunnukselta ja sitten ylempää (RFC 9989 4.10) */
+async function haeDmarc(d){
+  const o = d.split('.'), j0 = await kysy('_dmarc.' + d, 'TXT');
+  if (txt(j0).some(s => DMARC_RE.test(s))) return { j: j0, org: false, nimi: d };
+  for (let i = 1; i < o.length - 1 && i < 8; i++){
+    const n = o.slice(i).join('.');
+    try { const j = await kysy('_dmarc.' + n, 'TXT'); if (txt(j).filter(s => DMARC_RE.test(s)).length === 1) return { j, org: true, nimi: n }; } catch (e) {}
+  }
+  return { j: j0, org: false, nimi: d };
+}
+const SPF_RE = /^v=spf1(\s|$)/i;
+const loppu = s => { const m = s.match(/(?:^|\s)([+~?-]?)all(?=\s|$)/i); return m ? (m[1] || '+') : null; };
+async function tarkista(d){
+  const org = d.split('.').slice(-2).join('.');
+  const mxP = kysy(d, 'MX').then(j => { merkitse('mx', 'valmis'); return j; });
+  const txP = kysy(d, 'TXT').then(async j => {
+    const spf = txt(j).filter(x => SPF_RE.test(x)), m = spf.length === 1 && !loppu(spf[0]) ? spf[0].match(/(?:^|\s)redirect=(\S+)/i) : null;
+    if (m){ try { j.ohjattu = { nimi: m[1].replace(/\.$/, ''), s: txt(await kysy(m[1].replace(/\.$/, ''), 'TXT')).filter(x => SPF_RE.test(x))[0] || '' }; } catch (e) {} }
+    merkitse('spf', 'valmis'); return j;
+  });
+  const dmP = haeDmarc(d).then(x => { merkitse('dmarc', 'valmis'); return x; });
+  const dkP = Promise.all(VALITSIMET.map(s => kysy(s + '._domainkey.' + d, 'TXT').then(j => ({ s, t: txt(j) })).catch(() => ({ s, t: [], virhe: true })))).then(x => { merkitse('dkim', 'valmis'); return x; });
+  const [mx, tx, dm, dk] = await Promise.all([mxP, txP, dmP, dkP]);
+  if (mx.Status === 3 && tx.Status === 3) return { nx: true, dom: d };
+  return analysoi(d, org, mx, tx, dm, dk);
+}
+
+function analysoi(d, org, mx, tx, dm, dk){
+  const t = { dom: d };
+  /* MX */
+  const mxs = (mx.Answer || []).filter(a => a.type === 15).map(a => { const p = a.data.trim().split(/\s+/); return { pref: +p[0], host: (p[1] || '').replace(/\.$/, '').toLowerCase() }; }).sort((a, b) => a.pref - b.pref);
+  if (!mxs.length) t.mx = { tila: 'tieto', lyhyt: 'Ei MX-tietuetta', teksti: 'Verkkotunnukselle ei ole MX-tietuetta. Silloin posti yritetään toimittaa verkkotunnuksen omaan osoitteeseen, jos sellainen on.', tietue: '(ei MX-tietuetta)', laji: null };
+  else if (!mxs[0].host){ t.mx = { tila: 'tieto', lyhyt: 'Ei postia', teksti: 'Verkkotunnus on merkitty niin, ettei se ota vastaan sähköpostia.', tietue: mxs.map(m => m.pref + ' .').join('\n'), laji: null, ei: true }; }
+  else {
+    const p = tunnista(mxs[0].host);
+    t.mx = { tila: 'tieto', lyhyt: p.tuntematon ? 'Palvelin' : p.nimi, palvelu: p.nimi, laji: p.laji,
+      teksti: p.tuntematon ? `Saapuva sähköposti kulkee palvelimen ${p.nimi} kautta.` : `Saapuva sähköposti kulkee palvelun ${p.nimi} kautta.`,
+      tietue: mxs.map(m => `${m.pref} ${m.host}`).join('\n') };
+  }
+  /* SPF */
+  const spf = txt(tx).filter(s => SPF_RE.test(s));
+  if (!spf.length) t.spf = { tila: 'vaara', lyhyt: 'Puuttuu', taso: 'puuttuu', teksti: 'Lähettäjäluettelo puuttuu, joten vastaanottaja ei voi tarkistaa, mistä palvelimista yrityksesi viestit saavat tulla.', korjaus: 'kootaan yksi luettelo kaikista palveluista, jotka lähettävät viestejä yrityksesi nimissä.', tietue: '(ei SPF-tietuetta)' };
+  else if (spf.length > 1) t.spf = { tila: 'vaara', lyhyt: 'Virheellinen', taso: 'virhe', teksti: 'Verkkotunnuksella on kaksi lähettäjäluetteloa. Silloin SPF-tarkistus päättyy virheeseen (permerror), eikä kumpikaan luettelo ole voimassa.', korjaus: 'luettelot yhdistetään yhdeksi.', tietue: spf.join('\n') };
+  else {
+    const s = spf[0], ohjaus = /(?:^|\s)redirect=/i.test(s), oh = tx.ohjattu;
+    const q = loppu(s) || (oh && oh.s ? loppu(oh.s) : null);
+    const haut = (s.match(/(?:^|\s)[+~?-]?(?:include:|a(?=[:\/\s]|$)|mx(?=[:\/\s]|$)|ptr|exists:|redirect=)/gi) || []).length;
+    const ohTxt = oh && oh.s && !loppu(s) ? ` Luettelo on ohjattu palveluntarjoajan luetteloon ${oh.nimi}.` : '';
+    if (haut > 10) t.spf = { tila: 'varo', lyhyt: 'Liian pitkä', taso: 'loysa', teksti: 'Luettelossa on yli kymmenen nimipalveluhakua jo ylätasolla. Silloin vastaanottaja tulkitsee sen virheelliseksi (permerror).', korjaus: 'luettelo tiivistetään.', tietue: s };
+    else if (q === '-') t.spf = { tila: 'ok', lyhyt: 'Kunnossa', taso: 'ok', teksti: 'Luettelo kertoo, mitkä palvelimet saavat lähettää yrityksesi viestejä, ja pyytää hylkäämään muilta tulevat (-all).' + ohTxt + ' Luettelon sisältöä ei tässä tarkistettu.', tietue: s, q };
+    else if (q === '~') t.spf = { tila: 'ok', lyhyt: 'Kunnossa', taso: 'ok', teksti: 'Luettelo kertoo, mitkä palvelimet saavat lähettää yrityksesi viestejä, ja pyytää merkitsemään muilta tulevat epäilyttäviksi (~all).' + ohTxt + ' Luettelon sisältöä ei tässä tarkistettu.', tietue: s, q };
+    else if (q === '?') t.spf = { tila: 'varo', lyhyt: 'Löysä', taso: 'loysa', teksti: 'Luettelo on olemassa, mutta se ei kerro, mitä muilta palvelimilta tuleville viesteille tehdään.', korjaus: 'luetteloon lisätään loppusääntö.', tietue: s };
+    else if (q === '+') t.spf = { tila: 'vaara', lyhyt: 'Virheellinen', taso: 'virhe', kaikki: true, teksti: 'Luettelo sallii minkä tahansa palvelimen lähettää viestejä yrityksesi nimissä.', korjaus: 'luetteloon jätetään vain palvelut, jotka oikeasti lähettävät yrityksesi viestejä.', tietue: s };
+    else if (ohjaus) t.spf = { tila: 'tunt', lyhyt: 'Ohjattu', taso: 'ok', teksti: 'Luettelo on ohjattu palveluntarjoajan luetteloon, jota ei saatu nyt luettua.', tietue: s };
+    else t.spf = { tila: 'varo', lyhyt: 'Löysä', taso: 'loysa', teksti: 'Luettelosta puuttuu loppusääntö, joten muilta palvelimilta tuleville viesteille ei ole ohjetta.', korjaus: 'luetteloon lisätään loppusääntö.', tietue: s };
+  }
+  /* DMARC */
+  const dmTxt = txt(dm.j).filter(s => DMARC_RE.test(s));
+  if (!dmTxt.length) t.dmarc = { tila: 'vaara', lyhyt: 'Puuttuu', taso: 'puuttuu', teksti: 'Huijaussuoja puuttuu, joten vastaanottajia ei pyydetä pysäyttämään viestejä, jotka väittävät tulevansa yritykseltäsi.', korjaus: 'huijaussuoja otetaan käyttöön seurantatilassa raporttiosoitteen kanssa ja kiristetään asteittain.', tietue: '(ei DMARC-tietuetta osoitteessa _dmarc.' + d + ')' };
+  else if (dmTxt.length > 1) t.dmarc = { tila: 'vaara', lyhyt: 'Virheellinen', taso: 'virhe', teksti: 'Verkkotunnuksella on kaksi huijaussuojaa. Silloin vastaanottaja ei noudata kumpaakaan.', korjaus: 'huijaussuojat yhdistetään yhdeksi.', tietue: dmTxt.join('\n') };
+  else {
+    const tagit = {}; dmTxt[0].split(';').forEach(kv => { const i = kv.indexOf('='); if (i > 0) tagit[kv.slice(0, i).trim().toLowerCase()] = kv.slice(i + 1).trim(); });
+    let p = (tagit.p || '').toLowerCase(); if (dm.org && tagit.sp) p = tagit.sp.toLowerCase();
+    const pct = tagit.pct !== undefined ? parseInt(tagit.pct, 10) : 100;
+    const lisa = dm.org ? ` Asetus tulee pääverkkotunnukselta ${dm.nimi}.` : '';
+    const tiukka = p === 'reject' || p === 'quarantine';
+    const aliAuki = !dm.org && [tagit.sp, tagit.np].some(x => (x || '').toLowerCase() === 'none');
+    if (tiukka && (tagit.t || '').toLowerCase() === 'y') t.dmarc = { tila: 'varo', lyhyt: 'Testitilassa', taso: 'osittain', sel: 'Huijaussuoja on päällä, mutta se on vielä testitilassa.', teksti: `Huijaussuoja on testitilassa (t=y): vastaanottajia pyydetään käsittelemään väärennökset lievemmin kuin asetus ${p} sanoo.` + lisa, korjaus: 'testitila (t=y) poistetaan, kun omat viestit läpäisevät tarkistuksen.', tietue: dmTxt[0] };
+    else if (tiukka && pct < 100) t.dmarc = { tila: 'varo', lyhyt: 'Osittain', taso: 'osittain', sel: 'Huijaussuoja on päällä, mutta vanhentunut asetus voi rajata sen osaan viesteistä.', teksti: `Asetuksessa on vanhentunut pct=${pct} -arvo. Vastaanottajat noudattavat sitä vaihtelevasti, ja osa soveltaa suojaa vain osaan viesteistä.` + lisa, korjaus: 'pct-arvo poistetaan, jolloin suoja koskee kaikkia viestejä.', tietue: dmTxt[0] };
+    else if (tiukka && aliAuki) t.dmarc = { tila: 'varo', lyhyt: 'Osittain', taso: 'osittain', ali: true, sel: 'Pääverkkotunnus on suojattu, mutta aliverkkotunnukset jäävät suojan ulkopuolelle.', teksti: `Pääverkkotunnus on suojattu, mutta aliverkkotunnuksille asetus on none (sp tai np). Esimerkiksi osoitteella laskutus.${d} voi lähettää väärennettyjä viestejä ilman, että vastaanottajia pyydetään pysäyttämään niitä.`, korjaus: 'aliverkkotunnusten asetus kiristetään samaksi kuin pääverkkotunnuksen.', tietue: dmTxt[0] };
+    else if (p === 'reject') t.dmarc = { tila: 'ok', lyhyt: 'Hylkää', taso: 'torjuu', teksti: 'Huijaussuoja pyytää vastaanottajia hylkäämään väärennetyt viestit.' + lisa, tietue: dmTxt[0] };
+    else if (p === 'quarantine') t.dmarc = { tila: 'ok', lyhyt: 'Roskapostiin', taso: 'torjuu', teksti: 'Huijaussuoja pyytää vastaanottajia ohjaamaan väärennetyt viestit roskapostiin.' + lisa, tietue: dmTxt[0] };
+    else if (p === 'none' && !tagit.rua) t.dmarc = { tila: 'varo', lyhyt: 'Ei seurantaa', taso: 'seuranta', teksti: 'Huijaussuoja on julkaistu tilassa p=none ilman raporttiosoitetta (rua). Kukaan ei saa raportteja, eikä vastaanottajia pyydetä pysäyttämään väärennettyjä viestejä.' + lisa, korjaus: 'lisätään raporttiosoite, käydään raportit läpi ja kiristetään asteittain.', tietue: dmTxt[0] };
+    else if (p === 'none') t.dmarc = { tila: 'varo', lyhyt: 'Seurannassa', taso: 'seuranta', teksti: 'Huijaussuoja on seurantatilassa, ja raportit tulevat asetukseen merkittyyn osoitteeseen. Se on normaali ensimmäinen vaihe, mutta vastaanottajia ei vielä pyydetä pysäyttämään väärennettyjä viestejä.' + lisa, korjaus: 'suoja kiristetään torjuvaksi, kun omat viestit läpäisevät tarkistuksen.', tietue: dmTxt[0] };
+    else t.dmarc = { tila: 'varo', lyhyt: 'Puutteellinen', taso: 'puutteellinen', teksti: 'Huijaussuojan asetus on puutteellinen, joten se ei pyydä vastaanottajia tekemään mitään.' + lisa, korjaus: 'asetus korjataan ja kiristetään asteittain.', tietue: dmTxt[0] };
+  }
+  /* DKIM */
+  const tiivis = s => s.replace(/\s+/g, '');
+  const loydetyt = dk.filter(x => x.t.some(s => /(^|;)p=[A-Za-z0-9+\/=]{40,}/.test(tiivis(s))));
+  const perutut = dk.filter(x => x.t.some(s => /(^|;)p=(;|$)/.test(tiivis(s))));
+  const ms = t.mx.laji === 'm365' && !loydetyt.some(x => x.s === 'selector1' || x.s === 'selector2');
+  const msLisa = ms ? ' Microsoft 365:n omia valitsimia (selector1, selector2) ei löytynyt. Silloin Microsoft allekirjoittaa viestit yleensä vain *.onmicrosoft.com-nimellä, joka ei vastaa yrityksesi verkkotunnusta huijaussuojan tarkistuksessa.' : '';
+  const suljettu = t.mx.ei && t.spf.q === '-' && t.dmarc.lyhyt === 'Hylkää';
+  const nimet = '(tarkistetut nimet: ' + VALITSIMET.join(', ') + ')';
+  if (dk.every(x => x.virhe)) t.dkim = { tila: 'tunt', lyhyt: 'Ei voitu tarkistaa', taso: 'tuntematon', teksti: 'Allekirjoitusta ei saatu nyt tarkistettua.', tietue: nimet };
+  else if (suljettu) t.dkim = { tila: 'ok', lyhyt: 'Ei tarvita', taso: 'ok', teksti: 'Verkkotunnus ei lähetä postia, joten allekirjoitusta ei tarvita.', tietue: nimet };
+  else if (loydetyt.length) t.dkim = { tila: ms ? 'varo' : 'ok', lyhyt: ms ? 'Osittain' : 'Avain löytyi', taso: ms ? 'osittain' : 'ok',
+    teksti: `Julkinen allekirjoitusavain löytyi (${loydetyt.map(x => x.s).join(', ')}). Se viittaa siihen, että ainakin osa lähtevistä viesteistä allekirjoitetaan; varmuuden saa lähetetyn viestin otsikkotiedoista.` + msLisa,
+    korjaus: 'allekirjoitus otetaan käyttöön myös Microsoft 365:ssä yrityksen omalla verkkotunnuksella.', tietue: loydetyt.map(x => `${x.s}._domainkey.${d}`).join('\n') };
+  else t.dkim = { tila: 'tunt', lyhyt: 'Ei löytynyt', taso: 'tuntematon', teksti: 'Allekirjoitusta ei löytynyt yleisimmistä valitsimista. Se voi silti olla käytössä toisella nimellä.' + (perutut.length ? ` Valitsimen ${perutut.map(x => x.s).join(', ')} avain on peruttu.` : '') + msLisa,
+    korjaus: ms ? 'allekirjoitus otetaan käyttöön Microsoft 365:ssä yrityksen omalla verkkotunnuksella.' : 'tarkistetaan sähköpostipalvelun hallinnasta, että allekirjoitus on päällä.', tietue: nimet };
+  /* Vastaus otsikon kysymykseen */
+  const dt = t.dmarc.taso;
+  if (dt === 'torjuu' && !t.spf.kaikki){ t.v = 'ok'; t.vastaus = 'Ei helposti.'; t.selitys = 'Verkkotunnuksesi pyytää vastaanottajia pysäyttämään viestit, joissa sen nimi on väärennetty lähettäjäksi.' + (t.spf.tila === 'vaara' ? ' Lähettäjäluettelossa on silti korjattavaa, ja se voi haitata omien viestiesi perillemenoa.' : ''); }
+  else if (dt === 'torjuu'){ t.v = 'varo'; t.vastaus = 'Kyllä, vaikka suojaus on päällä.'; t.selitys = 'Huijaussuoja on päällä, mutta lähettäjäluettelo sallii minkä tahansa palvelimen lähettää viestejä yrityksesi nimissä.'; }
+  else if (dt === 'osittain'){ t.v = 'varo'; t.vastaus = 'Osittain.'; t.selitys = t.dmarc.sel || 'Huijaussuoja on päällä, mutta se ei kata kaikkia viestejä.'; }
+  else if (dt === 'seuranta' || dt === 'puutteellinen'){ t.v = 'varo'; t.vastaus = 'Kyllä, vaikka suojaus on aloitettu.'; t.selitys = 'Huijaussuoja on otettu käyttöön, mutta se ei vielä pyydä vastaanottajia pysäyttämään väärennettyjä viestejä.'; }
+  else { t.v = 'vaara'; t.vastaus = 'Todennäköisesti kyllä.'; t.selitys = t.mx.ei ? 'Vaikka verkkotunnuksella ei ole sähköpostia, sen nimissä voi lähettää väärennettyjä viestejä, ellei sitä ole erikseen estetty.' : (dt === 'virhe' ? 'Huijaussuojan asetus on virheellinen' : 'Verkkotunnukseltasi puuttuu huijaussuoja (DMARC)') + ', joten vastaanottajia ei pyydetä pysäyttämään viestejä, jotka on väärennetty yrityksesi nimiin. Osan voi silti pysäyttää vastaanottajan oma roskapostisuodatin.'; }
+  t.okLkm = [t.spf, t.dkim, t.dmarc].filter(x => x.tila === 'ok').length;
+  t.aika = new Date();
+  return t;
+}
+
+/* Käyttöliittymä */
+const haku = $('.haku'), syote = $('#verkkotunnus'), vihje = $('#haku-vihje'), virhe = $('.haku-virhe');
+const skannaus = $('.skannaus'), tulos = $('#tulos'), tilaRivi = $('#tila');
+const nappi = $('button[type=submit]', haku);
+const pvm = d => d.toLocaleDateString('fi-FI');
+const klo = d => d.toLocaleTimeString('fi-FI', { hour: '2-digit', minute: '2-digit' });
+
+syote.addEventListener('input', () => {
+  virhe.hidden = true;
+  const p = puhdista(syote.value), raaka = syote.value.trim().toLowerCase();
+  vihje.innerHTML = p && raaka && p.naytto !== raaka ? `Tarkistetaan: <b>${esc(p.naytto)}</b>` : '';
+});
+$('.pienet .linkki').addEventListener('click', e => { const b = e.currentTarget, m = $('#miten'); m.hidden = !m.hidden; b.setAttribute('aria-expanded', String(!m.hidden)); });
+
+haku.addEventListener('submit', async e => {
+  e.preventDefault();
+  const p = puhdista(syote.value);
+  if (!p){ virhe.textContent = 'Kirjoita verkkotunnus muodossa yritys.fi.'; virhe.hidden = false; syote.focus(); return; }
+  virhe.hidden = true; tulos.hidden = true; nappi.disabled = true; nappi.textContent = 'Tarkistetaan…';
+  $$('.skannaus li').forEach(li => { li.classList.remove('valmis'); $('b', li).textContent = 'haetaan…'; });
+  skannaus.hidden = false; tilaRivi.textContent = 'Tarkistetaan ' + p.naytto;
+  SOLMUT.forEach(k => solmu(k, 'haku', 'haetaan…'));
+  kuitu.haku();
+  const alku = performance.now();
+  let t;
+  try { t = await tarkista(p.kysely); }
+  catch (err){ t = { virhe: true, sf: !!err && err.message === 'servfail' }; }
+  const odota = rm ? 0 : Math.max(0, 900 - (performance.now() - alku));
+  await new Promise(r => setTimeout(r, odota));
+  nappi.disabled = false; nappi.textContent = 'Tarkista'; skannaus.hidden = true;
+  if (t.virhe || t.nx) nollaaSolmut();
+  if (t.virhe){ kuitu.lepo(); virhe.textContent = t.sf ? 'Verkkotunnuksen nimipalvelu vastasi virheellä (SERVFAIL). Syy voi olla nimipalvelimen vika tai virheellinen DNSSEC-allekirjoitus. Fi-verkkotunnuksen voi tarkistaa Traficomin Nimipalvelintestillä.' : 'Tarkistus ei juuri nyt onnistunut. Yritysverkko voi estää julkiset nimipalvelut (dns.google, cloudflare-dns.com). Kokeile toisessa verkossa tai soita 040 1636 588.'; virhe.hidden = false; return; }
+  if (t.nx){ kuitu.lepo(); virhe.textContent = `Verkkotunnusta ${p.naytto} ei löytynyt. Tarkista kirjoitusasu.`; virhe.hidden = false; syote.focus(); return; }
+  t.naytto = p.naytto;
+  tila.dns = t; tila.nro = null;
+  naytaTulos(t);
+  kuitu.tulos(t.v);
+  paivitaPolku(); paivitaTestinTieto(); raportti();
+});
+
+function riviHtml(k, nimi, tekn, r, lahde){
+  return `<li class="rivi${rm ? '' : ' tulee'}" data-tila="${esc(r.tila)}" data-k="${k}"${lahde ? ` data-lahde="${lahde}"` : ''}><span class="merkki" aria-hidden="true"></span>
+    <h3>${nimi}<small>${tekn}</small></h3><span class="tila-teksti">${esc(r.lyhyt)}</span>
+    <p>${esc(r.teksti)}</p>${r.korjaus && r.tila !== 'ok' ? `<p class="korjaus"><b>Mitä tehdään:</b> ${esc(r.korjaus)}</p>` : ''}<details><summary>Näytä tietue</summary><code>${esc(r.tietue)}</code></details></li>`;
+}
+/* Leima painuu, kun väärennöskortti tulee näkyviin */
+const vaarennosVahti = !rm && 'IntersectionObserver' in window ? new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ e.target.classList.replace('odottaa', 'leimaa'); vaarennosVahti.unobserve(e.target); } }), { threshold: .5 }) : null;
+function naytaTulos(t, hiljaa){
+  tulos.dataset.v = t.v;
+  $('.tulos-domain', tulos).textContent = t.naytto;
+  $('.tulos-aika', tulos).textContent = `mitattu julkisesta DNS:stä ${pvm(t.aika)} klo ${klo(t.aika)}`;
+  const hero = $('.hero'), hv = $('.hero-vastaus', hero);
+  SOLMUT.forEach(k => solmu(k, t[k].tila, t[k].lyhyt));
+  hero.dataset.v = t.v; $('small', hv).textContent = t.naytto; $('strong', hv).textContent = t.vastaus; hero.classList.add('vastattu');
+  const hs = $('.hero-selitys', hero); hs.textContent = t.selitys; hs.hidden = false;
+  const korjattava = t.v !== 'ok';
+  const ht = $('.hero-toimet', hero); $('.ht-korjaus', ht).hidden = !korjattava; $('.ht-jatko', ht).hidden = korjattava; tulos.classList.toggle('korjattava', korjattava);
+  $('[data-tunnus]', ht).textContent = t.naytto;
+  paivitaPalkki(korjattava);
+  const ali = t.dmarc.ali && !t.mx.ei;
+  $('[data-vosoite]', tulos).textContent = 'toimitusjohtaja@' + (ali ? 'laskutus.' : '') + t.naytto;
+  const lm = $('.leima', tulos); lm.dataset.v = t.v; $('[data-leima]', lm).textContent = leimaTeksti(t);
+  const vf = $('.vaarennos', tulos); vf.classList.remove('leimaa'); if (vaarennosVahti){ vf.classList.add('odottaa'); vaarennosVahti.observe(vf); }
+  $('.jaa-tila', tulos).hidden = true;
+  const jatka = $('[data-jatka]', tulos); jatka.classList.toggle('kulta', !korjattava); jatka.classList.toggle('vaalea', korjattava);
+  avaaOsat();
+  $('.tulos-vastaus', tulos).textContent = t.vastaus;
+  $('.tulos-selitys', tulos).textContent = t.selitys;
+  $('.tulos-suositus', tulos).hidden = t.v === 'ok';
+  $('.rivit', tulos).innerHTML = riviHtml('dmarc', 'Huijaussuoja', 'DMARC', t.dmarc, 'r1 k1') + riviHtml('spf', 'Lähettäjäluettelo', 'SPF', t.spf, 'r2') + riviHtml('dkim', 'Allekirjoitus', 'DKIM', t.dkim, 'r3') + riviHtml('mx', 'Sähköpostipalvelu', 'MX', t.mx, '');
+  if (hiljaa) $$('.rivi', tulos).forEach(li => li.classList.remove('tulee'));
+  else $$('.rivi', tulos).forEach((li, i) => { li.style.animationDelay = (i * 120) + 'ms'; });
+  $$('details', tulos).forEach(dl => dl.addEventListener('toggle', () => { $('summary', dl).textContent = dl.open ? 'Piilota tietue' : 'Näytä tietue'; }));
+  if (hiljaa){ tulos.hidden = false; return; }
+  tulos.hidden = false; tulos.focus({ preventScroll: true });
+  const hr = hv.getBoundingClientRect(); if (hr.top < 80 || hr.bottom > innerHeight) vierita($('#tarkista'));
+  tilaRivi.textContent = `Tarkistus valmis: ${t.naytto}. ${t.vastaus} ${t.selitys}`;
+}
+function leimaTeksti(t){
+  const dm = t.dmarc;
+  if (t.v === 'ok') return dm.lyhyt === 'Roskapostiin' ? 'Vastaanottajaa pyydetään ohjaamaan tämä viesti roskapostiin.' : 'Vastaanottajaa pyydetään hylkäämään tämä viesti.';
+  if (t.spf.kaikki && dm.taso === 'torjuu') return 'Lähettäjäluettelo sallii minkä tahansa palvelimen, joten tämä viesti voi läpäistä tarkistuksen.';
+  if (dm.ali) return 'Aliverkkotunnuksille ei ole pyyntöä pysäyttää väärennettyjä viestejä, joten tämä voi mennä läpi.';
+  if (dm.lyhyt === 'Testitilassa') return 'Huijaussuoja on testitilassa, joten vastaanottajaa pyydetään käsittelemään tämä viesti lievemmin kuin asetus sanoo.';
+  if (dm.taso === 'osittain') return 'Vanhentunut asetus voi rajata suojan osaan viesteistä, joten tällainen viesti voi mennä läpi.';
+  if (dm.taso === 'seuranta' || dm.taso === 'puutteellinen') return 'Vastaanottajaa ei vielä pyydetä pysäyttämään tätä viestiä.';
+  return 'Vastaanottajaa ei pyydetä pysäyttämään tätä viestiä.';
+}
+/* Puhelimen alapalkki: punaisella ja keltaisella tuloksella toinen nappi pyytää korjausehdotuksen */
+const sp2 = $('.soittopalkki .sp2');
+function paivitaPalkki(korjattava){
+  if (!sp2) return;
+  sp2.textContent = korjattava ? 'Korjausehdotus' : 'Jätä pyyntö';
+  if (korjattava){ sp2.dataset.aihe = 'Korjausehdotus'; sp2.setAttribute('data-raportti', ''); }
+  else { delete sp2.dataset.aihe; sp2.removeAttribute('data-raportti'); }
+}
+/* Jaa tulos: linkki ajaa saman tarkistuksen; verkkotunnus on #-merkin jälkeen, joten se ei lähde palvelimelle */
+const jaaTila = $('.jaa-tila');
+$('.jaa-tulos').addEventListener('click', async () => {
+  if (!tila.dns) return;
+  const url = location.origin + location.pathname + '#tarkista=' + encodeURIComponent(tila.dns.naytto);
+  if (navigator.share && matchMedia('(pointer: coarse)').matches){
+    try { await navigator.share({ title: 'Sähköpostin suojaus: ' + tila.dns.naytto, text: 'Voiko joku lähettää sähköpostia yrityksesi nimissä? Linkki ajaa saman tarkistuksen.', url }); return; }
+    catch (e) { if (e && e.name === 'AbortError') return; }
+  }
+  let ok = false;
+  try { await navigator.clipboard.writeText(url); ok = true; } catch (e) {}
+  jaaTila.hidden = false; jaaTila.textContent = '';
+  if (ok) jaaTila.textContent = 'Linkki kopioitu. Kun se avataan, sama tarkistus ajetaan uudelleen. Verkkotunnus on #-merkin jälkeen, joten selain ei lähetä sitä palvelimelle.';
+  else { jaaTila.append('Kopioi linkki:'); const i = document.createElement('input'); i.readOnly = true; i.value = url; i.setAttribute('aria-label', 'Jaettava linkki'); jaaTila.append(i); i.select(); }
+});
+$('.uusi-haku').addEventListener('click', () => { paivitaPalkki(false); tulos.hidden = true; $('.hero').classList.remove('vastattu'); nollaaSolmut(); syote.select(); syote.focus(); vierita($('#tarkista')); kuitu.lepo(); });
+/* Kysymykset ja raportti näkyvät vasta tarkistuksen jälkeen (tai kun niihin tullaan suoraan linkillä) */
+/* Ennen tarkistusta aloituskortit ovat heti heron alla; tarkistuksen jälkeen ne siirtyvät lomakkeen alle, ettei tarkistus–kysymykset–raportti-polku katkea */
+const aloitaOsa = $('#aloita'), aloitaPaikka = document.createComment('aloita');
+aloitaOsa.before(aloitaPaikka);
+function avaaOsat(){ $$('[data-odottaa]').forEach(o => { o.hidden = false; }); $('#yhteys').after(aloitaOsa); }
+function suljeOsat(){ $$('[data-odottaa]').forEach(o => { o.hidden = true; }); aloitaPaikka.after(aloitaOsa); }
+if (/^#(sisapuoli|raportti)$/.test(location.hash)) avaaOsat();
+addEventListener('hashchange', () => { if (/^#(sisapuoli|raportti)$/.test(location.hash)){ avaaOsat(); $(location.hash).scrollIntoView(); } });
+
+/* ================= PIKATESTI ================= */
+const KYS = [
+  { q: 'q1', alue: 'Kirjautuminen', vak: 1,
+    teksti: l => `Onko sähköpostiin ja ${l === 'm365' ? 'Microsoft 365:een' : l === 'google' ? 'Google Workspaceen' : 'pilvipalveluihin'} kirjautumisessa monivaiheinen tunnistautuminen (esim. Authenticator-sovellus tai suojausavain) käytössä kaikilla?`,
+    e: 'Ota monivaiheinen tunnistautuminen käyttöön kaikille käyttäjille.', t: 'Onko monivaiheinen tunnistautuminen käytössä jokaisella käyttäjällä.', ok: 'Monivaiheinen tunnistautuminen on käytössä.' },
+  { q: 'q2', alue: 'Käyttöoikeudet', vak: 3, teksti: () => 'Onko käyttöoikeudet käyty läpi viimeisen vuoden aikana, myös lähteneiden työntekijöiden tunnukset?',
+    e: 'Käy käyttäjätunnukset ja käyttöoikeudet läpi ja poista tarpeettomat.', t: 'Milloin käyttöoikeudet on viimeksi tarkistettu.', ok: 'Käyttöoikeudet on tarkistettu.' },
+  { q: 'q3', alue: 'Laitteiden valvonta', vak: 2, teksti: () => 'Valvotaanko työasemia ja palvelimia tietoturvaratkaisulla, joka hälyttää poikkeamista?',
+    e: 'Ota työasemiin ja palvelimiin tietoturvaratkaisu, jonka hälytyksiä myös seurataan.', t: 'Mikä tietoturvaohjelma koneissa on ja seuraako kukaan sen hälytyksiä.', ok: 'Työasemat ja palvelimet ovat valvonnassa.' },
+  { q: 'q4', alue: 'Varmuuskopiot', vak: 2, teksti: () => 'Onko varmuuskopioiden palautusta kokeiltu viimeisen vuoden aikana?',
+    e: 'Kokeile, että tiedot saa varmuuskopiosta oikeasti palautettua.', t: 'Mistä tiedoista varmuuskopio otetaan ja onko palautusta kokeiltu.', ok: 'Varmuuskopioiden palautus on kokeiltu.' },
+  { q: 'q5', alue: 'Palomuuri ja etäyhteydet', vak: 3, teksti: () => 'Onko palomuurilla ja etäyhteyksillä nimetty vastuuhenkilö, joka pitää ne ajan tasalla?',
+    e: 'Nimeä palomuurille ja etäyhteyksille vastuuhenkilö ja päivitä ne.', t: 'Kuka palomuurista ja etäyhteyksistä vastaa.', ok: 'Palomuuri ja etäyhteydet ovat ajan tasalla.' },
+  { q: 'q6', alue: 'Henkilöstö', vak: 3, teksti: () => 'Tietääkö henkilöstö, mitä tehdä, kun sähköpostiin tulee epäilyttävä linkki tai liite?',
+    e: 'Sovi henkilöstön kanssa, miten epäilyttävä viesti tarkistetaan ja kenelle siitä kerrotaan.', t: 'Miten henkilöstö toimisi epäilyttävän viestin kanssa.', ok: 'Henkilöstö tietää, miten epäilyttävä viesti tarkistetaan.' }
+];
+const selvita = s => 'Selvitä, ' + s.charAt(0).toLowerCase() + s.slice(1);
+const testi = $('#testi'), tRunko = $('.testi-runko', testi), tValmis = $('.testi-valmis', testi);
+const tTeksti = $('#testi-teksti'), tAlue = $('.testi-alue', testi), tTieto = $('.testi-tieto', testi), tLaskuri = $('.testi-laskuri', testi), tTakaisin = $('.testi-takaisin', testi);
+const tPalat = $$('.testi-palkki i', testi), tNapit = $$('.testi-vastaukset button', testi);
+let nyt = 0, etene = 0;
+const laji = () => tila.dns && !tila.dns.mx.ei ? tila.dns.mx.laji : null;
+function paivitaTestinTieto(){
+  const d = tila.dns, l = laji();
+  if (nyt === 0 && d && (l === 'm365' || l === 'google')){ tTieto.textContent = `Tarkistuksen mukaan yrityksesi sähköposti on palvelussa ${d.mx.palvelu}.`; tTieto.hidden = false; }
+  else tTieto.hidden = true;
+  if (!tila.testiValmis) tTeksti.textContent = KYS[nyt].teksti(l);
+}
+function mene(i, kohdista){
+  nyt = i;
+  const k = KYS[i];
+  tAlue.textContent = k.alue;
+  tTeksti.textContent = k.teksti(laji());
+  tLaskuri.textContent = `Kysymys ${i + 1} / 6`;
+  tPalat.forEach((p, n) => p.classList.toggle('on', n < i || (n === i && tila.vastaukset[k.q])));
+  tNapit.forEach(b => b.setAttribute('aria-pressed', String(tila.vastaukset[k.q] === b.dataset.v)));
+  tTakaisin.hidden = i === 0;
+  paivitaTestinTieto();
+  if (kohdista) tTeksti.focus({ preventScroll: true });
+}
+tNapit.forEach(b => b.addEventListener('click', () => {
+  const k = KYS[nyt];
+  tila.vastaukset[k.q] = b.dataset.v;
+  tNapit.forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+  tPalat[nyt].classList.add('on');
+  clearTimeout(etene);
+  etene = setTimeout(() => {
+    if (nyt < KYS.length - 1) mene(nyt + 1, true);
+    else { tila.testiValmis = true; tRunko.hidden = true; $('.testi-palkki', testi).hidden = true; tLaskuri.textContent = 'Valmis'; tValmis.hidden = false; paivitaPolku(); raportti(); kokoa(); }
+  }, rm ? 0 : 240);
+}));
+tTakaisin.addEventListener('click', () => { if (nyt > 0) mene(nyt - 1, true); });
+function nollaaTesti(){ tila.vastaukset = {}; tila.testiValmis = false; tRunko.hidden = false; $('.testi-palkki', testi).hidden = false; tValmis.hidden = true; mene(0); }
+$('.testi-uudelleen').addEventListener('click', () => { nollaaTesti(); paivitaPolku(); raportti(); tTeksti.focus(); });
+mene(0);
+
+function kokoa(){
+  avaaOsat();
+  if (!rm){ arkki.classList.remove('kokoaa'); void arkki.offsetWidth; arkki.classList.add('kokoaa'); setTimeout(() => arkki.classList.remove('kokoaa'), 1400); }
+  vierita($('#raportti')); $('#rap-o').focus({ preventScroll: true });
+}
+
+/* ================= POLKU ================= */
+function paivitaPolku(){
+  const tehty = [!!tila.dns, tila.testiValmis, !!tila.dns && tila.testiValmis], nytI = tehty.indexOf(false);
+  $$('.polku li').forEach((l, i) => { l.classList.toggle('tehty', tehty[i]); l.classList.toggle('nyt', i === nytI); });
+}
+
+/* ================= RAPORTTI ================= */
+const arkki = $('#arkki'), toiminnot = $('.arkki-toiminnot'), lukko = $('[data-lukko]');
+const R = k => $(`[data-r="${k}"]`, arkki);
+const ALKU = { askeleet: R('askeleet').innerHTML, tiivis: R('tiivis').innerHTML };
+function pilleri(tila_, teksti){ return `<span class="pilleri" data-tila="${esc(tila_)}">${esc(teksti)}</span>`; }
+function uusiNro(perusta){
+  const pv = new Date(), yy = String(pv.getFullYear()).slice(2), mm = String(pv.getMonth() + 1).padStart(2, '0'), dd = String(pv.getDate()).padStart(2, '0');
+  let h = 2166136261;
+  for (const c of perusta){ h ^= c.charCodeAt(0); h = Math.imul(h, 16777619) >>> 0; }
+  return `CNP-${yy}${mm}${dd}-${h.toString(16).toUpperCase().slice(-4).padStart(4, '0')}`;
+}
+function raporttiNro(){
+  if (!tila.nro) tila.nro = uusiNro((tila.dns ? tila.dns.dom : '-') + Date.now() + Math.random());
+  return tila.nro;
+}
+function askeleetLista(){
+  const a = [], d = tila.dns;
+  if (d){
+    if (d.dmarc.taso === 'puuttuu' || d.dmarc.taso === 'virhe') a.push({ vak: 1, alue: 'Huijaussuoja · DMARC', otsikko: 'Ota huijaussuoja käyttöön.', teksti: 'Aloita seurantatilasta (p=none ja raporttiosoite) ja kiristä hylkääväksi, kun kaikki palvelut, jotka lähettävät viestejä yrityksesi nimissä, on tunnistettu.', lahde: 'k1 r1' });
+    else if (d.dmarc.taso === 'osittain') a.push({ vak: 2, alue: 'Huijaussuoja · DMARC', otsikko: 'Laajenna huijaussuoja kaikkiin viesteihin.', teksti: d.dmarc.korjaus.charAt(0).toUpperCase() + d.dmarc.korjaus.slice(1), lahde: 'r1' });
+    else if (d.dmarc.taso !== 'torjuu') a.push({ vak: 2, alue: 'Huijaussuoja · DMARC', otsikko: 'Kiristä huijaussuoja hylkääväksi.', teksti: 'Seurantatila ei pyydä pysäyttämään väärennöksiä. Kun omat viestit läpäisevät tarkistuksen, aseta suoja hylkäämään väärennökset.', lahde: 'k1 r1' });
+    if (d.spf.tila === 'vaara') a.push({ vak: 1, alue: 'Lähettäjäluettelo · SPF', otsikko: 'Korjaa lähettäjäluettelo.', teksti: 'Yksi luettelo, jossa ovat kaikki palvelut, jotka lähettävät viestejä yrityksesi nimissä.' });
+    else if (d.spf.tila === 'varo') a.push({ vak: 3, alue: 'Lähettäjäluettelo · SPF', otsikko: 'Tiukenna lähettäjäluetteloa.', teksti: 'Lisää loppusääntö, joka kertoo, mitä muilta palvelimilta tuleville viesteille tehdään.' });
+    if (d.dkim.tila !== 'ok') a.push({ vak: 5, alue: 'Allekirjoitus · DKIM', otsikko: 'Varmista, että lähtevät viestit allekirjoitetaan.', teksti: 'Asetus löytyy sähköpostipalvelun hallinnasta.' });
+  }
+  KYS.forEach((k, i) => {
+    const v = tila.vastaukset[k.q];
+    if (v === 'e') a.push({ vak: k.vak, j: i, alue: k.alue, otsikko: k.e, teksti: '' });
+    else if (v === 't') a.push({ vak: 4, j: i, alue: k.alue, otsikko: selvita(k.t), teksti: '' });
+  });
+  return a.sort((x, y) => x.vak - y.vak || (x.j ?? -1) - (y.j ?? -1));
+}
+function raportti(){
+  const d = tila.dns, v = tila.vastaukset, vastattu = Object.keys(v).length === 6 && tila.testiValmis;
+  const nyt_ = d ? d.aika : new Date();
+  R('domain').textContent = d ? d.naytto : '–';
+  R('pvm').textContent = d || vastattu ? pvm(nyt_) : '–';
+  R('nro').textContent = d || vastattu ? raporttiNro() : '–';
+  R('ulkoa').innerHTML = `${d ? (d.okLkm | 0) : '<b class="tyhja">–</b>'}<small>/3</small>`;
+  const k = Object.values(v).filter(x => x === 'k').length, e = Object.values(v).filter(x => x === 'e').length, t = Object.values(v).filter(x => x === 't').length;
+  R('sisalta').innerHTML = `${vastattu ? k : '<b class="tyhja">–</b>'}<small>/6</small>`;
+  /* Tiivistelmä */
+  if (d || vastattu){
+    const ulko = !d ? 'Sähköpostin suojausta ei tarkistettu.' : d.v === 'ok' ? 'Ulkoa katsottuna verkkotunnuksesi pyytää vastaanottajia pysäyttämään viestit, joissa sen nimi on väärennetty lähettäjäksi.' : d.v === 'varo' ? 'Ulkoa katsottuna huijaussuoja on aloitettu, mutta se ei vielä pysäytä kaikkia väärennettyjä viestejä.' : 'Ulkoa katsottuna yrityksesi nimissä voi todennäköisesti lähettää väärennettyä sähköpostia.';
+    let sisa = '';
+    if (vastattu){
+      const kOsa = k === 6 ? 'kaikki kuusi asiaa ovat vastaustesi mukaan kunnossa' : k === 0 ? 'mikään kuudesta asiasta ei ole vastaustesi mukaan kunnossa' : `${LUVUT[k]} kuudesta asiasta on vastaustesi mukaan kunnossa`;
+      const osat = [kOsa]; if (e) osat.push(`${LUVUT[e]} vaatii toimia heti`); if (t) osat.push(`${LUVUT[t]} ei ole vielä tiedossa`);
+      sisa = ' Sisäpuolella ' + (osat.length > 1 ? osat.slice(0, -1).join(', ') + ' ja ' + osat[osat.length - 1] : osat[0]) + '.';
+    } else sisa = ' Sisäpuolen kysymyksiin ei ole vielä vastattu.';
+    R('tiivis').textContent = ulko + sisa;
+  } else R('tiivis').innerHTML = ALKU.tiivis;
+  /* Kolme seuraavaa askelta */
+  if (vastattu){
+    let a = askeleetLista().slice(0, 3);
+    if (!a.length) a = [{ alue: 'Hyvä pohja', otsikko: 'Pidä asiat kunnossa ja tarkista ne vuosittain.', teksti: 'Kartoituksessa voidaan varmistaa, että käytäntö vastaa vastauksia.' }];
+    R('askel-o').textContent = ['', 'Seuraava askel', 'Kaksi seuraavaa askelta', 'Kolme seuraavaa askelta'][a.length];
+    R('askeleet').innerHTML = a.map(x => `<li${x.lahde ? ` data-lahde="${x.lahde}"` : ''}><small>${esc(x.alue)}</small><strong>${esc(x.otsikko)}</strong>${x.teksti ? `<span>${esc(x.teksti)}</span>` : ''}</li>`).join('');
+  } else { R('askel-o').textContent = 'Kolme seuraavaa askelta'; R('askeleet').innerHTML = ALKU.askeleet; }
+  /* Löydökset */
+  const rivit = [];
+  const dnsRivi = (nimi, tekn, r) => d ? `<tr><td>${nimi}<small>${tekn} · mitattu</small></td><td>${pilleri(r.tila, r.lyhyt)}</td><td>${esc(r.teksti)}</td></tr>` : `<tr><td>${nimi}<small>${tekn}</small></td><td>${pilleri('tunt', 'Ei tarkistettu')}</td><td>Tarkista sähköpostin suojaus sivun alussa.</td></tr>`;
+  rivit.push(dnsRivi('Sähköpostipalvelu', 'MX', d ? d.mx : null), dnsRivi('Huijaussuoja', 'DMARC', d ? d.dmarc : null), dnsRivi('Lähettäjäluettelo', 'SPF', d ? d.spf : null), dnsRivi('Allekirjoitus', 'DKIM', d ? d.dkim : null));
+  KYS.forEach(k => {
+    const x = v[k.q];
+    if (x === 'k') rivit.push(`<tr><td>${k.alue}<small>oma vastaus</small></td><td>${pilleri('ok', 'Kunnossa')}</td><td>${esc(k.ok)}</td></tr>`);
+    else if (x === 'e') rivit.push(`<tr><td>${k.alue}<small>oma vastaus</small></td><td>${pilleri('vaara', 'Tee heti')}</td><td>${esc(k.e)}</td></tr>`);
+    else if (x === 't') rivit.push(`<tr><td>${k.alue}<small>oma vastaus</small></td><td>${pilleri('tunt', 'Ei tiedossa')}</td><td>${esc(selvita(k.t))}</td></tr>`);
+    else rivit.push(`<tr><td>${k.alue}</td><td><span class="luuranko" style="width:84px;height:22px;border-radius:999px"></span></td><td><span class="luuranko l2"></span></td></tr>`);
+  });
+  R('loydokset').innerHTML = rivit.join('');
+  /* Lukko ja toiminnot */
+  const valmis = vastattu;
+  lukko.hidden = valmis;
+  arkki.classList.toggle('lukittu', !valmis);
+  toiminnot.hidden = !valmis;
+  if (!valmis){
+    const lt = $('[data-lukko-teksti]', lukko), ln = $('[data-lukko-nappi]', lukko);
+    if (!d){ lt.textContent = 'Raportti valmistuu kahdessa vaiheessa: ensin tarkistus, sitten kuusi kysymystä.'; ln.textContent = 'Aloita tarkistus'; ln.setAttribute('href', '#tarkista'); }
+    else { lt.textContent = 'Ulkoa näkyvä osa on valmis. Vastaa vielä kuuteen kysymykseen.'; ln.textContent = 'Vastaa kysymyksiin'; ln.setAttribute('href', '#sisapuoli'); }
+  }
+  $('#rap-o').textContent = valmis ? 'Raporttisi on valmis' : 'Raporttisi';
+  tallenna();
+}
+function yhteenvetoTeksti(){
+  const d = tila.dns, rivit = [`Pikaraportti ${R('nro').textContent} (${R('pvm').textContent})`];
+  if (d) rivit.push(`Verkkotunnus: ${d.naytto}`, `Huijaussuoja (DMARC): ${d.dmarc.lyhyt}`, `Lähettäjäluettelo (SPF): ${d.spf.lyhyt}`, `Allekirjoitus (DKIM): ${d.dkim.lyhyt}`, `Sähköpostipalvelu: ${d.mx.palvelu || d.mx.lyhyt}`);
+  const v = tila.vastaukset, kunnossa = Object.values(v).filter(x => x === 'k').length;
+  const vastattuLkm = Object.keys(v).length;
+  rivit.push(tila.testiValmis ? `Kuusi kysymystä: ${kunnossa}/6 kunnossa` : vastattuLkm ? `Kuusi kysymystä: ${vastattuLkm}/6 vastattu` : 'Kuusi kysymystä: ei vielä vastattu');
+  const heti = KYS.filter(k => v[k.q] === 'e').map(k => k.alue.toLowerCase()), ei = KYS.filter(k => v[k.q] === 't').map(k => k.alue.toLowerCase());
+  if (heti.length) rivit.push(`Tee heti: ${heti.join(', ')}`);
+  if (ei.length) rivit.push(`Ei tiedossa: ${ei.join(', ')}`);
+  return rivit.join('\n');
+}
+/* Raportti kulkee alasivuille: vain tämän välilehden muistissa (sessionStorage), ei lähde minnekään */
+const AVAIN = 'cnp-pikaraportti';
+function tallenna(){
+  const d = tila.dns, v = tila.vastaukset;
+  if (!d && !Object.keys(v).length) return;
+  try { sessionStorage.setItem(AVAIN, JSON.stringify({ v: 1, nro: R('nro').textContent, pvm: R('pvm').textContent, valmis: Object.keys(v).length === 6 && tila.testiValmis, testiValmis: tila.testiValmis, dns: d, vastaukset: v, yhteenveto: yhteenvetoTeksti() })); } catch (e) {}
+}
+function palauta(){
+  let s = null;
+  try { s = JSON.parse(sessionStorage.getItem(AVAIN) || 'null'); } catch (e) {}
+  if (!s || s.v !== 1) return false;
+  tila.nro = /^CNP-\d{6}-[0-9A-F]{4}$/.test(s.nro || '') ? s.nro : null;
+  if (s.dns || (s.vastaukset && Object.keys(s.vastaukset).length)) avaaOsat();
+  const TILAT = ['ok', 'varo', 'vaara', 'tunt', 'tieto'];
+  const kelpaa = r => r && TILAT.includes(r.tila) && ['lyhyt', 'teksti', 'tietue'].every(k => typeof r[k] === 'string');
+  if (s.dns && !(['ok', 'varo', 'vaara'].includes(s.dns.v) && typeof s.dns.naytto === 'string' && ['mx', 'spf', 'dkim', 'dmarc'].every(k => kelpaa(s.dns[k])))){ try { sessionStorage.removeItem(AVAIN); } catch (e) {} return false; }
+  if (s.dns && s.dns.dmarc && s.dns.naytto){ const t = s.dns; t.okLkm = [t.spf, t.dkim, t.dmarc].filter(x => x.tila === 'ok').length; t.aika = new Date(t.aika); tila.dns = t; syote.value = t.naytto; naytaTulos(t, true); kuitu.tulos(t.v); }
+  tila.vastaukset = s.vastaukset || {}; tila.testiValmis = !!s.testiValmis;
+  if (tila.testiValmis){ tRunko.hidden = true; $('.testi-palkki', testi).hidden = true; tLaskuri.textContent = 'Valmis'; tValmis.hidden = false; }
+  else { const i = KYS.findIndex(k => !tila.vastaukset[k.q]); mene(i < 0 ? 0 : i); }
+  paivitaPolku(); paivitaTestinTieto(); raportti();
+  return true;
+}
+$('.tulosta').addEventListener('click', () => window.print());
+$('.alusta').addEventListener('click', () => {
+  try { sessionStorage.removeItem(AVAIN); } catch (e) {}
+  tila.dns = null; tila.nro = null; nollaaTesti(); tulos.hidden = true; syote.value = ''; vihje.textContent = '';
+  $('.hero').classList.remove('vastattu'); suljeOsat(); nollaaSolmut(); paivitaPalkki(false);
+  kuitu.lepo(); paivitaPolku(); raportti(); vierita($('#tarkista')); setTimeout(() => syote.focus({ preventScroll: true }), rm ? 0 : 500);
+});
+if (!palauta()) raportti();
+/* Jaettu linkki #tarkista=yritys.fi ajaa tarkistuksen */
+function linkkiTarkistus(){
+  const m = location.hash.match(/^#tarkista=(.+)$/); if (!m) return;
+  let raaka = ''; try { raaka = decodeURIComponent(m[1]); } catch (e) { return; }
+  const p = puhdista(raaka); if (!p) return;
+  history.replaceState(null, '', location.pathname + location.search + '#tarkista');
+  syote.value = p.naytto; haku.requestSubmit();
+}
+linkkiTarkistus();
+addEventListener('hashchange', linkkiTarkistus);
+
+/* ================= YHTEYDENOTTO (demo ei lähetä mitään) ================= */
+const lomake = $('.yh-lomake'), kiitos = $('.yh-kiitos'), lVirhe = $('.yh-virhe', lomake), mukana = $('.yh-mukana', lomake);
+document.addEventListener('click', e => {
+  const a = e.target.closest('[data-aihe]'); if (!a) return;
+  const r = $(`input[name=aihe][value="${a.dataset.aihe}"]`, lomake); if (r) r.checked = true;
+  if (a.hasAttribute('data-raportti')){
+    lomake.viesti.value = yhteenvetoTeksti(); mukana.hidden = false;
+    if (tila.dns && !lomake.yritys.value) lomake.yritys.value = tila.dns.naytto;
+  }
+});
+const sahkoposti = s => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(s), puhelin = s => /^[+()\d\s-]{7,}$/.test(s) && s.replace(/\D/g, '').length >= 7;
+lomake.addEventListener('submit', e => {
+  e.preventDefault();
+  const nimi = lomake.nimi.value.trim(), yh = lomake.yhteys.value.trim();
+  [lomake.nimi, lomake.yhteys].forEach(x => x.removeAttribute('aria-invalid'));
+  if (!nimi){ lVirhe.textContent = 'Kirjoita nimesi.'; lVirhe.hidden = false; lomake.nimi.setAttribute('aria-invalid', 'true'); lomake.nimi.focus(); return; }
+  if (!sahkoposti(yh) && !puhelin(yh)){ lVirhe.textContent = 'Kirjoita sähköpostiosoite (nimi@yritys.fi) tai puhelinnumero.'; lVirhe.hidden = false; lomake.yhteys.setAttribute('aria-invalid', 'true'); lomake.yhteys.focus(); return; }
+  const nro = /^CNP-/.test(R('nro').textContent) ? R('nro').textContent : uusiNro(nimi + yh + Date.now());
+  $('[data-pyynto]', kiitos).textContent = nro;
+  lVirhe.hidden = true; lomake.hidden = true; $('.yh-tietosuoja').hidden = true; nayta(kiitos);
+});
+})();
+</script>
+</body>
+</html>

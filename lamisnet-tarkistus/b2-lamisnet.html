@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>IT-tuki ja etätuki yrityksille – LamisNET, Lappeenranta</title>
+<meta name="description" content="Valitse, mikä ei toimi, niin näet heti, mitä kannattaa tehdä. IT-tuki, etätuki, laitteet, Microsoft 365 ja verkot samalta yhteyshenkilöltä Lappeenrannasta." data-lahde="l4">
+<meta property="og:title" content="IT-tuki ja etätuki yrityksille – LamisNET, Lappeenranta">
+<meta property="og:description" content="Valitse, mikä ei toimi, niin näet heti, mitä kannattaa tehdä. IT-tuki, etätuki, laitteet, Microsoft 365 ja verkot samalta yhteyshenkilöltä Lappeenrannasta.">
+<meta property="og:image" content="assets/banneri-2172.jpg">
+<link rel="icon" href="assets/tunnus-cnp.webp" type="image/webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400..700&family=Manrope:wght@400..800&display=swap" rel="stylesheet">
+<!--
+  LamisNET / CNP Group, vaihtoehto B2, alasivu (21.11.2026). Tehty skriptillä rakenna_b2.py – muokkaa sitä, älä tätä tiedostoa.
+  IT-tuki: "Mikä ei toimi?" -valinta kokoaa tukilapun, jossa on itse tehtävät tarkistukset ja oikea yhteystapa.
+-->
+<script>document.documentElement.classList.add('js')</script>
+<style>
+:root{
+  --pohja:#f6f2ea; --paperi:#fffdf8; --muste:#0b1730; --muste2:#49546c; --viiva:rgba(11,23,48,.15);
+  --yo:#071127; --yo2:#0d1c3f; --yoviiva:rgba(160,185,235,.18); --yoteksti:#c9d3e8; --yoteksti2:#9fb0cf;
+  --aksentti:#8a5f0e; --kulta:#e6b755; --kulta2:#f2cd7a;
+  --v-cyber:#1746b8; --v-lamis:#b9480a;
+  --ok:#46d39a; --varo:#f5b544; --vaara:#ff7a6b; --tieto:#8fb4ff; --tunt:#a3adc2;
+  --ok-t:#0b6b43; --ok-b:#e1f4e9; --varo-t:#7a4f00; --varo-b:#fbefd2; --vaara-t:#9e1c12; --vaara-b:#fbe3df;
+  --tieto-t:#1a4fb8; --tieto-b:#e6eefc; --tunt-t:#4a5266; --tunt-b:#eceef3;
+  --otsikkof:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --leipa:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --leveys:1200px;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;scroll-padding-top:92px}
+body{margin:0;background:var(--pohja);color:var(--muste);font-family:var(--leipa);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+p{margin:0;text-wrap:pretty}
+h1,h2,h3,h4{font-family:var(--otsikkof);font-weight:600;letter-spacing:-.02em;line-height:1.08;margin:0;text-wrap:balance;overflow-wrap:break-word}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--aksentti);outline-offset:3px;border-radius:3px}
+.tumma :focus-visible,.lohko.yo :focus-visible{outline-color:var(--kulta)}
+main:focus{outline:none}
+.kapea{max-width:var(--leveys);margin:0 auto;padding:0 32px}
+.kapea-s{max-width:880px}
+.nb{white-space:nowrap}
+.vh{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.ohita{position:absolute;left:12px;top:-60px;z-index:100;background:var(--muste);color:#fff;padding:10px 16px;border-radius:4px;font-weight:800;text-decoration:none}
+.ohita:focus{top:12px}
+.demopalkki{background:var(--yo);color:#b9c4dc;font-size:12.5px;letter-spacing:.02em;text-align:center;padding:7px 16px;line-height:1.35;border-bottom:1px solid var(--yoviiva)}
+
+/* Yläpalkki (sama kuin etusivulla) */
+.yla{position:sticky;top:0;z-index:30;background:rgba(255,253,248,.975);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--viiva)}
+.yla .kapea{display:flex;align-items:center;gap:24px;height:72px}
+.yla .logo{display:flex;align-items:center;min-height:44px;margin-left:-6px}
+.yla .logo img{height:54px;width:auto}
+.yla nav.paa{display:flex;gap:2px;margin-left:auto}
+.yla nav.paa a{font-size:14.5px;font-weight:700;text-decoration:none;color:var(--muste2);padding:12px;min-height:44px;display:inline-flex;align-items:center;gap:8px;transition:color .2s,box-shadow .2s}
+.yla nav.paa a:hover{color:var(--muste)}
+.yla nav.paa a[aria-current="page"]{color:var(--muste);box-shadow:inset 0 -3px 0 var(--kulta)}
+.yla nav.paa a img,.valikko nav a img{width:24px;height:24px;flex:none}
+.yla .puh{font-weight:800;font-size:15px;text-decoration:none;white-space:nowrap;min-height:44px;display:inline-flex;align-items:center;gap:9px;padding:0 18px;background:var(--muste);color:#fff;border-radius:4px}
+.yla .puh i{width:7px;height:7px;border-radius:50%;background:var(--kulta)}
+.valikko{display:none}
+.yla .hata{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 4px;font-size:14.5px;font-weight:800;color:#b42318;text-decoration:none;white-space:nowrap}
+.yla .hata i{flex:none;width:8px;height:8px;border-radius:50%;background:#d6432f;box-shadow:0 0 0 3px rgba(214,67,47,.18)}
+.yla .hata:hover{text-decoration:underline;text-underline-offset:4px}
+.yla .hata[aria-current="page"]{box-shadow:inset 0 -3px 0 #d6432f}
+.yla .hata .hata-l{display:none}
+.valikko nav a.hata-v{color:#b42318}
+
+/* Napit ja linkit */
+.nappi{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:4px;font-family:var(--leipa);font-weight:800;font-size:15.5px;text-decoration:none;border:0;cursor:pointer;transition:transform .2s,background .2s,color .2s,box-shadow .2s;white-space:nowrap;line-height:1.2}
+.nappi svg{width:16px;height:16px;flex:none}
+.nappi:hover{transform:translateY(-2px)}
+.nappi.a1{background:var(--muste);color:#fff;box-shadow:inset 0 -3px 0 var(--kulta)}
+.nappi.kulta{background:var(--kulta);color:var(--yo)}
+.nappi.kulta:hover{background:var(--kulta2)}
+.nappi.vaalea{background:transparent;color:#f3f6fc;box-shadow:inset 0 0 0 1.5px rgba(243,246,252,.55)}
+.nappi.vaalea:hover{box-shadow:inset 0 0 0 1.5px #f3f6fc}
+.nappi.oranssi{background:var(--v-lamis);color:#fff;box-shadow:inset 0 -3px 0 rgba(0,0,0,.18)}
+.nappi.oranssi:hover{background:#a23e07}
+.nappi.reuna{background:#fff;color:var(--muste);box-shadow:inset 0 0 0 1.5px var(--muste)}
+.linkki{background:none;border:0;padding:0;cursor:pointer;font-weight:700;text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1.5px;min-height:44px;display:inline-flex;align-items:center}
+.sivulinkki{font-weight:700;text-underline-offset:4px;min-height:44px;display:inline-flex;align-items:center;gap:7px}
+.sivulinkki svg{width:15px;height:15px;flex:none}
+
+/* Silmäke */
+.silmake{display:flex;align-items:center;gap:10px;font-size:12.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--kulta);margin-bottom:clamp(14px,2.4vh,24px)}
+.silmake img{width:26px;height:26px;flex:none}
+.silmake i{font-style:normal;margin:0 4px}
+
+/* Lohkot */
+.lohko{padding:clamp(64px,9vw,128px) 0}
+.lohko.paperi{background:var(--paperi);border-top:1px solid var(--viiva)}
+.lohko.yo{background:var(--yo);color:#f3f6fc}
+.vaihe{display:inline-flex;align-items:center;gap:10px;font-size:12.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--aksentti);margin-bottom:14px}
+.vaihe b{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--aksentti);color:#fff;font-size:13px;letter-spacing:0}
+.lohko.yo .vaihe{color:var(--kulta)} .lohko.yo .vaihe b{background:var(--kulta);color:var(--yo)}
+.o2{font-size:clamp(32px,4.2vw,58px);max-width:900px}
+.lohko .ingressi{margin-top:16px;font-size:clamp(16.5px,1.3vw,19px);color:var(--muste2);max-width:640px}
+.lohko.yo .ingressi{color:var(--yoteksti)}
+.keski{text-align:center;margin-left:auto;margin-right:auto}
+.pilleri{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:var(--pb);color:var(--pt);white-space:nowrap}
+.pilleri[data-tila="ok"]{--pb:var(--ok-b);--pt:var(--ok-t)} .pilleri[data-tila="varo"]{--pb:var(--varo-b);--pt:var(--varo-t)} .pilleri[data-tila="vaara"]{--pb:var(--vaara-b);--pt:var(--vaara-t)} .pilleri[data-tila="tieto"]{--pb:var(--tieto-b);--pt:var(--tieto-t)} .pilleri[data-tila="tunt"]{--pb:var(--tunt-b);--pt:var(--tunt-t)}
+
+/* Kuvat */
+.kuva{position:relative;margin:0;border-radius:6px;overflow:hidden;background:#e9e3d7;box-shadow:0 40px 70px -48px rgba(7,17,39,.55)}
+.kuva img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover}
+.havainne{position:absolute;right:12px;top:12px;font-size:11px;letter-spacing:.06em;color:#fff;background:rgba(7,17,39,.62);padding:3px 8px;border-radius:3px}
+
+/* Yhteydenotto */
+.yh-suorat{display:flex;flex-wrap:wrap;gap:6px 28px;margin-top:18px;font-weight:800;font-size:18px}
+.yh-suorat a{text-decoration:none;min-height:44px;display:inline-flex;align-items:center;border-bottom:2px solid var(--kulta)}
+.yh-lomake{margin-top:clamp(24px,3vw,36px);display:grid;gap:18px;background:#fff;border:1px solid var(--viiva);border-radius:10px;padding:clamp(20px,3vw,32px)}
+.aiheet{border:0;margin:0;padding:0}
+.aiheet legend{font-size:14px;font-weight:800;margin-bottom:10px;padding:0}
+.aiheet div{display:flex;flex-wrap:wrap;gap:8px}
+.aiheet label{position:relative}
+.aiheet input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.aiheet span{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border:1.5px solid rgba(11,23,48,.22);border-radius:999px;font-size:15px;font-weight:700;cursor:pointer;transition:background .2s,border-color .2s}
+.aiheet input:checked+span{background:var(--muste);border-color:var(--muste);color:#fff}
+.aiheet input:focus-visible+span{outline:2px solid var(--aksentti);outline-offset:3px}
+.kentat{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.kentat .koko{grid-column:1/-1}
+.kentta span{display:block;font-size:14px;font-weight:800;margin-bottom:6px}
+.kentta input,.kentta textarea{width:100%;font:inherit;font-size:16.5px;color:var(--muste);background:var(--paperi);border:1.5px solid rgba(11,23,48,.22);border-radius:6px;padding:12px 14px;min-height:50px}
+.kentta textarea{resize:vertical;min-height:120px;line-height:1.5}
+.kentta input:focus,.kentta textarea:focus{outline:none;border-color:var(--muste);box-shadow:0 0 0 3px rgba(230,183,85,.45)}
+.kentta [aria-invalid="true"]{border-color:var(--vaara-t)}
+.yh-mukana{font-size:14.5px;color:var(--ok-t);background:var(--ok-b);border-radius:6px;padding:10px 14px}
+.yh-virhe{font-size:15px;font-weight:700;color:var(--vaara-t)}
+.yh-lomake .nappi{justify-self:start}
+.yh-loppu{display:grid;gap:12px;justify-items:start}
+.yh-ehto{font-size:15px;font-weight:700;color:var(--muste)}
+.yh-tietosuoja{font-size:14px;color:var(--muste2)}
+.yh-tietosuoja a{font-weight:700;color:var(--muste);text-underline-offset:3px;display:inline-block;padding:10px 0;margin:-10px 0}
+.lisat{display:grid;gap:14px;border-top:1px dashed rgba(11,23,48,.22);padding-top:16px}
+.lisat-o{font-size:14px;font-weight:800}
+.lisat-o span{font-weight:600;color:var(--muste2)}
+.aiheet.pieni legend{font-weight:700;color:var(--muste2);margin-bottom:8px}
+.aiheet.pieni span{min-height:44px;padding:0 14px;font-size:14.5px}
+.yh-kiitos{margin-top:28px;background:#fff;border:1px solid var(--viiva);border-left:4px solid var(--ok-t);border-radius:8px;padding:24px 26px}
+.yh-kiitos:focus{outline:none}
+.yh-nro{font-family:var(--mono);font-size:14px;font-weight:600;color:var(--ok-t)}
+.yh-kiitos h3{font-size:clamp(24px,2.6vw,30px);margin-top:6px}
+.yh-kiitos .seur-o{margin-top:16px;font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muste2)}
+.yh-seuraavaksi{margin:8px 0 0;padding:0 0 0 22px;display:grid;gap:6px;color:var(--muste)}
+.yh-seuraavaksi a{font-weight:800;white-space:nowrap}
+
+/* Alatunniste */
+.ala{background:var(--paperi);border-top:1px solid var(--viiva);padding:36px 0 32px;font-size:14.5px;color:var(--muste2)}
+.ala .kapea{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px}
+.ala img{height:52px;width:auto;margin-left:-6px}
+.ala p{max-width:640px}
+.ala nav{display:flex;flex-wrap:wrap;gap:0 18px}
+.ala nav a{min-height:44px;display:inline-flex;align-items:center;font-weight:700;color:var(--muste)}
+.soittopalkki{display:none}
+
+/* ============ IT-TUKI: ENSINÄKYMÄ (päivä: paperi ja LamisNETin oranssi) ============ */
+.tuki-hero{position:relative;background:var(--paperi);border-bottom:1px solid var(--viiva);overflow:hidden;isolation:isolate}
+.tuki-hero::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:linear-gradient(90deg,var(--v-lamis),#f07a2a 55%,var(--kulta))}
+.tuki-hero::after{content:"";position:absolute;right:-12%;top:-30%;width:62%;height:120%;z-index:-1;background:radial-gradient(closest-side,rgba(240,122,42,.10),rgba(240,122,42,0));pointer-events:none}
+.tuki-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,5vw,72px);align-items:start;padding-top:clamp(36px,7vh,84px);padding-bottom:clamp(44px,7vh,84px)}
+.tuki-hero .silmake{color:var(--v-lamis)}
+.tuki-hero .silmake img{width:40px;height:40px}
+.tuki-hero h1{font-size:clamp(46px,6.4vw,96px);line-height:.96;letter-spacing:-.035em}
+.tuki-hero .ingressi{margin-top:18px;font-size:clamp(16.5px,1.35vw,19.5px);color:var(--muste2);max-width:440px}
+.tuki-suorat{display:flex;flex-wrap:wrap;align-items:center;gap:10px 22px;margin-top:26px}
+.tuki-suorat .sivulinkki{color:var(--muste)}
+.tuki-pieni{margin-top:10px;font-size:14.5px;color:var(--muste2);max-width:440px}
+.tuki-pieni+.tuki-pieni{margin-top:4px}
+.vaihtoehdot{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.vaihtoehdot button{display:flex;flex-direction:column;align-items:flex-start;justify-content:space-between;gap:16px;min-height:128px;padding:18px;border:1px solid rgba(11,23,48,.18);background:#fff;border-radius:10px;text-align:left;font-weight:800;font-size:16.5px;line-height:1.25;cursor:pointer;transition:transform .2s,border-color .2s,background .2s,color .2s,box-shadow .2s;box-shadow:0 1px 0 rgba(11,23,48,.05)}
+.vaihtoehdot svg{width:30px;height:30px;color:var(--v-lamis);transition:color .2s}
+.vaihtoehdot button:hover{border-color:var(--muste);transform:translateY(-2px);box-shadow:0 18px 30px -22px rgba(7,17,39,.45)}
+.vaihtoehdot button[aria-pressed="true"]{background:var(--muste);border-color:var(--muste);color:#fff;box-shadow:inset 0 -3px 0 var(--v-lamis)}
+.vaihtoehdot button[aria-pressed="true"] svg{color:#ff9a5c}
+.valitsin-vihje{display:none;margin-top:12px;font-size:14.5px;color:var(--muste2)}
+.js .valitsin-vihje{display:block}
+
+/* W8: tukilappu on oranssireunainen paperilappu (ei piirrettyä laitekehystä). Oranssi teksti vaalealla: #b9480a. */
+.lappu{margin-top:12px;background:#fffaf2;border:1px solid rgba(185,72,10,.28);border-top:5px solid var(--v-lamis);border-radius:3px 3px 10px 10px;box-shadow:0 30px 56px -40px rgba(122,48,6,.42);outline:none;position:relative}
+.js .lappu{display:none}
+.js .lappu.auki{display:block}
+.lappu-sisalto+.lappu-sisalto{border-top:1px solid var(--viiva)}
+.js .lappu-sisalto{display:none}
+.js .lappu-sisalto.auki{display:block}
+.lappu-paa{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:4px 16px;padding:16px 22px 12px;border-bottom:1.5px dashed rgba(185,72,10,.32)}
+.lappu-paa small{font-size:11.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--v-lamis)}
+.lappu-paa h2{font-size:clamp(22px,2vw,26px);margin-top:2px}
+.lappu-paa span{font-size:13.5px;font-weight:800;color:var(--v-lamis)}
+.lappu ol{list-style:none;margin:0;padding:16px 22px 4px;counter-reset:s;display:grid;gap:12px}
+.lappu li{counter-increment:s;display:grid;grid-template-columns:30px minmax(0,1fr);gap:0 14px}
+.lappu li::before{content:counter(s);display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#fff;border:1.5px solid var(--v-lamis);color:var(--v-lamis);font-weight:800;font-size:14px}
+.lappu li p{padding-top:2px}
+.lappu li .sivulinkki{min-height:36px;color:var(--v-lamis);font-size:15px}
+.lappu-toiminnot{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;padding:12px 22px 20px}
+
+/* Sama yhteyshenkilö: yksi palsta, ei kuvaa */
+.palvelulista{margin:24px 0 0;border-top:1px solid var(--viiva)}
+.palvelulista div{display:grid;grid-template-columns:minmax(0,190px) minmax(0,1fr);gap:2px 20px;padding:14px 0;border-bottom:1px solid var(--viiva)}
+.palvelulista dt{font-weight:800}
+.palvelulista dd{margin:0;color:var(--muste2)}
+
+/* Usein kysyttyä */
+.ukk{margin-top:26px;border-top:1px solid var(--viiva)}
+.ukk details{border-bottom:1px solid var(--viiva)}
+.ukk summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:64px;padding:14px 0;font-family:var(--otsikkof);font-weight:600;font-size:clamp(19px,1.8vw,22px);line-height:1.3;letter-spacing:-.01em}
+.ukk summary::-webkit-details-marker{display:none}
+.ukk summary::after{content:"";flex:none;width:10px;height:10px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);margin:0 6px 4px 0;transition:transform .2s}
+.ukk details[open] summary::after{transform:rotate(225deg);margin-bottom:-4px}
+.ukk details p{padding:0 0 20px;color:var(--muste2);max-width:680px}
+
+@media (max-width:960px){
+  .tuki-grid{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:760px){
+  .tuki-grid{gap:24px;padding-top:30px}
+  .tuki-suorat .nappi{display:none}
+  .tuki-suorat{margin-top:14px}
+  .vaihtoehdot{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .vaihtoehdot button{min-height:100px;padding:14px;font-size:15.5px;gap:10px}
+  .vaihtoehdot svg{width:26px;height:26px}
+  .lappu-paa,.lappu ol{padding-left:18px;padding-right:16px}
+  .lappu ol{padding-bottom:18px}
+  /* K5: mobiilissa lapun toiminnot ovat alapalkissa (Soita ja lapun mukaan vaihtuva pyyntö), ei kahteen kertaan */
+  .lappu-toiminnot{display:none}
+  .palvelulista div{grid-template-columns:minmax(0,1fr)}
+}
+
+@media (max-width:370px){.yla .kapea .hata{display:none} .yla .kapea .hata ~ .valikko{margin-left:auto}}
+/* ============ KAPEAT NÄYTÖT (kuoren mediakyselyt; ei piirrettyjä laitekehyksiä) ============ */
+@media (max-width:960px){
+  .yla nav.paa,.yla .puh{display:none}
+  .yla .kapea{height:62px;padding:0 18px;gap:12px}
+  .yla .hata{margin-left:auto;font-size:13.5px;gap:6px;padding:0 2px}
+  .yla .hata ~ .valikko{margin-left:0}
+  .yla .hata .hata-p{display:none} .yla .hata .hata-l{display:inline}
+  .yla .logo img{height:44px}
+  .valikko{display:block;position:relative;margin-left:auto}
+  .valikko summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;border:1px solid var(--viiva);border-radius:4px;font-weight:800;font-size:15px}
+  .valikko summary::-webkit-details-marker{display:none}
+  .valikko summary::after{content:"";width:7px;height:7px;border-right:1.8px solid currentColor;border-bottom:1.8px solid currentColor;transform:rotate(45deg) translateY(-2px)}
+  .valikko[open] summary::after{transform:rotate(225deg) translateY(-2px)}
+  .valikko nav{position:absolute;right:0;top:52px;width:min(300px,calc(100vw - 36px));background:var(--paperi);border:1px solid var(--viiva);border-radius:6px;padding:8px;box-shadow:0 24px 48px -24px rgba(7,17,39,.45)}
+  .valikko nav a{display:flex;align-items:center;gap:10px;padding:10px 12px;text-decoration:none;font-weight:700;font-size:16px;min-height:48px;border-radius:4px}
+  .valikko nav a[aria-current="page"]{background:var(--pohja);box-shadow:inset 3px 0 0 var(--kulta)}
+  .kapea{padding-left:18px;padding-right:18px}
+}
+@media (max-width:760px){
+  body{padding-bottom:72px}
+  .kentat{grid-template-columns:1fr}
+  .nappi{white-space:normal;text-align:center}
+  .soittopalkki{display:grid;grid-template-columns:1fr 1fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:40;padding:8px 12px calc(8px + env(safe-area-inset-bottom));background:rgba(255,253,248,.96);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--viiva)}
+  .soittopalkki .nappi{min-height:48px;padding:0 10px;font-size:15px}
+  .soittopalkki .sp2{background:#fff;color:var(--muste);box-shadow:inset 0 0 0 1.5px var(--muste)}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<a class="ohita" href="#sisalto">Siirry sisältöön</a>
+<div class="demopalkki" data-demopalkki>Epävirallinen konseptidemo – ei LamisNET Palvelut Oy:n virallinen sivusto</div>
+<header class="yla">
+  <div class="kapea">
+    <a class="logo" href="b2-etusivu.html" aria-label="CNP Group, etusivu"><img src="assets/logo-cnp.webp" alt="CNP Group" width="900" height="359"></a>
+    <nav class="paa" aria-label="Päävalikko"><a href="b2-cybernet.html"><img src="assets/tunnus-cyber.webp" alt="" width="24" height="24">Kyberturva</a><a href="b2-lamisnet.html" aria-current="page"><img src="assets/tunnus-lamis.webp" alt="" width="24" height="24">IT-tuki</a><a href="b2-uutiset.html">Tietoturva nyt</a></nav>
+    <a class="hata" href="b2-hata.html"><i aria-hidden="true"></i><span class="hata-p">Tietoturvaloukkaus?</span><span class="hata-l">Tietomurto?</span></a>
+    <a class="puh" href="tel:+358401636588" data-lahde="y1"><i aria-hidden="true"></i>040 1636 588</a>
+    <details class="valikko"><summary>Valikko</summary><nav aria-label="Valikko"><a class="hata-v" href="b2-hata.html">Tietoturvaloukkaus? Toimi näin</a><a href="b2-etusivu.html#tarkista">Tarkista sähköposti</a><a href="b2-cybernet.html"><img src="assets/tunnus-cyber.webp" alt="" width="24" height="24">Kyberturva</a><a href="b2-lamisnet.html" aria-current="page"><img src="assets/tunnus-lamis.webp" alt="" width="24" height="24">IT-tuki</a><a href="b2-uutiset.html">Tietoturva nyt</a><a href="#yhteys">Ota yhteyttä</a><a href="tel:+358401636588" data-lahde="y1">Soita 040 1636 588</a></nav></details>
+  </div>
+</header>
+
+<main id="sisalto" tabindex="-1">
+<section class="tuki-hero" aria-labelledby="hero-o">
+  <div class="kapea tuki-grid">
+    <div>
+      <p class="silmake" data-lahde="l1 y1"><img src="assets/tunnus-lamis.webp" alt="" width="40" height="40"><span>LamisNET <i aria-hidden="true">·</i> IT-tuki ja etätuki Lappeenrannasta</span></p>
+      <h1 id="hero-o">Mikä ei toimi?</h1>
+      <p class="ingressi">Valitse, niin näet heti, mitä kannattaa tehdä. Kiireessä soita suoraan.</p>
+      <div class="tuki-suorat"><a class="nappi oranssi" href="tel:+358401636588" data-lahde="y1">Soita 040 1636 588</a><a class="sivulinkki" href="https://get.teamviewer.com/lamisnet" target="_blank" rel="noopener" data-tv data-lahde="l5"><span class="tv-teksti">Lataa etätuki&shy;ohjelma</span> <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5.5 3H13v7.5M13 3 3.5 12.5"/></svg><span class="vh"> (avautuu uuteen välilehteen)</span></a></div>
+      <p class="tuki-pieni" data-lahde="f3">Palvelu&shy;sopimusta ei tarvita.</p>
+      <p class="tuki-pieni">Avaa etäyhteys vain, kun olet itse ottanut meihin yhteyttä.</p>
+    </div>
+    <div class="valitsin">
+      <div class="vaihtoehdot" role="group" aria-label="Valitse, mikä ei toimi"><button type="button" aria-pressed="false" aria-controls="lappu" data-ongelma="netti" data-paatoiminto><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20v-3M9 20v-7M14 20V9M19 20V4"/></svg><span>Netti tai puhelinyhteys</span></button><button type="button" aria-pressed="false" aria-controls="lappu" data-ongelma="kone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4.5" y="5" width="15" height="10" rx="1.2"/><path d="M2 19h20"/></svg><span>Tietokone</span></button><button type="button" aria-pressed="false" aria-controls="lappu" data-ongelma="m365"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg><span>Sähköposti, Teams tai OneDrive</span></button><button type="button" aria-pressed="false" aria-controls="lappu" data-ongelma="wifi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 9a14 14 0 0 1 19 0M5.5 12.5a9.5 9.5 0 0 1 13 0M8.6 16a5 5 0 0 1 6.8 0"/><circle cx="12" cy="19.2" r="1.1" fill="currentColor" stroke="none"/></svg><span>Wi-Fi tai toimiston verkko</span></button><button type="button" aria-pressed="false" aria-controls="lappu" data-ongelma="tulostin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 8V3h10v5"/><rect x="3" y="8" width="18" height="9" rx="1.5"/><path d="M7 14h10v7H7z"/></svg><span>Tulostin</span></button><button type="button" aria-pressed="false" aria-controls="lappu" data-ongelma="uusi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 7.5 9-4.5 9 4.5v9L12 21l-9-4.5z"/><path d="m3 7.5 9 4.5 9-4.5M12 12v9"/></svg><span>Tarvitsemme uuden laitteen</span></button></div>
+      <p class="valitsin-vihje">Valitse ongelma, niin ohje tulee tähän.</p>
+      <div class="lappu" id="lappu" tabindex="-1"><article class="lappu-sisalto" data-ongelma="netti" aria-labelledby="lappu-netti"><div class="lappu-paa"><div><small>Tukilappu</small><h2 id="lappu-netti">Netti tai puhelinyhteys</h2></div><span>Tee näin</span></div><ol><li data-lahde="l7"><div><p>Katso Traficomin häiriö&shy;kartoista, onko alueellasi operaattorin häiriö.</p><a class="sivulinkki" href="https://www.traficom.fi/fi/puhelin-ja-laajakaista/puhelimen-ja-laajakaistan-kayttajalle/verkon-hairiot" target="_blank" rel="noopener">Avaa häiriö&shy;kartat <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5.5 3H13v7.5M13 3 3.5 12.5"/></svg><span class="vh"> (avautuu uuteen välilehteen)</span></a></div></li><li data-lahde="o1"><div><p>Käynnistä modeemi tai reititin uudelleen: irrota virtajohto, odota hetki ja kytke se takaisin.</p></div></li><li data-lahde="o1 y1"><div><p>Jos netti ei toimi millään laitteella, soita, niin katsotaan.</p></div></li></ol><div class="lappu-toiminnot"><a class="nappi oranssi" href="tel:+358401636588" data-lahde="y1">Soita 040 1636 588</a><a class="nappi reuna" href="#yhteys" data-aihe="Vika tai tukipyyntö" data-viesti="Ongelma: Netti tai puhelinyhteys. " data-huomio="Ongelma on viestikentässä. Kerro vielä, mitä tapahtuu.">Jätä tukipyyntö</a></div></article><article class="lappu-sisalto" data-ongelma="kone" aria-labelledby="lappu-kone"><div class="lappu-paa"><div><small>Tukilappu</small><h2 id="lappu-kone">Tietokone</h2></div><span>Tee näin</span></div><ol><li data-lahde="o1"><div><p>Tallenna, mitä voit, ja käynnistä kone uudelleen.</p></div></li><li data-lahde="l5 e10"><div><p>Jos vika jatkuu, lataa etätuki&shy;ohjelma valmiiksi ja soita. Avaa etäyhteys vain, kun olet itse ottanut meihin yhteyttä.</p><a class="sivulinkki" href="https://get.teamviewer.com/lamisnet" target="_blank" rel="noopener" data-tv><span class="tv-teksti">Lataa etätuki&shy;ohjelma</span> <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5.5 3H13v7.5M13 3 3.5 12.5"/></svg><span class="vh"> (avautuu uuteen välilehteen)</span></a></div></li></ol><div class="lappu-toiminnot"><a class="nappi oranssi" href="tel:+358401636588" data-lahde="y1">Soita 040 1636 588</a><a class="nappi reuna" href="#yhteys" data-aihe="Vika tai tukipyyntö" data-viesti="Ongelma: Tietokone. " data-huomio="Ongelma on viestikentässä. Kerro vielä, mitä tapahtuu.">Jätä tukipyyntö</a></div></article><article class="lappu-sisalto" data-ongelma="m365" aria-labelledby="lappu-m365"><div class="lappu-paa"><div><small>Tukilappu</small><h2 id="lappu-m365">Sähköposti, Teams tai OneDrive</h2></div><span>Tee näin</span></div><ol><li data-lahde="ms1"><div><p>Katso Microsoftin tilasivulta, onko palvelussa häiriö.</p><a class="sivulinkki" href="https://status.cloud.microsoft/" target="_blank" rel="noopener">Avaa Microsoftin tilasivu <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5.5 3H13v7.5M13 3 3.5 12.5"/></svg><span class="vh"> (avautuu uuteen välilehteen)</span></a></div></li><li data-lahde="o1"><div><p>Kokeile, toimiiko sama selaimella tai puhelimella.</p></div></li><li data-lahde="y1"><div><p>Epäiletkö, että joku on päässyt tunnuksillesi? Soita heti.</p></div></li></ol><div class="lappu-toiminnot"><a class="nappi oranssi" href="tel:+358401636588" data-lahde="y1">Soita 040 1636 588</a><a class="nappi reuna" href="#yhteys" data-aihe="Vika tai tukipyyntö" data-viesti="Ongelma: Sähköposti, Teams tai OneDrive. " data-huomio="Ongelma on viestikentässä. Kerro vielä, mitä tapahtuu.">Jätä tukipyyntö</a></div></article><article class="lappu-sisalto" data-ongelma="wifi" aria-labelledby="lappu-wifi"><div class="lappu-paa"><div><small>Tukilappu</small><h2 id="lappu-wifi">Wi-Fi tai toimiston verkko</h2></div><span>Tee näin</span></div><ol><li data-lahde="o1"><div><p>Katso, toimiiko netti muilla laitteilla tai verkkokaapelilla kytketyllä koneella.</p></div></li><li data-lahde="o1"><div><p>Käynnistä Wi-Fi-tukiasema tai reititin uudelleen.</p></div></li><li data-lahde="l6 y1"><div><p>Jos vika jatkuu, soita, niin katsotaan yhdessä.</p></div></li></ol><div class="lappu-toiminnot"><a class="nappi oranssi" href="tel:+358401636588" data-lahde="y1">Soita 040 1636 588</a><a class="nappi reuna" href="#yhteys" data-aihe="Vika tai tukipyyntö" data-viesti="Ongelma: Wi-Fi tai toimiston verkko. " data-huomio="Ongelma on viestikentässä. Kerro vielä, mitä tapahtuu.">Jätä tukipyyntö</a></div></article><article class="lappu-sisalto" data-ongelma="tulostin" aria-labelledby="lappu-tulostin"><div class="lappu-paa"><div><small>Tukilappu</small><h2 id="lappu-tulostin">Tulostin</h2></div><span>Tee näin</span></div><ol><li data-lahde="o1"><div><p>Tarkista, että tulostimessa on virta ja paperia eikä sen näytöllä ole virheilmoitusta.</p></div></li><li data-lahde="o1"><div><p>Tyhjennä tulostusjono koneelta ja käynnistä tulostin uudelleen.</p></div></li><li data-lahde="y1"><div><p>Jos vika jatkuu, soita tai jätä tukipyyntö ja kerro tulostimen malli.</p></div></li></ol><div class="lappu-toiminnot"><a class="nappi oranssi" href="tel:+358401636588" data-lahde="y1">Soita 040 1636 588</a><a class="nappi reuna" href="#yhteys" data-aihe="Vika tai tukipyyntö" data-viesti="Ongelma: Tulostin. " data-huomio="Ongelma on viestikentässä. Kerro vielä, mitä tapahtuu.">Jätä tukipyyntö</a></div></article><article class="lappu-sisalto" data-ongelma="uusi" aria-labelledby="lappu-uusi"><div class="lappu-paa"><div><small>Tukilappu</small><h2 id="lappu-uusi">Tarvitsemme uuden laitteen</h2></div><span>Tee näin</span></div><ol><li data-lahde="f2"><div><p>Saat laitteen valmiiksi asennettuna ja tiedot siirrettyinä, avaimet käteen.</p></div></li><li data-lahde="l3"><div><p>Hankimme laitteet ja ohjelmistot yhdessä valmistajien kanssa.</p></div></li><li data-lahde="f3"><div><p>Palvelu&shy;sopimusta ei tarvita.</p></div></li></ol><div class="lappu-toiminnot"><a class="nappi oranssi" href="#yhteys" data-aihe="Laitteet" data-viesti="Tarvitsemme uuden laitteen: " data-huomio="Aihe on viestikentässä. Kerro vielä, mitä laitteita tarvitset.">Pyydä tarjous</a><a class="sivulinkki" href="tel:+358401636588" data-lahde="y1">Soita 040 1636 588</a></div></article></div>
+    </div>
+  </div>
+</section>
+
+<section class="lohko" id="palvelut" aria-labelledby="pal-o">
+  <div class="kapea kapea-s">
+    <h2 class="o2" id="pal-o">Sama yhteyshenkilö kaikkeen arjen IT:hen</h2>
+    <p class="ingressi" data-lahde="l2">Saat samalta yhteyshenkilöltä apua arjen IT-ongelmiin, Microsoft 365:n käyttöönottoon ja ylläpitoon sekä verkon ja työasemien suojaamiseen.</p>
+    <dl class="palvelulista"><div data-lahde="l3 l5"><dt>IT-tuki ja laitteet</dt><dd>Hankinnat, asennukset, korjaukset ja etätuki.</dd></div><div data-lahde="l4"><dt>Microsoft 365</dt><dd>Sähköpostin, Teamsin ja OneDriven käyttöönotto ja ylläpito.</dd></div><div data-lahde="l6"><dt>Verkot ja Wi-Fi</dt><dd>Yrityksen verkkoyhteydet ja niihin liittyvät laitteet.</dd></div></dl>
+  </div>
+</section>
+
+<section class="lohko paperi" id="ukk" aria-labelledby="ukk-o">
+  <div class="kapea kapea-s">
+    <h2 class="o2" id="ukk-o">Usein kysyttyä</h2>
+    <div class="ukk"><details data-lahde="f1"><summary>Kuinka tilaan kartoituksen ja mitä se maksaa?</summary><p>Kerro lyhyesti asiasta alla olevalla lomakkeella, niin otamme sinuun yhteyttä. Sovimme hinnan ennen kuin työ alkaa.</p></details><details data-lahde="f2"><summary>Saanko uudet laitteet valmiiksi asennettuina ja tiedot siirrettyinä?</summary><p>Kyllä, se on mahdollista. Saat lähes minkä tahansa IT-laitteen tai -palvelun yhdeltä luukulta, avaimet käteen.</p></details><details data-lahde="f3"><summary>Pitääkö tehdä palvelu&shy;sopimus?</summary><p>Ei. Voit ostaa laitteita ja tilata yksittäisiä tukitöitä ilman jatkuvaa palvelu&shy;sopimusta. Jos käsittelemme työssä henkilötietoja yrityksesi puolesta, sovimme siitä kirjallisesti ennen työn aloittamista.</p></details><details data-lahde="f4"><summary>Miten voin luottaa teihin, kun emme ole ennen tehneet yhteistyötä?</summary><p>Meillä on yli 30 vuoden kokemus alalta. Voit aloittaa yhdellä tukityöllä. Sovimme aina etukäteen, mitä tehdään ja miten työ laskutetaan.</p></details></div>
+  </div>
+</section>
+
+<section class="lohko " id="yhteys" aria-labelledby="yh-o">
+  <div class="kapea kapea-s">
+    <h2 class="o2" id="yh-o">Jätä tukipyyntö</h2>
+    <p class="ingressi" data-lahde="f1 l2">Kerro lyhyesti, mikä ei toimi, niin otamme sinuun yhteyttä.</p>
+    <div class="yh-suorat" data-lahde="y1"><a href="tel:+358401636588">+358 40 1636 588</a><a href="mailto:asiakaspalvelu@lamisnet.fi">asiakaspalvelu@lamisnet.fi</a></div>
+    <form class="yh-lomake" novalidate data-esimerkki>
+      <fieldset class="aiheet"><legend>Mitä asia koskee?</legend><div><label><input type="radio" name="aihe" value="Vika tai tukipyyntö" checked><span>Vika tai tukipyyntö</span></label><label><input type="radio" name="aihe" value="Laitteet"><span>Laitteet</span></label><label><input type="radio" name="aihe" value="Microsoft 365"><span>Microsoft 365</span></label><label><input type="radio" name="aihe" value="Kartoitus"><span>Kartoitus</span></label></div></fieldset>
+      <div class="kentat">
+        <label class="kentta"><span>Nimi</span><input type="text" name="nimi" autocomplete="name" required></label>
+        <label class="kentta"><span>Sähköposti tai puhelin</span><input type="text" name="yhteys" autocomplete="email" inputmode="email" required></label>
+        <label class="kentta koko"><span>Yritys tai verkkotunnus (vapaaehtoinen)</span><input type="text" name="yritys" autocomplete="organization"></label>
+        <label class="kentta koko"><span>Viesti (vapaaehtoinen)</span><textarea name="viesti" rows="4"></textarea></label>
+      </div>
+      <div class="lisat" data-aiheelle="Vika tai tukipyyntö">
+        <p class="lisat-o">Tarkemmat tiedot <span>(vapaaehtoinen)</span></p>
+        <fieldset class="aiheet pieni"><legend>Kuinka kiire?</legend><div><label><input type="radio" name="kiire" value="Heti"><span>Heti</span></label><label><input type="radio" name="kiire" value="Tänään"><span>Tänään</span></label><label><input type="radio" name="kiire" value="Ei kiirettä"><span>Ei kiirettä</span></label></div></fieldset>
+        <fieldset class="aiheet pieni"><legend>Montako käyttäjää vika koskee?</legend><div><label><input type="radio" name="kayttajia" value="Yksi"><span>Yksi</span></label><label><input type="radio" name="kayttajia" value="Useampi"><span>Useampi</span></label><label><input type="radio" name="kayttajia" value="Kaikki"><span>Kaikki</span></label></div></fieldset>
+        <label class="kentta"><span>Milloin vika alkoi?</span><input type="text" name="alkoi" autocomplete="off"></label>
+      </div>
+      <p class="yh-mukana" hidden></p>
+      <p class="yh-virhe" role="alert" hidden></p>
+      <div class="yh-loppu">
+        <p class="yh-ehto">Sovimme hinnan ennen kuin työ alkaa.</p>
+        <button type="submit" class="nappi a1">Lähetä pyyntö</button>
+        <p class="yh-tietosuoja">Tietojen käsittely: <a href="b2-tietosuoja.html">Tietosuoja</a></p>
+      </div>
+    </form>
+    <div class="yh-kiitos" tabindex="-1" hidden>
+      <p class="yh-nro"></p>
+      <h3>Kiitos, pyyntösi on perillä.</h3>
+      <p class="seur-o">Mitä seuraavaksi</p>
+      <ol class="yh-seuraavaksi">
+        <li>Luemme pyyntösi ja otamme sinuun yhteyttä.</li>
+        <li>Sovimme hinnan ja aikataulun ennen kuin työ alkaa.</li>
+        <li data-lahde="y1">Kiireessä soita <a href="tel:+358401636588">040 1636 588</a>.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="ala">
+  <div class="kapea">
+    <img src="assets/logo-cnp.webp" alt="CNP Group" width="900" height="359" loading="lazy">
+    <p data-lahde="y1">LamisNET Palvelut Oy · Y-tunnus 3161928-7 · aputoiminimet CNP Group ja CNP CyberNET Palvelut · Lappeenranta.</p>
+    <nav aria-label="Alatunniste"><a href="b2-etusivu.html">Etusivu</a><a href="b2-cybernet.html">Kyberturva</a><a href="b2-lamisnet.html" aria-current="page">IT-tuki</a><a href="b2-uutiset.html">Tietoturva nyt</a><a href="b2-tietosuoja.html">Tietosuoja</a></nav>
+  </div>
+</footer>
+<div class="soittopalkki"><a class="nappi a1" href="tel:+358401636588" data-lahde="y1">Soita 040 1636 588</a><a class="nappi sp2" href="#yhteys" data-aihe="Vika tai tukipyyntö">Jätä tukipyyntö</a></div>
+<p class="vh" role="status" aria-live="polite" id="tila"></p>
+
+<script>
+(() => {
+'use strict';
+const rm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $ = (s, el = document) => el.querySelector(s);
+const $$ = (s, el = document) => [...el.querySelectorAll(s)];
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const tilaRivi = $('#tila');
+function vierita(el){ el.scrollIntoView({ behavior: rm ? 'auto' : 'smooth', block: 'start' }); }
+function nayta(el){ el.hidden = false; el.focus({ preventScroll: true }); const r = el.getBoundingClientRect(); if (r.top < 90 || r.top > innerHeight * .65) vierita(el); }
+
+/* Valikko sulkeutuu, kun klikataan muualle tai linkkiä */
+document.addEventListener('click', e => { const v = $('.valikko'); if (v && v.open && (!v.contains(e.target) || e.target.closest('.valikko nav a'))) v.open = false; });
+
+/* Etusivun pikaraportti: säilyy vain tämän välilehden muistissa (sessionStorage), ei lähde minnekään */
+const RAP = (() => { try { const r = JSON.parse(sessionStorage.getItem('cnp-pikaraportti') || 'null'); return r && r.v === 1 ? r : null; } catch (e) { return null; } })();
+
+/* ================= YHTEYDENOTTO (demo ei lähetä mitään) ================= */
+const lomake = $('.yh-lomake'), kiitos = $('.yh-kiitos');
+let esitayta = () => {};
+if (lomake){
+  const lVirhe = $('.yh-virhe', lomake), mukana = $('.yh-mukana', lomake), lisat = $('.lisat', lomake);
+  /* Tarkemmat tiedot (vain tukipyynnössä): näkyvät, kun aihe on se, jolle ne on tehty */
+  const paivitaLisat = () => { if (!lisat) return; const v = $('input[name=aihe]:checked', lomake); lisat.hidden = !v || v.value !== lisat.dataset.aiheelle; };
+  lomake.addEventListener('change', e => { if (e.target.name === 'aihe') paivitaLisat(); });
+  esitayta = (aihe, viesti, huomio) => {
+    const r = $(`input[name=aihe][value="${aihe}"]`, lomake); if (r) r.checked = true;
+    paivitaLisat();
+    if (viesti == null) return false;
+    lomake.viesti.value = viesti; mukana.textContent = huomio; mukana.hidden = false;
+    return true;
+  };
+  paivitaLisat();
+  /* Esitäytön jälkeen vieritetään suoraan viestikenttään, jotta kävijä näkee, mitä siihen tuli */
+  const viestiin = () => {
+    const t = lomake.viesti;
+    t.scrollIntoView({ behavior: rm ? 'auto' : 'smooth', block: 'center' });
+    if (matchMedia('(hover: hover)').matches){ t.focus({ preventScroll: true }); t.setSelectionRange(t.value.length, t.value.length); }
+  };
+  document.addEventListener('click', e => {
+    const a = e.target.closest('[data-aihe]'); if (!a) return;
+    let tayttyi;
+    if (a.hasAttribute('data-raportti') && RAP){
+      tayttyi = esitayta(a.dataset.aihe, RAP.yhteenveto, 'Pikaraportin yhteenveto on viestikentässä. Voit muokata sitä ennen lähettämistä.');
+      if (RAP.dns && !lomake.yritys.value) lomake.yritys.value = RAP.dns.naytto;
+    } else tayttyi = esitayta(a.dataset.aihe, a.dataset.viesti ?? null, a.dataset.huomio || 'Aihe on viestikentässä valmiina. Voit täydentää sitä.');
+    if (tayttyi && !lomake.hidden && a.getAttribute('href') === '#yhteys'){ e.preventDefault(); viestiin(); }
+  });
+  const sahkoposti = s => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(s), puhelin = s => /^[+()\d\s-]{7,}$/.test(s) && s.replace(/\D/g, '').length >= 7;
+  /* Pyynnön tunniste: sama kuin pikaraportilla, jos raportti on tehty; muuten päivä ja satunnainen loppu */
+  const pyyntoNro = () => {
+    if (RAP && RAP.nro && RAP.nro !== '–') return RAP.nro;
+    const p = new Date(), kaksi = n => String(n).padStart(2, '0');
+    const loppu = Math.floor(Math.random() * 65536).toString(16).toUpperCase().padStart(4, '0');
+    return `CNP-${String(p.getFullYear()).slice(2)}${kaksi(p.getMonth() + 1)}${kaksi(p.getDate())}-${loppu}`;
+  };
+  lomake.addEventListener('submit', e => {
+    e.preventDefault();
+    const nimi = lomake.nimi.value.trim(), yh = lomake.yhteys.value.trim();
+    [lomake.nimi, lomake.yhteys].forEach(x => x.removeAttribute('aria-invalid'));
+    if (!nimi){ lVirhe.textContent = 'Kirjoita nimesi.'; lVirhe.hidden = false; lomake.nimi.setAttribute('aria-invalid', 'true'); lomake.nimi.focus(); return; }
+    if (!sahkoposti(yh) && !puhelin(yh)){ lVirhe.textContent = 'Kirjoita sähköpostiosoite (nimi@yritys.fi) tai puhelinnumero.'; lVirhe.hidden = false; lomake.yhteys.setAttribute('aria-invalid', 'true'); lomake.yhteys.focus(); return; }
+    lVirhe.hidden = true; lomake.hidden = true;
+    $('.yh-nro', kiitos).textContent = `Pyyntö ${pyyntoNro()}`;
+    nayta(kiitos);
+  });
+}
+
+/* ================= MIKÄ EI TOIMI: valinta kokoaa tukilapun ================= */
+const vNapit = $$('.vaihtoehdot button'), lappu = $('#lappu'), laput = $$('.lappu-sisalto'), vihje = $('.valitsin-vihje');
+const sp2 = $('.soittopalkki .sp2'), sp2Alku = { teksti: sp2.textContent, aihe: sp2.dataset.aihe || '' };
+/* Mobiilin alapalkin toinen painike saa avoimen lapun pyynnön, jotta samoja painikkeita ei ole kahteen kertaan */
+function palkki(l){
+  const a = l && $('.lappu-toiminnot [data-aihe]', l);
+  if (a){
+    sp2.textContent = a.textContent; sp2.dataset.aihe = a.dataset.aihe;
+    if (a.dataset.viesti != null){ sp2.dataset.viesti = a.dataset.viesti; sp2.dataset.huomio = a.dataset.huomio || ''; }
+  } else { sp2.textContent = sp2Alku.teksti; sp2.dataset.aihe = sp2Alku.aihe; delete sp2.dataset.viesti; delete sp2.dataset.huomio; }
+}
+/* Lappu vieritetään näkyviin, jos se ei mahdu ruutuun (desktop ja mobiili) */
+function nakyviin(){
+  requestAnimationFrame(() => {
+    const r = lappu.getBoundingClientRect(), yla = 84, ala = innerHeight - (matchMedia('(max-width: 760px)').matches ? 80 : 16);
+    let d = 0;
+    if (r.bottom > ala) d = Math.min(r.bottom - ala, r.top - yla);
+    else if (r.top < yla) d = r.top - yla;
+    if (Math.abs(d) > 4) scrollBy({ top: d, behavior: rm ? 'auto' : 'smooth' });
+  });
+}
+vNapit.forEach(b => b.addEventListener('click', () => {
+  const id = b.dataset.ongelma, auki = b.getAttribute('aria-pressed') === 'true';
+  vNapit.forEach(x => x.setAttribute('aria-pressed', String(x === b && !auki)));
+  laput.forEach(l => l.classList.toggle('auki', !auki && l.dataset.ongelma === id));
+  lappu.classList.toggle('auki', !auki); vihje.hidden = !auki;
+  palkki(auki ? null : laput.find(l => l.dataset.ongelma === id));
+  if (auki) return;
+  tilaRivi.textContent = `Tukilappu: ${$('span', b).textContent}`;
+  nakyviin();
+}));
+
+/* K6: etätukiohjelman painike kertoo käyttöjärjestelmän (sama TeamViewer-linkki kaikille) */
+const kj = (() => {
+  const ua = navigator.userAgent || '', p = ((navigator.userAgentData && navigator.userAgentData.platform) || navigator.platform || '').toLowerCase();
+  if (/android|iphone|ipad|ipod|mobile/i.test(ua) || (p.includes('mac') && navigator.maxTouchPoints > 1)) return '';
+  if (p.includes('win') || /windows/i.test(ua)) return 'Windowsille';
+  if (p.includes('mac') || /mac os x/i.test(ua)) return 'Macille';
+  return '';
+})();
+if (kj) $$('[data-tv] .tv-teksti').forEach(s => { s.textContent = `Lataa etätukiohjelma ${kj}`; });
+
+})();
+</script>
+</body>
+</html>

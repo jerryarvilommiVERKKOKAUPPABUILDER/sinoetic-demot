@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Asiakasportaali – CNP Group (konseptidemo, esikatselu)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400..800&display=swap" rel="stylesheet">
+<style>
+:root{--pohja:#f3f4f6;--valk:#fff;--muste:#0b1730;--muste2:#4b556b;--viiva:#dfe2e8;--yo:#071127;--kulta:#d9a441;--sin:#1f55c9;--f:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:var(--pohja);color:var(--muste);font-family:var(--f);font-size:16.5px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3,p{margin:0}
+h1,h2,h3{letter-spacing:-.02em;line-height:1.15;font-weight:700}
+:focus-visible{outline:2px solid var(--sin);outline-offset:3px;border-radius:6px}
+.kapea{max-width:960px;margin:0 auto;padding:0 28px}
+.demopalkki{background:#01040c;color:#aab6cf;font-size:12.5px;letter-spacing:.02em;text-align:center;padding:7px 16px;line-height:1.35}
+.yla{background:var(--valk);border-bottom:1px solid var(--viiva)}
+.yla .kapea{display:flex;align-items:center;gap:16px;height:68px}
+.yla img{height:48px;width:auto;margin-left:-6px}
+.yla strong{font-size:15px;font-weight:700;color:var(--muste2);padding-left:16px;border-left:1px solid var(--viiva)}
+.yla .oikea{margin-left:auto;display:flex;align-items:center;gap:8px 18px;font-size:14.5px}
+.yla .oikea b{font-weight:700}
+.linkki{all:unset;cursor:pointer;font-weight:700;font-size:14.5px;color:var(--muste2);text-decoration:underline;text-underline-offset:4px;min-height:44px;display:inline-flex;align-items:center}
+.linkki:hover{color:var(--muste)}
+.nappi{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:0 24px;border-radius:12px;font-weight:800;font-size:15.5px;background:var(--yo);color:#fff;transition:transform .2s}
+.nappi:hover{transform:translateY(-2px)}
+.nappi.kevyt{background:var(--valk);color:var(--muste);box-shadow:inset 0 0 0 1.5px var(--viiva)}
+.nappi svg{width:16px;height:16px}
+
+/* Kirjautuminen */
+.kirj{min-height:calc(100svh - 105px);display:grid;place-items:center;padding:32px 20px}
+.kirj-kortti{background:var(--valk);border:1px solid var(--viiva);border-radius:20px;padding:clamp(28px,4vw,48px);max-width:460px;width:100%;text-align:center;box-shadow:0 30px 60px -44px rgba(7,17,39,.5)}
+.kirj-kortti img{height:84px;width:auto;margin:0 auto 18px}
+.kirj-kortti h1{font-size:clamp(28px,4vw,36px)}
+.kirj-kortti p{margin-top:12px;color:var(--muste2)}
+.kirj-kortti .nappi{margin-top:26px;width:100%}
+.kirj-kortti small{display:block;margin-top:18px;font-size:13.5px;color:var(--muste2);line-height:1.5}
+
+/* Työpöytä */
+.tyop{padding:clamp(28px,4vw,48px) 0 64px}
+.tervetuloa{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:16px 24px}
+.tervetuloa small{display:block;font-size:12.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muste2);margin-bottom:6px}
+.tervetuloa h1{font-size:clamp(28px,4vw,40px)}
+.luvut{list-style:none;margin:clamp(22px,3vw,32px) 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.luvut li{background:var(--valk);border:1px solid var(--viiva);border-radius:16px;padding:18px 20px}
+.luvut b{display:block;font-size:34px;font-weight:800;letter-spacing:-.03em;line-height:1}
+.luvut span{display:block;margin-top:6px;font-size:14.5px;color:var(--muste2)}
+.luvut li.huomio{border-color:#e9b98a;background:#fff8f1}
+.luvut li.huomio b{color:#b3480a}
+
+.uusi{background:var(--valk);border:1px solid var(--viiva);border-radius:16px;padding:clamp(20px,3vw,28px);margin-top:18px;display:grid;gap:16px}
+.uusi h2{font-size:22px}
+.uusi label>span,.uusi legend{display:block;font-size:14px;font-weight:700;margin-bottom:8px;padding:0}
+.uusi input[type=text]{width:100%;font:inherit;font-size:16px;border:1px solid var(--viiva);border-radius:10px;padding:12px 14px;min-height:50px}
+.uusi input[type=text]:focus{outline:2px solid var(--sin);outline-offset:1px;border-color:transparent}
+.uusi fieldset{border:0;margin:0;padding:0;min-width:0}
+.sirut{display:flex;flex-wrap:wrap;gap:8px}
+.sirut label{position:relative;cursor:pointer}
+.sirut input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
+.uusi .sirut label>span{display:inline-flex;align-items:center;min-height:44px;margin:0;padding:0 16px;border:1px solid var(--viiva);border-radius:999px;font-size:15px;font-weight:600;color:var(--muste2)}
+.uusi .sirut input:checked+span{background:var(--muste);border-color:var(--muste);color:#fff}
+.uusi .sirut input:focus-visible+span{outline:2px solid var(--sin);outline-offset:2px}
+.uusi .rivi{display:flex;flex-wrap:wrap;align-items:center;gap:8px 20px}
+.virhe{font-size:14.5px;font-weight:600;color:#a3260a}
+.kuitti{background:#eef7f1;border:1px solid #b9dcc6;border-radius:14px;padding:14px 18px;margin-top:18px;font-size:15px}
+.kuitti:focus{outline:none}
+
+.valil{display:flex;flex-wrap:wrap;gap:8px;margin-top:clamp(28px,4vw,40px)}
+.valil button{all:unset;box-sizing:border-box;cursor:pointer;min-height:44px;padding:0 18px;border:1px solid var(--viiva);border-radius:999px;background:var(--valk);font-size:15px;font-weight:700;color:var(--muste2);display:inline-flex;align-items:center;gap:8px}
+.valil button i{font-style:normal;font-size:13px;font-weight:800;background:var(--pohja);border-radius:999px;padding:2px 8px;color:var(--muste2)}
+.valil button[aria-selected="true"]{background:var(--muste);border-color:var(--muste);color:#fff}
+.valil button[aria-selected="true"] i{background:rgba(255,255,255,.18);color:#fff}
+.valil button:focus-visible{outline:2px solid var(--sin);outline-offset:2px}
+.tyot{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:12px}
+.tyo{background:var(--valk);border:1px solid var(--viiva);border-radius:16px;padding:18px 22px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 20px;align-items:start}
+.tyo h3{font-size:19px}
+.tyo p{color:var(--muste2);font-size:15px;grid-column:1}
+.tyo p b{color:var(--muste);font-weight:700}
+.tila{grid-row:1/3;grid-column:2;display:inline-flex;align-items:center;gap:8px;min-height:32px;padding:0 12px;border-radius:999px;font-size:13px;font-weight:800;white-space:nowrap;background:#eaf0fb;color:#1c459f}
+.tila::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor}
+.tila.odottaa{background:#fff1e3;color:#a6460a}
+.tila.sovittu{background:#f3efe2;color:#73540c}
+.tila.valmis{background:#e8f5ec;color:#1c6e40}
+.tila.uusi-t{background:#efeafb;color:#4a2bb0}
+.alahuom{margin-top:28px;font-size:13.5px;color:var(--muste2);text-align:center}
+@media (max-width:640px){
+  .kapea{padding:0 18px}
+  .yla strong{display:none}
+  .yla .oikea b{display:none}
+  .luvut{grid-template-columns:1fr 1fr 1fr;gap:8px}
+  .luvut li{padding:14px 12px}
+  .luvut b{font-size:28px}
+  .luvut span{font-size:13px}
+  .tyo{grid-template-columns:1fr}
+  .tila{grid-row:auto;grid-column:1;justify-self:start}
+  .tervetuloa .nappi{width:100%}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div class="demopalkki" data-demopalkki>Epävirallinen konseptidemo – ei LamisNET Palvelut Oy:n virallinen sivusto</div>
+<header class="yla">
+  <div class="kapea">
+    <a href="oma-etusivu.html" class="takaisin" aria-label="Takaisin sivustolle"><img src="assets/logo-cnp.png" alt="CNP Group" width="900" height="360"></a>
+    <strong>Asiakasportaali</strong>
+    <div class="oikea">
+      <b class="kuka" hidden data-esimerkki>Esimerkkiyritys Oy</b>
+      <button type="button" class="linkki ulos" hidden>Kirjaudu ulos</button>
+      <a class="linkki takaisin" href="oma-etusivu.html">Takaisin sivustolle</a>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="kirj" id="kirjautuminen">
+  <div class="kirj-kortti">
+    <img src="assets/tunnus-cnp.png" alt="" width="84" height="84">
+    <h1>Asiakasportaali</h1>
+    <p>Näe yrityksesi työt yhdestä paikasta ja lähetä uusi työ suoraan meille.</p>
+    <button type="button" class="nappi sisaan" data-paatoiminto>Avaa esimerkkiyrityksen näkymä</button>
+    <small data-esimerkki>Tämä on esikatselu tulevasta portaalista. Näkymän tiedot ovat esimerkkejä. Valmiissa portaalissa kirjaudutaan omilla tunnuksilla.</small>
+  </div>
+</section>
+
+<section class="tyop" id="tyopoyta" hidden tabindex="-1" data-esimerkki>
+  <div class="kapea">
+    <div class="tervetuloa">
+      <div><small>Esimerkkinäkymä</small><h1>Esimerkkiyritys Oy</h1></div>
+      <button type="button" class="nappi avaa-uusi">Lisää uusi työ</button>
+    </div>
+
+    <ul class="luvut">
+      <li><b>3</b><span>Käynnissä</span></li>
+      <li class="huomio"><b>1</b><span>Odottaa vastaustasi</span></li>
+      <li><b>2</b><span>Tulossa</span></li>
+    </ul>
+
+    <form class="uusi" hidden novalidate>
+      <h2>Uusi työ</h2>
+      <label><span>Mitä tarvitaan?</span><input type="text" name="mita" autocomplete="off" placeholder="Esim. uusi työntekijä aloittaa, tarvitaan kone"></label>
+      <fieldset><legend>Milloin?</legend><div class="sirut">
+        <label><input type="radio" name="milloin" value="Mahdollisimman pian" checked><span>Mahdollisimman pian</span></label>
+        <label><input type="radio" name="milloin" value="Tällä viikolla"><span>Tällä viikolla</span></label>
+        <label><input type="radio" name="milloin" value="Ei kiirettä"><span>Ei kiirettä</span></label>
+      </div></fieldset>
+      <p class="virhe" role="alert" hidden>Kerro lyhyesti, mitä tarvitaan.</p>
+      <div class="rivi"><button type="submit" class="nappi">Lähetä</button><button type="button" class="linkki peru">Peruuta</button></div>
+    </form>
+    <p class="kuitti" tabindex="-1" hidden>Työ on lisätty Tulossa-listalle. Tämä on demo, joten mitään ei lähetetty.</p>
+
+    <div class="valil" role="tablist" aria-label="Työt">
+      <button type="button" role="tab" id="t-0" aria-controls="p-0" aria-selected="true">Käynnissä <i>3</i></button>
+      <button type="button" role="tab" id="t-1" aria-controls="p-1" aria-selected="false" tabindex="-1">Tulossa <i class="tulossa-n">2</i></button>
+      <button type="button" role="tab" id="t-2" aria-controls="p-2" aria-selected="false" tabindex="-1">Valmiit <i>2</i></button>
+    </div>
+
+    <ul class="tyot" role="tabpanel" id="p-0" aria-labelledby="t-0">
+      <li class="tyo"><h3>Kahden kannettavan asennus ja tietojen siirto</h3><p><b>Tarvitsemme sinulta:</b> ajan, jolloin vanhat koneet saa hakea.</p><span class="tila odottaa">Odottaa vastaustasi</span></li>
+      <li class="tyo"><h3>Microsoft 365: monivaiheinen tunnistautuminen</h3><p><b>Seuraavaksi:</b> käyttöönotto henkilöstölle to 26.11.</p><span class="tila">Työn alla</span></li>
+      <li class="tyo"><h3>Palomuurin päivitys</h3><p><b>Sovittu:</b> pe 27.11. klo 16 jälkeen.</p><span class="tila sovittu">Sovittu</span></li>
+    </ul>
+    <ul class="tyot" role="tabpanel" id="p-1" aria-labelledby="t-1" hidden>
+      <li class="tyo malli" hidden><h3></h3><p></p><span class="tila uusi-t">Vastaanotettu</span></li>
+      <li class="tyo"><h3>Varmuuskopioiden palautustesti</h3><p><b>Ajankohta:</b> viikko 49.</p><span class="tila sovittu">Aikataulutettu</span></li>
+      <li class="tyo"><h3>Tietoturvakartoituksen seuranta</h3><p><b>Ajankohta:</b> tammikuu 2027.</p><span class="tila sovittu">Aikataulutettu</span></li>
+    </ul>
+    <ul class="tyot" role="tabpanel" id="p-2" aria-labelledby="t-2" hidden>
+      <li class="tyo"><h3>Wi-Fi-tukiaseman vaihto neuvotteluhuoneeseen</h3><p>Valmistui 12.11.</p><span class="tila valmis">Valmis</span></li>
+      <li class="tyo"><h3>Tietoturvakartoitus ja raportti</h3><p>Valmistui 5.11.</p><span class="tila valmis">Valmis</span></li>
+    </ul>
+
+    <p class="alahuom">Esikatselu: työt ovat esimerkkejä. Valmiissa portaalissa tiedot tulevat suoraan toiminnanohjauksesta.</p>
+  </div>
+</section>
+</main>
+
+<script>
+(function(){
+  var kirj=document.getElementById('kirjautuminen'),tp=document.getElementById('tyopoyta');
+  var kuka=document.querySelector('.kuka'),ulos=document.querySelector('.ulos');
+  if(/[?&]oma/.test(location.search)||/oma-/.test(document.referrer)){[].forEach.call(document.querySelectorAll('a.takaisin'),function(a){a.href='oma-etusivu.html';});}
+  function tila(sisalla){kirj.hidden=sisalla;tp.hidden=!sisalla;kuka.hidden=!sisalla;ulos.hidden=!sisalla;if(sisalla){tp.focus({preventScroll:true});scrollTo(0,0);}}
+  document.querySelector('.sisaan').addEventListener('click',function(){tila(true);});
+  ulos.addEventListener('click',function(){tila(false);});
+
+  var napit=[].slice.call(document.querySelectorAll('.valil [role=tab]')),paneelit=napit.map(function(b){return document.getElementById(b.getAttribute('aria-controls'));});
+  function valitse(i,kohdista){napit.forEach(function(b,n){b.setAttribute('aria-selected',n===i?'true':'false');b.tabIndex=n===i?0:-1;});paneelit.forEach(function(p,n){p.hidden=n!==i;});if(kohdista)napit[i].focus();}
+  napit.forEach(function(b,i){b.addEventListener('click',function(){valitse(i,false);});
+    b.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){valitse((i+1)%3,true);e.preventDefault();}if(e.key==='ArrowLeft'){valitse((i+2)%3,true);e.preventDefault();}});});
+
+  var lomake=document.querySelector('.uusi'),kuitti=document.querySelector('.kuitti'),virhe=lomake.querySelector('.virhe'),avaa=document.querySelector('.avaa-uusi'),n=2;
+  avaa.addEventListener('click',function(){lomake.hidden=false;kuitti.hidden=true;lomake.mita.focus();});
+  lomake.querySelector('.peru').addEventListener('click',function(){lomake.hidden=true;virhe.hidden=true;avaa.focus();});
+  lomake.addEventListener('submit',function(e){e.preventDefault();
+    var mita=lomake.mita.value.trim();if(!mita){virhe.hidden=false;lomake.mita.focus();return;}
+    var malli=document.querySelector('.tyo.malli'),uusi=malli.cloneNode(true);uusi.classList.remove('malli');uusi.hidden=false;
+    uusi.querySelector('h3').textContent=mita;uusi.querySelector('p').textContent='Toive: '+lomake.milloin.value+'.';
+    malli.parentNode.insertBefore(uusi,malli.nextSibling);
+    n++;document.querySelector('.tulossa-n').textContent=n;document.querySelector('.luvut li:nth-child(3) b').textContent=n;
+    lomake.reset();lomake.hidden=true;virhe.hidden=true;valitse(1,false);kuitti.hidden=false;kuitti.focus();});
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,796 @@
+<!doctype html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Kyberturva ja kartoitus yrityksille – CNP CyberNET, Lappeenranta</title>
+<meta name="description" content="Kartoitus kertoo, mitä yrityksesi tietoturvassa kannattaa tehdä heti ja mitä myöhemmin: sähköposti ja Microsoft 365, työasemat ja palvelimet, yritysverkko ja henkilöstö. CNP CyberNET, Lappeenranta." data-lahde="c4">
+<meta property="og:title" content="Kyberturva ja kartoitus yrityksille – CNP CyberNET, Lappeenranta">
+<meta property="og:description" content="Kartoitus kertoo, mitä yrityksesi tietoturvassa kannattaa tehdä heti ja mitä myöhemmin: sähköposti ja Microsoft 365, työasemat ja palvelimet, yritysverkko ja henkilöstö. CNP CyberNET, Lappeenranta.">
+<meta property="og:image" content="assets/banneri-2172.jpg">
+<link rel="icon" href="assets/tunnus-cnp.webp" type="image/webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400..700&family=Manrope:wght@400..800&display=swap" rel="stylesheet">
+<!--
+  LamisNET / CNP Group, vaihtoehto B2, alasivu (21.11.2026). Tehty skriptillä rakenna_b2.py – muokkaa sitä, älä tätä tiedostoa.
+  Kyberturva: kartoituskartta näyttää etusivun pikaraportin alueittain; johtimet kokoontuvat pieneen CyberNET-tunnukseen kuten Ismon bannerissa.
+-->
+<script>document.documentElement.classList.add('js')</script>
+<style>
+:root{
+  --pohja:#f6f2ea; --paperi:#fffdf8; --muste:#0b1730; --muste2:#49546c; --viiva:rgba(11,23,48,.15);
+  --yo:#071127; --yo2:#0d1c3f; --yoviiva:rgba(160,185,235,.18); --yoteksti:#c9d3e8; --yoteksti2:#9fb0cf;
+  --aksentti:#8a5f0e; --kulta:#e6b755; --kulta2:#f2cd7a;
+  --v-cyber:#1746b8; --v-lamis:#b9480a;
+  --ok:#46d39a; --varo:#f5b544; --vaara:#ff7a6b; --tieto:#8fb4ff; --tunt:#a3adc2;
+  --ok-t:#0b6b43; --ok-b:#e1f4e9; --varo-t:#7a4f00; --varo-b:#fbefd2; --vaara-t:#9e1c12; --vaara-b:#fbe3df;
+  --tieto-t:#1a4fb8; --tieto-b:#e6eefc; --tunt-t:#4a5266; --tunt-b:#eceef3;
+  --otsikkof:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --leipa:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --leveys:1200px;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;scroll-padding-top:92px}
+body{margin:0;background:var(--pohja);color:var(--muste);font-family:var(--leipa);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+p{margin:0;text-wrap:pretty}
+h1,h2,h3,h4{font-family:var(--otsikkof);font-weight:600;letter-spacing:-.02em;line-height:1.08;margin:0;text-wrap:balance;overflow-wrap:break-word}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--aksentti);outline-offset:3px;border-radius:3px}
+.tumma :focus-visible,.lohko.yo :focus-visible{outline-color:var(--kulta)}
+main:focus{outline:none}
+.kapea{max-width:var(--leveys);margin:0 auto;padding:0 32px}
+.kapea-s{max-width:880px}
+.nb{white-space:nowrap}
+.vh{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.ohita{position:absolute;left:12px;top:-60px;z-index:100;background:var(--muste);color:#fff;padding:10px 16px;border-radius:4px;font-weight:800;text-decoration:none}
+.ohita:focus{top:12px}
+.demopalkki{background:var(--yo);color:#b9c4dc;font-size:12.5px;letter-spacing:.02em;text-align:center;padding:7px 16px;line-height:1.35;border-bottom:1px solid var(--yoviiva)}
+
+/* Yläpalkki (sama kuin etusivulla) */
+.yla{position:sticky;top:0;z-index:30;background:rgba(255,253,248,.975);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--viiva)}
+.yla .kapea{display:flex;align-items:center;gap:24px;height:72px}
+.yla .logo{display:flex;align-items:center;min-height:44px;margin-left:-6px}
+.yla .logo img{height:54px;width:auto}
+.yla nav.paa{display:flex;gap:2px;margin-left:auto}
+.yla nav.paa a{font-size:14.5px;font-weight:700;text-decoration:none;color:var(--muste2);padding:12px;min-height:44px;display:inline-flex;align-items:center;gap:8px;transition:color .2s,box-shadow .2s}
+.yla nav.paa a:hover{color:var(--muste)}
+.yla nav.paa a[aria-current="page"]{color:var(--muste);box-shadow:inset 0 -3px 0 var(--kulta)}
+.yla nav.paa a img,.valikko nav a img{width:24px;height:24px;flex:none}
+.yla .puh{font-weight:800;font-size:15px;text-decoration:none;white-space:nowrap;min-height:44px;display:inline-flex;align-items:center;gap:9px;padding:0 18px;background:var(--muste);color:#fff;border-radius:4px}
+.yla .puh i{width:7px;height:7px;border-radius:50%;background:var(--kulta)}
+.valikko{display:none}
+.yla .hata{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 4px;font-size:14.5px;font-weight:800;color:#b42318;text-decoration:none;white-space:nowrap}
+.yla .hata i{flex:none;width:8px;height:8px;border-radius:50%;background:#d6432f;box-shadow:0 0 0 3px rgba(214,67,47,.18)}
+.yla .hata:hover{text-decoration:underline;text-underline-offset:4px}
+.yla .hata[aria-current="page"]{box-shadow:inset 0 -3px 0 #d6432f}
+.yla .hata .hata-l{display:none}
+.valikko nav a.hata-v{color:#b42318}
+
+/* Napit ja linkit */
+.nappi{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:4px;font-family:var(--leipa);font-weight:800;font-size:15.5px;text-decoration:none;border:0;cursor:pointer;transition:transform .2s,background .2s,color .2s,box-shadow .2s;white-space:nowrap;line-height:1.2}
+.nappi svg{width:16px;height:16px;flex:none}
+.nappi:hover{transform:translateY(-2px)}
+.nappi.a1{background:var(--muste);color:#fff;box-shadow:inset 0 -3px 0 var(--kulta)}
+.nappi.kulta{background:var(--kulta);color:var(--yo)}
+.nappi.kulta:hover{background:var(--kulta2)}
+.nappi.vaalea{background:transparent;color:#f3f6fc;box-shadow:inset 0 0 0 1.5px rgba(243,246,252,.55)}
+.nappi.vaalea:hover{box-shadow:inset 0 0 0 1.5px #f3f6fc}
+.nappi.oranssi{background:var(--v-lamis);color:#fff;box-shadow:inset 0 -3px 0 rgba(0,0,0,.18)}
+.nappi.oranssi:hover{background:#a23e07}
+.nappi.reuna{background:#fff;color:var(--muste);box-shadow:inset 0 0 0 1.5px var(--muste)}
+.linkki{background:none;border:0;padding:0;cursor:pointer;font-weight:700;text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1.5px;min-height:44px;display:inline-flex;align-items:center}
+.sivulinkki{font-weight:700;text-underline-offset:4px;min-height:44px;display:inline-flex;align-items:center;gap:7px}
+.sivulinkki svg{width:15px;height:15px;flex:none}
+
+/* Silmäke */
+.silmake{display:flex;align-items:center;gap:10px;font-size:12.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--kulta);margin-bottom:clamp(14px,2.4vh,24px)}
+.silmake img{width:26px;height:26px;flex:none}
+.silmake i{font-style:normal;margin:0 4px}
+
+/* Lohkot */
+.lohko{padding:clamp(64px,9vw,128px) 0}
+.lohko.paperi{background:var(--paperi);border-top:1px solid var(--viiva)}
+.lohko.yo{background:var(--yo);color:#f3f6fc}
+.vaihe{display:inline-flex;align-items:center;gap:10px;font-size:12.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--aksentti);margin-bottom:14px}
+.vaihe b{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--aksentti);color:#fff;font-size:13px;letter-spacing:0}
+.lohko.yo .vaihe{color:var(--kulta)} .lohko.yo .vaihe b{background:var(--kulta);color:var(--yo)}
+.o2{font-size:clamp(32px,4.2vw,58px);max-width:900px}
+.lohko .ingressi{margin-top:16px;font-size:clamp(16.5px,1.3vw,19px);color:var(--muste2);max-width:640px}
+.lohko.yo .ingressi{color:var(--yoteksti)}
+.keski{text-align:center;margin-left:auto;margin-right:auto}
+.pilleri{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:var(--pb);color:var(--pt);white-space:nowrap}
+.pilleri[data-tila="ok"]{--pb:var(--ok-b);--pt:var(--ok-t)} .pilleri[data-tila="varo"]{--pb:var(--varo-b);--pt:var(--varo-t)} .pilleri[data-tila="vaara"]{--pb:var(--vaara-b);--pt:var(--vaara-t)} .pilleri[data-tila="tieto"]{--pb:var(--tieto-b);--pt:var(--tieto-t)} .pilleri[data-tila="tunt"]{--pb:var(--tunt-b);--pt:var(--tunt-t)}
+
+/* Kuvat */
+.kuva{position:relative;margin:0;border-radius:6px;overflow:hidden;background:#e9e3d7;box-shadow:0 40px 70px -48px rgba(7,17,39,.55)}
+.kuva img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover}
+.havainne{position:absolute;right:12px;top:12px;font-size:11px;letter-spacing:.06em;color:#fff;background:rgba(7,17,39,.62);padding:3px 8px;border-radius:3px}
+
+/* Yhteydenotto */
+.yh-suorat{display:flex;flex-wrap:wrap;gap:6px 28px;margin-top:18px;font-weight:800;font-size:18px}
+.yh-suorat a{text-decoration:none;min-height:44px;display:inline-flex;align-items:center;border-bottom:2px solid var(--kulta)}
+.yh-lomake{margin-top:clamp(24px,3vw,36px);display:grid;gap:18px;background:#fff;border:1px solid var(--viiva);border-radius:10px;padding:clamp(20px,3vw,32px)}
+.aiheet{border:0;margin:0;padding:0}
+.aiheet legend{font-size:14px;font-weight:800;margin-bottom:10px;padding:0}
+.aiheet div{display:flex;flex-wrap:wrap;gap:8px}
+.aiheet label{position:relative}
+.aiheet input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.aiheet span{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border:1.5px solid rgba(11,23,48,.22);border-radius:999px;font-size:15px;font-weight:700;cursor:pointer;transition:background .2s,border-color .2s}
+.aiheet input:checked+span{background:var(--muste);border-color:var(--muste);color:#fff}
+.aiheet input:focus-visible+span{outline:2px solid var(--aksentti);outline-offset:3px}
+.kentat{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.kentat .koko{grid-column:1/-1}
+.kentta span{display:block;font-size:14px;font-weight:800;margin-bottom:6px}
+.kentta input,.kentta textarea{width:100%;font:inherit;font-size:16.5px;color:var(--muste);background:var(--paperi);border:1.5px solid rgba(11,23,48,.22);border-radius:6px;padding:12px 14px;min-height:50px}
+.kentta textarea{resize:vertical;min-height:120px;line-height:1.5}
+.kentta input:focus,.kentta textarea:focus{outline:none;border-color:var(--muste);box-shadow:0 0 0 3px rgba(230,183,85,.45)}
+.kentta [aria-invalid="true"]{border-color:var(--vaara-t)}
+.yh-mukana{font-size:14.5px;color:var(--ok-t);background:var(--ok-b);border-radius:6px;padding:10px 14px}
+.yh-virhe{font-size:15px;font-weight:700;color:var(--vaara-t)}
+.yh-lomake .nappi{justify-self:start}
+.yh-loppu{display:grid;gap:12px;justify-items:start}
+.yh-ehto{font-size:15px;font-weight:700;color:var(--muste)}
+.yh-tietosuoja{font-size:14px;color:var(--muste2)}
+.yh-tietosuoja a{font-weight:700;color:var(--muste);text-underline-offset:3px;display:inline-block;padding:10px 0;margin:-10px 0}
+.lisat{display:grid;gap:14px;border-top:1px dashed rgba(11,23,48,.22);padding-top:16px}
+.lisat-o{font-size:14px;font-weight:800}
+.lisat-o span{font-weight:600;color:var(--muste2)}
+.aiheet.pieni legend{font-weight:700;color:var(--muste2);margin-bottom:8px}
+.aiheet.pieni span{min-height:44px;padding:0 14px;font-size:14.5px}
+.yh-kiitos{margin-top:28px;background:#fff;border:1px solid var(--viiva);border-left:4px solid var(--ok-t);border-radius:8px;padding:24px 26px}
+.yh-kiitos:focus{outline:none}
+.yh-nro{font-family:var(--mono);font-size:14px;font-weight:600;color:var(--ok-t)}
+.yh-kiitos h3{font-size:clamp(24px,2.6vw,30px);margin-top:6px}
+.yh-kiitos .seur-o{margin-top:16px;font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muste2)}
+.yh-seuraavaksi{margin:8px 0 0;padding:0 0 0 22px;display:grid;gap:6px;color:var(--muste)}
+.yh-seuraavaksi a{font-weight:800;white-space:nowrap}
+
+/* Alatunniste */
+.ala{background:var(--paperi);border-top:1px solid var(--viiva);padding:36px 0 32px;font-size:14.5px;color:var(--muste2)}
+.ala .kapea{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px}
+.ala img{height:52px;width:auto;margin-left:-6px}
+.ala p{max-width:640px}
+.ala nav{display:flex;flex-wrap:wrap;gap:0 18px}
+.ala nav a{min-height:44px;display:inline-flex;align-items:center;font-weight:700;color:var(--muste)}
+.soittopalkki{display:none}
+
+/* ============ KYBERTURVA: ENSINÄKYMÄ ============ */
+.kyber-hero{position:relative;overflow:hidden;background:var(--yo);color:#f3f6fc;isolation:isolate;padding-bottom:clamp(44px,6vw,88px)}
+.kyber-hero::before{content:"";position:absolute;inset:0;z-index:-2;background:radial-gradient(55% 32% at 50% 0%,#14306b 0%,rgba(7,17,39,0) 72%),radial-gradient(60% 40% at 50% 100%,rgba(30,70,170,.16) 0%,rgba(7,17,39,0) 70%)}
+.kaista{position:relative;height:clamp(84px,12vh,132px)}
+.kuitu{position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity 1.2s ease}
+.kuitu.valmis{opacity:1}
+.kuitu canvas{position:absolute;left:0;top:0;width:100%;height:100%}
+/* V2: tunnus on jo yläpalkissa, joten tässä vain pieni solmukohta, johon johtimet kokoontuvat */
+.napa{position:absolute;left:50%;top:50%;width:clamp(40px,3.6vw,52px);height:auto;transform:translate(-50%,-50%);border-radius:50%;box-shadow:0 0 0 1px rgba(230,183,85,.22),0 0 22px 2px var(--napa-hehku,rgba(63,124,255,.34));transition:box-shadow 1.2s ease}
+.kyber-hero .hero-sisus{text-align:center}
+.kyber-hero .silmake{justify-content:center}
+.kyber-hero h1{font-size:clamp(36px,4.9vw,70px);line-height:1.04;letter-spacing:-.028em;max-width:14em;margin:0 auto;color:#f7f9fd}
+.kyber-hero .ingressi{margin:clamp(12px,2vh,18px) auto 0;max-width:640px;font-size:clamp(16.5px,1.3vw,19px);color:var(--yoteksti)}
+.hero-napit{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:10px 26px;margin-top:clamp(18px,3vh,30px)}
+.hero-napit .sivulinkki{color:#f3f6fc}
+
+/* Kartoituskartta */
+.kartta{margin:clamp(30px,5vh,52px) auto 0;max-width:1100px;text-align:left;border:1px solid var(--yoviiva);border-radius:12px;background:rgba(9,22,52,.74);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);overflow:hidden;box-shadow:0 50px 90px -50px rgba(0,0,0,.8)}
+.kartta-paa{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:6px 24px;padding:18px 24px 16px;border-bottom:1px solid var(--yoviiva)}
+.kartta-laji{font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--kulta)}
+.kartta-o{margin-top:4px;font-size:clamp(21px,2.1vw,28px);color:#f3f6fc}
+.kartta-linkki{color:#dfe6f4;font-size:15px}
+.kartta-kehotus{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:4px 20px;padding:14px 24px;border-bottom:1px solid var(--yoviiva);background:rgba(230,183,85,.08);font-size:15.5px;color:#e8edf7}
+.kartta-kehotus .sivulinkki{color:#f3f6fc}
+.kyber-hero h1 [hidden]{display:none!important}
+.alueet{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.alue{border-left:1px solid var(--yoviiva);--lv:#6f80a8}
+.alue:first-child{border-left:0}
+.alue a{display:flex;flex-direction:column;gap:6px;height:100%;padding:20px 22px 22px;text-decoration:none;color:inherit;transition:background .2s}
+.alue a:hover{background:rgba(143,180,255,.07)}
+.alue a:hover .alue-nimi{text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1.5px}
+.lamppu{width:14px;height:14px;border-radius:50%;background:var(--lv);box-shadow:0 0 0 4px color-mix(in srgb,var(--lv) 20%,transparent),0 0 20px var(--lv);margin:2px 0 8px}
+.alue[data-tila="odottaa"] .lamppu{background:transparent;box-shadow:inset 0 0 0 1.5px #7d8db3}
+.alue[data-tila="ok"]{--lv:var(--ok)} .alue[data-tila="varo"]{--lv:var(--varo)} .alue[data-tila="vaara"]{--lv:var(--vaara)} .alue[data-tila="tunt"]{--lv:var(--tunt)} .alue[data-tila="kesken"]{--lv:var(--tieto)}
+.alue-nimi{font-family:var(--otsikkof);font-weight:600;font-size:clamp(18px,1.6vw,21px);line-height:1.2;letter-spacing:-.01em;color:#f3f6fc}
+.alue-tila{font-size:12.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--lv)}
+.alue[data-tila="odottaa"] .alue-tila{color:var(--yoteksti2)}
+.alue-kohdat{font-size:14px;color:var(--yoteksti2);line-height:1.45}
+.kartta-ala{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 24px;padding:16px 24px;border-top:1px solid var(--yoviiva);background:rgba(230,183,85,.07);font-size:15px;color:var(--yoteksti)}
+.kartta-ala b{font-family:var(--mono);font-weight:600;color:#f3f6fc}
+.kartta-ala .linkki{color:#f3f6fc;font-size:15px}
+.kartta-ala .napit{display:flex;flex-wrap:wrap;align-items:center;gap:10px 22px}
+
+/* Kartoituksen vaiheet: yksi palsta (V3) */
+.kart-sisus .nappi{margin-top:12px}
+.vaiheet{list-style:none;margin:28px 0 0;padding:0;position:relative}
+.vaiheet::before{content:"";position:absolute;left:21px;top:30px;bottom:40px;width:2px;background:linear-gradient(180deg,var(--kulta),rgba(230,183,85,.2))}
+.vaiheet li{position:relative;display:grid;grid-template-columns:44px minmax(0,1fr);gap:4px 22px;padding:12px 0 22px}
+.vaiheet b{grid-row:1/3;display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--muste);color:#fff;font-size:17px;font-weight:800;box-shadow:0 0 0 6px var(--paperi)}
+.vaiheet h3{font-size:clamp(21px,2vw,27px);padding-top:8px}
+.vaiheet p{color:var(--muste2)}
+
+/* Alueet */
+.alue-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,80px);align-items:center}
+.alue-lohko.kaanna .kuva{order:-1}
+.tarkistus{list-style:none;margin:24px 0 0;padding:0;border-top:1px solid var(--viiva)}
+.tarkistus li{padding:14px 0;border-bottom:1px solid var(--viiva)}
+.t-paa{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 14px}
+.t-nimi{font-weight:800;font-size:16px}
+.t-teksti{margin-top:3px;color:var(--muste2);font-size:15.5px}
+.lohko.yo .tarkistus,.lohko.yo .tarkistus li{border-color:var(--yoviiva)}
+.lohko.yo .t-teksti{color:var(--yoteksti)}
+.ktk{margin-top:20px;font-size:14.5px;color:var(--muste2);border-left:2px solid var(--v-cyber);padding:2px 0 2px 14px}
+.raportti-huom{margin-top:14px;font-size:14.5px;color:var(--muste2)}
+.lohko.yo .raportti-huom{color:var(--yoteksti2)}
+.raportti-huom a{font-weight:700}
+
+/* Yritysverkko: kaavio */
+.kaavio{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.55fr) minmax(0,1fr) minmax(0,.55fr) minmax(0,1fr);grid-template-rows:auto 46px auto;justify-items:center;padding:clamp(22px,3.4vw,40px) clamp(14px,2.6vw,32px);border:1px solid var(--yoviiva);border-radius:12px;background:rgba(13,28,63,.55)}
+.k-solmu{display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;font-size:14px;font-weight:700;color:var(--yoteksti);line-height:1.3}
+.k-solmu svg{width:52px;height:52px;padding:12px;border-radius:12px;border:1px solid var(--yoviiva);background:rgba(7,17,39,.75);color:#dfe6f4}
+.k-palomuuri svg{color:var(--kulta);border-color:rgba(230,183,85,.55);box-shadow:0 0 26px rgba(230,183,85,.22)}
+.k-palomuuri{--kv:var(--kulta)}
+.k-palomuuri[data-tila="ok"]{--kv:var(--ok)} .k-palomuuri[data-tila="vaara"]{--kv:var(--vaara)} .k-palomuuri[data-tila="tunt"]{--kv:var(--tunt)}
+.k-palomuuri[data-tila] svg{color:var(--kv);border-color:var(--kv);box-shadow:0 0 26px color-mix(in srgb,var(--kv) 35%,transparent)}
+.k-johto{position:relative;align-self:start;margin-top:25px;width:100%;height:2px;background:rgba(143,180,255,.32);overflow:hidden}
+.k-johto.pysty{align-self:stretch;margin:0;width:2px;height:auto}
+.k-toimisto{grid-area:1/1} .k-j1{grid-area:1/2} .k-palomuuri{grid-area:1/3} .k-j2{grid-area:1/4} .k-netti{grid-area:1/5} .k-j3{grid-area:2/3} .k-eta{grid-area:3/3}
+/* W7: virta kulkee kaksi kierrosta (noin 5,6 s), kun kaavio tulee näkyviin, ja jää sitten paikalleen */
+@media (prefers-reduced-motion:no-preference){
+  .k-johto::after{content:"";position:absolute;left:-40%;top:0;width:40%;height:100%;background:linear-gradient(90deg,rgba(230,183,85,0),var(--kulta))}
+  .k-j2::after{background:linear-gradient(90deg,var(--tieto),rgba(143,180,255,0))}
+  .k-johto.pysty::after{left:0;top:-40%;width:100%;height:40%;background:linear-gradient(180deg,rgba(230,183,85,0),var(--kulta))}
+  .kaavio.kay .k-johto::after{animation:virta 2.8s linear 2}
+  .kaavio.kay .k-j2::after{animation-direction:reverse}
+  .kaavio.kay .k-johto.pysty::after{animation-name:virta-y;animation-direction:reverse}
+  @keyframes virta{to{left:100%}}
+  @keyframes virta-y{to{top:100%}}
+}
+
+/* Epäiletkö jotain juuri nyt: oma osio, ensin soitto */
+.epa-soita{margin-top:22px}
+.tilanne-o{margin-top:34px;font-size:14px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muste2)}
+.tilanteet{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.tilanteet button{min-height:44px;padding:8px 16px;border:1.5px solid rgba(11,23,48,.22);border-radius:999px;background:#fff;font-weight:700;font-size:15px;line-height:1.3;cursor:pointer;transition:background .2s,border-color .2s;text-align:left}
+.tilanteet button:hover{border-color:var(--muste)}
+.tilanteet button[aria-pressed="true"]{background:var(--muste);border-color:var(--muste);color:#fff}
+.ohjeet{margin-top:14px}
+.ohje{background:#fff;border:1px solid var(--viiva);border-left:4px solid var(--v-cyber);border-radius:8px;padding:20px 22px;outline:none}
+.ohje+.ohje{margin-top:10px}
+.js .ohje{display:none}
+.js .ohje.auki{display:block}
+.ohje h3{font-size:22px}
+.ohje ol{margin:10px 0 0;padding:0 0 0 22px;display:grid;gap:6px;color:var(--muste)}
+.ohje .sivulinkki{margin-top:8px}
+.ohje .sivulinkki svg{width:14px;height:14px}
+.ulkoinen-huom{font-size:13.5px;color:var(--muste2)}
+
+@media (max-width:960px){
+  .alueet{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .alue:nth-child(3){border-left:0}
+  .alue:nth-child(n+3){border-top:1px solid var(--yoviiva)}
+  .alue-grid{grid-template-columns:minmax(0,1fr)}
+  .alue-lohko .kuva,.alue-lohko.kaanna .kuva{order:0}
+}
+@media (max-width:600px){
+  .alueet{grid-template-columns:minmax(0,1fr)}
+  .alue{border-left:0}
+  .alue:nth-child(n+2){border-top:1px solid var(--yoviiva)}
+  .alue a{display:grid;grid-template-columns:14px minmax(0,1fr);gap:2px 12px;padding:14px 18px;align-items:start}
+  .lamppu{margin:5px 0 0;grid-row:1/4}
+  .alue-nimi,.alue-tila,.alue-kohdat{grid-column:2}
+  .alue-nimi{font-size:18px}
+  .kartta-paa,.kartta-ala,.kartta-kehotus{padding-left:18px;padding-right:18px}
+  .kartta-ala .napit,.kartta-ala .nappi{width:100%}
+  .k-solmu{font-size:12.5px}
+  .k-solmu svg{width:44px;height:44px;padding:10px}
+  .k-johto{margin-top:21px}
+  .kaavio{grid-template-rows:auto 34px auto}
+}
+
+@media (max-width:370px){.yla .kapea .hata{display:none} .yla .kapea .hata ~ .valikko{margin-left:auto}}
+/* ============ KAPEAT NÄYTÖT (kuoren mediakyselyt; ei piirrettyjä laitekehyksiä) ============ */
+@media (max-width:960px){
+  .yla nav.paa,.yla .puh{display:none}
+  .yla .kapea{height:62px;padding:0 18px;gap:12px}
+  .yla .hata{margin-left:auto;font-size:13.5px;gap:6px;padding:0 2px}
+  .yla .hata ~ .valikko{margin-left:0}
+  .yla .hata .hata-p{display:none} .yla .hata .hata-l{display:inline}
+  .yla .logo img{height:44px}
+  .valikko{display:block;position:relative;margin-left:auto}
+  .valikko summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;border:1px solid var(--viiva);border-radius:4px;font-weight:800;font-size:15px}
+  .valikko summary::-webkit-details-marker{display:none}
+  .valikko summary::after{content:"";width:7px;height:7px;border-right:1.8px solid currentColor;border-bottom:1.8px solid currentColor;transform:rotate(45deg) translateY(-2px)}
+  .valikko[open] summary::after{transform:rotate(225deg) translateY(-2px)}
+  .valikko nav{position:absolute;right:0;top:52px;width:min(300px,calc(100vw - 36px));background:var(--paperi);border:1px solid var(--viiva);border-radius:6px;padding:8px;box-shadow:0 24px 48px -24px rgba(7,17,39,.45)}
+  .valikko nav a{display:flex;align-items:center;gap:10px;padding:10px 12px;text-decoration:none;font-weight:700;font-size:16px;min-height:48px;border-radius:4px}
+  .valikko nav a[aria-current="page"]{background:var(--pohja);box-shadow:inset 3px 0 0 var(--kulta)}
+  .kapea{padding-left:18px;padding-right:18px}
+}
+@media (max-width:760px){
+  body{padding-bottom:72px}
+  .kentat{grid-template-columns:1fr}
+  .nappi{white-space:normal;text-align:center}
+  .soittopalkki{display:grid;grid-template-columns:1fr 1fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:40;padding:8px 12px calc(8px + env(safe-area-inset-bottom));background:rgba(255,253,248,.96);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--viiva)}
+  .soittopalkki .nappi{min-height:48px;padding:0 10px;font-size:15px}
+  .soittopalkki .sp2{background:#fff;color:var(--muste);box-shadow:inset 0 0 0 1.5px var(--muste)}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<a class="ohita" href="#sisalto">Siirry sisältöön</a>
+<div class="demopalkki" data-demopalkki>Epävirallinen konseptidemo – ei LamisNET Palvelut Oy:n virallinen sivusto</div>
+<header class="yla">
+  <div class="kapea">
+    <a class="logo" href="b2-etusivu.html" aria-label="CNP Group, etusivu"><img src="assets/logo-cnp.webp" alt="CNP Group" width="900" height="359"></a>
+    <nav class="paa" aria-label="Päävalikko"><a href="b2-cybernet.html" aria-current="page"><img src="assets/tunnus-cyber.webp" alt="" width="24" height="24">Kyberturva</a><a href="b2-lamisnet.html"><img src="assets/tunnus-lamis.webp" alt="" width="24" height="24">IT-tuki</a><a href="b2-uutiset.html">Tietoturva nyt</a></nav>
+    <a class="hata" href="b2-hata.html"><i aria-hidden="true"></i><span class="hata-p">Tietoturvaloukkaus?</span><span class="hata-l">Tietomurto?</span></a>
+    <a class="puh" href="tel:+358401636588" data-lahde="y1"><i aria-hidden="true"></i>040 1636 588</a>
+    <details class="valikko"><summary>Valikko</summary><nav aria-label="Valikko"><a class="hata-v" href="b2-hata.html">Tietoturvaloukkaus? Toimi näin</a><a href="b2-etusivu.html#tarkista">Tarkista sähköposti</a><a href="b2-cybernet.html" aria-current="page"><img src="assets/tunnus-cyber.webp" alt="" width="24" height="24">Kyberturva</a><a href="b2-lamisnet.html"><img src="assets/tunnus-lamis.webp" alt="" width="24" height="24">IT-tuki</a><a href="b2-uutiset.html">Tietoturva nyt</a><a href="#yhteys">Ota yhteyttä</a><a href="tel:+358401636588" data-lahde="y1">Soita 040 1636 588</a></nav></details>
+  </div>
+</header>
+
+<main id="sisalto" tabindex="-1">
+<section class="kyber-hero tumma" aria-labelledby="hero-o">
+  <div class="kaista" aria-hidden="true">
+    <div class="kuitu"><canvas class="kuitu-pohja"></canvas><canvas class="kuitu-valo"></canvas></div>
+    <img class="napa" src="assets/tunnus-cyber.webp" alt="" width="320" height="320">
+  </div>
+  <div class="kapea hero-sisus">
+    <p class="silmake" data-lahde="c1 y1"><span class="silmake-teksti">CNP CyberNET <i aria-hidden="true">·</i> Yritysten kyberturva Lappeenrannasta</span></p>
+    <h1 id="hero-o"><span class="h1-yleinen">Mitä tietoturvassa kannattaa tehdä heti?</span><span class="h1-oma" hidden></span></h1>
+    <p class="ingressi" data-lahde="c2">Käymme läpi laitteesi, ohjelmasi ja verkkosi ja kerromme, mitä kannattaa tehdä heti ja mitä myöhemmin.</p>
+    <div class="hero-napit"><a class="nappi kulta" href="#yhteys" data-aihe="Kartoitus" data-paatoiminto>Pyydä kartoitus</a><a class="sivulinkki" href="#kartoitus">Näin kartoitus etenee</a></div>
+
+    <div class="kartta" role="region" aria-labelledby="kartta-o">
+      <div class="kartta-paa">
+        <div><p class="kartta-laji">Kartoituskartta</p><h2 class="kartta-o" id="kartta-o">Kartoitus käy läpi neljä aluetta</h2></div>
+        <a class="linkki kartta-linkki" href="b2-etusivu.html#raportti" hidden>Avaa raportti</a>
+      </div>
+      <p class="kartta-kehotus"><span>Tee pikatarkistus etusivulla, niin kartta näyttää tilanteesi.</span><a class="sivulinkki" href="b2-etusivu.html#tarkista">Tee pikatarkistus <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 9h12M10 4l5 5-5 5"/></svg></a></p>
+      <ol class="alueet"><li class="alue" data-alue="posti" data-tila="odottaa" style="--i:0"><a href="#m365"><span class="lamppu" aria-hidden="true"></span><span class="alue-nimi" data-lahde="c4">Sähköposti ja Microsoft 365</span><span class="alue-tila" hidden></span><span class="alue-kohdat">Huijaussuoja · Kirjautuminen · Käyttö&shy;oikeudet</span></a></li><li class="alue" data-alue="laitteet" data-tila="odottaa" style="--i:1"><a href="#laitteet"><span class="lamppu" aria-hidden="true"></span><span class="alue-nimi">Työasemat ja palvelimet</span><span class="alue-tila" hidden></span><span class="alue-kohdat">Laitteiden valvonta · Varmuus&shy;kopiot</span></a></li><li class="alue" data-alue="verkko" data-tila="odottaa" style="--i:2"><a href="#verkko"><span class="lamppu" aria-hidden="true"></span><span class="alue-nimi">Yritysverkko</span><span class="alue-tila" hidden></span><span class="alue-kohdat">Palomuuri · Etäyhteydet</span></a></li><li class="alue" data-alue="henkilosto" data-tila="odottaa" style="--i:3"><a href="#henkilosto"><span class="lamppu" aria-hidden="true"></span><span class="alue-nimi">Henkilöstö</span><span class="alue-tila" hidden></span><span class="alue-kohdat">Epäilyttävät linkit ja liitteet</span></a></li></ol>
+      <div class="kartta-ala" hidden></div>
+    </div>
+  </div>
+</section>
+
+<section class="lohko paperi" id="kartoitus" aria-labelledby="kart-o">
+  <div class="kapea kapea-s kart-sisus">
+    <h2 class="o2" id="kart-o">Näin kartoitus etenee</h2>
+    <p class="ingressi" data-lahde="c2">Lopputulos on kehitysehdotus: mitä tehdään heti ja mitä myöhemmin.</p>
+    <ol class="vaiheet">
+      <li><b>1</b><h3 data-lahde="c2">Käymme läpi laitteet, ohjelmat ja verkon</h3><p data-lahde="c2">Palvelut, päätelaitteet ja ohjelmistot, käyttäjä&shy;tunnukset ja käyttö&shy;oikeudet sekä verkkoyhteydet.</p></li>
+      <li><b>2</b><h3 data-lahde="c2">Saat kehitysehdotuksen</h3><p data-lahde="c2">Kerromme, mitkä toimet kannattaa tehdä heti ja miten asioita voi kehittää jatkossa.</p></li>
+      <li><b>3</b><h3 data-lahde="e3 e6">Toteutamme sovitun</h3><p data-lahde="e3 e6">Toimitamme ja asennamme sovitut ratkaisut, huolehdimme päivityksistä ja autamme, kun jokin ei toimi.</p></li>
+    </ol>
+    <a class="nappi a1" href="#yhteys" data-aihe="Kartoitus">Pyydä kartoitus</a>
+  </div>
+</section>
+
+<section class="lohko alue-lohko" id="m365" aria-labelledby="m365-o">
+  <div class="kapea alue-grid">
+    <div>
+      <p class="vaihe" data-esimerkki><b>1</b>Alue 1 / 4</p>
+      <h2 class="o2" id="m365-o" data-lahde="c4">Sähköposti ja Microsoft&nbsp;365</h2>
+      <p class="ingressi" data-lahde="c4">Autamme vahvistamaan kirjautumisen suojausta, tarkistamaan käyttö&shy;oikeudet ja ottamaan käyttöön tietoturvaa parantavia ratkaisuja.</p>
+      <ul class="tarkistus" aria-label="Tarkista nämä"><li data-k="dmarc" data-lahde="r1 k1"><div class="t-paa"><span class="t-nimi">Huijaussuoja (DMARC)</span><b class="pilleri" data-tila="tunt" hidden></b></div><p class="t-teksti">Pyytääkö yrityksesi verkkotunnus vastaanottajia hylkäämään väärennetyt viestit, jotka lähetetään yrityksesi nimissä?</p></li><li data-k="q1"><div class="t-paa"><span class="t-nimi">Kirjautuminen</span><b class="pilleri" data-tila="tunt" hidden></b></div><p class="t-teksti">Onko sähköpostiin ja pilvipalveluihin kirjautumisessa moni&shy;vaiheinen tunnistau&shy;tuminen käytössä kaikilla?</p></li><li data-k="q2"><div class="t-paa"><span class="t-nimi">Käyttö&shy;oikeudet</span><b class="pilleri" data-tila="tunt" hidden></b></div><p class="t-teksti">Onko käyttö&shy;oikeudet käyty läpi viimeisen vuoden aikana, myös lähteneiden työntekijöiden tunnukset?</p></li></ul>
+      <p class="ktk" data-lahde="k1">Kyber&shy;turvallisuus&shy;keskus suosittelee ottamaan SPF:n, DKIM:n ja DMARCin käyttöön kaikissa verkkotunnuksissa, joista lähetetään sähköpostia.</p>
+    </div>
+    <figure class="kuva"><img src="assets/b-cyber-800.jpg" srcset="assets/b-cyber-800.jpg 800w, assets/b-cyber-1600.jpg 1600w" sizes="(max-width:960px) 100vw, 560px" alt="Tietokoneeseen kytketty turva-avain ja puhelin, joilla kirjautuminen vahvistetaan." width="800" height="531" loading="lazy" decoding="async"><span class="havainne">Havainnekuva</span></figure>
+  </div>
+</section>
+
+<section class="lohko paperi alue-lohko kaanna" id="laitteet" aria-labelledby="lait-o">
+  <div class="kapea alue-grid">
+    <div>
+      <p class="vaihe" data-esimerkki><b>2</b>Alue 2 / 4</p>
+      <h2 class="o2" id="lait-o">Työasemat ja palvelimet</h2>
+      <p class="ingressi" data-lahde="c3">Autamme ottamaan käyttöön ja ylläpitämään työasemien ja palvelimien tietoturva&shy;ratkaisuja, esimerkiksi WithSecure EDR -valvontaa, joka seuraa koneita reaaliajassa.</p>
+      <p class="raportti-huom" data-lahde="l3">Autamme myös varmuus&shy;kopioratkaisujen hankinnassa ja ylläpidossa.</p>
+      <ul class="tarkistus" aria-label="Tarkista nämä"><li data-k="q3"><div class="t-paa"><span class="t-nimi">Laitteiden valvonta</span><b class="pilleri" data-tila="tunt" hidden></b></div><p class="t-teksti">Valvotaanko työasemia ja palvelimia tietoturva&shy;ratkaisulla, joka hälyttää poikkeamista?</p></li><li data-k="q4"><div class="t-paa"><span class="t-nimi">Varmuus&shy;kopiot</span><b class="pilleri" data-tila="tunt" hidden></b></div><p class="t-teksti">Onko varmuus&shy;kopioiden palautusta kokeiltu viimeisen vuoden aikana?</p></li></ul>
+    </div>
+    <figure class="kuva"><img src="assets/b-varoitus-1200.jpg" alt="Kannettavan tietokoneen näytöllä varoitusilmoitus." width="1200" height="797" loading="lazy" decoding="async"><span class="havainne">Havainnekuva</span></figure>
+  </div>
+</section>
+
+<section class="lohko yo tumma" id="verkko" aria-labelledby="verkko-o">
+  <div class="kapea alue-grid">
+    <div>
+      <p class="vaihe" data-esimerkki><b>3</b>Alue 3 / 4</p>
+      <h2 class="o2" id="verkko-o">Yritysverkko</h2>
+      <p class="ingressi" data-lahde="c5">Autamme palomuurien, etäyhteyksien ja yritysverkon suojaamisessa sekä laiteasennuksissa ja ylläpidossa.</p>
+      <ul class="tarkistus" aria-label="Tarkista nämä"><li data-k="q5"><div class="t-paa"><span class="t-nimi">Palomuuri ja etäyhteydet</span><b class="pilleri" data-tila="tunt" hidden></b></div><p class="t-teksti">Onko palomuurilla ja etäyhteyksillä nimetty vastuuhenkilö, joka pitää ne ajan tasalla?</p></li></ul>
+    </div>
+    <div class="kaavio" aria-hidden="true">
+      <div class="k-solmu k-toimisto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M8 20h8M12 16v4"/></svg><span>Toimiston laitteet</span></div>
+      <div class="k-johto k-j1"></div>
+      <div class="k-solmu k-palomuuri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 9.7h18M3 14.3h18M9 5v4.7M15 5v4.7M6 9.7v4.6M12 9.7v4.6M18 9.7v4.6M9 14.3V19M15 14.3V19"/></svg><span>Palomuuri</span></div>
+      <div class="k-johto k-j2"></div>
+      <div class="k-solmu k-netti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg><span>Internet</span></div>
+      <div class="k-johto pysty k-j3"></div>
+      <div class="k-solmu k-eta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4.5" y="5" width="15" height="10" rx="1.2"/><path d="M2 19h20"/></svg><span>Etätyö ja etäyhteydet</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="lohko alue-lohko" id="henkilosto" aria-labelledby="henk-o">
+  <div class="kapea alue-grid">
+    <div>
+      <p class="vaihe" data-esimerkki><b>4</b>Alue 4 / 4</p>
+      <h2 class="o2" id="henk-o">Henkilöstö</h2>
+      <p class="ingressi">Epäilyttävä linkki tai liite on helpompi pysäyttää, kun jokainen tietää, mitä tehdä.</p>
+      <ul class="tarkistus" aria-label="Tarkista nämä"><li data-k="q6"><div class="t-paa"><span class="t-nimi">Henkilöstö</span><b class="pilleri" data-tila="tunt" hidden></b></div><p class="t-teksti">Tietääkö henkilöstö, mitä tehdä, kun sähköpostiin tulee epäilyttävä linkki tai liite?</p></li></ul>
+    </div>
+    <figure class="kuva"><img src="assets/b-linkki-1000.jpg" alt="Puhelimen näytöllä viesti, jossa on linkki." width="1000" height="664" loading="lazy" decoding="async"><span class="havainne">Havainnekuva</span></figure>
+  </div>
+</section>
+
+<section class="lohko paperi" id="epailen" aria-labelledby="epa-o">
+  <div class="kapea kapea-s">
+    <h2 class="o2" id="epa-o">Epäiletkö jotain juuri nyt?</h2>
+    <p class="ingressi" data-lahde="y1">Soita meille ensin, niin katsotaan yhdessä, mitä tehdään.</p>
+    <a class="nappi a1 epa-soita" href="tel:+358401636588" data-lahde="y1">Soita meille 040 1636 588</a>
+    <p class="epa-hata"><a class="sivulinkki" href="b2-hata.html">Tietomurto, kiristyshaittaohjelma tai vuoto? Ensimmäiset toimet <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 9h12M10 4l5 5-5 5"/></svg></a></p>
+    <p class="tilanne-o" id="tilanne-o">Tai valitse tilanne</p>
+    <div class="tilanteet" role="group" aria-labelledby="tilanne-o"><button type="button" aria-pressed="false" data-til="linkki">Sain epäilyttävän linkin tai liitteen</button><button type="button" aria-pressed="false" data-til="tunnus">Joku on ehkä päässyt tunnuksilleni</button><button type="button" aria-pressed="false" data-til="maksu">Maksoin laskun, joka voi olla huijaus</button></div>
+    <div class="ohjeet" aria-live="polite"><div class="ohje" data-til="linkki" tabindex="-1" data-lahde="c6 y1"><h3>Sain epäilyttävän linkin tai liitteen</h3><ol><li>Älä avaa linkkiä tai liitettä äläkä vastaa viestiin.</li><li>Soita meille, niin katsotaan viesti yhdessä.</li></ol><a class="sivulinkki" href="https://www.f-secure.com/fi/link-checker" target="_blank" rel="noopener">Testaa linkki F-Securen linkkitarkistimella <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5.5 3H13v7.5M13 3 3.5 12.5"/></svg><span class="vh"> (avautuu uuteen välilehteen)</span></a><p class="ulkoinen-huom">Linkkitarkistin on F-Securen palvelu.</p></div><div class="ohje" data-til="tunnus" tabindex="-1" data-lahde="y1 l2"><h3>Joku on ehkä päässyt tunnuksilleni</h3><ol><li>Soita meille heti, niin katsotaan yhdessä, mitä tehdään ensin.</li></ol></div><div class="ohje" data-til="maksu" tabindex="-1" data-lahde="p1"><h3>Maksoin laskun, joka voi olla huijaus</h3><ol><li>Soita heti omaan pankkiisi.</li><li>Tee sen jälkeen rikosilmoitus poliisille.</li><li>Kerro sitten meille, niin katsotaan, miten vastaava estetään jatkossa.</li></ol><a class="sivulinkki" href="https://poliisi.fi/-/toimitusjohtajaksi-tekeytyva-huijari-vaanii-yrityksia-kesalomakaudella-ole-tarkkana" target="_blank" rel="noopener">Lue poliisin ohje yrityksille <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5.5 3H13v7.5M13 3 3.5 12.5"/></svg><span class="vh"> (avautuu uuteen välilehteen)</span></a></div></div>
+  </div>
+</section>
+
+<section class="lohko " id="yhteys" aria-labelledby="yh-o">
+  <div class="kapea kapea-s">
+    <h2 class="o2" id="yh-o">Pyydä kartoitus</h2>
+    <p class="ingressi" data-lahde="f1 c2">Kerro lyhyesti tilanteestasi, niin otamme sinuun yhteyttä ja sovimme, miten edetään.</p>
+    <div class="yh-suorat" data-lahde="y1"><a href="tel:+358401636588">+358 40 1636 588</a><a href="mailto:asiakaspalvelu@lamisnet.fi">asiakaspalvelu@lamisnet.fi</a></div>
+    <form class="yh-lomake" novalidate data-esimerkki>
+      <fieldset class="aiheet"><legend>Mitä asia koskee?</legend><div><label><input type="radio" name="aihe" value="Raportin läpikäynti"><span>Raportin läpikäynti</span></label><label><input type="radio" name="aihe" value="Kartoitus" checked><span>Kartoitus</span></label><label><input type="radio" name="aihe" value="Vika tai tukipyyntö"><span>Vika tai tukipyyntö</span></label></div></fieldset>
+      <div class="kentat">
+        <label class="kentta"><span>Nimi</span><input type="text" name="nimi" autocomplete="name" required></label>
+        <label class="kentta"><span>Sähköposti tai puhelin</span><input type="text" name="yhteys" autocomplete="email" inputmode="email" required></label>
+        <label class="kentta koko"><span>Yritys tai verkkotunnus (vapaaehtoinen)</span><input type="text" name="yritys" autocomplete="organization"></label>
+        <label class="kentta koko"><span>Viesti (vapaaehtoinen)</span><textarea name="viesti" rows="4"></textarea></label>
+      </div>
+      
+      <p class="yh-mukana" hidden></p>
+      <p class="yh-virhe" role="alert" hidden></p>
+      <div class="yh-loppu">
+        <p class="yh-ehto">Sovimme hinnan ennen kuin työ alkaa.</p>
+        <button type="submit" class="nappi a1">Lähetä pyyntö</button>
+        <p class="yh-tietosuoja">Tietojen käsittely: <a href="b2-tietosuoja.html">Tietosuoja</a></p>
+      </div>
+    </form>
+    <div class="yh-kiitos" tabindex="-1" hidden>
+      <p class="yh-nro"></p>
+      <h3>Kiitos, pyyntösi on perillä.</h3>
+      <p class="seur-o">Mitä seuraavaksi</p>
+      <ol class="yh-seuraavaksi">
+        <li>Luemme pyyntösi ja otamme sinuun yhteyttä.</li>
+        <li>Sovimme hinnan ja aikataulun ennen kuin työ alkaa.</li>
+        <li data-lahde="y1">Kiireessä soita <a href="tel:+358401636588">040 1636 588</a>.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="ala">
+  <div class="kapea">
+    <img src="assets/logo-cnp.webp" alt="CNP Group" width="900" height="359" loading="lazy">
+    <p data-lahde="y1">LamisNET Palvelut Oy · Y-tunnus 3161928-7 · aputoiminimet CNP Group ja CNP CyberNET Palvelut · Lappeenranta. Sivun valokuvat ovat havainnekuvia.</p>
+    <nav aria-label="Alatunniste"><a href="b2-etusivu.html">Etusivu</a><a href="b2-cybernet.html" aria-current="page">Kyberturva</a><a href="b2-lamisnet.html">IT-tuki</a><a href="b2-uutiset.html">Tietoturva nyt</a><a href="b2-tietosuoja.html">Tietosuoja</a></nav>
+  </div>
+</footer>
+<div class="soittopalkki"><a class="nappi a1" href="tel:+358401636588" data-lahde="y1">Soita 040 1636 588</a><a class="nappi sp2" href="#yhteys">Jätä pyyntö</a></div>
+<p class="vh" role="status" aria-live="polite" id="tila"></p>
+
+<script>
+(() => {
+'use strict';
+const rm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $ = (s, el = document) => el.querySelector(s);
+const $$ = (s, el = document) => [...el.querySelectorAll(s)];
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const tilaRivi = $('#tila');
+function vierita(el){ el.scrollIntoView({ behavior: rm ? 'auto' : 'smooth', block: 'start' }); }
+function nayta(el){ el.hidden = false; el.focus({ preventScroll: true }); const r = el.getBoundingClientRect(); if (r.top < 90 || r.top > innerHeight * .65) vierita(el); }
+
+/* Valikko sulkeutuu, kun klikataan muualle tai linkkiä */
+document.addEventListener('click', e => { const v = $('.valikko'); if (v && v.open && (!v.contains(e.target) || e.target.closest('.valikko nav a'))) v.open = false; });
+
+/* Etusivun pikaraportti: säilyy vain tämän välilehden muistissa (sessionStorage), ei lähde minnekään */
+const RAP = (() => { try { const r = JSON.parse(sessionStorage.getItem('cnp-pikaraportti') || 'null'); return r && r.v === 1 ? r : null; } catch (e) { return null; } })();
+
+/* ================= YHTEYDENOTTO (demo ei lähetä mitään) ================= */
+const lomake = $('.yh-lomake'), kiitos = $('.yh-kiitos');
+let esitayta = () => {};
+if (lomake){
+  const lVirhe = $('.yh-virhe', lomake), mukana = $('.yh-mukana', lomake), lisat = $('.lisat', lomake);
+  /* Tarkemmat tiedot (vain tukipyynnössä): näkyvät, kun aihe on se, jolle ne on tehty */
+  const paivitaLisat = () => { if (!lisat) return; const v = $('input[name=aihe]:checked', lomake); lisat.hidden = !v || v.value !== lisat.dataset.aiheelle; };
+  lomake.addEventListener('change', e => { if (e.target.name === 'aihe') paivitaLisat(); });
+  esitayta = (aihe, viesti, huomio) => {
+    const r = $(`input[name=aihe][value="${aihe}"]`, lomake); if (r) r.checked = true;
+    paivitaLisat();
+    if (viesti == null) return false;
+    lomake.viesti.value = viesti; mukana.textContent = huomio; mukana.hidden = false;
+    return true;
+  };
+  paivitaLisat();
+  /* Esitäytön jälkeen vieritetään suoraan viestikenttään, jotta kävijä näkee, mitä siihen tuli */
+  const viestiin = () => {
+    const t = lomake.viesti;
+    t.scrollIntoView({ behavior: rm ? 'auto' : 'smooth', block: 'center' });
+    if (matchMedia('(hover: hover)').matches){ t.focus({ preventScroll: true }); t.setSelectionRange(t.value.length, t.value.length); }
+  };
+  document.addEventListener('click', e => {
+    const a = e.target.closest('[data-aihe]'); if (!a) return;
+    let tayttyi;
+    if (a.hasAttribute('data-raportti') && RAP){
+      tayttyi = esitayta(a.dataset.aihe, RAP.yhteenveto, 'Pikaraportin yhteenveto on viestikentässä. Voit muokata sitä ennen lähettämistä.');
+      if (RAP.dns && !lomake.yritys.value) lomake.yritys.value = RAP.dns.naytto;
+    } else tayttyi = esitayta(a.dataset.aihe, a.dataset.viesti ?? null, a.dataset.huomio || 'Aihe on viestikentässä valmiina. Voit täydentää sitä.');
+    if (tayttyi && !lomake.hidden && a.getAttribute('href') === '#yhteys'){ e.preventDefault(); viestiin(); }
+  });
+  const sahkoposti = s => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(s), puhelin = s => /^[+()\d\s-]{7,}$/.test(s) && s.replace(/\D/g, '').length >= 7;
+  /* Pyynnön tunniste: sama kuin pikaraportilla, jos raportti on tehty; muuten päivä ja satunnainen loppu */
+  const pyyntoNro = () => {
+    if (RAP && RAP.nro && RAP.nro !== '–') return RAP.nro;
+    const p = new Date(), kaksi = n => String(n).padStart(2, '0');
+    const loppu = Math.floor(Math.random() * 65536).toString(16).toUpperCase().padStart(4, '0');
+    return `CNP-${String(p.getFullYear()).slice(2)}${kaksi(p.getMonth() + 1)}${kaksi(p.getDate())}-${loppu}`;
+  };
+  lomake.addEventListener('submit', e => {
+    e.preventDefault();
+    const nimi = lomake.nimi.value.trim(), yh = lomake.yhteys.value.trim();
+    [lomake.nimi, lomake.yhteys].forEach(x => x.removeAttribute('aria-invalid'));
+    if (!nimi){ lVirhe.textContent = 'Kirjoita nimesi.'; lVirhe.hidden = false; lomake.nimi.setAttribute('aria-invalid', 'true'); lomake.nimi.focus(); return; }
+    if (!sahkoposti(yh) && !puhelin(yh)){ lVirhe.textContent = 'Kirjoita sähköpostiosoite (nimi@yritys.fi) tai puhelinnumero.'; lVirhe.hidden = false; lomake.yhteys.setAttribute('aria-invalid', 'true'); lomake.yhteys.focus(); return; }
+    lVirhe.hidden = true; lomake.hidden = true;
+    $('.yh-nro', kiitos).textContent = `Pyyntö ${pyyntoNro()}`;
+    nayta(kiitos);
+  });
+}
+
+/* ================= ELÄVÄ KUITU: Ismon bannerin johtimet kokoontuvat CyberNET-tunnukseen =================
+   Kaksi nippua tulee reunoilta kohti tunnusta kuten Ismon bannerissa. Jos etusivun pikaraportti on tehty,
+   osa pulsseista ja tunnuksen hehku saa raportin värin. Vähennetty liike: pysäytetty kuva. */
+const kuitu = (() => {
+  const kehys = $('.kaista .kuitu'), napa = $('.napa');
+  if (!kehys || !napa) return { vari(){} };
+  const pohja = $('.kuitu-pohja', kehys), valo = $('.kuitu-valo', kehys);
+  const cp = pohja.getContext('2d'), cv = valo.getContext('2d');
+  const SININEN = ['#3f7cff', '#2f68f0', '#5b8cff'], KULTA = '#e6b755', VAALEA = '#9cbcff';
+  const rgba = (hex, a) => { const n = parseInt(hex.slice(1), 16); return `rgba(${n >> 16},${(n >> 8) & 255},${n & 255},${a})`; };
+  let siemen = 1;
+  const rnd = () => { siemen = siemen + 0x6D2B79F5 | 0; let t = Math.imul(siemen ^ siemen >>> 15, 1 | siemen); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
+  const gs = (a, b) => a + rnd() * (b - a), sat = (a, b) => a + Math.random() * (b - a);
+  let W = 0, H = 0, dpr = 1, radat = [], pulssit = [], solmut = [], satama = null, tilaVari = null, silmukka = 0, edellinen = 0, nakyva = true;
+
+  function rata(suunta, y0, y1, xm, mutka, xLoppu, vari, alfa, paksuus){
+    const pts = [], x0 = suunta < 0 ? W + 20 : -20, askel = 4, ennen = x => suunta < 0 ? x > xLoppu : x < xLoppu;
+    for (let x = x0; suunta < 0 ? x > xm : x < xm; x += suunta * askel) pts.push([x, y0]);
+    const n = Math.max(8, Math.ceil(mutka / askel));
+    for (let i = 0; i <= n; i++){ const t = i / n, e = t * t * (3 - 2 * t); pts.push([xm + suunta * mutka * t, y0 + (y1 - y0) * e]); }
+    for (let x = xm + suunta * (mutka + askel); ennen(x); x += suunta * askel) pts.push([x, y1]);
+    pts.push([xLoppu, y1]);
+    const L = [0];
+    for (let i = 1; i < pts.length; i++) L.push(L[i - 1] + Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]));
+    return { pts, L, pituus: L[L.length - 1], x0, xLoppu, vari, alfa, paksuus, seuraava: sat(.3, 4) };
+  }
+  function nippu(suunta, n, yK, levea, tiivis, xLoppu, kultaiset){
+    const reuna = suunta < 0 ? W : 0, matka = Math.abs(xLoppu - reuna);
+    for (let i = 0; i < n; i++){
+      const off = i - (n - 1) / 2;
+      const y0 = yK + off * levea + gs(-.3, .3) * levea, y1 = yK + off * tiivis;
+      const mutka = Math.min(Math.abs(y1 - y0) * 1.7 + gs(40, 90), matka * .5);
+      const xm = reuna + suunta * gs(.04, .4) * Math.max(0, matka - mutka);
+      const k = kultaiset.includes(i);
+      radat.push(rata(suunta, y0, y1, xm, mutka, xLoppu + gs(-10, 10), k ? KULTA : SININEN[i % 3], k ? .95 : gs(.4, .8), k ? 1.5 : gs(.9, 1.35)));
+    }
+  }
+  const hav = (r, x) => { const t = (x - r.x0) / (r.xLoppu - r.x0); return t < .66 ? 1 : Math.max(0, 1 - (t - .66) / .34); };
+  function rakenna(){
+    const kr = kehys.getBoundingClientRect(), nr = napa.getBoundingClientRect();
+    W = Math.round(kr.width); H = Math.round(kr.height);
+    if (!W || !H) return;
+    siemen = 20261125;
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    for (const c of [pohja, valo]){ c.width = Math.round(W * dpr); c.height = Math.round(H * dpr); }
+    radat = []; pulssit = []; solmut = [];
+    const x = (nr.left + nr.right) / 2 - kr.left, y = (nr.top + nr.bottom) / 2 - kr.top, r = nr.width / 2;
+    const n = W > 960 ? 9 : 7, vara = Math.min(y, H - y) - 6;
+    const levea = Math.max(4, Math.min(15, vara / (n * .56)));
+    nippu(-1, n, y, levea, 3, x + r + 16, [2, 6]);
+    nippu(1, n, y, levea, 3, x - r - 16, [4]);
+    satama = [x, y, Math.min(r * 2.8, W * .3), Math.min(r * 1.2, vara)];
+    radat.forEach(q => { if (rnd() < .5) solmut.push({ r: q, s: gs(.1, .5) * q.pituus, koko: gs(1.6, 2.4), v: gs(0, 6) }); });
+    piirraPohja(); piirraValo(0);
+  }
+  function piirraPohja(){
+    cp.setTransform(dpr, 0, 0, dpr, 0, 0);
+    cp.clearRect(0, 0, W, H);
+    cp.globalCompositeOperation = 'lighter';
+    cp.lineCap = 'round'; cp.lineJoin = 'round';
+    for (const r of radat){
+      for (const [lev, a] of [[5, .1], [r.paksuus, 1]]){
+        const g = cp.createLinearGradient(r.x0, 0, r.xLoppu, 0);
+        g.addColorStop(0, rgba(r.vari, r.alfa * a)); g.addColorStop(.66, rgba(r.vari, r.alfa * a)); g.addColorStop(1, rgba(r.vari, 0));
+        cp.strokeStyle = g; cp.lineWidth = lev;
+        cp.beginPath(); r.pts.forEach(([x, y], i) => i ? cp.lineTo(x, y) : cp.moveTo(x, y)); cp.stroke();
+      }
+    }
+    cp.globalCompositeOperation = 'source-over';
+  }
+  function kohta(r, s){
+    if (s <= 0) return r.pts[0];
+    if (s >= r.pituus) return r.pts[r.pts.length - 1];
+    let lo = 0, hi = r.L.length - 1;
+    while (hi - lo > 1){ const m = (lo + hi) >> 1; if (r.L[m] < s) lo = m; else hi = m; }
+    const t = (s - r.L[lo]) / ((r.L[hi] - r.L[lo]) || 1), a = r.pts[lo], b = r.pts[hi];
+    return [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t];
+  }
+  function hehku(c, x, y, sade, vari, alfa){
+    if (alfa <= 0) return;
+    const g = c.createRadialGradient(x, y, 0, x, y, sade);
+    g.addColorStop(0, rgba(vari, Math.min(1, alfa))); g.addColorStop(1, rgba(vari, 0));
+    c.fillStyle = g; c.beginPath(); c.arc(x, y, sade, 0, Math.PI * 2); c.fill();
+  }
+  function piirraValo(aika){
+    cv.setTransform(dpr, 0, 0, dpr, 0, 0);
+    cv.clearRect(0, 0, W, H);
+    cv.globalCompositeOperation = 'lighter';
+    const t = (aika || 0) / 1000;
+    if (satama){
+      const [x, y, rx, ry] = satama;
+      cv.save(); cv.translate(x, y); cv.scale(rx / ry, 1);
+      hehku(cv, 0, 0, ry, tilaVari || '#3f7cff', (tilaVari ? .3 : .22) * (rm ? 1 : .8 + .2 * Math.sin(t * 1.2)));
+      cv.restore();
+    }
+    for (const n of solmut){
+      const [x, y] = kohta(n.r, n.s), f = hav(n.r, x);
+      if (f <= 0) continue;
+      hehku(cv, x, y, 8, n.r.vari, .55 * f * (rm ? .85 : .55 + .45 * Math.sin(t * 1.7 + n.v)));
+      cv.fillStyle = rgba('#ffffff', .9 * f); cv.beginPath(); cv.arc(x, y, n.koko * .55, 0, Math.PI * 2); cv.fill();
+    }
+    cv.lineCap = 'round'; cv.lineWidth = 1.8;
+    for (const p of pulssit){
+      const r = p.r, paa = Math.min(p.s, r.pituus), hanta = Math.max(0, p.s - p.hanta);
+      if (paa <= hanta) continue;
+      const [x1, y1] = kohta(r, hanta), [x2, y2] = kohta(r, paa), f = hav(r, x2);
+      if (f <= .01) continue;
+      const g = cv.createLinearGradient(x1, y1, x2, y2);
+      g.addColorStop(0, rgba(p.vari, 0)); g.addColorStop(1, rgba(p.vari, p.alfa * f));
+      cv.strokeStyle = g; cv.beginPath(); cv.moveTo(x1, y1);
+      for (let s = hanta + 4; s < paa; s += 4){ const [x, y] = kohta(r, s); cv.lineTo(x, y); }
+      cv.lineTo(x2, y2); cv.stroke();
+      hehku(cv, x2, y2, 7, p.vari, p.alfa * f * .9);
+    }
+    cv.globalCompositeOperation = 'source-over';
+  }
+  /* W7: pulssit kulkevat noin 5 sekuntia ja himmenevät; sen jälkeen jää pysäytetty kuva.
+     Uusi kierros alkaa vain, kun tuloksen väri vaihtuu (vari). */
+  const KESTO = 5;
+  let ajo = 0;
+  function paivita(dt){
+    ajo += dt;
+    if (ajo < KESTO - 1.2){
+      for (const r of radat){
+        r.seuraava -= dt;
+        if (r.seuraava > 0) continue;
+        const oma = r.vari === KULTA ? KULTA : VAALEA;
+        pulssit.push({ r, s: 0, v: sat(95, 150), vari: tilaVari && Math.random() < .45 ? tilaVari : oma, alfa: .85, hanta: sat(50, 110) });
+        r.seuraava = sat(2.4, 6.5);
+      }
+    }
+    for (const p of pulssit){ p.s += p.v * dt; if (ajo > KESTO) p.alfa -= dt * 1.4; }
+    pulssit = pulssit.filter(p => p.alfa > 0 && p.s - p.hanta < p.r.pituus).slice(-300);
+  }
+  function kierros(aika){
+    silmukka = requestAnimationFrame(kierros);
+    const dt = Math.min(.05, edellinen ? (aika - edellinen) / 1000 : .016); edellinen = aika;
+    paivita(dt);
+    if (ajo > KESTO && !pulssit.length){ piirraValo(aika); pysayta(); return; }
+    piirraValo(aika);
+  }
+  function kaynnista(){ if (rm || silmukka || !nakyva || document.hidden || !radat.length || ajo > KESTO) return; edellinen = 0; silmukka = requestAnimationFrame(kierros); }
+  function pysayta(){ if (silmukka) cancelAnimationFrame(silmukka); silmukka = 0; }
+  let ajastin = 0, koko = '';
+  const muuttui = () => { clearTimeout(ajastin); ajastin = setTimeout(() => { const r = kehys.getBoundingClientRect(), k = Math.round(r.width) + 'x' + Math.round(r.height); if (k !== koko){ koko = k; rakenna(); } }, 150); };
+  const alku = () => { rakenna(); koko = W + 'x' + H; kehys.classList.add('valmis'); kaynnista(); };
+  Promise.race([document.fonts ? document.fonts.ready : Promise.resolve(), new Promise(r => setTimeout(r, 700))]).then(alku);
+  if ('ResizeObserver' in window) new ResizeObserver(muuttui).observe(kehys); else addEventListener('resize', muuttui);
+  if ('IntersectionObserver' in window) new IntersectionObserver(e => { nakyva = e[0].isIntersecting; nakyva ? kaynnista() : pysayta(); }).observe(kehys);
+  document.addEventListener('visibilitychange', () => document.hidden ? pysayta() : kaynnista());
+  return { vari(v){
+    v = v || null;
+    if (v === tilaVari) return;
+    tilaVari = v; if (v) napa.style.setProperty('--napa-hehku', rgba(v, .5));
+    if (rm){ piirraValo(0); return; }
+    ajo = 0; radat.forEach(r => { r.seuraava = sat(0, .6); }); kaynnista();
+  } };
+})();
+
+/* W7: verkkokaavion virta kulkee kerran näkyviin tultaessa (CSS: kaksi kierrosta) */
+const kaavio = $('.kaavio');
+if (kaavio && 'IntersectionObserver' in window){
+  const ko = new IntersectionObserver(e => { if (e[0].isIntersecting){ kaavio.classList.add('kay'); ko.disconnect(); } }, { threshold: .4 });
+  ko.observe(kaavio);
+}
+
+/* ================= KARTOITUSKARTTA: etusivun pikaraportti alueittain ================= */
+const KYS = {"q1": {"nimi": "Kirjautuminen", "kysymys": "Onko sähköpostiin ja pilvipalveluihin kirjautumisessa monivaiheinen tunnistautuminen käytössä kaikilla?", "e": "Ota monivaiheinen tunnistautuminen käyttöön kaikille käyttäjille.", "t": "Onko monivaiheinen tunnistautuminen käytössä jokaisella käyttäjällä.", "ok": "Monivaiheinen tunnistautuminen on käytössä."}, "q2": {"nimi": "Käyttöoikeudet", "kysymys": "Onko käyttöoikeudet käyty läpi viimeisen vuoden aikana, myös lähteneiden työntekijöiden tunnukset?", "e": "Käy käyttäjätunnukset ja käyttöoikeudet läpi ja poista tarpeettomat.", "t": "Milloin käyttöoikeudet on viimeksi tarkistettu.", "ok": "Käyttöoikeudet on tarkistettu."}, "q3": {"nimi": "Laitteiden valvonta", "kysymys": "Valvotaanko työasemia ja palvelimia tietoturvaratkaisulla, joka hälyttää poikkeamista?", "e": "Ota työasemiin ja palvelimiin tietoturvaratkaisu, jonka hälytyksiä myös seurataan.", "t": "Mikä tietoturvaohjelma koneissa on ja seuraako kukaan sen hälytyksiä.", "ok": "Työasemat ja palvelimet ovat valvonnassa."}, "q4": {"nimi": "Varmuuskopiot", "kysymys": "Onko varmuuskopioiden palautusta kokeiltu viimeisen vuoden aikana?", "e": "Kokeile, että tiedot saa varmuuskopiosta oikeasti palautettua.", "t": "Mistä tiedoista varmuuskopio otetaan ja onko palautusta kokeiltu.", "ok": "Varmuuskopioiden palautus on kokeiltu."}, "q5": {"nimi": "Palomuuri ja etäyhteydet", "kysymys": "Onko palomuurilla ja etäyhteyksillä nimetty vastuuhenkilö, joka pitää ne ajan tasalla?", "e": "Nimeä palomuurille ja etäyhteyksille vastuuhenkilö ja päivitä ne.", "t": "Kuka palomuurista ja etäyhteyksistä vastaa.", "ok": "Palomuuri ja etäyhteydet ovat ajan tasalla."}, "q6": {"nimi": "Henkilöstö", "kysymys": "Tietääkö henkilöstö, mitä tehdä, kun sähköpostiin tulee epäilyttävä linkki tai liite?", "e": "Sovi henkilöstön kanssa, miten epäilyttävä viesti tarkistetaan ja kenelle siitä kerrotaan.", "t": "Miten henkilöstö toimisi epäilyttävän viestin kanssa.", "ok": "Henkilöstö tietää, miten epäilyttävä viesti tarkistetaan."}};
+const ALUEET = {"posti": ["dmarc", "q1", "q2"], "laitteet": ["q3", "q4"], "verkko": ["q5"], "henkilosto": ["q6"]};
+const VARI = { ok: '#46d39a', varo: '#f5b544', vaara: '#ff7a6b', tunt: '#a3adc2' };
+const TEKSTI = { vaara: 'Tee heti', tunt: 'Selvitettävää', varo: 'Kiristettävää', ok: 'Kunnossa', kesken: 'Osittain tarkistettu' };
+const PAINO = { vaara: 4, tunt: 3, varo: 2, ok: 1 };
+const ISO = ['Ei yhtään', 'Yksi', 'Kaksi', 'Kolme', 'Neljä', 'Viisi', 'Kuusi', 'Seitsemän'];
+const selvita = s => 'Selvitä, ' + s.charAt(0).toLowerCase() + s.slice(1);
+function kohde(k){
+  if (!RAP) return null;
+  if (k === 'dmarc'){ const d = RAP.dns; return d && d.dmarc ? { tila: d.dmarc.tila, lyhyt: d.dmarc.lyhyt, teksti: d.dmarc.teksti } : null; }
+  const v = (RAP.vastaukset || {})[k], q = KYS[k];
+  if (v === 'k') return { tila: 'ok', lyhyt: 'Kunnossa', teksti: q.ok };
+  if (v === 'e') return { tila: 'vaara', lyhyt: 'Tee heti', teksti: q.e };
+  if (v === 't') return { tila: 'tunt', lyhyt: 'Ei tiedossa', teksti: selvita(q.t) };
+  return null;
+}
+const pahin = tilat => tilat.reduce((a, b) => (PAINO[b] || 0) > (PAINO[a] || 0) ? b : a, 'ok');
+if (RAP){
+  const kaikki = Object.values(ALUEET).flat().map(kohde).filter(Boolean);
+  const heti = kaikki.filter(x => x.tila === 'vaara').length, muut = kaikki.filter(x => x.tila === 'tunt' || x.tila === 'varo').length;
+  const kpl = n => `${ISO[n]} ${n === 1 ? 'asia' : 'asiaa'}`;
+  const vastaus = heti ? `${kpl(heti)} kannattaa tehdä heti` : muut ? `${kpl(muut)} kannattaa tarkistaa` : 'Tarkistetut asiat ovat kunnossa';
+  /* W3: raportin kanssa H1 on oma vastaus ja kartta nousee heti sen alle; yleinen H1 jää DOMiin ilman raporttia */
+  $('.h1-yleinen').hidden = true;
+  const h1oma = $('.h1-oma'); h1oma.textContent = vastaus; h1oma.hidden = false;
+  $('.kyber-hero .silmake-teksti').textContent = `Pikaraporttisi${RAP.dns ? ' · ' + RAP.dns.naytto : ''}`;
+  $('.kyber-hero .ingressi').textContent = 'Kartta näyttää raporttisi alueittain. Käydään se yhdessä läpi, niin tiedät, mitä tehdään ensin.';
+  $('.kyber-hero .hero-napit').hidden = true; $('.hero-napit [data-paatoiminto]').removeAttribute('data-paatoiminto');
+  $('.kartta-kehotus').hidden = true;
+  $('.kartta-laji').textContent = `Pikaraportti ${RAP.nro}`;
+  $('.kartta-o').textContent = 'Raporttisi alueittain';
+  $('.kartta-linkki').hidden = false;
+  const ala = $('.kartta-ala');
+  ala.innerHTML = `<p>${RAP.dns ? `<b>${esc(RAP.dns.naytto)}</b> · ` : ''}tarkistettu ${esc(RAP.pvm)}</p><div class="napit">${RAP.valmis ? '' : '<a class="linkki" href="b2-etusivu.html#sisapuoli">Vastaa vielä kuuteen kysymykseen</a>'}<a class="nappi kulta" href="#yhteys" data-aihe="Raportin läpikäynti" data-raportti data-paatoiminto>Käydään raporttisi läpi</a></div>`;
+  ala.hidden = false;
+  $$('.alue').forEach(li => {
+    const ks = ALUEET[li.dataset.alue].map(kohde), tiedot = ks.filter(Boolean);
+    let t = 'odottaa';
+    if (tiedot.length){ t = pahin(tiedot.map(x => x.tila)); if (t === 'ok' && tiedot.length < ks.length) t = 'kesken'; }
+    li.dataset.tila = t;
+    const at = $('.alue-tila', li); at.textContent = t === 'odottaa' ? 'Ei vastattu' : TEKSTI[t]; at.hidden = false;
+  });
+  /* K8: lomakkeen oletusaihe raportin kanssa */
+  esitayta('Raportin läpikäynti', null);
+  $$('.tarkistus li').forEach(li => {
+    const x = kohde(li.dataset.k), p = $('.pilleri', li);
+    if (x){ p.dataset.tila = x.tila; p.textContent = x.lyhyt; $('.t-teksti', li).textContent = x.teksti; }
+    else { p.dataset.tila = 'tunt'; p.textContent = 'Ei vastattu'; }
+    p.hidden = false;
+  });
+  const pm = kohde('q5'); if (pm) $('.k-palomuuri').dataset.tila = pm.tila;
+  const koko = pahin(kaikki.map(x => x.tila));
+  if (kaikki.length) kuitu.vari(VARI[koko]);
+  tilaRivi.textContent = `Pikaraporttisi on mukana: ${vastaus}.`;
+}
+
+/* ================= EPÄILETKÖ JOTAIN: tilanteen mukaan oikea tarkistus ================= */
+const tilNapit = $$('.tilanteet button'), ohjeet = $$('.ohje');
+function valitse(id){
+  tilNapit.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.til === id)));
+  ohjeet.forEach(o => o.classList.toggle('auki', o.dataset.til === id));
+}
+tilNapit.forEach(b => b.addEventListener('click', () => valitse(b.dataset.til)));
+valitse(tilNapit[0].dataset.til);
+
+})();
+</script>
+</body>
+</html>

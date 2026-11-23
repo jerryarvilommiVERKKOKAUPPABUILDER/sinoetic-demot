@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>CNP Group – IT-tuki ja kyberturva yrityksille, Lappeenranta</title>
+<meta name="description" content="CNP Group Lappeenrannasta: kyberturva, laitteet ja IT-tuki yrityksille asennuksineen ja ylläpitoineen." data-lahde="e2 y1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300..800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pohja:#f4f4f2; --valk:#fff; --muste:#111318; --muste2:#4b505c; --viiva:#dedcd5; --viiva2:#c9c6bc;
+  --indigo:#4520d9; --oranssi:#da380f; --oranssi-t:#b9480a; --sininen:#1f55c9; --musta:#111318;
+  --yo:#000515; --yoteksti:#b9c4dc; --kulta:#d9a441; --kulta2:#f0c874;
+  --leveys:1120px; --r:20px;
+  --f:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;scroll-padding-top:92px}
+body{margin:0;background:var(--valk);color:var(--muste);font-family:var(--f);font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--indigo);outline-offset:3px;border-radius:6px}
+.tumma :focus-visible,.kuitu :focus-visible{outline-color:#fff}
+.til :focus-visible,.yh-lomake :focus-visible,.yh-kiitos :focus-visible,.pt-kortti :focus-visible,.uusin :focus-visible{outline-color:var(--indigo)}
+.kapea{max-width:var(--leveys);margin:0 auto;padding:0 32px}
+.nb{white-space:nowrap}
+h1,h2,h3,h4{font-weight:600;letter-spacing:-.022em;line-height:1.1;margin:0;text-wrap:balance;overflow-wrap:break-word;hyphens:auto}
+p{margin:0;text-wrap:pretty}
+
+.demopalkki{background:#01040c;color:#aab6cf;font-size:12.5px;letter-spacing:.02em;text-align:center;padding:7px 16px;line-height:1.35}
+
+/* Ylätunniste: logo vasemmalla, kolme nimeä keskellä, puhelin oikealla */
+.yla{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--viiva)}
+.yla .kapea{display:flex;align-items:center;gap:24px;height:74px}
+.yla .logo{display:flex;align-items:center;min-height:44px;margin-left:-6px}
+.yla .logo img{height:54px;width:auto}
+.sivut{display:flex;gap:6px;margin:0 auto}
+.sivut a{display:flex;align-items:center;gap:9px;padding:9px 14px 9px 10px;border-radius:999px;font-size:15px;font-weight:600;text-decoration:none;color:var(--muste2);min-height:44px;transition:background .2s,color .2s}
+.sivut a img{width:26px;height:26px}
+.sivut a:hover{background:var(--pohja);color:var(--muste)}
+.sivut a[aria-current="page"]{background:var(--pohja);color:var(--muste);box-shadow:inset 0 0 0 1px var(--viiva)}
+.yla .oikea{display:flex;align-items:center;gap:14px}
+.yla .puh{font-weight:700;font-size:15px;text-decoration:none;white-space:nowrap;min-height:44px;display:inline-flex;align-items:center}
+.valikko{display:none}
+
+/* Ismon kuitubanneri: tumma kaista, otsikko keskellä kuten hänen iskulauseensa */
+.kuitu{position:relative;background:var(--yo) url(assets/banneri-2172.jpg) center/cover no-repeat;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 20px}
+.kuitu>*{position:relative;z-index:1}
+.kuitu.varjo::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 36% 62% at 50% 52%,rgba(0,5,21,.78),rgba(0,5,21,0));pointer-events:none}
+.nauha{min-height:clamp(64px,10vh,112px)}
+.nauha p{font-size:clamp(17px,2vw,28px);font-weight:500;letter-spacing:.004em;text-shadow:0 2px 18px rgba(0,5,21,.9)}
+.loppunauha{min-height:clamp(46px,6vw,76px)}
+.tumma{background:var(--yo);color:#fff}
+.tumma>.kuitu{min-height:clamp(170px,18vw,240px);padding-top:clamp(34px,4vw,52px);padding-bottom:clamp(18px,2.4vw,30px)}
+.tumma>.kuitu>h2{font-size:clamp(30px,3.7vw,52px);text-shadow:0 2px 22px rgba(0,5,21,.85)}
+.tumma>.kuitu>p{margin-top:12px;color:#c8d1e4;max-width:640px;font-size:clamp(16.5px,1.3vw,18.5px)}
+.tumma-runko{padding-bottom:clamp(60px,8vw,108px)}
+
+/* Napit: Ismon pillerit (sininen, oranssi, musta) */
+.napit{display:flex;flex-wrap:wrap;gap:12px;margin-top:clamp(18px,3vh,30px)}
+.napit.keskita{justify-content:center}
+.kuitu>.napit{width:100%;max-width:580px}
+.nappi{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 28px;border-radius:999px;font-weight:700;font-size:16px;line-height:1.2;text-decoration:none;color:#fff;font-family:inherit;border:0;cursor:pointer;transition:transform .2s,box-shadow .2s;white-space:nowrap}
+.nappi svg{width:15px;height:15px;flex:none}
+.nappi:hover{transform:translateY(-2px);box-shadow:0 14px 26px -16px rgba(0,0,0,.7)}
+.nappi.indigo{background:var(--indigo)}
+.nappi.oranssi{background:var(--oranssi)}
+.nappi.musta{background:var(--musta)}
+.nappi.valkea{background:#fff;color:var(--muste)}
+.nappi.reuna{background:transparent;color:var(--muste);box-shadow:inset 0 0 0 1.5px var(--muste)}
+.nappi.pieni{min-height:48px;padding:0 22px;font-size:15px}
+
+/* Etusivun ensinäkymä: Ismon vaalea pohja, johdinkuvio ja iso logo */
+.alku{background:var(--pohja) url(assets/johdinkuvio.webp) center top/cover no-repeat;padding:clamp(26px,4.6vh,60px) 0 clamp(36px,5vw,64px)}
+.alku-ruudukko{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(32px,6vw,84px);align-items:center}
+.isologo{height:clamp(78px,14vh,158px);width:auto;margin:0 0 clamp(8px,1.8vh,18px) -8px}
+.alku h1{font-size:clamp(34px,4.4vw,60px);letter-spacing:-.03em;line-height:1.04}
+.ingressi{margin-top:clamp(12px,2vh,20px);color:var(--muste2);font-size:clamp(17px,1.4vw,19.5px);line-height:1.55;max-width:600px}
+.ovet-otsake{font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muste2);margin-bottom:12px}
+.ovet{display:grid;gap:14px}
+.ovi{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:6px 18px;background:var(--valk);border:1px solid var(--viiva);border-radius:var(--r);padding:14px 22px 14px 12px;text-decoration:none;box-shadow:0 22px 44px -36px rgba(17,19,24,.55);transition:transform .25s,box-shadow .25s,border-color .25s}
+.ovi:hover{transform:translateY(-3px);box-shadow:0 26px 48px -30px rgba(17,19,24,.5);border-color:var(--viiva2)}
+.ovi img{height:clamp(54px,5.6vw,74px);width:auto}
+.ovi strong{display:block;font-size:17px;font-weight:700}
+.ovi small{display:block;font-size:14.5px;color:var(--muste2);line-height:1.4;margin-top:2px}
+.ovi>svg{width:20px;height:20px;transition:transform .25s}
+.ovi:hover>svg{transform:translateX(5px)}
+.uutisrivi{display:flex;align-items:center;gap:14px;background:var(--valk);border:1px solid var(--viiva);border-radius:999px;padding:8px 22px 8px 18px;text-decoration:none;min-height:58px;margin-top:clamp(26px,4vw,44px);transition:border-color .2s}
+.uutisrivi:hover{border-color:var(--muste)}
+.uutisrivi b{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#b32a0c;white-space:nowrap}
+.uutisrivi b i{width:8px;height:8px;border-radius:50%;background:#e5471a}
+.uutisrivi strong{font-weight:600;font-size:16px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0;flex:1}
+.uutisrivi time{font-size:14px;color:var(--muste2);white-space:nowrap}
+.uutisrivi span{display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:14.5px;white-space:nowrap}
+.uutisrivi svg{width:16px;height:16px}
+.todisteet{display:grid;grid-template-columns:repeat(4,1fr);margin:clamp(20px,3vw,32px) 0 0;padding:0;list-style:none;border-top:1px solid var(--viiva2);border-bottom:1px solid var(--viiva2)}
+.todisteet li{padding:18px 20px;border-left:1px solid var(--viiva2);font-weight:700;font-size:clamp(16.5px,1.45vw,19.5px);letter-spacing:-.012em;line-height:1.3}
+.todisteet li:first-child{border-left:0;padding-left:0}
+
+/* Mistä aloitetaan: valkoiset kortit tummalla, jokaisella nimellä oma väri */
+.til-lista{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.til{display:flex;flex-direction:column;align-items:flex-start;background:var(--valk);color:var(--muste);border-radius:var(--r);border-top:4px solid var(--til-vari);padding:28px 28px 22px;box-shadow:0 34px 60px -40px rgba(0,0,0,.9)}
+.til[data-nimi="lamis"]{--til-vari:var(--oranssi)}
+.til[data-nimi="cyber"]{--til-vari:var(--indigo)}
+.til[data-nimi="cnp"]{--til-vari:var(--kulta)}
+.til img{width:52px;height:52px}
+.til h3{font-size:clamp(23px,2.1vw,28px);line-height:1.14;margin-top:18px}
+.til p{margin:10px 0 24px;color:var(--muste2);font-size:16.5px}
+.til .nappi{margin-top:auto;align-self:stretch}
+.til-toinen{align-self:center;margin-top:8px;font-size:15px;font-weight:700;color:var(--muste2);text-underline-offset:4px;display:inline-flex;align-items:center;min-height:44px}
+.til-toinen:hover{color:var(--muste)}
+
+/* Vaaleat osiot */
+.lohko{padding:clamp(60px,8vw,112px) 0}
+.lohko.valk{background:var(--valk)}
+.lohko.harmaa{background:var(--pohja)}
+.lohko.kuvio{background:var(--pohja) url(assets/johdinkuvio.webp) center/cover no-repeat}
+.otsikko2{font-size:clamp(30px,3.6vw,50px)}
+.johdanto{max-width:720px}
+.johdanto p{margin-top:14px;color:var(--muste2);font-size:clamp(17px,1.35vw,19px)}
+.keskella{text-align:center;margin-left:auto;margin-right:auto}
+
+/* Näin työ etenee: johdin kulkee vaiheiden läpi */
+.vaiheet{counter-reset:v;list-style:none;margin:clamp(34px,4.4vw,56px) 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:0 32px;position:relative}
+.vaiheet::before{content:"";position:absolute;left:23px;right:0;top:23px;height:2px;background:linear-gradient(90deg,var(--sininen),var(--kulta) 55%,rgba(217,164,65,.15))}
+.vaiheet li{position:relative;padding-top:72px;counter-increment:v}
+.vaiheet i::before{content:"0" counter(v)}
+.vaiheet i{position:absolute;top:0;left:0;width:48px;height:48px;border-radius:50%;background:var(--valk);border:2px solid var(--sininen);display:grid;place-items:center;font-style:normal;font-weight:800;font-size:15px;color:var(--muste);box-shadow:0 0 0 6px var(--valk)}
+.vaiheet li:nth-child(3) i,.vaiheet li:nth-child(4) i{border-color:var(--kulta)}
+.vaiheet strong{display:block;font-size:clamp(21px,1.9vw,25px);font-weight:600;letter-spacing:-.016em}
+.vaiheet span{display:block;margin-top:8px;color:var(--muste2);font-size:16.5px;line-height:1.55}
+
+/* Portaalinosto kuitupohjalla */
+.portaalinosto{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:space-between;gap:20px 40px;flex-wrap:wrap;background:var(--yo) url(assets/banneri-2172.jpg) center/cover no-repeat;color:#fff;border-radius:24px;padding:clamp(28px,3.6vw,48px);margin-top:clamp(52px,7vw,88px)}
+.portaalinosto::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,5,21,.92) 30%,rgba(0,5,21,.35));pointer-events:none}
+.portaalinosto>*{position:relative}
+.portaalinosto small{display:block;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--kulta2);margin-bottom:8px}
+.portaalinosto h2,.portaalinosto h3{font-size:clamp(24px,2.6vw,34px)}
+.portaalinosto p{margin-top:8px;color:var(--yoteksti);max-width:560px}
+
+/* Alasivujen ensinäkymä: Ismon banneri ensinäkymän kokoisena */
+.sivualku .kuitu{min-height:clamp(430px,58vh,580px);padding:clamp(40px,6vh,72px) 20px clamp(48px,7vh,80px)}
+.tumma>.kuitu>.tunnusrivi{display:inline-flex;align-items:center;gap:12px;margin:0;max-width:none;font-size:clamp(14px,1.2vw,16px);font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#dfe6f3}
+.tunnusrivi img{width:56px;height:56px}
+.tunnusrivi b{color:#fff;font-weight:800}
+.sivualku h1{font-size:clamp(36px,4.8vw,66px);letter-spacing:-.03em;line-height:1.04;margin-top:clamp(16px,2.4vh,24px);max-width:900px;text-shadow:0 2px 24px rgba(0,5,21,.9)}
+.sivualku .ingressi{color:#d3dbeb;margin-left:auto;margin-right:auto;max-width:660px;text-shadow:0 1px 14px rgba(0,5,21,.9)}
+
+/* Alueet ja palvelut: yksi kerrallaan, yksityiskohdat avattavina */
+.alueet{counter-reset:a;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:clamp(30px,4vw,48px)}
+.alue{display:flex;flex-direction:column;gap:22px;background:var(--valk);border:1px solid var(--viiva);border-top:4px solid var(--merkki,var(--sininen));border-radius:var(--r);padding:clamp(24px,2.6vw,32px);box-shadow:0 26px 50px -44px rgba(17,19,24,.5)}
+.alue>div{display:flex;flex-direction:column;flex:1}
+.alue{counter-increment:a}
+.alue small::before{content:"0" counter(a)}
+.alue-merkki{width:64px;height:64px;border-radius:18px;display:grid;place-items:center;background:var(--merkki-pohja,#edf1fc);color:var(--merkki,var(--sininen))}
+.alue-merkki svg{width:32px;height:32px}
+.alue small{display:block;font-size:13px;font-weight:800;letter-spacing:.14em;color:var(--merkki,var(--sininen));margin-bottom:6px}
+.alue h3{font-size:clamp(23px,2.1vw,28px)}
+.alue>div>p{margin-top:10px;margin-bottom:6px;color:var(--muste2);font-size:17px}
+.alue details{margin-top:auto;padding-top:16px}
+.alue details>summary{border-top:1px solid var(--viiva);width:100%}
+.alue summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;min-height:52px;font-weight:700;font-size:16px}
+.alue summary::-webkit-details-marker{display:none}
+.alue summary::after{content:"";margin-left:auto;margin-right:4px;width:8px;height:8px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-3px);transition:transform .25s}
+.alue details[open] summary::after{transform:rotate(225deg) translateY(-1px)}
+.alue summary:hover{text-decoration:underline;text-underline-offset:4px}
+.avattu{padding:2px 0 4px;color:var(--muste2);font-size:16.5px}
+.avattu p+p,.avattu p+.hyva{margin-top:12px}
+.hyva{padding:16px 18px;border-radius:14px;background:var(--pohja);font-size:16.5px;color:var(--muste)}
+.hyva b{display:block;font-size:12.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muste2);margin-bottom:4px}
+.hyva a{display:inline-flex;align-items:center;gap:6px;font-weight:700;min-height:44px;margin-top:4px;text-underline-offset:4px}
+.hyva svg{width:13px;height:13px}
+.lamis .alue{--merkki:var(--oranssi-t);--merkki-pohja:#fbeee6}
+
+/* Pikatarkistus: yksi kysymys kerrallaan */
+.pt-kortti{background:var(--valk);color:var(--muste);border-radius:22px;padding:clamp(22px,3vw,40px);box-shadow:0 40px 80px -50px rgba(0,0,0,.95);max-width:780px;margin:0 auto}
+.pt-otsake{display:flex;align-items:center;gap:14px}
+.pt-otsake img{width:46px;height:46px;flex:none}
+.pt-otsake small{display:block;font-size:11.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--sininen)}
+.pt-otsake strong{display:block;font-size:21px;font-weight:600;letter-spacing:-.015em;line-height:1.2}
+.pt-palkki{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin:20px 0 0}
+.pt-palkki i{height:4px;border-radius:2px;background:var(--viiva);transition:background .3s}
+.pt-palkki i.on{background:var(--sininen)}
+.pt-askel{padding-top:clamp(20px,3vw,32px)}
+.pt-askel small{font-size:13px;font-weight:700;letter-spacing:.06em;color:var(--muste2)}
+.pt-askel p{margin:8px 0 0;font-weight:600;font-size:clamp(22px,2.4vw,30px);letter-spacing:-.018em;line-height:1.22;min-height:3.66em}
+.pt-v{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px}
+.pt-v label{position:relative;cursor:pointer}
+.pt-v input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
+.pt-v span{display:flex;align-items:center;justify-content:center;min-height:58px;border:1.5px solid var(--viiva);border-radius:16px;font-size:17px;font-weight:700;background:var(--valk);transition:background .2s,color .2s,border-color .2s}
+@media (hover:hover){.pt-v label:hover span{border-color:var(--muste)}}
+.pt-v input:checked+span{background:var(--muste);border-color:var(--muste);color:#fff}
+.pt-v input:focus-visible+span{outline:2px solid var(--sininen);outline-offset:2px}
+.pt-ala{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 20px;margin-top:12px;min-height:48px}
+.pt-takaisin,.pt-uusi{all:unset;cursor:pointer;font-size:15px;font-weight:600;color:var(--muste2);text-decoration:underline;text-underline-offset:4px;min-height:44px;display:inline-flex;align-items:center}
+.pt-takaisin:focus-visible,.pt-uusi:focus-visible{outline:2px solid var(--sininen);outline-offset:3px}
+.pt-seuraava{margin-left:auto}
+.pt-tulos:focus{outline:none}
+.pt-varauma{margin:18px 0 0;padding:12px 16px;background:var(--pohja);border-radius:12px;font-size:15px;color:var(--muste2)}
+.pt-ryhma{padding:18px 0 4px}
+.pt-ryhma+.pt-ryhma{border-top:1px solid var(--viiva)}
+.pt-lisa{margin:-2px 0 6px;font-size:14.5px;color:var(--muste2)}
+.pt-ryhma h4{display:flex;align-items:center;gap:10px;margin:0 0 8px;font-size:12.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muste)}
+.pt-ryhma h4::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--piste)}
+.pt-ryhma[data-r="e"]{--piste:#d43a12}
+.pt-ryhma[data-r="e"] h4{color:#a3260a}
+.pt-ryhma[data-r="t"]{--piste:var(--kulta)}
+.pt-ryhma[data-r="k"]{--piste:#1c9a55}
+.pt-ryhma[data-r="k"] h4{color:#17663a}
+.pt-ryhma ul{list-style:none;margin:0;padding:0}
+.pt-ryhma li{padding:7px 0 9px;font-size:16.5px;line-height:1.45}
+.pt-loppu{display:flex;flex-wrap:wrap;align-items:center;gap:6px 22px;margin-top:20px;padding-top:20px;border-top:1px solid var(--viiva)}
+
+/* Kartoitus: mitä saat, yhtenä raporttina */
+.raportti{max-width:880px;margin:clamp(30px,4vw,48px) auto 0;background:var(--valk);border:1px solid var(--viiva);border-radius:24px;box-shadow:0 44px 80px -58px rgba(17,19,24,.6);overflow:hidden}
+.raportti-yla{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px clamp(20px,3vw,34px);border-bottom:2px solid var(--muste)}
+.raportti-yla img{height:58px;width:auto;margin-left:-6px}
+.raportti-yla span{font-size:12.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muste2);text-align:right}
+.raportti-osa{padding:22px clamp(20px,3vw,34px);border-bottom:1px solid var(--viiva)}
+.raportti-osa b{display:block;font-size:12.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muste2);margin-bottom:8px}
+.raportti-osa>p{font-size:clamp(18px,1.6vw,21px);font-weight:600;letter-spacing:-.012em}
+.raportti ol{counter-reset:r;list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.raportti ol li{counter-increment:r}
+.raportti ol li i::before{content:"0" counter(r)}
+.raportti ol li{display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;align-items:baseline;font-size:clamp(17px,1.5vw,20px);font-weight:600;letter-spacing:-.01em;line-height:1.35}
+.raportti ol li i{font-style:normal;font-size:14px;font-weight:800;color:var(--sininen)}
+.raportti-loppu{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:22px clamp(20px,3vw,34px) 28px}
+.raportti-loppu div{border:1px solid var(--viiva);border-radius:16px;padding:16px 18px}
+.raportti-loppu h3{display:flex;align-items:center;gap:10px;font-size:18px}
+.raportti-loppu h3::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--piste);flex:none}
+.raportti-loppu p{margin-top:6px;color:var(--muste2);font-size:16px}
+
+/* Tarkista itse: kolme tarkistusta, ei linkkikasaa */
+.tyokalut{list-style:none;margin:clamp(30px,4vw,48px) 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.tyokalu{display:flex;flex-direction:column;align-items:flex-start;background:var(--valk);border:1px solid var(--viiva);border-radius:var(--r);padding:26px 26px 24px}
+.tyokalu small{font-size:12.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muste2)}
+.tyokalu h3{font-size:clamp(21px,1.9vw,24px);line-height:1.2;margin-top:10px}
+.tyokalu p{margin:8px 0 22px;color:var(--muste2);font-size:16px}
+.tyokalu .nappi{margin-top:auto}
+
+/* Usein kysyttyä */
+.ukk{max-width:840px;margin-top:clamp(24px,3vw,36px);border-top:2px solid var(--muste)}
+.ukk details{border-bottom:1px solid var(--viiva)}
+.ukk summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:20px 0;font-size:clamp(18px,1.6vw,21px);font-weight:600;letter-spacing:-.012em;line-height:1.3;min-height:66px}
+.ukk summary::-webkit-details-marker{display:none}
+.ukk summary::after{content:"";flex:none;width:11px;height:11px;border-right:2px solid var(--muste);border-bottom:2px solid var(--muste);transform:rotate(45deg) translate(-3px,-3px);transition:transform .25s}
+.ukk details[open] summary::after{transform:rotate(225deg) translate(-3px,-3px)}
+.ukk details p{padding:0 40px 22px 0;color:var(--muste2);max-width:700px}
+
+/* Uutiset: uusin isona, muut välilehdillä */
+.uusin{display:block;width:100%;max-width:820px;margin:clamp(26px,4vh,40px) auto 0;background:var(--valk);color:var(--muste);border-radius:22px;padding:clamp(22px,3vw,34px);text-align:left;box-shadow:0 40px 80px -50px rgba(0,0,0,.95)}
+.uusin small{display:block;font-size:12.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#a3260a}
+.uusin small i{display:inline-block;width:8px;height:8px;border-radius:50%;background:#e5471a;margin-right:8px;vertical-align:1px}
+.uusin h2{font-size:clamp(24px,2.8vw,36px);margin-top:10px;line-height:1.15}
+.uusin p{margin-top:8px;color:var(--muste2);font-size:16px}
+.uusin .nappi{margin-top:18px}
+.uv-napit{display:flex;flex-wrap:wrap;gap:8px;border-bottom:2px solid var(--muste);padding-bottom:14px}
+.uv-napit button{all:unset;box-sizing:border-box;cursor:pointer;min-height:46px;padding:0 20px;border:1px solid var(--viiva2);border-radius:999px;font-size:15.5px;font-weight:700;color:var(--muste2);display:inline-flex;align-items:center;transition:background .2s,color .2s,border-color .2s}
+.uv-napit button:hover{border-color:var(--muste);color:var(--muste)}
+.uv-napit button[aria-selected="true"]{background:var(--muste);border-color:var(--muste);color:#fff}
+.uv-napit button:focus-visible{outline:2px solid var(--indigo);outline-offset:2px}
+.uv-paneeli>p{margin:18px 0 6px;color:var(--muste2);font-size:16.5px;max-width:640px}
+.uv-paneeli>p b{color:var(--muste)}
+.ulista{list-style:none;margin:0;padding:0}
+.ulista a{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 24px;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--viiva);text-decoration:none;min-height:56px}
+.ulista strong{overflow-wrap:break-word;hyphens:auto;font-weight:600;font-size:clamp(18px,1.6vw,21px);line-height:1.3;letter-spacing:-.01em;text-decoration:underline;text-decoration-color:transparent;text-underline-offset:4px;transition:text-decoration-color .2s}
+.ulista a:hover strong{text-decoration-color:var(--muste)}
+.ulista time{font-size:14.5px;color:var(--muste2);white-space:nowrap}
+.uv-kaikki{display:inline-flex;align-items:center;gap:6px;min-height:44px;margin-top:10px;font-size:15.5px;font-weight:700;text-underline-offset:4px}
+.uv-kaikki svg{width:13px;height:13px;flex:none}
+
+/* Yhteydenotto tummalla: yksi lomake keskellä */
+.yhteys .kapea{max-width:800px}
+.yh-lomake,.yh-kiitos{background:var(--valk);color:var(--muste);border-radius:24px;padding:clamp(22px,3vw,38px);box-shadow:0 44px 80px -50px rgba(0,0,0,.95)}
+.yh-lomake{display:grid;gap:18px}
+.aiheet{border:0;margin:0;padding:0;min-width:0}
+.aiheet legend,.yh-lomake label>span{display:block;font-size:14.5px;font-weight:700;margin-bottom:8px;padding:0}
+.aiheet div{display:flex;flex-wrap:wrap;gap:8px}
+.aiheet label{position:relative;cursor:pointer}
+.aiheet input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
+.aiheet label span{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border:1px solid var(--viiva2);border-radius:999px;font-size:15px;font-weight:600;color:var(--muste2);margin:0;transition:background .2s,color .2s,border-color .2s}
+.aiheet input:checked+span{background:var(--muste);border-color:var(--muste);color:#fff}
+.aiheet input:focus-visible+span{outline:2px solid var(--indigo);outline-offset:2px}
+.kentat{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.yh-lomake input[type=text],.yh-lomake textarea{width:100%;font:inherit;font-size:16px;color:var(--muste);background:#fff;border:1px solid var(--viiva2);border-radius:12px;padding:12px 14px;min-height:52px}
+.yh-lomake textarea{resize:vertical;min-height:96px}
+.yh-lomake input:focus,.yh-lomake textarea:focus{outline:2px solid var(--indigo);outline-offset:1px;border-color:transparent}
+.yh-mukana{margin:0;font-size:15px;font-weight:600;color:var(--sininen)}
+.yh-virhe{margin:0;font-size:15px;font-weight:600;color:#a3260a}
+.yh-loppu{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 24px}
+.yh-tietosuoja{font-size:14.5px;color:var(--muste2)}
+.yh-tietosuoja a{font-weight:700;color:var(--muste);text-underline-offset:3px;display:inline-flex;align-items:center;min-height:44px}
+.yh-kiitos h3{font-size:clamp(24px,2.4vw,30px);margin-bottom:12px}
+.yh-kiitos p{color:var(--muste2)}
+.yh-kiitos p+p{margin-top:6px}
+.yh-kiitos a{color:var(--muste);font-weight:700}
+.yh-kiitos:focus{outline:none}
+.yh-suorat{margin-top:24px;text-align:center;color:var(--yoteksti);font-size:16px}
+.yh-suorat a{color:#fff;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;min-height:44px;padding:0 4px}
+.yh-suorat a:hover{text-decoration:underline;text-underline-offset:4px}
+
+/* Alatunniste */
+.ala{background:var(--pohja);border-top:1px solid var(--viiva);padding:30px 0;font-size:14.5px;color:var(--muste2)}
+.ala .kapea{display:flex;flex-wrap:wrap;align-items:center;gap:10px 28px}
+.ala img{height:50px;width:auto;margin-left:-6px}
+.ala p{margin-right:auto}
+.ala nav{display:flex;flex-wrap:wrap;gap:0 24px}
+.ala a{font-weight:700;color:var(--muste);text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
+.ala a:hover{text-decoration:underline;text-underline-offset:4px}
+
+.soittopalkki{display:none}
+
+@media (max-width:1100px) and (min-width:961px){.tyokalut{grid-template-columns:1fr 1fr}}
+@media (max-width:1060px) and (min-width:961px){.alueet{grid-template-columns:1fr}}
+@media (max-width:960px){
+  .sivut,.yla .puh{display:none}
+  .yla .kapea{height:62px;padding:0 18px;gap:12px}
+  .yla .logo img{height:44px}
+  .yla .oikea{margin-left:auto}
+  .valikko{display:block;position:relative}
+  .valikko summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;border:1px solid var(--viiva);border-radius:999px;font-weight:600;font-size:15px}
+  .valikko summary::-webkit-details-marker{display:none}
+  .valikko summary::after{content:"";width:7px;height:7px;border-right:1.8px solid currentColor;border-bottom:1.8px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .2s}
+  .valikko[open] summary::after{transform:rotate(225deg) translateY(-2px)}
+  .valikko nav{position:absolute;right:0;top:52px;width:min(300px,calc(100vw - 36px));background:var(--valk);border:1px solid var(--viiva);border-radius:16px;padding:8px;box-shadow:0 24px 48px -24px rgba(17,19,24,.4)}
+  .valikko nav a{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:10px;text-decoration:none;font-weight:600;font-size:16px;min-height:48px}
+  .valikko nav a img{width:30px;height:30px}
+  .valikko nav a[aria-current="page"]{background:var(--pohja)}
+  .kapea{padding:0 18px}
+  body{font-size:17px;padding-bottom:72px}
+  html{scroll-padding-top:76px;scroll-padding-bottom:84px}
+  .alku{background-size:1100px auto;background-position:left top}
+  .alku-ruudukko{grid-template-columns:1fr}
+  .isologo{height:clamp(58px,9vh,96px)}
+  .nappi{white-space:normal;text-align:center;padding-top:8px;padding-bottom:8px}
+  .napit .nappi{flex:1 1 220px}
+  .uutisrivi{border-radius:18px;flex-wrap:wrap;padding:14px 18px;gap:4px 14px}
+  .uutisrivi strong{white-space:normal;flex:1 1 100%;order:2}
+  .uutisrivi time{order:3}
+  .uutisrivi span{order:4;margin-left:auto}
+  .todisteet{grid-template-columns:1fr 1fr}
+  .todisteet li{padding:14px 12px 14px 0;border-left:0;border-top:1px solid var(--viiva2)}
+  .todisteet li:nth-child(-n+2){border-top:0}
+  .todisteet li:nth-child(even){padding-left:14px;border-left:1px solid var(--viiva2)}
+  .til-lista,.tyokalut,.kentat,.raportti-loppu{grid-template-columns:1fr}
+  .til{padding:24px 22px 18px}
+  .vaiheet{grid-template-columns:1fr;gap:0}
+  .vaiheet::before{left:23px;right:auto;top:23px;bottom:40px;width:2px;height:auto;background:linear-gradient(180deg,var(--sininen),var(--kulta) 60%,rgba(217,164,65,.15))}
+  .vaiheet li{padding:6px 0 28px 70px}
+  .tumma>.kuitu{min-height:150px}
+  .sivualku .kuitu{min-height:0;background-size:auto 300px;background-position:center -36px;padding:28px 18px 44px}
+  .tumma>.kuitu>.tunnusrivi{flex-direction:column;gap:8px;font-size:13.5px}
+  .alueet{grid-template-columns:1fr}
+  .alue{gap:16px}
+  .alue-merkki{width:52px;height:52px;border-radius:15px}
+  .alue-merkki svg{width:28px;height:28px}
+  .pt-askel p{min-height:0}
+  .pt-v{grid-template-columns:1fr}
+  .pt-v span{min-height:54px}
+  .ukk details p{padding-right:0}
+  .ulista a{grid-template-columns:1fr}
+  .ala .kapea{flex-direction:column;align-items:flex-start}
+  .soittopalkki{display:grid;grid-template-columns:1fr 1fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:40;padding:8px 12px calc(8px + env(safe-area-inset-bottom));background:var(--valk);border-top:1px solid var(--viiva);box-shadow:0 -10px 24px -18px rgba(8,16,40,.5)}
+  .soittopalkki .nappi{min-height:48px;padding:0 10px;font-size:15px;white-space:nowrap}
+}
+@media (max-width:400px){
+  .todisteet{grid-template-columns:1fr}
+  .todisteet li,.todisteet li:nth-child(even){padding:12px 0;border-left:0;border-top:1px solid var(--viiva2)}
+  .todisteet li:first-child{border-top:0}
+  .ovi{grid-template-columns:auto minmax(0,1fr);padding-right:16px}
+  .ovi>svg{display:none}
+  .ovi img{height:48px}
+}
+@media (min-width:961px) and (max-height:720px){
+  .nauha{min-height:60px}
+  .nauha p{font-size:20px}
+  .alku{padding-top:14px}
+  .isologo{height:62px;margin-bottom:6px}
+  .alku h1{font-size:44px}
+  .ingressi{margin-top:10px;font-size:16.5px;line-height:1.5}
+  .napit{margin-top:16px}
+  .sivualku .kuitu{min-height:0;padding-top:28px;padding-bottom:36px}
+  .sivualku h1{font-size:50px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<div class="demopalkki" data-demopalkki>Epävirallinen konseptidemo – ei LamisNET Palvelut Oy:n virallinen sivusto</div>
+<header class="yla">
+  <div class="kapea">
+    <a class="logo" href="oma-etusivu.html" aria-label="CNP Group, etusivu"><img src="assets/logo-cnp.webp" alt="CNP Group" width="480" height="191"></a>
+    <nav class="sivut" aria-label="Sivut"><a href="oma-etusivu.html" aria-current="page"><img src="assets/tunnus-cnp.webp" alt="" width="26" height="26">CNP Group</a><a href="oma-cybernet.html"><img src="assets/tunnus-cyber.webp" alt="" width="26" height="26">CNP CyberNET</a><a href="oma-lamisnet.html"><img src="assets/tunnus-lamis.webp" alt="" width="26" height="26">LamisNET</a><a href="oma-uutiset.html">Tietoturva nyt</a></nav>
+    <div class="oikea">
+      <a class="puh" href="tel:+358401636588" data-lahde="y1">+358 40 1636 588</a>
+      <details class="valikko"><summary>Valikko</summary><nav aria-label="Valikko"><a href="oma-etusivu.html" aria-current="page"><img src="assets/tunnus-cnp.webp" alt="" width="26" height="26">CNP Group</a><a href="oma-cybernet.html"><img src="assets/tunnus-cyber.webp" alt="" width="26" height="26">CNP CyberNET</a><a href="oma-lamisnet.html"><img src="assets/tunnus-lamis.webp" alt="" width="26" height="26">LamisNET</a><a href="oma-uutiset.html">Tietoturva nyt</a><a href="#yhteys">Ota yhteyttä</a><a href="tel:+358401636588" data-lahde="y1">Soita 040 1636 588</a></nav></details>
+    </div>
+  </div>
+</header>
+<main>
+<div class="kuitu nauha"><p lang="en" data-lahde="e1">A Strategic ICT Partner for Your Business</p></div>
+<section class="alku" aria-labelledby="h1">
+  <div class="kapea alku-ruudukko">
+    <div class="teksti">
+      <img class="isologo" src="assets/logo-cnp.webp" alt="CNP Group" width="480" height="191" fetchpriority="high">
+      <h1 id="h1" data-lahde="e2">Yrityksesi IT ja kyberturva yhdeltä kumppanilta</h1>
+      <p class="ingressi" data-lahde="e2 y1">Lappeenrantalainen IT-kumppani yrityksille: kyberturva, laitteet ja IT-tuki asennuksineen ja ylläpitoineen.</p>
+      <div class="napit">
+        <a class="nappi indigo" href="#yhteys" data-aihe="Kartoitus" data-paatoiminto>Pyydä kartoitus</a>
+        <a class="nappi oranssi" href="tel:+358401636588" data-lahde="y1">Soita 040 1636 588</a>
+      </div>
+    </div>
+    <div>
+      <p class="ovet-otsake" data-lahde="e4">CNP Group yhdistää kaksi palvelua</p>
+      <div class="ovet">
+        <a class="ovi" href="oma-cybernet.html"><img src="assets/logo-cyber.webp" alt="CNP CyberNET Palvelut" width="480" height="180"><span><strong>Kyberturva</strong><small data-lahde="c3 c4 c5">Työasemat, Microsoft 365 ja verkko</small></span><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 9h12M10 4l5 5-5 5"/></svg></a>
+        <a class="ovi" href="oma-lamisnet.html"><img src="assets/logo-lamis.webp" alt="LamisNET Palvelut" width="480" height="172"><span><strong>IT-tuki</strong><small data-lahde="l1">Laitteet, etätuki ja ylläpito</small></span><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 9h12M10 4l5 5-5 5"/></svg></a>
+      </div>
+    </div>
+  </div>
+  <div class="kapea">
+    <a class="uutisrivi" href="oma-uutiset.html" data-lahde="u2"><b><i aria-hidden="true"></i>Tietoturva nyt</b><strong>Kyberturvallisuuskeskuksen viikkokatsaus – 47/2026</strong><time datetime="2026-11-20">20.11.2026</time><span>Kaikki uutiset <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 9h12M10 4l5 5-5 5"/></svg></span></a>
+    <ul class="todisteet">
+      <li data-lahde="f4">Yli 30 vuoden kokemus alalta</li>
+      <li data-lahde="f1">Peruskartoitus maksutta</li>
+      <li data-lahde="f3">Ei pakollista palvelusopimusta</li>
+      <li data-lahde="f5">Laitteet, tuki ja tietoturva yhdeltä luukulta</li>
+    </ul>
+  </div>
+</section>
+
+<section class="tumma" id="aloita" aria-labelledby="aloita-o">
+  <div class="kuitu varjo"><h2 id="aloita-o">Mistä aloitetaan?</h2></div>
+  <div class="kapea tumma-runko">
+    <ol class="til-lista">
+      <li class="til" data-nimi="lamis">
+        <img src="assets/tunnus-lamis.webp" alt="" width="52" height="52" loading="lazy">
+        <h3>Jokin ei toimi juuri nyt</h3><p data-lahde="l2 f3">Soita, niin katsotaan, mistä on kyse. Palvelusopimusta ei tarvita.</p>
+        <a class="nappi oranssi" href="tel:+358401636588" data-lahde="y1">Soita 040 1636 588</a>
+        <a class="til-toinen" href="oma-lamisnet.html">IT-tuki ja etätuki</a>
+      </li>
+      <li class="til" data-nimi="cyber">
+        <img src="assets/tunnus-cyber.webp" alt="" width="52" height="52" loading="lazy">
+        <h3>Onko tietoturvamme kunnossa?</h3><p>Pikatarkistuksen kuusi kysymystä kertovat, mistä kannattaa aloittaa.</p>
+        <a class="nappi indigo" href="oma-cybernet.html#pikatarkistus">Tee pikatarkistus</a>
+        <a class="til-toinen" href="oma-cybernet.html">Kyberturvapalvelut</a>
+      </li>
+      <li class="til" data-nimi="cnp">
+        <img src="assets/tunnus-cnp.webp" alt="" width="52" height="52" loading="lazy">
+        <h3>Tarvitsemme <span class="nb">IT-kumppanin</span> tai laitteita</h3><p data-lahde="e3">Käymme tilanteesi läpi ja sovimme yhdessä, mitä kehitetään ensin.</p>
+        <a class="nappi musta" href="#yhteys" data-aihe="Kartoitus">Pyydä kartoitus</a>
+        <a class="til-toinen" href="#eteneminen">Näin työ etenee</a>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="lohko valk" aria-labelledby="eteneminen-o">
+  <div class="kapea">
+    <div class="johdanto"><h2 class="otsikko2" id="eteneminen-o">Näin työ etenee</h2><p data-lahde="e6">Suunnittelusta jatkuvaan ylläpitoon.</p></div>
+    <ol class="vaiheet" id="eteneminen">
+      <li data-lahde="e3 c2"><i aria-hidden="true"></i><strong>Kartoitus</strong><span>Käymme läpi laitteesi, ohjelmasi ja verkkosi.</span></li>
+      <li data-lahde="c2"><i aria-hidden="true"></i><strong>Ehdotus</strong><span>Kerromme, mitä kannattaa tehdä heti ja mitä myöhemmin.</span></li>
+      <li data-lahde="e3"><i aria-hidden="true"></i><strong>Toteutus</strong><span>Toimitamme ja asennamme sovitut ratkaisut.</span></li>
+      <li data-lahde="e3"><i aria-hidden="true"></i><strong>Ylläpito ja tuki</strong><span>Hoidamme päivitykset ja autamme, kun laitteissa, ohjelmissa tai verkossa on ongelmia.</span></li>
+    </ol>
+    <div class="portaalinosto">
+      <div><small>Tulossa</small><h3>Asiakasportaali</h3><p>Näe yrityksesi työt yhdestä paikasta ja lähetä uusi työ suoraan meille.</p></div>
+      <a class="nappi valkea" href="portaali.html?oma">Katso esikatselu <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 9h12M10 4l5 5-5 5"/></svg></a>
+    </div>
+  </div>
+</section>
+<section class="tumma yhteys" id="yhteys" aria-labelledby="yhteys-o">
+  <div class="kuitu varjo">
+    <h2 id="yhteys-o">Kerro lyhyesti, mistä on kyse</h2>
+    <p data-lahde="f1">Otamme sinuun yhteyttä ja sovimme, miten edetään.</p>
+  </div>
+  <div class="kapea tumma-runko">
+    <form class="yh-lomake" novalidate data-esimerkki>
+      <fieldset class="aiheet"><legend>Mitä asia koskee?</legend><div><label><input type="radio" name="aihe" value="Kartoitus" checked><span>Kartoitus</span></label><label><input type="radio" name="aihe" value="Vika tai tukipyyntö"><span>Vika tai tukipyyntö</span></label><label><input type="radio" name="aihe" value="Laitteet"><span>Laitteet</span></label><label><input type="radio" name="aihe" value="Muu asia"><span>Muu asia</span></label></div></fieldset>
+      <p class="yh-mukana" hidden>Pikatarkistuksen tulos on mukana viestissä. Voit muokata sitä ennen lähettämistä.</p>
+      <div class="kentat">
+        <label><span>Nimi</span><input type="text" name="nimi" autocomplete="name" required></label>
+        <label><span>Puhelin tai sähköposti</span><input type="text" name="yhteys" autocomplete="email" inputmode="email" required></label>
+      </div>
+      <label><span>Kerro lyhyesti asiasta (vapaaehtoinen)</span><textarea name="viesti" rows="3"></textarea></label>
+      <p class="yh-virhe" role="alert" hidden data-nimi="Lisää nimesi." data-yhteys="Tarkista puhelinnumero tai sähköpostiosoite."></p>
+      <div class="yh-loppu">
+        <button type="submit" class="nappi indigo">Lähetä pyyntö</button>
+        <p class="yh-tietosuoja">Tietojen käsittely: <a href="b2-tietosuoja.html">Tietosuoja</a></p>
+      </div>
+    </form>
+    <div class="yh-kiitos" tabindex="-1" hidden>
+      <h3>Kiitos, pyyntösi on perillä.</h3>
+      <p>Luemme pyyntösi ja otamme sinuun yhteyttä.</p>
+      <p data-lahde="f3 f4">Sovimme hinnan ja aikataulun ennen kuin työ alkaa.</p>
+      <p data-lahde="y1">Kiireessä soita <a href="tel:+358401636588">040 1636 588</a>.</p>
+    </div>
+    <p class="yh-suorat" data-lahde="y1">Tai soita <a href="tel:+358401636588">+358 40 1636 588</a> · <a href="mailto:asiakaspalvelu@lamisnet.fi">asiakaspalvelu@lamisnet.fi</a></p>
+  </div>
+</section>
+</main>
+<footer class="ala">
+  <div class="kapea">
+    <img src="assets/logo-cnp.webp" alt="CNP Group" width="480" height="191" loading="lazy">
+    <p data-lahde="y1">LamisNET Palvelut Oy · aputoiminimet CNP Group ja CNP CyberNET Palvelut · Y-tunnus 3161928-7 · Lappeenranta</p>
+    <nav aria-label="Yhteystiedot"><a href="tel:+358401636588" data-lahde="y1">+358 40 1636 588</a><a href="mailto:asiakaspalvelu@lamisnet.fi" data-lahde="y1">asiakaspalvelu@lamisnet.fi</a><a href="b2-tietosuoja.html">Tietosuoja</a></nav>
+  </div>
+</footer>
+<div class="kuitu loppunauha" aria-hidden="true"></div>
+<div class="soittopalkki"><a class="nappi oranssi" href="tel:+358401636588" data-lahde="y1">Soita 040 1636 588</a><a class="nappi reuna" href="#yhteys">Jätä pyyntö</a></div>
+<script>
+(function(){
+  var rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  function nayta(el){el.hidden=false;el.focus({preventScroll:true});var r=el.getBoundingClientRect();if(r.top<90||r.top>innerHeight*.6)el.scrollIntoView({behavior:rm?'auto':'smooth',block:'start'});}
+  document.addEventListener('click',function(e){var v=document.querySelector('.valikko');if(v&&v.open&&(!v.contains(e.target)||e.target.closest('.valikko nav a')))v.open=false;});
+
+  /* Pikatarkistus: hiirellä ja kosketuksella etenee valinnasta, näppäimistöllä Enterillä tai Seuraava-napista */
+  var pt=document.querySelector('.pt');
+  if(pt){
+    var kortti=pt.closest('.pt-kortti'),tulos=kortti.querySelector('.pt-tulos'),nimi=kortti.querySelector('.pt-nimi'),nimi0=nimi.textContent;
+    var askeleet=[].slice.call(pt.querySelectorAll('.pt-askel')),palat=[].slice.call(kortti.querySelectorAll('.pt-palkki i')),nyt=0,osoitin=false,ajastin;
+    function mene(i,kohdista){askeleet.forEach(function(a,n){a.hidden=n!==i;});palat.forEach(function(p,n){p.classList.toggle('on',n<=i);});nyt=i;
+      askeleet[i].querySelector('.pt-seuraava').hidden=!askeleet[i].querySelector('input:checked');
+      if(kohdista)(askeleet[i].querySelector('input:checked')||askeleet[i].querySelector('input')).focus({preventScroll:true});}
+    function valmis(){
+      var v={};askeleet.forEach(function(a){v[a.getAttribute('data-q')]=a.querySelector('input:checked').value;});
+      [].forEach.call(tulos.querySelectorAll('.pt-ryhma'),function(r){var mika=r.getAttribute('data-r'),n=0;
+        [].forEach.call(r.querySelectorAll('li'),function(li){var on=v[li.getAttribute('data-q')]===mika;li.hidden=!on;if(on)n++;});r.hidden=!n;});
+      pt.hidden=true;nimi.textContent=nimi.getAttribute('data-tulos');nayta(tulos);
+    }
+    function eteenpain(){if(!askeleet[nyt].querySelector('input:checked'))return;if(nyt<askeleet.length-1)mene(nyt+1,true);else valmis();}
+    pt.addEventListener('pointerdown',function(){osoitin=true;});
+    pt.addEventListener('keydown',function(e){osoitin=false;if(e.key==='Enter'&&e.target.matches('input[type=radio]')){e.preventDefault();eteenpain();}});
+    pt.addEventListener('change',function(e){var a=e.target.closest('.pt-askel');if(!a)return;a.querySelector('.pt-seuraava').hidden=false;
+      if(osoitin){clearTimeout(ajastin);ajastin=setTimeout(eteenpain,rm?0:280);}osoitin=false;});
+    pt.addEventListener('click',function(e){if(e.target.closest('.pt-takaisin')&&nyt>0)mene(nyt-1,true);if(e.target.closest('.pt-seuraava'))eteenpain();});
+    pt.addEventListener('submit',function(e){e.preventDefault();});
+    kortti.querySelector('.pt-uusi').addEventListener('click',function(){pt.reset();tulos.hidden=true;pt.hidden=false;nimi.textContent=nimi0;mene(0,true);});
+    mene(0,false);
+  }
+
+  /* Uutisvälilehdet */
+  [].forEach.call(document.querySelectorAll('.uv'),function(uv){
+    var napit=[].slice.call(uv.querySelectorAll('[role=tab]')),paneelit=[].slice.call(uv.querySelectorAll('[role=tabpanel]'));
+    function valitse(i,kohdista){napit.forEach(function(b,n){b.setAttribute('aria-selected',n===i?'true':'false');b.tabIndex=n===i?0:-1;});paneelit.forEach(function(p,n){p.hidden=n!==i;});if(kohdista)napit[i].focus();}
+    napit.forEach(function(b,i){b.addEventListener('click',function(){valitse(i,false);});
+      b.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){valitse((i+1)%napit.length,true);e.preventDefault();}if(e.key==='ArrowLeft'){valitse((i+napit.length-1)%napit.length,true);e.preventDefault();}});});
+  });
+
+  /* Yhteydenotto: aihe ja pikatarkistuksen tulos kulkevat lomakkeelle; demo ei lähetä mitään */
+  var lomake=document.querySelector('.yh-lomake');
+  if(lomake){
+    var kiitos=lomake.parentNode.querySelector('.yh-kiitos'),virhe=lomake.querySelector('.yh-virhe'),mukana=lomake.querySelector('.yh-mukana');
+    function yhteenveto(){var k=document.querySelector('.pt-tulos');if(!k||k.hidden)return '';var rivit=[k.getAttribute('data-otsikko')+':'];
+      [].forEach.call(k.querySelectorAll('.pt-ryhma'),function(r){if(r.hidden)return;rivit.push('',r.querySelector('h4').textContent+':');
+        [].forEach.call(r.querySelectorAll('li'),function(li){if(!li.hidden)rivit.push('- '+li.textContent);});});
+      return rivit.join('\n');}
+    document.addEventListener('click',function(e){var a=e.target.closest('[data-aihe]');if(!a)return;
+      var r=lomake.querySelector('input[name=aihe][value="'+a.getAttribute('data-aihe')+'"]');if(r)r.checked=true;
+      if(a.hasAttribute('data-mukaan')){var t=yhteenveto();if(t){lomake.viesti.value=t;mukana.hidden=false;}}});
+    function kelpaa(s){s=s.trim();if(s.indexOf('@')>-1)return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(s);return /^[+()\d\s-]+$/.test(s)&&s.replace(/\D/g,'').length>=7;}
+    lomake.addEventListener('submit',function(e){e.preventDefault();
+      if(!lomake.nimi.value.trim()){virhe.textContent=virhe.getAttribute('data-nimi');virhe.hidden=false;lomake.nimi.setAttribute('aria-invalid','true');lomake.nimi.focus();return;}
+      lomake.nimi.removeAttribute('aria-invalid');
+      if(!kelpaa(lomake.yhteys.value)){virhe.textContent=virhe.getAttribute('data-yhteys');virhe.hidden=false;lomake.yhteys.setAttribute('aria-invalid','true');lomake.yhteys.focus();return;}
+      lomake.yhteys.removeAttribute('aria-invalid');virhe.hidden=true;lomake.hidden=true;nayta(kiitos);});
+  }
+})();
+</script>
+</body>
+</html>
