@@ -43,11 +43,9 @@
     const imgs = $$('img', media);
     const ready = Promise.all(imgs.map(i => i.complete ? Promise.resolve() : new Promise(r => { i.addEventListener('load', r, { once: true }); i.addEventListener('error', r, { once: true }); })));
     const waited = Promise.race([ready, new Promise(r => setTimeout(r, 3000))]);
-    if (reduce) { setHero('jalkeen', false); hero.classList.add('is-ready'); }
-    else {
-      setHero('ennen', false);
-      waited.then(() => { hero.classList.add('is-ready'); setTimeout(() => { if (hero.dataset.state === 'ennen') setHero('jalkeen', true); }, 900); });
-    }
+    /* Valmis kylpyhuone näkyy heti; lähtötilanteen voi katsoa Ennen-napista */
+    setHero('jalkeen', false);
+    waited.then(() => hero.classList.add('is-ready'));
   }
 
   /* Ennen–jälkeen-vertailu */
@@ -138,12 +136,8 @@
   /* Etusivun tarjouspalkki: tiedot mukaan ja polun toiseen vaiheeseen */
   const pika = $('[data-pikalomake]');
   if (pika) {
-    const msg = $('[data-viesti]', pika); msg.dataset.oletus = msg.textContent;
-    pika.addEventListener('submit', e => {
-      e.preventDefault();
-      const bad = tarkista(pika, ['nimi', 'puhelin']);
-      if (bad) { msg.textContent = bad.name === 'nimi' ? 'Kirjoita nimesi.' : 'Tarkista puhelinnumero.'; msg.classList.add('err'); bad.focus(); return; }
-      muisti.lisaa({ kuvaus: '', tyyppi: pika.elements.tyyppi.value, nimi: pika.elements.nimi.value.trim(), puhelin: pika.elements.puhelin.value.trim(), vaihe: 2 });
+    $('[data-pika-jatka]', pika).addEventListener('click', () => {
+      muisti.lisaa({ kuvaus: '', tyyppi: $('select', pika).value, vaihe: 2 });
       location.href = pika.dataset.kohde;
     });
   }
@@ -180,6 +174,7 @@
   const renderThumbs = () => {
     $$('[data-thumbs]').forEach(box => box.replaceChildren(...photos.map(p => makeThumb(p, true))));
     $$('[data-kuvalaskuri]').forEach(el => { el.textContent = photos.length ? photos.length + ' / ' + MAX + ' kuvaa liitetty.' : el.dataset.oletus; });
+    $$('[data-kuvat-jatka]').forEach(b => { b.firstChild.textContent = photos.length ? 'Jatka ' : 'Jatka ilman kuvia '; });
   };
   if (fileInput) {
     $$('[data-kuvalaskuri]').forEach(el => { el.dataset.oletus = el.textContent; });
@@ -331,6 +326,14 @@
     arvio.addEventListener('input', laske);
     arvio.addEventListener('submit', e => e.preventDefault());
     laske();
+    const vie = $('[data-arvio-vie]');
+    if (vie) vie.addEventListener('click', () => {
+      const tila = $('input[name="tila"]:checked', arvio).value, laaj = $('input[name="laajuus"]:checked', arvio).value;
+      const koko = $('[data-arvio-koko]', arvio).textContent, ala = $('[data-arvio-ala]', arvio).textContent, yla = $('[data-arvio-yla]', arvio).textContent;
+      const tyyppi = tila === 'Keittiön asennus' ? 'Keittiö' : 'Kylpyhuone tai WC';
+      muisti.lisaa({ tyyppi, kuvaus: 'Hinta-arvion valinnat: ' + tila + ', ' + laaj.toLowerCase() + ', ' + koko + '\nArvio sivulla: ' + ala + '–' + yla + ' €', vaihe: 2 });
+      location.href = vie.closest('[data-kohde]').dataset.kohde;
+    });
   }
 
   /* Kiinteä toimintopalkki puhelimessa: piiloon, kun lomake tai tarjousosio on näkyvissä */

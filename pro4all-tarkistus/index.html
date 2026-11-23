@@ -53,7 +53,7 @@
         <p class="hero-sub">Kerro, mitä olet remontoimassa. Katsomme kohteen paikan päällä ja teemme kirjallisen tarjouksen.</p>
       </div>
 
-      <form class="quote" id="pika" novalidate data-pikalomake data-kohde="tarjouspyynto.html" data-dock-piiloon onsubmit="return false">
+      <div class="quote quote--yksi" id="pika" role="group" aria-label="Aloita tarjouspyyntö" data-pikalomake data-kohde="tarjouspyynto.html" data-dock-piiloon>
         <div class="quote-row">
           <div class="cell">
             <label for="p-tyyppi">Mitä remontoidaan?</label>
@@ -66,20 +66,12 @@
               <option>Jokin muu</option>
             </select>
           </div>
-          <div class="cell">
-            <label for="p-nimi">Nimi</label>
-            <input id="p-nimi" name="nimi" type="text" autocomplete="name" placeholder="Etu- ja sukunimi" required aria-describedby="p-viesti">
-          </div>
-          <div class="cell">
-            <label for="p-puh">Puhelin</label>
-            <input id="p-puh" name="puhelin" type="tel" autocomplete="tel" inputmode="tel" placeholder="Numerosi" required aria-describedby="p-viesti">
-          </div>
-          <button class="btn" type="submit" data-paatoiminto>Pyydä tarjous <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5"/></svg></button>
+          <button class="btn" type="button" data-pika-jatka data-paatoiminto>Kerro remontistasi <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5"/></svg></button>
         </div>
         <div class="quote-foot">
-          <span id="p-viesti" data-viesti aria-live="polite">Seuraavaksi pari tarkentavaa kysymystä ja kuvat kohteesta.</span>
+          <span id="p-viesti">Muutama kysymys kohteesta. Yhteystiedot kysytään lopuksi, ja pyyntö ei sido sinua mihinkään.</span>
         </div>
-      </form>
+      </div>
     </div>
 
     <div class="hero-tools">
@@ -111,7 +103,7 @@
           <img src="assets/keittio-jalkeen-1280.jpg" srcset="assets/keittio-jalkeen-960.jpg 960w, assets/keittio-jalkeen-1280.jpg 1280w, assets/keittio-jalkeen-1600.jpg 1600w, assets/keittio-jalkeen-2400.jpg 2400w" sizes="(max-width: 900px) 100vw, 42vw" width="2400" height="1357" alt="Remontoitu keittiö, jossa tammiset alakaapit ja vaaleat yläkaapit" loading="lazy" decoding="async" data-esimerkki>
           <span class="tag">Havainnekuva</span>
           <h3 data-lahde="safin wa117">Keittiöremontit</h3>
-          <p>Vanhan keittiön purusta uuden asennukseen. Sähkö- ja vesipisteet siirtyvät uuteen pohjaan.</p>
+          <p>Vanhan keittiön purusta uuden asennukseen. Sähkö- ja vesipisteiden siirrot sovitaan uuden pohjan mukaan.</p>
           <span class="go">Vertaa ennen ja jälkeen <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5"/></svg></span>
         </a>
         <ul class="more">
@@ -151,7 +143,7 @@
       </div>
       <ol class="film">
         <li><a href="kylpyhuoneremontti.html#vaiheet"><figure><img src="assets/kylpy-ennen-1280.jpg" srcset="assets/kylpy-ennen-960.jpg 960w, assets/kylpy-ennen-1280.jpg 1280w, assets/kylpy-ennen-1600.jpg 1600w, assets/kylpy-ennen-2400.jpg 2400w" sizes="(max-width: 900px) 150px, 230px" width="2400" height="1357" alt="Vanha kylpyhuone, jossa pienet beiget laatat ja suihkuverho" loading="lazy" decoding="async" data-esimerkki></figure><b>01</b><span>Lähtötilanne</span></a></li>
-        <li><a href="kylpyhuoneremontti.html#vaiheet"><figure><img src="assets/kylpy-purettu-1280.jpg" srcset="assets/kylpy-purettu-960.jpg 960w, assets/kylpy-purettu-1280.jpg 1280w, assets/kylpy-purettu-1600.jpg 1600w, assets/kylpy-purettu-2400.jpg 2400w" sizes="(max-width: 900px) 150px, 230px" width="2400" height="1357" alt="Sama kylpyhuone purettuna betonipinnalle" loading="lazy" decoding="async" data-esimerkki></figure><b>02</b><span>Purku</span></a></li>
+        <li><a href="kylpyhuoneremontti.html#vaiheet"><figure><img src="assets/kylpy-purettu-1280.jpg" srcset="assets/kylpy-purettu-960.jpg 960w, assets/kylpy-purettu-1280.jpg 1280w, assets/kylpy-purettu-1600.jpg 1600w, assets/kylpy-purettu-2400.jpg 2400w" sizes="(max-width: 900px) 150px, 230px" width="2400" height="1358" alt="Sama kylpyhuone purettuna betonipinnalle" loading="lazy" decoding="async" data-esimerkki></figure><b>02</b><span>Purku</span></a></li>
         <li><a href="kylpyhuoneremontti.html#vaiheet"><figure><img src="assets/kylpy-vedeneristys-1280.jpg" srcset="assets/kylpy-vedeneristys-960.jpg 960w, assets/kylpy-vedeneristys-1280.jpg 1280w, assets/kylpy-vedeneristys-1600.jpg 1600w, assets/kylpy-vedeneristys-2400.jpg 2400w" sizes="(max-width: 900px) 150px, 230px" width="2400" height="1357" alt="Sama kylpyhuone vedeneristettynä, seinät ja lattia siniharmaat" loading="lazy" decoding="async" data-esimerkki></figure><b>03</b><span>Vedeneristys</span></a></li>
         <li><a href="kylpyhuoneremontti.html#vaiheet"><figure><img src="assets/kylpy-laatoitus-1280.jpg" srcset="assets/kylpy-laatoitus-960.jpg 960w, assets/kylpy-laatoitus-1280.jpg 1280w, assets/kylpy-laatoitus-1600.jpg 1600w, assets/kylpy-laatoitus-2400.jpg 2400w" sizes="(max-width: 900px) 150px, 230px" width="2400" height="1357" alt="Sama kylpyhuone laatoitusvaiheessa, seinät puoliksi laatoitettu" loading="lazy" decoding="async" data-esimerkki></figure><b>04</b><span>Laatoitus</span></a></li>
         <li><a href="kylpyhuoneremontti.html#vaiheet"><figure><img src="assets/kylpy-jalkeen-1280.jpg" srcset="assets/kylpy-jalkeen-960.jpg 960w, assets/kylpy-jalkeen-1280.jpg 1280w, assets/kylpy-jalkeen-1600.jpg 1600w, assets/kylpy-jalkeen-2400.jpg 2400w" sizes="(max-width: 900px) 150px, 230px" width="2400" height="1357" alt="Sama kylpyhuone valmiina: tammikaluste, pyöreä peili ja suihkuseinä" loading="lazy" decoding="async" data-esimerkki></figure><b>05</b><span>Valmis</span></a></li>
@@ -192,7 +184,7 @@
     <div class="wrap stack">
       <p class="label"><span class="ticks"></span>Toiminta-alue</p>
       <h2 class="h2" id="h-alue" data-lahde="prh">Porvoo ja lähialueet</h2>
-      <p class="lead" data-lahde="prh">Olemme vuonna 2024 perustettu remonttiyritys, ja kotipaikkamme on Tolkkinen. Yritystietomme voit tarkistaa itse julkisesta rekisteristä.</p>
+      <p class="lead" data-lahde="prh">Kotipaikkamme on Tolkkinen. Teemme remontteja Porvoossa ja lähialueilla.</p>
       <p class="row"><a class="link" href="yritys.html">Tutustu yritykseen <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5"/></svg></a><a class="link" href="yritys.html#alue">Katso kartta ja ajoajat <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5"/></svg></a></p>
     </div>
   </section>
@@ -203,13 +195,14 @@
       <div>
         <p class="label"><span class="ticks"></span>Tarjouspyyntö</p>
         <h2 class="h2" id="h-tarjous">Kerro remontista, niin katsotaan se yhdessä</h2>
-        <p class="lead">Neljä lyhyttä vaihetta ja kolme kuvaa kohteesta. Neliöitä ei tarvitse mitata.</p>
+        <p class="lead">Kerro muutamalla valinnalla, mitä olet remontoimassa. Kuvia voit liittää, jos sinulla on niitä. Neliöitä ei tarvitse mitata.</p>
         <ol class="next">
-          <li><b>01</b><span>Lähetät pyynnön ja kuvat.</span></li>
+          <li><b>01</b><span>Lähetät pyynnön.</span></li>
           <li><b>02</b><span>Otamme yhteyttä ja sovimme käynnin kohteessa.</span></li>
           <li><b>03</b><span>Saat kirjallisen tarjouksen.</span></li>
         </ol>
         <div class="row"><a class="btn btn--oak" href="tarjouspyynto.html">Pyydä tarjous <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5"/></svg></a></div>
+        <p class="ask-ehdot">Pyyntö ei sido sinua mihinkään. Päätät vasta, kun olet saanut kirjallisen tarjouksen.</p>
       </div>
       <div class="call" id="soitto">
         <div data-soitto-alku><h3>Vai soitammeko sinulle?</h3>

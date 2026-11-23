@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>Pyydä tarjous remontista – Pro4All Oy, Porvoo</title>
-<meta name="description" content="Pyydä tarjous kylpyhuone-, keittiö- tai kokonaisremontista. Neljä lyhyttä vaihetta ja kolme kuvaa kohteesta.">
+<meta name="description" content="Pyydä tarjous kylpyhuone-, keittiö- tai kokonaisremontista. Muutama valinta, kuvat halutessasi. Pyyntö ei sido mihinkään.">
 <meta property="og:title" content="Pyydä tarjous remontista – Pro4All Oy, Porvoo">
-<meta property="og:description" content="Pyydä tarjous kylpyhuone-, keittiö- tai kokonaisremontista. Neljä lyhyttä vaihetta ja kolme kuvaa kohteesta.">
+<meta property="og:description" content="Pyydä tarjous kylpyhuone-, keittiö- tai kokonaisremontista. Muutama valinta, kuvat halutessasi. Pyyntö ei sido mihinkään.">
 <meta property="og:image" content="https://demo.sinoetic.com/pro4all/assets/og.jpg">
 <meta name="theme-color" content="#faf8f4">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231d1b18'/%3E%3Crect x='9' y='9' width='14' height='14' fill='%23c9a67c'/%3E%3C/svg%3E">
@@ -38,13 +38,22 @@
 .tp-head { padding: clamp(28px, 4vw, 52px) 0 clamp(20px, 3vw, 34px); }
 .tp-head .h1 { font-size: clamp(32px, 4.4vw, 58px); margin-top: 14px; max-width: none; }
 .tp-picks { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.tp-picks .pick img { aspect-ratio: 5 / 4; }
+.tp-picks .pick img { aspect-ratio: 16 / 10; }
 .tp-muut { margin-top: 14px; }
 .tp-sum { border-top: 1px solid var(--stone-3); max-width: 640px; margin-top: 26px; }
 .tp-sum div { display: grid; grid-template-columns: 132px minmax(0, 1fr); gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--stone-3); }
 .tp-sum dt { color: var(--ink-3); font-size: 14.5px; }
 .tp-sum dd { font-weight: 500; white-space: pre-wrap; overflow-wrap: anywhere; }
-@media (max-width: 700px) { .tp-picks { grid-template-columns: minmax(0, 1fr); } .tp-picks .pick img { aspect-ratio: 16 / 7; } .tp-sum div { grid-template-columns: minmax(0, 1fr); gap: 2px; } }
+@media (max-width: 700px) {
+  .tp-picks { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  .tp-picks .pick { display: flex; align-items: center; gap: 14px; min-height: 64px; padding: 8px; background: var(--paper); border: 1px solid var(--stone-3); }
+  .tp-picks .pick img { width: 56px; height: 48px; flex: none; aspect-ratio: auto; border-radius: 4px; opacity: 1; }
+  .tp-picks .pick:hover img { transform: none; }
+  .tp-picks .pick b { position: static; padding: 0; background: none; color: var(--ink); font-size: 17px; }
+  .tp-picks .pick:has(input:checked)::after { box-shadow: inset 0 0 0 3px var(--oak); }
+  .tp-head { padding: 22px 0 14px; }
+  [data-step="1"] .lead { display: none; }
+  .tp-sum div { grid-template-columns: minmax(0, 1fr); gap: 2px; } }
 </style>
 
   <section class="tp-head" aria-labelledby="otsikko">
@@ -130,8 +139,9 @@
         </section>
 
         <section class="wiz-step" data-step="3" aria-labelledby="w3">
-          <h2 class="h2" id="w3">Ota kolme kuvaa</h2>
-          <p class="lead">Kuvista näemme lähtötilanteen ennen käyntiä. Neliöitä ei tarvitse mitata.</p>
+          <h2 class="h2" id="w3">Lisää kuvat halutessasi</h2>
+          <p class="lead">Jos sinulla on kuvia valmiina, voit liittää ne mukaan. Voit myös jatkaa ilman kuvia.</p>
+          <p class="f-label" style="margin-bottom: 12px">Jos otat kuvia, nämä auttavat eniten</p>
           <div class="guide" data-ohje="kylpy">
             <figure><img src="assets/ohje-yleiskuva.jpg" width="720" height="468" alt="Esimerkkikuva: koko kylpyhuone ovelta kuvattuna" loading="lazy" data-esimerkki><figcaption><b>Yleiskuva ovelta</b></figcaption></figure>
             <figure><img src="assets/ohje-lattia.jpg" width="720" height="424" alt="Esimerkkikuva: kylpyhuoneen lattia ja lattiakaivo" loading="lazy" data-esimerkki><figcaption><b>Lattia ja kaivo</b></figcaption></figure>
@@ -158,12 +168,12 @@
             <label class="f-label" for="w-kuvaus">Kerro lyhyesti <span class="opt">(valinnainen)</span></label>
             <textarea class="in" id="w-kuvaus" name="kuvaus" placeholder="Esimerkiksi: amme pois ja tilalle suihku, pesukoneelle paikka."></textarea>
           </div>
-          <div class="wiz-nav"><button class="btn" type="button" data-next>Jatka <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5"/></svg></button><button class="btn btn--line" type="button" data-prev>Takaisin</button></div>
+          <div class="wiz-nav"><button class="btn" type="button" data-next data-kuvat-jatka>Jatka ilman kuvia <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5"/></svg></button><button class="btn btn--line" type="button" data-prev>Takaisin</button></div>
         </section>
 
         <section class="wiz-step" data-step="4" aria-labelledby="w4">
           <h2 class="h2" id="w4">Mihin otamme yhteyttä?</h2>
-          <p class="lead">Otamme yhteyttä ja sovimme käynnin kohteessa.</p>
+          <p class="lead">Otamme yhteyttä ja sovimme käynnin kohteessa. Pyyntö ei sido sinua mihinkään: päätät vasta, kun olet saanut kirjallisen tarjouksen.</p>
           <div class="cols">
             <div class="fg">
               <label class="f-label" for="w-nimi">Nimi</label>

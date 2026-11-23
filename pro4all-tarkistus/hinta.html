@@ -38,53 +38,8 @@
   <section class="phead phead--split" aria-labelledby="otsikko">
     <div class="wrap">
       <p class="label"><span class="ticks"></span>Hinta ja remontin kulku</p>
-      <h1 class="h1" id="otsikko">Mistä remontin hinta koostuu ja miten työ etenee</h1>
-      <p class="lead">Saat hinnan kirjallisena, kun olemme nähneet kohteen. Tällä sivulla näet, mistä hinta koostuu, paljonko kotitalousvähennys palauttaa ja miten asioista sovitaan.</p>
-    </div>
-  </section>
-
-  <section class="sec--tight" style="padding-top: clamp(20px, 3vw, 40px)" id="kotitalousvahennys" aria-labelledby="h-kv">
-    <div class="wrap">
-      <div class="sec-head">
-        <h2 class="h2" id="h-kv">Laske kotitalousvähennys</h2>
-        <p class="lead">Syötä tarjouksen työn osuus, niin näet, paljonko saat siitä takaisin verotuksessa.</p>
-      </div>
-
-      <form class="calc" data-kv data-pros="40" data-max="2100" data-oma="150" novalidate onsubmit="return false" data-dock-piiloon>
-        <div class="calc-in">
-          <div class="fg" data-esimerkki>
-            <label class="f-label" for="kv-tyo">Työn osuus, sisältää arvonlisäveron</label>
-            <div class="money"><input class="in" id="kv-tyo" name="tyo" type="text" inputmode="decimal" value="5000" autocomplete="off" aria-describedby="kv-virhe"></div>
-            <p class="f-err" id="kv-virhe" role="alert">Kirjoita summa numeroina, esimerkiksi 5000.</p>
-            <input class="range" type="range" name="tyoliuku" min="500" max="15000" step="100" value="5000" aria-label="Työn osuus euroina">
-          </div>
-          <fieldset class="fg">
-            <legend>Kuka maksaa remontin?</legend>
-            <div class="chips">
-              <label class="chip"><input type="radio" name="maksajia" value="1" checked><span>Yksi henkilö</span></label>
-              <label class="chip"><input type="radio" name="maksajia" value="2"><span>Kaksi, esimerkiksi puolisot</span></label>
-            </div>
-          </fieldset>
-          <p class="help" data-lahde="vero">Vuonna 2026 vähennys on 40&nbsp;% työn osuudesta. Omavastuu on 150&nbsp;€ ja enimmäismäärä 2&nbsp;100&nbsp;€ henkilöltä vuodessa.</p>
-        </div>
-        <div class="calc-out" aria-live="polite">
-          <span class="k">Kotitalousvähennys yhteensä</span>
-          <span class="v" data-kv-yht></span>
-          <dl>
-            <div><dt>Työn osuus</dt><dd data-kv-tyo></dd></div>
-            <div><dt>Ensimmäisen maksajan vähennys</dt><dd data-kv-a></dd></div>
-            <div data-kv-b-rivi hidden><dt>Toisen maksajan vähennys</dt><dd data-kv-b></dd></div>
-            <div><dt>Työstä jää maksettavaksi</dt><dd data-kv-jaa></dd></div>
-          </dl>
-          <p class="k" data-kv-katto hidden style="margin-top: 14px">Enimmäismäärä täyttyi.</p>
-          <p data-kv-kaksi hidden style="margin-top: 14px; font-size: 14.5px; color: var(--on-dark-2)">Kun maksajia on kaksi, vähennys jaetaan ja kumpikin maksaa oman omavastuunsa.</p>
-        </div>
-      </form>
-      <p class="src">Laskuri on suuntaa antava, ja Verohallinto vahvistaa vähennyksen verotuksessa. Vähennyksen saa vain työstä, ei tarvikkeista eikä matkakuluista, eikä töistä, jotka kuuluvat taloyhtiön vastuulle. Lähde: <a href="https://www.vero.fi/henkiloasiakkaat/verokortti-ja-veroilmoitus/tulot-ja-vahennykset/kotitalousvahennys/" target="_blank" rel="noopener">Verohallinto, kotitalousvähennys</a>.</p>
-      <div class="note" style="margin-top: 28px">
-        <h3>Mitä vähennykseen tarvitaan</h3>
-        <p><span data-lahde="prh">Pro4All Oy on ennakkoperintärekisterissä</span>, mikä on vähennyksen ehto. Laskussa työn osuus on omalla rivillään, joten voit hakea vähennyksen OmaVerossa suoraan laskun perusteella.</p>
-      </div>
+      <h1 class="h1" id="otsikko">Remontin hinta ja eteneminen</h1>
+      <p class="lead">Saat hinnan kirjallisena, kun olemme nähneet kohteen. Tällä sivulla näet, mistä hinta koostuu, miten tarjous etenee ja paljonko kotitalousvähennys palauttaa.</p>
     </div>
   </section>
 
@@ -114,8 +69,8 @@
         <li class="step">
           <span class="step-n">01</span>
           <h3>Tarjouspyyntö</h3>
-          <p>Kerrot, mitä remontoidaan, ja liität kuvat kohteesta. Kuvista näemme lähtötilanteen ja osaamme varautua käyntiin.</p>
-          <div class="needs"><span class="need"><b>Sinulta</b> kuvat ja lyhyt kuvaus</span></div>
+          <p>Kerrot, mitä remontoidaan. Jos sinulla on kuvia kohteesta, voit liittää ne mukaan, ja osaamme varautua käyntiin.</p>
+          <div class="needs"><span class="need"><b>Sinulta</b> lyhyt kuvaus, kuvat halutessasi</span></div>
         </li>
         <li class="step">
           <span class="step-n">02</span>
@@ -182,9 +137,68 @@
         <li><h3>Kirjallisesti ennen aloitusta</h3><p>Sovimme työn sisällön, hinnan ja aikataulun kirjallisesti ennen kuin työ alkaa.</p></li>
         <li><h3>Arviolla on yläraja</h3><p data-lahde="ksl">Jos hinta on annettu arviona, lopullinen hinta saa ylittää sen enintään 15&nbsp;%, ellei muusta ole sovittu.</p></li>
         <li><h3>Lisätyöt vain sovitusti</h3><p>Jos työn aikana tulee tarve lisätyölle, sovimme siitä ja sen hinnasta kirjallisesti ennen kuin se tehdään.</p></li>
-        <li><h3>Yhteinen läpikäynti</h3><p>Käymme valmiin työn läpi yhdessä ja kirjaamme, jos jotain jää korjattavaksi.</p></li>
       </ul>
-      <p class="src">Hinta-arvion ylitysraja: <a href="https://www.finlex.fi/fi/lainsaadanto/1978/38" target="_blank" rel="noopener">kuluttajansuojalaki, 8 luku</a>.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="valmistuessa" aria-labelledby="h-valmis">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="label"><span class="ticks"></span>Remontin valmistuessa</p>
+        <h2 class="h2" id="h-valmis">Kun työ on valmis</h2>
+      </div>
+      <ul class="rows">
+        <li><h3>Yhteinen tarkastus</h3><p>Käymme valmiin työn läpi yhdessä. Jos jotain jää korjattavaksi, kirjaamme sen ja sovimme korjauksen ajankohdan.</p></li>
+        <li><h3>Sinulle jäävät paperit</h3><p>Saat kuvat vedeneristyksestä ennen laatoitusta, tiedot käytetyistä tuotteista ja hoito-ohjeet pinnoille ja kalusteille.</p></li>
+        <li><h3>Jos huomaat puutteen myöhemmin</h3><p data-lahde="ksl">Kerro siitä meille, kun huomaat sen. Tulemme katsomaan ja sovimme korjauksesta. Kuluttajansuojalain mukaan virheestä ilmoitetaan kohtuullisessa ajassa sen huomaamisesta.</p></li>
+      </ul>
+      <p class="src">Hinta-arvion ylitysraja ja virheilmoitus: <a href="https://www.finlex.fi/fi/lainsaadanto/1978/38" target="_blank" rel="noopener">kuluttajansuojalaki, 8 luku</a>.</p>
+    </div>
+  </section>
+
+  <section class="sec sec--stone" id="kotitalousvahennys" aria-labelledby="h-kv">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="label"><span class="ticks"></span>Kotitalousvähennys</p>
+        <h2 class="h2" id="h-kv">Laske kotitalousvähennys</h2>
+        <p class="lead">Kun tarjouksessa on työn osuus, syötä se tähän, niin näet, paljonko saat siitä takaisin verotuksessa.</p>
+      </div>
+
+      <form class="calc" data-kv data-pros="40" data-max="2100" data-oma="150" novalidate onsubmit="return false" data-dock-piiloon>
+        <div class="calc-in">
+          <div class="fg" data-esimerkki>
+            <label class="f-label" for="kv-tyo">Työn osuus, sisältää arvonlisäveron</label>
+            <div class="money"><input class="in" id="kv-tyo" name="tyo" type="text" inputmode="decimal" value="5000" autocomplete="off" aria-describedby="kv-virhe"></div>
+            <p class="f-err" id="kv-virhe" role="alert">Kirjoita summa numeroina, esimerkiksi 5000.</p>
+            <input class="range" type="range" name="tyoliuku" min="500" max="15000" step="100" value="5000" aria-label="Työn osuus euroina">
+          </div>
+          <fieldset class="fg">
+            <legend>Kuka maksaa remontin?</legend>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="maksajia" value="1" checked><span>Yksi henkilö</span></label>
+              <label class="chip"><input type="radio" name="maksajia" value="2"><span>Kaksi, esimerkiksi puolisot</span></label>
+            </div>
+          </fieldset>
+          <p class="help" data-lahde="vero">Vuonna 2026 vähennys on 40&nbsp;% työn osuudesta. Omavastuu on 150&nbsp;€ ja enimmäismäärä 2&nbsp;100&nbsp;€ henkilöltä vuodessa.</p>
+        </div>
+        <div class="calc-out" aria-live="polite">
+          <span class="k">Kotitalousvähennys yhteensä</span>
+          <span class="v" data-kv-yht></span>
+          <dl>
+            <div><dt>Työn osuus</dt><dd data-kv-tyo></dd></div>
+            <div><dt>Ensimmäisen maksajan vähennys</dt><dd data-kv-a></dd></div>
+            <div data-kv-b-rivi hidden><dt>Toisen maksajan vähennys</dt><dd data-kv-b></dd></div>
+            <div><dt>Työstä jää maksettavaksi</dt><dd data-kv-jaa></dd></div>
+          </dl>
+          <p class="k" data-kv-katto hidden style="margin-top: 14px">Enimmäismäärä täyttyi.</p>
+          <p data-kv-kaksi hidden style="margin-top: 14px; font-size: 14.5px; color: var(--on-dark-2)">Kun maksajia on kaksi, vähennys jaetaan ja kumpikin maksaa oman omavastuunsa.</p>
+        </div>
+      </form>
+      <p class="src">Laskuri on suuntaa antava, ja Verohallinto vahvistaa vähennyksen verotuksessa. Vähennyksen saa vain työstä, ei tarvikkeista eikä matkakuluista, eikä töistä, jotka kuuluvat taloyhtiön vastuulle. Lähde: <a href="https://www.vero.fi/henkiloasiakkaat/verokortti-ja-veroilmoitus/tulot-ja-vahennykset/kotitalousvahennys/" target="_blank" rel="noopener">Verohallinto, kotitalousvähennys</a>.</p>
+      <div class="note" style="margin-top: 28px">
+        <h3>Mitä vähennykseen tarvitaan</h3>
+        <p><span data-lahde="prh">Pro4All Oy on ennakkoperintärekisterissä</span>, mikä on vähennyksen ehto. Laskussa työn osuus on omalla rivillään, joten voit hakea vähennyksen OmaVerossa suoraan laskun perusteella.</p>
+      </div>
     </div>
   </section>
 
@@ -209,13 +223,14 @@
       <div>
         <p class="label"><span class="ticks"></span>Tarjouspyyntö</p>
         <h2 class="h2" id="h-tarjous">Kerro remontista, niin katsotaan se yhdessä</h2>
-        <p class="lead">Neljä lyhyttä vaihetta ja kolme kuvaa kohteesta. Neliöitä ei tarvitse mitata.</p>
+        <p class="lead">Kerro muutamalla valinnalla, mitä olet remontoimassa. Kuvia voit liittää, jos sinulla on niitä. Neliöitä ei tarvitse mitata.</p>
         <ol class="next">
-          <li><b>01</b><span>Lähetät pyynnön ja kuvat.</span></li>
+          <li><b>01</b><span>Lähetät pyynnön.</span></li>
           <li><b>02</b><span>Otamme yhteyttä ja sovimme käynnin kohteessa.</span></li>
           <li><b>03</b><span>Saat kirjallisen tarjouksen.</span></li>
         </ol>
         <div class="row"><a class="btn btn--oak" href="tarjouspyynto.html">Pyydä tarjous <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5"/></svg></a></div>
+        <p class="ask-ehdot">Pyyntö ei sido sinua mihinkään. Päätät vasta, kun olet saanut kirjallisen tarjouksen.</p>
       </div>
       <div class="call" id="soitto">
         <div data-soitto-alku><h3>Vai soitammeko sinulle?</h3>

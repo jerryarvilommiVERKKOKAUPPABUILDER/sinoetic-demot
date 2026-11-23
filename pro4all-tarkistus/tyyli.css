@@ -559,3 +559,39 @@ dialog::backdrop { background: rgba(31, 29, 26, .62); backdrop-filter: blur(3px)
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
 @media print { .top, .demobar, .dock, .foot, .ask { display: none; } }
+
+/* Korjauskierros 23.11.2026 (Mousen arvio, PALAUTE.md) */
+.quote--yksi .quote-row { grid-template-columns: minmax(0, 1fr) auto; }
+.quote--yksi .quote-row .cell:first-child { border-right: 0; }
+.quote--yksi { max-width: 640px; }
+.kp-yht { padding-top: 0; }
+.kp-kortit { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 32px; border-top: 1px solid var(--stone-3); }
+.kp-kortit li { padding: 22px 0; border-bottom: 1px solid var(--stone-3); display: flex; flex-direction: column; gap: 10px; }
+.kp-kortit h3 { font-size: 20px; font-weight: 500; letter-spacing: -.02em; }
+.kp-kortit p { color: var(--ink-2); }
+.kp-kortit .link { margin-top: auto; }
+.lisaa { margin-top: 10px; color: var(--ink-2); max-width: 46ch; }
+.lisaa summary { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-weight: 600; font-size: 15px; color: var(--oak-deep); cursor: pointer; list-style: none; }
+.lisaa summary::-webkit-details-marker { display: none; }
+.lisaa summary::after { content: ''; width: 8px; height: 8px; border-right: 1.6px solid currentColor; border-bottom: 1.6px solid currentColor; transform: translateY(-2px) rotate(45deg); transition: transform .2s; }
+.lisaa[open] summary::after { transform: translateY(2px) rotate(-135deg); }
+.lisaa p { margin-top: 4px; }
+.lisaa-linkki { margin-top: 12px; }
+.ask-ehdot { margin-top: 18px; font-size: 15px; color: var(--on-dark-2); max-width: 52ch; }
+.wiz-ehdot { margin-top: 6px; }
+@media (max-width: 900px) {
+  .kp-kortit { grid-template-columns: minmax(0, 1fr); }
+  .kp-kortit li { padding: 18px 0; }
+  .seq-steps > li, .seq-steps > li:first-child { min-height: 30svh; padding: 22px 0 26px; }
+  .seq-steps h3 { font-size: 25px; margin: 6px 0 8px; }
+  .quote--yksi .quote-row { grid-template-columns: minmax(0, 1fr); }
+  .quote--yksi .quote-row .cell:first-child { border-bottom: 1px solid var(--stone-2); }
+  .quote--yksi .quote-row .btn { margin: 9px; }
+}
+@media (max-width: 700px) {
+  .trio { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .trio figure { display: grid; grid-template-columns: 40% minmax(0, 1fr); gap: 14px; align-items: start; }
+  .trio img { aspect-ratio: 1; }
+  .trio figcaption { font-size: 15px; }
+  .trio .ph .tag { font-size: 10px; }
+}

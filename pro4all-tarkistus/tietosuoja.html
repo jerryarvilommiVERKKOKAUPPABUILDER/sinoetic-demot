@@ -38,6 +38,7 @@
     .ts-rows { max-width: 920px; }
     .ts-rows dd p + p { margin-top: 10px; }
     .ts-note { margin-top: 28px; }
+    .ts-yht { margin-top: 36px; color: var(--ink-2); }
   </style>
 
   <section class="phead" aria-labelledby="otsikko">
@@ -96,48 +97,9 @@
           <dd>Sivusto ei käytä seurantaevästeitä eikä analytiikkaa. Fontit ja kuvat ladataan samalta palvelimelta kuin sivut.</dd>
         </div>
       </dl>
+      <p class="ts-yht">Kysyttävää tietojen käsittelystä? <a class="link" href="tarjouspyynto.html">Ota yhteyttä <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5"/></svg></a></p>
     </div>
   </section>
-
-  <section class="sec ask on-dark" id="tarjous" aria-labelledby="h-tarjous" data-dock-piiloon>
-    <div class="wrap ask-grid">
-      <div>
-        <p class="label"><span class="ticks"></span>Tarjouspyyntö</p>
-        <h2 class="h2" id="h-tarjous">Kerro remontista, niin katsotaan se yhdessä</h2>
-        <p class="lead">Neljä lyhyttä vaihetta ja kolme kuvaa kohteesta. Neliöitä ei tarvitse mitata.</p>
-        <ol class="next">
-          <li><b>01</b><span>Lähetät pyynnön ja kuvat.</span></li>
-          <li><b>02</b><span>Otamme yhteyttä ja sovimme käynnin kohteessa.</span></li>
-          <li><b>03</b><span>Saat kirjallisen tarjouksen.</span></li>
-        </ol>
-        <div class="row"><a class="btn btn--oak" href="tarjouspyynto.html">Pyydä tarjous <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5"/></svg></a></div>
-      </div>
-      <div class="call" id="soitto">
-        <div data-soitto-alku><h3>Vai soitammeko sinulle?</h3>
-        <p>Jätä numerosi ja kerro, milloin sinut tavoittaa parhaiten.</p></div>
-        <form novalidate data-soitto onsubmit="return false">
-          <div class="fg">
-            <label class="f-label" for="s-puh">Puhelinnumero</label>
-            <input class="in" id="s-puh" name="puhelin" type="tel" autocomplete="tel" inputmode="tel" required aria-describedby="s-viesti">
-          </div>
-          <fieldset class="fg">
-            <legend>Milloin sopii?</legend>
-            <div class="chips">
-              <label class="chip"><input type="radio" name="aika" value="Aamupäivällä" checked><span>Aamupäivällä</span></label>
-              <label class="chip"><input type="radio" name="aika" value="Iltapäivällä"><span>Iltapäivällä</span></label>
-              <label class="chip"><input type="radio" name="aika" value="Illalla"><span>Illalla</span></label>
-            </div>
-          </fieldset>
-          <div class="form-end"><button class="btn btn--line" type="submit">Pyydä soitto</button><span class="form-msg" id="s-viesti" data-viesti aria-live="polite"></span></div>
-        </form>
-        <div data-soitto-ok hidden tabindex="-1">
-          <h3>Soittopyyntö on valmis</h3>
-          <p>Soittoa toivottu <span data-soitto-aika></span>. <span data-esimerkki>Tämä on demo: mitään ei lähetetty eikä tallennettu.</span></p>
-        </div>
-      </div>
-    </div>
-  </section>
-
 </main>
 
 <footer class="foot">
@@ -167,10 +129,6 @@
   </div>
 </footer>
 
-<div class="dock" data-dock>
-  <a class="btn btn--line" href="#soitto">Pyydä soitto</a>
-  <a class="btn" href="tarjouspyynto.html">Pyydä tarjous</a>
-</div>
 <script src="sivusto.js" defer></script>
 </body>
 </html>

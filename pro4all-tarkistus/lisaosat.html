@@ -47,6 +47,7 @@
     .lo-v span { white-space: nowrap; }
     .lo-huom { margin-top: 18px; padding-top: 16px; border-top: 1px solid rgba(242, 238, 231, .16); font-size: 14.5px; color: var(--on-dark-2); }
     .lo-loppu { margin-top: clamp(30px, 4vw, 48px); }
+    .lo-jatka { margin-top: 22px; align-items: center; gap: 12px 20px; }
   </style>
 
   <section class="phead lo-head" aria-labelledby="otsikko">
@@ -98,6 +99,10 @@
             <p class="lo-huom">Esimerkkiluvut. Oikeat hinnat tulevat Pro4Allin omasta hinnoittelusta.</p>
           </div>
         </form>
+        <div class="row lo-jatka" data-kohde="tarjouspyynto.html">
+          <button class="btn" type="button" data-arvio-vie>Jatka näillä tiedoilla tarjouspyyntöön <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5"/></svg></button>
+          <span class="help" style="margin: 0">Tila, laajuus, koko ja arvio siirtyvät pyynnön kuvaukseen.</span>
+        </div>
       </div>
     </div>
   </section>
