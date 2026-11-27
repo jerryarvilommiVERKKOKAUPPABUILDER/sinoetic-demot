@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<script>(function(){var loppu=Date.parse('2026-11-28T20:00:00+02:00');function tarkista(){if(Date.now()<loppu)return;document.documentElement.style.display='none';location.replace('suljettu.html')}tarkista();var j=loppu-Date.now();if(j>0)setTimeout(tarkista,j+250);document.addEventListener('visibilitychange',tarkista);window.addEventListener('pageshow',tarkista)})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Lisäosa: hinta-arvio – Pro4All-demo</title>
+<meta name="description" content="Sinoeticin lisäosa Pro4All Oy:n sivustoon: hinta-arvio, jonka asiakas näkee ennen yhteydenottoa. Ei kuulu perussivustoon.">
+<meta property="og:title" content="Lisäosa: hinta-arvio – Pro4All-demo">
+<meta property="og:description" content="Sinoeticin lisäosa Pro4All Oy:n sivustoon: hinta-arvio, jonka asiakas näkee ennen yhteydenottoa. Ei kuulu perussivustoon.">
+<meta property="og:image" content="https://demo.sinoetic.com/pro4all-qumu10wa91ep00/assets/og.jpg">
+<meta name="theme-color" content="#faf8f4">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231d1b18'/%3E%3Crect x='9' y='9' width='14' height='14' fill='%23c9a67c'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="tyyli.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body class="s-lisaosat">
+<a class="skip" href="#sisalto">Siirry sisältöön</a>
+<div class="demobar" data-demopalkki><span>Epävirallinen konseptidemo – ei Pro4All Oy:n virallinen sivusto. Linkki on auki la 28.11. klo 20 asti.</span><a href="lisaosat.html">Lisäosa: hinta-arvio</a></div>
+
+<header class="top">
+  <div class="wrap top-in">
+    <a class="mark" href="index.html">Pro4All <small>Remontit · Porvoo</small></a>
+    <nav class="nav" id="valikko" aria-label="Päävalikko">
+      <a href="kylpyhuoneremontti.html">Kylpyhuoneet</a>
+      <a href="keittioremontti.html">Keittiöt</a>
+      <a href="kokonaisremontti.html">Kokonaisremontit</a>
+      <a href="hinta.html">Hinta ja kulku</a>
+      <a href="yritys.html">Yritys</a>
+    </nav>
+    <a class="btn btn--sm" href="tarjouspyynto.html">Pyydä tarjous</a>
+    <button class="menu-btn" type="button" aria-controls="valikko" aria-expanded="false" aria-label="Avaa valikko"><i></i><i></i></button>
+  </div>
+</header>
+
+<main id="sisalto">
+  <style>
+    .lo-head .badge { margin-bottom: 4px; }
+    .lo-head .h1 { max-width: 18ch; }
+    .lo-head .txt { margin-top: 18px; }
+    .lo-addon > .h2 { margin-bottom: 8px; }
+    .lo-addon > .lead { margin-bottom: clamp(22px, 3vw, 34px); }
+    .lo-calc { max-width: none; }
+    .lo-koko { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
+    .lo-koko output { font-size: 20px; font-weight: 600; font-variant-numeric: tabular-nums; }
+    .lo-v { display: flex; flex-wrap: wrap; gap: 0 .22em; font-size: clamp(30px, 3.5vw, 44px) !important; }
+    .lo-v span { white-space: nowrap; }
+    .lo-huom { margin-top: 18px; padding-top: 16px; border-top: 1px solid rgba(242, 238, 231, .16); font-size: 14.5px; color: var(--on-dark-2); }
+    .lo-loppu { margin-top: clamp(30px, 4vw, 48px); }
+    .lo-jatka { margin-top: 22px; align-items: center; gap: 12px 20px; }
+  </style>
+
+  <section class="phead lo-head" aria-labelledby="otsikko">
+    <div class="wrap">
+      <span class="badge">Lisäosa</span>
+      <h1 class="h1" id="otsikko">Hinta-arvio asiakkaalle ennen yhteydenottoa</h1>
+      <p class="lead">Tämä ei kuulu perussivustoon. Se on erikseen hinnoiteltava lisäosa, joka voidaan lisätä myöhemmin, jos haluatte.</p>
+      <p class="txt">Porvoossa yksikään tutkimistamme kahdeksasta remonttiyrityksen sivusta ei näytä hintaa ennen yhteydenottoa. Asiakas, joka näkee suuruusluokan heti, tietää, kannattaako hänen pyytää tarjous.</p>
+    </div>
+  </section>
+
+  <section class="sec sec--tight sec--stone" aria-labelledby="h-kokeile">
+    <div class="wrap">
+      <div class="addon lo-addon" data-esimerkki>
+        <h2 class="h2" id="h-kokeile">Kokeile hinta-arviota</h2>
+        <p class="lead">Valitse tila, laajuus ja koko. Arvio päivittyy heti.</p>
+        <form class="calc lo-calc" data-arvio novalidate onsubmit="return false" data-esimerkki>
+          <div class="calc-in">
+            <fieldset class="fg">
+              <legend>Tila</legend>
+              <div class="chips">
+                <label class="chip"><input type="radio" name="tila" value="Kylpyhuone" data-pohja="5200" data-m2="1350" data-tyo="0.6" checked><span>Kylpyhuone</span></label>
+                <label class="chip"><input type="radio" name="tila" value="Pieni WC" data-pohja="2600" data-m2="900" data-tyo="0.6"><span>Pieni WC</span></label>
+                <label class="chip"><input type="radio" name="tila" value="Keittiön asennus" data-pohja="3200" data-m2="420" data-tyo="0.7"><span>Keittiön asennus</span></label>
+              </div>
+            </fieldset>
+            <fieldset class="fg">
+              <legend>Laajuus</legend>
+              <div class="chips">
+                <label class="chip"><input type="radio" name="laajuus" value="Pinnat uusiksi" data-kerroin="0.72"><span>Pinnat uusiksi</span></label>
+                <label class="chip"><input type="radio" name="laajuus" value="Täysremontti" data-kerroin="1" checked><span>Täysremontti</span></label>
+                <label class="chip"><input type="radio" name="laajuus" value="Pohja muuttuu" data-kerroin="1.22"><span>Pohja muuttuu</span></label>
+              </div>
+            </fieldset>
+            <div class="fg">
+              <div class="lo-koko">
+                <label class="f-label" for="lo-koko">Tilan koko</label>
+                <output for="lo-koko" data-arvio-koko></output>
+              </div>
+              <input class="range" id="lo-koko" type="range" name="koko" min="1.5" max="12" step="0.5" value="4.5">
+            </div>
+          </div>
+          <div class="calc-out" aria-live="polite">
+            <span class="k">Arvio</span>
+            <p class="v lo-v"><span><span data-arvio-ala></span> –</span> <span><span data-arvio-yla></span> €</span></p>
+            <dl>
+              <div><dt>Josta työn osuus noin</dt><dd data-arvio-tyo></dd></div>
+            </dl>
+            <p class="lo-huom">Esimerkkiluvut. Oikeat hinnat tulevat Pro4Allin omasta hinnoittelusta.</p>
+          </div>
+        </form>
+        <div class="row lo-jatka" data-kohde="tarjouspyynto.html">
+          <button class="btn" type="button" data-arvio-vie>Jatka näillä tiedoilla tarjouspyyntöön <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5"/></svg></button>
+          <span class="help" style="margin: 0">Tila, laajuus, koko ja arvio siirtyvät pyynnön kuvaukseen.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="h-nain">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="label"><span class="ticks"></span>Käyttöönotto</p>
+        <h2 class="h2" id="h-nain">Näin se toimisi teillä</h2>
+      </div>
+      <ol class="rows rows--num">
+        <li>
+          <h3>Te annatte hintahaarukat</h3>
+          <p>Kerrotte tyypillisten töiden hinnat, esimerkiksi pienen WC:n, kylpyhuoneen ja keittiön asennuksen. Luvut ovat teidän. Me emme arvaa niitä.</p>
+        </li>
+        <li>
+          <h3>Asiakas näkee arvion heti</h3>
+          <p>Arvio näkyy ilman yhteystietoja. Asiakas tietää suuruusluokan ennen kuin ottaa yhteyttä.</p>
+        </li>
+        <li>
+          <h3>Valinnat siirtyvät tarjouspyyntöön</h3>
+          <p>Tila, laajuus ja koko kulkevat mukana. Saatte pyynnön, jossa lähtötiedot ovat valmiina.</p>
+        </li>
+      </ol>
+      <div class="stack lo-loppu">
+        <p class="txt">Hinta-arvio on lisäosa. Perussivusto toimii ilman sitä.</p>
+        <p><a class="link" href="index.html">Takaisin etusivulle <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5"/></svg></a></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="ticks"></div>
+    <div class="foot-in">
+      <div>
+        <a class="mark" href="index.html">Pro4All</a>
+        <p>Pro4All Oy · Y-tunnus 3480581-9<br>Tolkkinen, Porvoo</p>
+      </div>
+      <nav aria-label="Palvelut">
+        <h2>Palvelut</h2>
+        <a href="kylpyhuoneremontti.html">Kylpyhuone- ja WC-remontit</a>
+        <a href="keittioremontti.html">Keittiöremontit</a>
+        <a href="kokonaisremontti.html">Kokonaisremontit ja kunnostus</a>
+        <a href="yritys.html#yrityksille">Yrityksille ja taloyhtiöille</a>
+      </nav>
+      <nav aria-label="Tietoa">
+        <h2>Tietoa</h2>
+        <a href="hinta.html">Hinta ja remontin kulku</a>
+        <a href="yritys.html">Yritys ja toiminta-alue</a>
+        <a href="tarjouspyynto.html">Pyydä tarjous</a>
+        <a href="tietosuoja.html">Tietosuoja</a>
+      </nav>
+    </div>
+    <p class="foot-note">Sivujen kuvat ovat havainnekuvia. Konseptidemo: Sinoetic.</p>
+  </div>
+</footer>
+
+<script src="sivusto.js" defer></script>
+</body>
+</html>
